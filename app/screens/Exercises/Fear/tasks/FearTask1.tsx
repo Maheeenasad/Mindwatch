@@ -18,7 +18,7 @@ export default function FearTask1Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/fear.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/Fear.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Deep Breathing</Text>
   

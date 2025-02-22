@@ -57,7 +57,7 @@ export default function ResentmentScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/resentment.png")} style={styles.taskImage} />
+            <Image source={require("@/assets/exercises/Resentment.jpg")} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}

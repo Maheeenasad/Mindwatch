@@ -72,7 +72,7 @@ export default function IrritationScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/iritation.png")} style={styles.taskImage} />
+            <Image source={require("@/assets/exercises/Irritation.jpg")} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}

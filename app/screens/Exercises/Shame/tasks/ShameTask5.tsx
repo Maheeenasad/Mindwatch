@@ -18,7 +18,7 @@ export default function ShameTask5Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/shame.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/ShameTask5.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Overcoming Shame</Text>
 

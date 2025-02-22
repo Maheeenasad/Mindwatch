@@ -56,7 +56,7 @@ export default function FearOfLossScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/fearofloss.png")} style={styles.taskImage} />
+            <Image source={require("@/assets/exercises/FearOfLoss.jpg")} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}

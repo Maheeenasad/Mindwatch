@@ -18,7 +18,7 @@ export default function SocialAnxietyTask2Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/socialanxeity.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/SocialAnxietyTask2.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Overcoming Social Anxiety</Text>
 

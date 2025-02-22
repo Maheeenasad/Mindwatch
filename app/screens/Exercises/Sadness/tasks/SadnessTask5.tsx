@@ -18,7 +18,7 @@ export default function SadnessTask5Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/sadness.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/SadnessTask5.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Coping with Sadness</Text>
 

@@ -18,7 +18,7 @@ export default function FatigueTask3Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/fatigue.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/FatigueTask3.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Gentle Stretching</Text>
   

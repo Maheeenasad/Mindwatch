@@ -18,7 +18,7 @@ export default function ShynessTask3Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/shyness.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/ShynessTask3.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Overcoming Shyness</Text>
 

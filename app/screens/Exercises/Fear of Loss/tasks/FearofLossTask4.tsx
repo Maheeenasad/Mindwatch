@@ -18,7 +18,7 @@ export default function FearofLossTask4Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/fearofloss.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/FearOfLossTask4.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Deep Breathing Exercise</Text>
   

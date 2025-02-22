@@ -18,7 +18,7 @@ export default function AngerTask4Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/anger.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/AngerTask4.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Cognitive Reframing</Text>
 

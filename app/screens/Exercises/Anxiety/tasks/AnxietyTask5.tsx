@@ -18,7 +18,7 @@ export default function AnxietyTask5Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/anxiety.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/AnxietyTask4.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Expressive Writing for Anxiety</Text>
   

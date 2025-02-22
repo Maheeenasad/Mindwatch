@@ -18,7 +18,7 @@ export default function BreathingTask3Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/breathing.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/BreathingTask3.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Resonance Breathing</Text>
   

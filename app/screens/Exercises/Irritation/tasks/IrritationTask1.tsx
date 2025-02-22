@@ -18,7 +18,7 @@ export default function IrritationTask1Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/iritation.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/Irritation.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Calming Visualization</Text>
 

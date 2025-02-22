@@ -35,7 +35,7 @@ export default function ImpatienceTask2Screen() {
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image
-          source={require("@/assets/exercises/Impatience.png")}
+          source={require("@/assets/exercises/ImpatienceTask2.jpg")}
           style={styles.image}
         />
         <View style={styles.content}>

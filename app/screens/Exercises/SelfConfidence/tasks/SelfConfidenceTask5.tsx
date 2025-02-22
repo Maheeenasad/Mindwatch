@@ -18,7 +18,7 @@ export default function SelfConfidenceTask5Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/selfconfidence.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/SelfConfidenceTask5.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Building Self-Confidence</Text>
 

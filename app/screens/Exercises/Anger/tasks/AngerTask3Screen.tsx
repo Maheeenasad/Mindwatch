@@ -18,7 +18,7 @@ export default function AngerTask3Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/anger.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/AngerTask3.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Guided Visualization</Text>
 

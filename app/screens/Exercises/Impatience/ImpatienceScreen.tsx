@@ -74,7 +74,7 @@ export default function ImpatienceScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/Impatience.png")} style={styles.taskImage} />
+            <Image source={require("@/assets/exercises/Impatience.jpg")} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}

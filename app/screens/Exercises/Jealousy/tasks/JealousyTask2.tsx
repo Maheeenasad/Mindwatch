@@ -18,7 +18,7 @@ export default function JealousyTask2Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/jealousy.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/JealousyTask2.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Self-Compassion Exercise</Text>
 

@@ -57,7 +57,7 @@ export default function ShynessScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/shyness.png")} style={styles.taskImage} />
+            <Image source={require("@/assets/exercises/Shyness.jpg")} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}

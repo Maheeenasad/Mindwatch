@@ -18,7 +18,7 @@ export default function DepressionTask1Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/depression.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/Depression.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Morning Walk</Text>
   

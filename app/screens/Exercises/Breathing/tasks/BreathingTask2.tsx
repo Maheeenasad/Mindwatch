@@ -18,7 +18,7 @@ export default function BreathingTask2Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/breathing.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/BreathingTask2.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>4-7-8 Breathing Technique</Text>
   

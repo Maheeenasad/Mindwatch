@@ -18,7 +18,7 @@ export default function FrustrationTask4Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/frustration.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/FrustrationTask4.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Managing Frustration</Text>
   

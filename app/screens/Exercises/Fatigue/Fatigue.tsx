@@ -58,7 +58,7 @@ export default function FatigueScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/fatigue.png")} style={styles.taskImage} />
+            <Image source={require("@/assets/exercises/Fatigue.jpg")} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}

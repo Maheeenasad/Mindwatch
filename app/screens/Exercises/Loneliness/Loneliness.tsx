@@ -57,7 +57,7 @@ export default function LonelinessScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/loneliness.png")} style={styles.taskImage} />
+            <Image source={require("@/assets/exercises/Loneliness.jpg")} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}

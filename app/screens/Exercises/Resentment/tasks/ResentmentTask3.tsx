@@ -18,7 +18,7 @@ export default function ResentmentTask3Screen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/resentment.png")} style={styles.image} />
+        <Image source={require("@/assets/exercises/ResentmentTask3.jpg")} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>Letting Go of Resentment</Text>
 
