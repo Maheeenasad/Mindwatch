@@ -1,74 +1,251 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../types/types'; 
+import NavigationTab from '@/components/NavigationTab';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+type Props = NativeStackScreenProps<RootStackParamList, 'MainTabs'>;
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }: Props) {
+  const [userName, setUserName] = useState('');
+  const [quote, setQuote] = useState<string>('');
+
+  const quotes = [
+    "The greatest wealth is mental health. Take a deep breath and keep moving forward.",
+    "Believe you can and you're halfway there.",
+    "Your mind is a powerful thing. When you fill it with positive thoughts, your life will start to change.",
+    "Happiness is not by chance, but by choice.",
+    "Don't watch the clock; do what it does. Keep going.",
+    "The only limit to our realization of tomorrow is our doubts of today.",
+  ];
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      const name = await AsyncStorage.getItem("userName");
+      if (name) {
+        setUserName(name);
+      }
+    };
+
+    fetchUserName();
+    const focusListener = navigation.addListener('focus', fetchUserName); // Refresh on screen focus
+    return () => focusListener();
+  }, [navigation]);
+
+  useEffect(() => {
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    setQuote(randomQuote);
+  }, []); 
+
+  const handleFeaturePress = (featureName: string) => {
+    if (featureName === 'Journaling') {
+      navigation.navigate('Journaling');
+    }  
+    if (featureName === 'Islamic') {
+      navigation.navigate('Islamic'); 
+    }
+    if (featureName === 'Exercises') {
+      navigation.navigate('Exercises'); 
+    }
+    if (featureName === 'Mood Tracking') {
+      navigation.navigate('MoodTracking'); 
+    }
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View style={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.greeting}>Hi, {userName || 'Guest'}</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+            <Image source={require('@/assets/images/profile.png')} style={styles.profileIcon} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.header}>
+          <Image source={require('@/assets/mw-logo.png')} style={styles.logo} />
+          <Text style={styles.title}>Mindwatch</Text>
+          <Text style={styles.tagline}>Your Companion for Mental Wellness</Text>
+        </View>
+        <View style={styles.statsContainer}>
+          <Text style={styles.statsTitle}>Today's Summary</Text>
+          <View style={styles.stats}>
+            <View style={styles.stat}>
+              <Text style={styles.statNumber}>7/10</Text>
+              <Text style={styles.statLabel}>Mood</Text>
+            </View>
+            <View style={styles.stat}>
+              <Text style={styles.statNumber}>72 bpm</Text>
+              <Text style={styles.statLabel}>Heart Rate</Text>
+            </View>
+            <View style={styles.stat}>
+              <Text style={styles.statNumber}>6 hrs</Text>
+              <Text style={styles.statLabel}>Sleep</Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.featuresContainer}>
+          <Text style={styles.featuresTitle}>Explore Features</Text>
+          <View style={styles.featuresGrid}>
+            {features.map((feature, index) => (
+              <TouchableOpacity
+                key={index}
+                style={styles.featureTile}
+                onPress={() => handleFeaturePress(feature.name)}
+              >
+                <Image source={feature.icon} style={styles.featureIcon} />
+                <Text style={styles.featureText}>{feature.name}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+        <View style={styles.quoteContainer}>
+          <Text style={styles.quote}>{quote}</Text>
+        </View>
+      </ScrollView>
+      <NavigationTab />
+    </View>
   );
 }
 
+// Features data
+const features = [
+  { name: 'Mood Tracking', icon: require('@/assets/icons/mood.png') },
+  { name: 'Journaling', icon: require('@/assets/icons/journal.png') },
+  { name: 'Exercises', icon: require('@/assets/icons/meditation.png') }, // Combined icon
+  { name: 'Islamic', icon: require('@/assets/icons/mosque.png') }, 
+];
+
+
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    backgroundColor: '#F0F8FF', // Keeping light grey for the main container
+    padding: 16,
+    paddingBottom: 80,
   },
-  stepContainer: {
-    gap: 8,
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+    paddingHorizontal: 16,
+    marginTop: 20,
+  },
+  greeting: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#003366', // Dark blue for greeting text
+  },
+  profileIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 24,
+    backgroundColor: '#FFF', // White background for header
+    paddingVertical: 20,
+    width: '100%',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#003366', // Dark blue for title
+  },
+  logo: {
+    width: 60,
+    height: 60,
+    marginBottom: 8,
+    resizeMode: 'contain',
+  },
+  tagline: {
+    fontSize: 16,
+    color: '#003366', // Light blue for tagline
+    marginTop: 8,
+  },
+  statsContainer: {
+    backgroundColor: '#FFF', // White background for stats container
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 24,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  statsTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 12,
+    color: '#003366', // Dark blue for stats title
+  },
+  stats: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  stat: {
+    alignItems: 'center',
+  },
+  statNumber: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#003366', // Dark blue for stat numbers
+  },
+  statLabel: {
+    fontSize: 14,
+    color: '#888',
+  },
+  featuresContainer: {
+    marginBottom: 24,
+  },
+  featuresTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    color: '#003366', // Dark blue for features title
+  },
+  featuresGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  featureTile: {
+    width: '48%',
+    backgroundColor: '#FFF', // White background for feature tile
+    borderRadius: 12,
+    padding: 16,
+    alignItems: 'center',
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  featureIcon: {
+    width: 50,
+    height: 50,
     marginBottom: 8,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  featureText: {
+    fontSize: 14,
+    color: '#003366', // Dark blue for feature text
+  },
+  quoteContainer: {
+    backgroundColor: '#003366', // Dark blue for quote background
+    borderRadius: 12,
+    padding: 16,
+  },
+  quote: {
+    fontSize: 16,
+    color: '#FFF', // White text for quote
+    fontStyle: 'italic',
+    textAlign: 'center',
   },
 });
+

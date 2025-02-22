@@ -6,6 +6,22 @@
 const tintColorLight = '#0a7ea4';
 const tintColorDark = '#fff';
 
+// theme.ts
+export interface Theme {
+  background: string;
+  color: string;
+}
+
+export const DarkTheme: Theme = {
+  background: '#000',
+  color: '#fff',
+};
+
+export const DefaultTheme: Theme = {
+  background: '#fff',
+  color: '#000',
+}; 
+
 export const Colors = {
   light: {
     text: '#11181C',
