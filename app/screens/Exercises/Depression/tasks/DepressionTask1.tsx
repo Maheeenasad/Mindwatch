@@ -1,61 +1,52 @@
-import React from "react";
-import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, Image, ScrollView, TouchableOpacity,StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
-
-const { width } = Dimensions.get("window");
-
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Depression">;
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function DepressionTask1Screen() {
-  const navigation = useNavigation<NavigationProp>();
+  const navigation = useNavigation();
+  const [userEmail, setUserEmail] = useState<string | null>(null);
 
-  const handleCompleteTask = () => {
-    navigation.replace("Depression", { taskCompleted: true, taskScreen: "DepressionTask1" });
+  useEffect(() => {
+    const fetchUserEmail = async () => {
+      const email = await AsyncStorage.getItem("userEmail");
+      setUserEmail(email);
+    };
+    fetchUserEmail();
+  }, []);
+
+  const handleCompleteTask = async () => {
+    if (userEmail) {
+      const tasks = await AsyncStorage.getItem(`tasks_${userEmail}`);
+      if (tasks) {
+        let updatedTasks = JSON.parse(tasks);
+        const taskIndex = updatedTasks.findIndex((task: any) => task.screen === "DepressionTask1");
+
+        if (taskIndex !== -1) {
+          updatedTasks[taskIndex].completed = true;
+          if (taskIndex < updatedTasks.length - 1) {
+            updatedTasks[taskIndex + 1].unlocked = true;
+          }
+          await AsyncStorage.setItem(`tasks_${userEmail}`, JSON.stringify(updatedTasks));
+        }
+      }
+      navigation.replace("Depression", { taskCompleted: true, taskScreen: "DepressionTask1" });
+    }
   };
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image source={require("@/assets/exercises/Depression.jpg")} style={styles.image} />
-        <View style={styles.content}>
-          <Text style={styles.title}>Morning Walk</Text>
-  
-          <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>~15 min</Text>
-          </View>
-  
-          <View style={styles.stepsContainer}>
-            <Text style={styles.stepTitle}>🚶 Step 1: Start with a Warm-up (2 min)</Text>
-            <Text style={styles.stepText}>
-              Begin with light stretching or slow walking to prepare your body.
-            </Text>
-  
-            <Text style={styles.stepTitle}>🌳 Step 2: Walk at a Steady Pace (10 min)</Text>
-            <Text style={styles.stepText}>
-              Maintain a comfortable pace, focus on deep breathing, and enjoy nature.
-            </Text>
-  
-            <Text style={styles.stepTitle}>💆 Step 3: Cool Down (3 min)</Text>
-            <Text style={styles.stepText}>
-              Slow down your pace and take deep breaths to relax your body.
-            </Text>
-  
-            <Text style={styles.stepTitle}>💭 Final Thought</Text>
-            <Text style={styles.stepText}>
-              A morning walk helps clear your mind, boosts mood, and improves overall well-being.
-            </Text>
-          </View>
-  
-          <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
-            <Text style={styles.completeButtonText}>Complete Task</Text>
-          </TouchableOpacity>
-        </View>
+        <Text style={styles.title}>Morning Walk</Text>
+        <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
+          <Text style={styles.completeButtonText}>Complete Task</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -66,7 +57,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   image: {
-    width: width,
+    // width: width,
     height: 250,
     resizeMode: "cover",
     borderBottomLeftRadius: 20,

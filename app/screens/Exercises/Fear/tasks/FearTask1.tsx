@@ -3,6 +3,7 @@ import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../../types/types"; 
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const { width } = Dimensions.get("window");
 
@@ -11,9 +12,41 @@ type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Fear">;
 export default function FearTask1Screen() {
   const navigation = useNavigation<NavigationProp>();
 
-  const handleCompleteTask = () => {
-    navigation.replace("Fear", { taskCompleted: true, taskScreen: "FearTask1" });
+  const API_URL = "http://192.168.100.8:5000"; // Replace with your actual backend URL
+
+  const handleCompleteTask = async () => {
+    const token = await AsyncStorage.getItem("userToken");
+    if (!token) {
+      console.error("No token found");
+      return;
+    }
+  
+    try {
+      const response = await fetch(`${API_URL}/complete-task`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ taskScreen: "FearTask1" }),
+      });
+  
+      const data = await response.json();
+      console.log("API Response:", data);
+  
+      if (!response.ok) {
+        console.error("Error completing task:", data.message);
+        return;
+      }
+  
+      console.log("Task completed successfully:", data);
+      navigation.replace("Fear"); // Navigating back to the Fear screen
+      
+    } catch (error) {
+      console.error("Error completing task:", error);
+    }
   };
+  
 
   return (
     <View style={styles.container}>

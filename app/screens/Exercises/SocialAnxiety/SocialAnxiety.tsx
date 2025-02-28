@@ -16,11 +16,11 @@ type SocialAnxietyScreenProps = NativeStackScreenProps<RootStackParamList, "Soci
 };
 
 const initialTasks = [
-  { id: 1, title: "Breathing Exercise", time: "5 mins", unlocked: true, completed: false, screen: "SocialAnxietyTask1" },
-  { id: 2, title: "Journaling Thoughts", time: "10 mins", unlocked: false, completed: false, screen: "SocialAnxietyTask2" },
-  { id: 3, title: "Positive Self-Talk", time: "7 mins", unlocked: false, completed: false, screen: "SocialAnxietyTask3" },
-  { id: 4, title: "Exposure Challenge", time: "8 mins", unlocked: false, completed: false, screen: "SocialAnxietyTask4" },
-  { id: 5, title: "Cognitive Restructuring", time: "10 mins", unlocked: false, completed: false, screen: "SocialAnxietyTask5" },
+  { id: 1, title: "Breathing Exercise", time: "5 mins", unlocked: true, completed: false, screen: "SocialAnxietyTask1", image: require("@/assets/exercises/SocialAnxiety.jpg") },
+  { id: 2, title: "Journaling Thoughts", time: "10 mins", unlocked: false, completed: false, screen: "SocialAnxietyTask2", image: require("@/assets/exercises/SocialAnxietyTask2.jpg") },
+  { id: 3, title: "Positive Self-Talk", time: "7 mins", unlocked: false, completed: false, screen: "SocialAnxietyTask3", image: require("@/assets/exercises/SocialAnxietyTask3.jpg") },
+  { id: 4, title: "Exposure Challenge", time: "8 mins", unlocked: false, completed: false, screen: "SocialAnxietyTask4", image: require("@/assets/exercises/SocialAnxietyTask4.jpg") },
+  { id: 5, title: "Cognitive Restructuring", time: "10 mins", unlocked: false, completed: false, screen: "SocialAnxietyTask5", image: require("@/assets/exercises/SocialAnxietyTask5.jpg") },
 ];
 
 export default function SocialAnxietyScreen() {
@@ -57,7 +57,7 @@ export default function SocialAnxietyScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/SocialAnxiety.jpg")} style={styles.taskImage} />
+            <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F0F0F0",
   },
   taskImage: {
-    width: 50,
+    width: 65,
     height: 50,
     borderRadius: 8,
     marginRight: 12,

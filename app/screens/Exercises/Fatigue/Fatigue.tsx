@@ -16,13 +16,11 @@ type FatigueScreenProps = NativeStackScreenProps<RootStackParamList, "Fatigue"> 
 };
 
 const initialTasks = [
-  { id: 1, title: "Gentle Stretching", time: "5 mins", unlocked: true, completed: false, screen: "FatigueTask1" },
-  { id: 2, title: "Progressive Muscle Relaxation", time: "10 mins", unlocked: false, completed: false, screen: "FatigueTask2" },
-  { id: 3, title: "Mindful Walking", time: "7 mins", unlocked: false, completed: false, screen: "FatigueTask3" },
-  { id: 4, title: "Hydration and Deep Breathing", time: "8 mins", unlocked: false, completed: false, screen: "FatigueTask4" },
-  { id: 5, title: "Power Nap", time: "10-15 mins", unlocked: false, completed: false, screen: "FatigueTask5" },
-  // { id: 6, title: "Light Yoga", time: "15 mins", unlocked: false, completed: false, screen: "FatigueTask6" },
-  // { id: 7, title: "Guided Meditation", time: "10 mins", unlocked: false, completed: false, screen: "FatigueTask7" },
+  { id: 1, title: "Gentle Stretching", time: "5 mins", unlocked: true, completed: false, screen: "FatigueTask1", image: require("@/assets/exercises/Fatigue.jpg") },
+  { id: 2, title: "Progressive Muscle Relaxation", time: "10 mins", unlocked: false, completed: false, screen: "FatigueTask2", image: require("@/assets/exercises/FatigueTask2.jpg") },
+  { id: 3, title: "Mindful Walking", time: "7 mins", unlocked: false, completed: false, screen: "FatigueTask3", image: require("@/assets/exercises/FatigueTask3.jpg") },
+  { id: 4, title: "Hydration and Deep Breathing", time: "8 mins", unlocked: false, completed: false, screen: "FatigueTask4", image: require("@/assets/exercises/FatigueTask4.jpg") },
+  { id: 5, title: "Power Nap", time: "10-15 mins", unlocked: false, completed: false, screen: "FatigueTask5", image: require("@/assets/exercises/FatigueTask5.jpg") },
 ];
 
 export default function FatigueScreen() {
@@ -58,7 +56,7 @@ export default function FatigueScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/Fatigue.jpg")} style={styles.taskImage} />
+          <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}
@@ -113,7 +111,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F0F0F0",
   },
   taskImage: {
-    width: 50,
+    width: 65,
     height: 50,
     borderRadius: 8,
     marginRight: 12,

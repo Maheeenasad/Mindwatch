@@ -16,12 +16,13 @@ type LonelinessScreenProps = NativeStackScreenProps<RootStackParamList, "Lonelin
 };
 
 const initialTasks = [
-  { id: 1, title: "Mindful Breathing", time: "5 mins", unlocked: true, completed: false, screen: "LonelinessTask1" },
-  { id: 2, title: "Connecting with Others", time: "10 mins", unlocked: false, completed: false, screen: "LonelinessTask2" },
-  { id: 3, title: "Journaling Your Thoughts", time: "7 mins", unlocked: false, completed: false, screen: "LonelinessTask3" },
-  { id: 4, title: "Practicing Gratitude", time: "8 mins", unlocked: false, completed: false, screen: "LonelinessTask4" },
-  { id: 5, title: "Self-Compassion Exercise", time: "10 mins", unlocked: false, completed: false, screen: "LonelinessTask5" },
+  { id: 1, title: "Mindful Breathing", time: "5 mins", unlocked: true, completed: false, screen: "LonelinessTask1", image: require("@/assets/exercises/Loneliness.jpg") },
+  { id: 2, title: "Connecting with Others", time: "10 mins", unlocked: false, completed: false, screen: "LonelinessTask2", image: require("@/assets/exercises/LonelinessTask2.jpg") },
+  { id: 3, title: "Journaling Your Thoughts", time: "7 mins", unlocked: false, completed: false, screen: "LonelinessTask3", image: require("@/assets/exercises/LonelinessTask3.jpg") },
+  { id: 4, title: "Practicing Gratitude", time: "8 mins", unlocked: false, completed: false, screen: "LonelinessTask4", image: require("@/assets/exercises/LonelinessTask4.jpg") },
+  { id: 5, title: "Self-Compassion Exercise", time: "10 mins", unlocked: false, completed: false, screen: "LonelinessTask5", image: require("@/assets/exercises/LonelinessTask5.jpg") },
 ];
+
 
 export default function LonelinessScreen() {
   const [tasks, setTasks] = useState(initialTasks);
@@ -57,7 +58,7 @@ export default function LonelinessScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/Loneliness.jpg")} style={styles.taskImage} />
+           <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F0F0F0",
   },
   taskImage: {
-    width: 50,
+    width: 65,
     height: 50,
     borderRadius: 8,
     marginRight: 12,

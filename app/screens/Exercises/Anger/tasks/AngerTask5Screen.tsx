@@ -3,52 +3,81 @@ import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import { WebView } from "react-native-webview";
 
 const { width } = Dimensions.get("window");
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Anger">;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "AngerTask5">;
 
 export default function AngerTask5Screen() {
   const navigation = useNavigation<NavigationProp>();
-
-  const handleCompleteTask = () => {
-    navigation.replace("Anger", { taskCompleted: true, taskScreen: "AngerTask5" });
-  };
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image source={require("@/assets/exercises/AngerTask5.jpg")} style={styles.image} />
         <View style={styles.content}>
-          <Text style={styles.title}>Journaling & Reflection</Text>
+          <Text style={styles.title}>Controlled Breathing Practice</Text>
 
           <View style={styles.timeContainer}>
             <Text style={styles.timeText}>~10 min</Text>
           </View>
 
           <View style={styles.stepsContainer}>
-            <Text style={styles.stepTitle}>✍️ Step 1: Write About Your Feelings (3 min)</Text>
-            <Text style={styles.stepText}>
-              Take a moment to write about what made you angry. Be honest and detailed.
+            <Text style={styles.description}>
+              Controlled breathing is a scientifically proven technique to regulate emotions, reduce stress, and calm the nervous system. This practice can help you regain control during moments of anger and frustration.
             </Text>
 
-            <Text style={styles.stepTitle}>🤔 Step 2: Identify Triggers and Patterns (3 min)</Text>
+            <Text style={styles.stepTitle}>🪑 Step 1: Find a Comfortable Position</Text>
             <Text style={styles.stepText}>
-              Look for common themes in your anger. What situations or thoughts trigger it?
+              Sit in a quiet space with a straight back, or lie down in a comfortable position. Ensure your body is fully relaxed and free from distractions.
             </Text>
 
-            <Text style={styles.stepTitle}>💡 Step 3: Find Positive Takeaways (3 min)</Text>
+            <Text style={styles.stepTitle}>🌬️ Step 2: Start with a Cleansing Breath</Text>
             <Text style={styles.stepText}>
-              Reflect on what you can learn from this experience. How can you respond better next time?
+              Take a deep breath in through your nose, hold for a few seconds, and exhale slowly through your mouth. This will prepare your body for a more focused breathing exercise.
             </Text>
 
-            <Text style={styles.stepTitle}>🎯 Final Thought</Text>
+            <Text style={styles.stepTitle}>🕰️ Step 3: The 4-7-8 Breathing Technique</Text>
             <Text style={styles.stepText}>
-              Journaling helps process emotions and gain insights into your reactions, leading to better emotional control.
+              - Inhale deeply through your nose for **4 seconds**.
+              - Hold your breath for **7 seconds**.
+              - Exhale slowly and completely through your mouth for **8 seconds**.
+              - Repeat this cycle **4 to 5 times**.
+            </Text>
+
+            <Text style={styles.stepTitle}>😌 Step 4: Box Breathing for Grounding</Text>
+            <Text style={styles.stepText}>
+              - Inhale for **4 seconds**.
+              - Hold for **4 seconds**.
+              - Exhale for **4 seconds**.
+              - Hold again for **4 seconds** before repeating.
+              - Continue this pattern until you feel more in control.
+            </Text>
+
+            <Text style={styles.stepTitle}>🔄 Step 5: Observe Your Body’s Response</Text>
+            <Text style={styles.stepText}>
+              Pay attention to the physical changes in your body. Notice how your muscles relax, your heartbeat slows down, and your mind becomes clearer. Acknowledge this shift without judgment.
+            </Text>
+
+            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepText}>
+              Regular controlled breathing exercises can help you develop better emotional regulation. Practicing these techniques daily will equip you with a powerful tool to manage anger effectively.
             </Text>
           </View>
 
-          <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
+          {/* Embedded YouTube Video */}
+          <View style={styles.videoContainer}>
+            <WebView
+              source={{ uri: "https://www.youtube.com/embed/sJ04nsiz_M0" }} // Relevant controlled breathing exercise video
+              style={styles.video}
+              allowsFullscreenVideo={true}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+            />
+          </View>
+
+          <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>
             <Text style={styles.completeButtonText}>Complete Task</Text>
           </TouchableOpacity>
         </View>
@@ -102,6 +131,12 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
   },
+  description: {
+    fontSize: 16,
+    color: "#333",
+    marginBottom: 10,
+    lineHeight: 22,
+  },
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
@@ -113,6 +148,17 @@ const styles = StyleSheet.create({
     color: "#333",
     marginTop: 5,
     lineHeight: 22,
+  },
+  videoContainer: {
+    marginTop: 20,
+    width: "100%",
+    height: 250,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  video: {
+    width: "100%",
+    height: "100%",
   },
   completeButton: {
     marginTop: 20,

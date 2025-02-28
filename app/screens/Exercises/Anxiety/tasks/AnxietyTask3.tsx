@@ -3,57 +3,77 @@ import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import { WebView } from "react-native-webview";
 
 const { width } = Dimensions.get("window");
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Anxiety">;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "AnxietyTask3">;
 
 export default function AnxietyTask3Screen() {
   const navigation = useNavigation<NavigationProp>();
-
-  const handleCompleteTask = () => {
-    navigation.replace("Anxiety", { taskCompleted: true, taskScreen: "AnxietyTask3" });
-  };
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image source={require("@/assets/exercises/AnxietyTask3.jpg")} style={styles.image} />
         <View style={styles.content}>
-          <Text style={styles.title}>Safe Space Visualization</Text>
-  
+          <Text style={styles.title}>Comfort Object Reflection</Text>
+
           <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>~7 min</Text>
+            <Text style={styles.timeText}>~10 min</Text>
           </View>
-  
+
           <View style={styles.stepsContainer}>
-            <Text style={styles.stepTitle}>🌅 Step 1: Find a Quiet Place</Text>
-            <Text style={styles.stepText}>
-              Sit or lie down in a peaceful environment. Close your eyes and take a few deep breaths.
+            <Text style={styles.description}>
+              Comfort objects, such as a favorite blanket or stuffed animal, can provide significant emotional support for children, helping them manage anxiety and stress. Reflecting on these items can enhance their calming effects and reinforce a child's sense of security.
             </Text>
-  
-            <Text style={styles.stepTitle}>🌿 Step 2: Imagine Your Safe Space</Text>
+
+            <Text style={styles.stepTitle}>🧸 Step 1: Identify the Comfort Object</Text>
             <Text style={styles.stepText}>
-              Visualize a place where you feel completely safe and relaxed. It can be real or imaginary—a beach, forest, or cozy room.
+              Encourage your child to choose a comfort object that they feel particularly attached to. This could be a stuffed animal, a blanket, or any item that brings them comfort and joy.
             </Text>
-  
-            <Text style={styles.stepTitle}>🎨 Step 3: Engage Your Senses</Text>
+
+            <Text style={styles.stepTitle}>🗣️ Step 2: Discuss the Object's Significance</Text>
             <Text style={styles.stepText}>
-              Notice the details—what do you see, hear, and feel? Picture the colors, sounds, and textures around you.
+              Sit with your child and talk about why this object is special to them. Ask questions like:
+              {"\n"}- What do you love most about this object?
+              {"\n"}- How does it make you feel when you hold it?
+              {"\n"}- Do you remember when you got it or who gave it to you?
             </Text>
-  
-            <Text style={styles.stepTitle}>🕊️ Step 4: Absorb the Calmness</Text>
+
+            <Text style={styles.stepTitle}>🎨 Step 3: Creative Expression</Text>
             <Text style={styles.stepText}>
-              Stay in this space for a few minutes, letting go of any stress. Remind yourself that you can return to this place anytime.
+              Encourage your child to express their feelings about the comfort object through a creative activity:
+              {"\n"}- **Drawing or Painting**: Create a picture of the object.
+              {"\n"}- **Storytelling**: Write a short story or poem about adventures with the object.
+              {"\n"}- **Photography**: Take photos of the object in different settings.
             </Text>
-  
-            <Text style={styles.stepTitle}>💭 Final Thought</Text>
+
+            <Text style={styles.stepTitle}>🛏️ Step 4: Incorporate the Object into Daily Routine</Text>
             <Text style={styles.stepText}>
-              Safe space visualization is a powerful way to reduce anxiety and create a sense of security in moments of stress.
+              Discuss ways to include the comfort object in daily activities, especially during times of stress or anxiety. For example:
+              {"\n"}- Keeping it nearby during bedtime for a sense of security.
+              {"\n"}- Holding it during stressful situations or transitions.
+            </Text>
+
+            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepText}>
+              Reflecting on and utilizing comfort objects can be a powerful tool for children to manage anxiety. By acknowledging the importance of these items, children can find solace and reassurance in their presence.
             </Text>
           </View>
-  
-          <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
+
+          {/* Embedded YouTube Video */}
+          <View style={styles.videoContainer}>
+            <WebView
+              source={{ uri: "https://www.youtube.com/embed/cn9z8lmAUVI" }} // 5 Steps to Creating a Calm Corner for Kids
+              style={styles.video}
+              allowsFullscreenVideo={true}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+            />
+          </View>
+
+          <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>
             <Text style={styles.completeButtonText}>Complete Task</Text>
           </TouchableOpacity>
         </View>
@@ -65,7 +85,7 @@ export default function AnxietyTask3Screen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F0F8FF", // Light blue for anxiety theme
+    backgroundColor: "#F0F8FF",
   },
   scrollContent: {
     paddingBottom: 20,
@@ -84,7 +104,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#004D80", // Deep blue for calming effect
+    color: "#003366",
     textAlign: "center",
     marginBottom: 10,
   },
@@ -92,25 +112,31 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 20,
-    borderColor: "#004D80",
+    borderColor: "#003366",
     borderWidth: 2,
     alignSelf: "center",
     marginBottom: 15,
   },
   timeText: {
     fontSize: 16,
-    color: "#004D80",
+    color: "#003366",
     fontWeight: "600",
   },
   stepsContainer: {
-    backgroundColor: "#DFF4FF",
+    backgroundColor: "#E3F2FD",
     padding: 15,
     borderRadius: 10,
+  },
+  description: {
+    fontSize: 16,
+    color: "#333",
+    marginBottom: 10,
+    lineHeight: 22,
   },
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#004D80",
+    color: "#003366",
     marginTop: 10,
   },
   stepText: {
@@ -119,9 +145,20 @@ const styles = StyleSheet.create({
     marginTop: 5,
     lineHeight: 22,
   },
+  videoContainer: {
+    marginTop: 20,
+    width: "100%",
+    height: 250,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  video: {
+    width: "100%",
+    height: "100%",
+  },
   completeButton: {
     marginTop: 20,
-    backgroundColor: "#004D80",
+    backgroundColor: "#003366",
     paddingVertical: 15,
     borderRadius: 10,
     alignItems: "center",

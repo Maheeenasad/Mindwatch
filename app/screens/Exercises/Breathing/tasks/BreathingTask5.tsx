@@ -3,62 +3,68 @@ import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import { WebView } from "react-native-webview";
 
 const { width } = Dimensions.get("window");
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Breathing">;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "BreathingTask5">;
 
 export default function BreathingTask5Screen() {
   const navigation = useNavigation<NavigationProp>();
 
-  const handleCompleteTask = () => {
-    navigation.replace("Breathing", { taskCompleted: true, taskScreen: "BreathingTask5" });
-  };
-
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/BreathingTask5.jpg")} style={styles.image} />
+        <Image source={require("@/assets/exercises/BreathingTask1.jpg")} style={styles.image} />
         <View style={styles.content}>
-          <Text style={styles.title}>Alternate Nostril Breathing</Text>
-  
+          <Text style={styles.title}>Box Breathing</Text>
+
           <View style={styles.timeContainer}>
             <Text style={styles.timeText}>~5 min</Text>
           </View>
-  
+
           <View style={styles.stepsContainer}>
-            <Text style={styles.stepTitle}>🧘 Step 1: Find a Comfortable Seat</Text>
-            <Text style={styles.stepText}>
-              Sit comfortably with your spine straight and shoulders relaxed.
+            <Text style={styles.description}>
+              Box Breathing, also known as square breathing, is a powerful technique that helps teenagers manage stress and enhance focus. By regulating your breathing pattern, you can achieve a state of calm and clarity.
             </Text>
-  
-            <Text style={styles.stepTitle}>🤲 Step 2: Position Your Hand</Text>
+
+            <Text style={styles.stepTitle}>🟦 Steps to Practice Box Breathing</Text>
             <Text style={styles.stepText}>
-              Use your right thumb to close your right nostril and your ring finger to close your left nostril.
+              1. **Find a Comfortable Position**: Sit upright in a chair with your feet flat on the ground and hands resting on your lap.
+              2. **Inhale**: Breathe in slowly through your nose for a count of four, filling your lungs completely.
+              3. **Hold**: Retain your breath for a count of four.
+              4. **Exhale**: Release the breath gently through your mouth for a count of four, emptying your lungs.
+              5. **Hold**: Pause and hold your breath for another count of four before the next inhale.
+              6. **Repeat**: Continue this cycle for several minutes, maintaining a steady and relaxed rhythm.
             </Text>
-  
-            <Text style={styles.stepTitle}>🌬 Step 3: Inhale Through Left Nostril</Text>
+
+            <Text style={styles.stepTitle}>🌟 Tips for Effective Practice</Text>
             <Text style={styles.stepText}>
-              Close your right nostril and inhale deeply through your left nostril.
+              - **Consistency**: Practice box breathing daily to build resilience against stress.
+              - **Visualization**: Imagine tracing the sides of a square with each phase of the breath to enhance concentration.
+              - **Adjust Counts**: If a four-count feels challenging, modify the count to three or two seconds per phase until comfortable.
             </Text>
-  
-            <Text style={styles.stepTitle}>⏳ Step 4: Exhale Through Right Nostril</Text>
+
+            <Text style={styles.stepTitle}>🎯 Benefits of Box Breathing</Text>
             <Text style={styles.stepText}>
-              Close your left nostril and exhale slowly through your right nostril.
-            </Text>
-  
-            <Text style={styles.stepTitle}>🔁 Step 5: Repeat the Cycle</Text>
-            <Text style={styles.stepText}>
-              Continue alternating nostrils for at least 5 minutes.
-            </Text>
-  
-            <Text style={styles.stepTitle}>💭 Final Thought</Text>
-            <Text style={styles.stepText}>
-              Alternate nostril breathing helps balance the mind, reduce stress, and enhance focus.
+              - **Reduces Anxiety**: Calms the nervous system, helping to alleviate feelings of stress and anxiety.
+              - **Enhances Focus**: Improves concentration and mental clarity, aiding in academic and personal tasks.
+              - **Promotes Mindfulness**: Encourages present-moment awareness, fostering emotional regulation.
             </Text>
           </View>
-  
-          <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
+
+          {/* Embedded YouTube Video */}
+          <View style={styles.videoContainer}>
+            <WebView
+              source={{ uri: "https://www.youtube.com/embed/ZfMA0YA1IVA" }} // Box Breathing Practice
+              style={styles.video}
+              allowsFullscreenVideo={true}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+            />
+          </View>
+
+          <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>
             <Text style={styles.completeButtonText}>Complete Task</Text>
           </TouchableOpacity>
         </View>
@@ -70,7 +76,7 @@ export default function BreathingTask5Screen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F0F8FF", // Light blue for calming effect
+    backgroundColor: "#F0F8FF",
   },
   scrollContent: {
     paddingBottom: 20,
@@ -89,7 +95,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#004D80",
+    color: "#003366",
     textAlign: "center",
     marginBottom: 10,
   },
@@ -97,25 +103,31 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 20,
-    borderColor: "#004D80",
+    borderColor: "#003366",
     borderWidth: 2,
     alignSelf: "center",
     marginBottom: 15,
   },
   timeText: {
     fontSize: 16,
-    color: "#004D80",
+    color: "#003366",
     fontWeight: "600",
   },
   stepsContainer: {
-    backgroundColor: "#DFF4FF",
+    backgroundColor: "#E3F2FD",
     padding: 15,
     borderRadius: 10,
+  },
+  description: {
+    fontSize: 16,
+    color: "#333",
+    marginBottom: 10,
+    lineHeight: 22,
   },
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#004D80",
+    color: "#003366",
     marginTop: 10,
   },
   stepText: {
@@ -124,9 +136,20 @@ const styles = StyleSheet.create({
     marginTop: 5,
     lineHeight: 22,
   },
+  videoContainer: {
+    marginTop: 20,
+    width: "100%",
+    height: 250,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  video: {
+    width: "100%",
+    height: "100%",
+  },
   completeButton: {
     marginTop: 20,
-    backgroundColor: "#004D80",
+    backgroundColor: "#003366",
     paddingVertical: 15,
     borderRadius: 10,
     alignItems: "center",

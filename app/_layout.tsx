@@ -27,6 +27,16 @@ import AngerTask2Screen from "./screens/Exercises/Anger/tasks/AngerTask2Screen";
 import AngerTask3Screen from "./screens/Exercises/Anger/tasks/AngerTask3Screen";
 import AngerTask4Screen from "./screens/Exercises/Anger/tasks/AngerTask4Screen";
 import AngerTask5Screen from "./screens/Exercises/Anger/tasks/AngerTask5Screen";
+import AngerTask6Screen from "./screens/Exercises/Anger/tasks/AngerTask6Screen";
+import AngerTask7Screen from "./screens/Exercises/Anger/tasks/AngerTask7Screen";
+import AngerTask8Screen from "./screens/Exercises/Anger/tasks/AngerTask8Screen";
+import AngerTask9Screen from "./screens/Exercises/Anger/tasks/AngerTask9Screen";
+import AngerTask10Screen from "./screens/Exercises/Anger/tasks/AngerTask10Screen";
+import AngerTask11Screen from "./screens/Exercises/Anger/tasks/AngerTask11Screen";
+import AngerTask12Screen from "./screens/Exercises/Anger/tasks/AngerTask12Screen";
+import AngerTask13Screen from "./screens/Exercises/Anger/tasks/AngerTask13Screen";
+import AngerTask14Screen from "./screens/Exercises/Anger/tasks/AngerTask14Screen";
+import AngerTask15Screen from "./screens/Exercises/Anger/tasks/AngerTask15Screen";
 
 //Anxiety
 import Anxiety from "./screens/Exercises/Anxiety/Anxiety";
@@ -35,6 +45,13 @@ import AnxietyTask2 from "./screens/Exercises/Anxiety/tasks/AnxietyTask2";
 import AnxietyTask3 from "./screens/Exercises/Anxiety/tasks/AnxietyTask3";
 import AnxietyTask4 from "./screens/Exercises/Anxiety/tasks/AnxietyTask4";
 import AnxietyTask5 from "./screens/Exercises/Anxiety/tasks/AnxietyTask5";
+import AnxietyTask6 from "./screens/Exercises/Anxiety/tasks/AnxietyTask6";
+import AnxietyTask7 from "./screens/Exercises/Anxiety/tasks/AnxietyTask7";
+import AnxietyTask8 from "./screens/Exercises/Anxiety/tasks/AnxietyTask8";
+import AnxietyTask9 from "./screens/Exercises/Anxiety/tasks/AnxietyTask9";
+import AnxietyTask10 from "./screens/Exercises/Anxiety/tasks/AnxietyTask10";
+import AnxietyTask11 from "./screens/Exercises/Anxiety/tasks/AnxietyTask11";
+import AnxietyTask12 from "./screens/Exercises/Anxiety/tasks/AnxietyTask12";
 //Breathing
 import Breathing from "./screens/Exercises/Breathing/Breathing";
 import BreathingTask1 from "./screens/Exercises/Breathing/tasks/BreathingTask1";
@@ -42,6 +59,14 @@ import BreathingTask2 from "./screens/Exercises/Breathing/tasks/BreathingTask2";
 import BreathingTask3 from "./screens/Exercises/Breathing/tasks/BreathingTask3";
 import BreathingTask4 from "./screens/Exercises/Breathing/tasks/BreathingTask4";
 import BreathingTask5 from "./screens/Exercises/Breathing/tasks/BreathingTask5";
+import BreathingTask6 from "./screens/Exercises/Breathing/tasks/BreathingTask6";
+import BreathingTask7 from "./screens/Exercises/Breathing/tasks/BreathingTask7";
+import BreathingTask8 from "./screens/Exercises/Breathing/tasks/BreathingTask8";
+import BreathingTask9 from "./screens/Exercises/Breathing/tasks/BreathingTask9";
+import BreathingTask10 from "./screens/Exercises/Breathing/tasks/BreathingTask10";
+import BreathingTask11 from "./screens/Exercises/Breathing/tasks/BreathingTask11";
+import BreathingTask12 from "./screens/Exercises/Breathing/tasks/BreathingTask12";
+
 //Depression
 import Depression from "./screens/Exercises/Depression/Depression";
 import DepressionTask1 from "./screens/Exercises/Depression/tasks/DepressionTask1";
@@ -425,7 +450,7 @@ export default function RootLayout() {
               elevation: 0,
             },
             headerTintColor: "#003366",
-            title: "Anger",
+            title: "Anger Management Tasks",
           }}
         />
         <AppStack.Screen
@@ -494,6 +519,136 @@ export default function RootLayout() {
           }}
         />
         <AppStack.Screen
+          name="AngerTask6"
+          component={AngerTask6Screen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AngerTask7"
+          component={AngerTask7Screen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AngerTask8"
+          component={AngerTask8Screen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AngerTask9"
+          component={AngerTask9Screen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AngerTask10"
+          component={AngerTask10Screen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "5. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AngerTask11"
+          component={AngerTask11Screen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AngerTask12"
+          component={AngerTask12Screen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AngerTask13"
+          component={AngerTask13Screen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AngerTask14"
+          component={AngerTask14Screen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AngerTask15"
+          component={AngerTask15Screen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "5. Task",
+          }}
+        />
+        <AppStack.Screen
           name="Anxiety"
           component={Anxiety}
           options={{
@@ -503,7 +658,7 @@ export default function RootLayout() {
               elevation: 0,
             },
             headerTintColor: "#003366",
-            title: "Anxiety",
+            title: "Anxiety Management Tasks",
           }}
         />
         <AppStack.Screen
@@ -568,7 +723,98 @@ export default function RootLayout() {
               elevation: 0,
             },
             headerTintColor: "#003366",
-            title: "5. Task",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AnxietyTask6"
+          component={AnxietyTask6}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AnxietyTask7"
+          component={AnxietyTask7}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AnxietyTask8"
+          component={AnxietyTask8}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AnxietyTask9"
+          component={AnxietyTask9}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AnxietyTask10"
+          component={AnxietyTask10}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AnxietyTask11"
+          component={AnxietyTask11}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="AnxietyTask12"
+          component={AnxietyTask12}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
           }}
         />
         <AppStack.Screen
@@ -646,7 +892,98 @@ export default function RootLayout() {
               elevation: 0,
             },
             headerTintColor: "#003366",
-            title: "5. Task",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="BreathingTask6"
+          component={BreathingTask6}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="BreathingTask7"
+          component={BreathingTask7}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="BreathingTask8"
+          component={BreathingTask8}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="BreathingTask9"
+          component={BreathingTask9}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="BreathingTask10"
+          component={BreathingTask10}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="BreathingTask11"
+          component={BreathingTask11}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="BreathingTask12"
+          component={BreathingTask12}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
           }}
         />
         <AppStack.Screen

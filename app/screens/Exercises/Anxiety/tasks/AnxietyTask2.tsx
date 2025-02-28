@@ -3,62 +3,79 @@ import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import { WebView } from "react-native-webview";
 
 const { width } = Dimensions.get("window");
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Anxiety">;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "AnxietyTask2">;
 
 export default function AnxietyTask2Screen() {
   const navigation = useNavigation<NavigationProp>();
-
-  const handleCompleteTask = () => {
-    navigation.replace("Anxiety", { taskCompleted: true, taskScreen: "AnxietyTask2" });
-  };
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image source={require("@/assets/exercises/AnxietyTask2.jpg")} style={styles.image} />
         <View style={styles.content}>
-          <Text style={styles.title}>Box Breathing Technique</Text>
-  
+          <Text style={styles.title}>Calming Visualization</Text>
+
           <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>~10 min</Text>
+            <Text style={styles.timeText}>~15 min</Text>
           </View>
-  
+
           <View style={styles.stepsContainer}>
-            <Text style={styles.stepTitle}>🫁 Step 1: Find a Comfortable Position</Text>
-            <Text style={styles.stepText}>
-              Sit in a comfortable position with your back straight and hands relaxed on your lap.
+            <Text style={styles.description}>
+              Calming visualization is a technique that helps children manage anxiety by using their imagination to create peaceful and soothing images in their minds. This practice can reduce stress and promote relaxation.
             </Text>
-  
-            <Text style={styles.stepTitle}>💨 Step 2: Inhale (4 seconds)</Text>
+
+            <Text style={styles.stepTitle}>🧘‍♂️ Step 1: Find a Quiet Space</Text>
             <Text style={styles.stepText}>
-              Take a slow, deep breath in through your nose for a count of four. Feel your lungs filling with air.
+              Guide your child to a quiet and comfortable place where they won't be disturbed. This could be a cozy corner in their room or any space where they feel safe and relaxed.
             </Text>
-  
-            <Text style={styles.stepTitle}>⏳ Step 3: Hold (4 seconds)</Text>
+
+            <Text style={styles.stepTitle}>🌬️ Step 2: Deep Breathing</Text>
             <Text style={styles.stepText}>
-              Hold your breath for a count of four. Maintain relaxation and avoid tension.
+              Encourage your child to take slow, deep breaths. Inhale deeply through the nose, hold for a moment, and then exhale slowly through the mouth. Repeat this several times to help them relax.
             </Text>
-  
-            <Text style={styles.stepTitle}>🌬️ Step 4: Exhale (4 seconds)</Text>
+
+            <Text style={styles.stepTitle}>🌈 Step 3: Imagine a Peaceful Place</Text>
             <Text style={styles.stepText}>
-              Slowly exhale through your mouth for four seconds, emptying your lungs completely.
+              Ask your child to close their eyes and visualize a place where they feel happy and calm. It could be a beach, a forest, a garden, or any other serene location. Encourage them to use all their senses to imagine this place vividly:
+              {"\n"}- **Sight**: What do they see? Colors, objects, nature?
+              {"\n"}- **Sound**: What sounds are present? Birds chirping, waves crashing?
+              {"\n"}- **Touch**: What can they feel? The warmth of the sun, a gentle breeze?
+              {"\n"}- **Smell**: Are there any scents? Fresh flowers, salty sea air?
+              {"\n"}- **Taste**: Is there a particular taste associated with this place? Perhaps the taste of fresh fruit or cool water?
             </Text>
-  
-            <Text style={styles.stepTitle}>🔄 Step 5: Repeat</Text>
+
+            <Text style={styles.stepTitle}>🕰️ Step 4: Spend Time in the Visualization</Text>
             <Text style={styles.stepText}>
-              Continue this cycle for 5–10 minutes. Focus on your breath to bring calmness to your mind.
+              Allow your child to spend several minutes immersed in their imagined peaceful place. Let them explore and enjoy the sensations, helping them to feel more relaxed and centered.
             </Text>
-  
-            <Text style={styles.stepTitle}>💭 Final Thought</Text>
+
+            <Text style={styles.stepTitle}>🔄 Step 5: Return to the Present</Text>
             <Text style={styles.stepText}>
-              Box breathing helps reduce anxiety by controlling the nervous system and enhancing focus. Use it whenever you feel stressed or overwhelmed.
+              Gently guide your child to bring their awareness back to the present moment. Suggest they wiggle their fingers and toes, take a deep breath, and open their eyes when they're ready.
+            </Text>
+
+            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepText}>
+              Regular practice of calming visualization can empower children to manage their anxiety effectively. By creating a mental "safe space," they can retreat to this calming place whenever they feel overwhelmed or anxious.
             </Text>
           </View>
-  
-          <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
+
+          {/* Embedded YouTube Video */}
+          <View style={styles.videoContainer}>
+            <WebView
+              source={{ uri: "https://www.youtube.com/embed/zqs5mOklk2Q" }} // Guided Visualization for Kids - A Rainbow Journey
+              style={styles.video}
+              allowsFullscreenVideo={true}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+            />
+          </View>
+
+          <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>
             <Text style={styles.completeButtonText}>Complete Task</Text>
           </TouchableOpacity>
         </View>
@@ -70,7 +87,7 @@ export default function AnxietyTask2Screen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F0F8FF", // Light blue for anxiety theme
+    backgroundColor: "#F0F8FF",
   },
   scrollContent: {
     paddingBottom: 20,
@@ -89,7 +106,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#004D80", // Deep blue for calming effect
+    color: "#003366",
     textAlign: "center",
     marginBottom: 10,
   },
@@ -97,25 +114,31 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 20,
-    borderColor: "#004D80",
+    borderColor: "#003366",
     borderWidth: 2,
     alignSelf: "center",
     marginBottom: 15,
   },
   timeText: {
     fontSize: 16,
-    color: "#004D80",
+    color: "#003366",
     fontWeight: "600",
   },
   stepsContainer: {
-    backgroundColor: "#DFF4FF",
+    backgroundColor: "#E3F2FD",
     padding: 15,
     borderRadius: 10,
+  },
+  description: {
+    fontSize: 16,
+    color: "#333",
+    marginBottom: 10,
+    lineHeight: 22,
   },
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#004D80",
+    color: "#003366",
     marginTop: 10,
   },
   stepText: {
@@ -124,9 +147,20 @@ const styles = StyleSheet.create({
     marginTop: 5,
     lineHeight: 22,
   },
+  videoContainer: {
+    marginTop: 20,
+    width: "100%",
+    height: 250,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  video: {
+    width: "100%",
+    height: "100%",
+  },
   completeButton: {
     marginTop: 20,
-    backgroundColor: "#004D80",
+    backgroundColor: "#003366",
     paddingVertical: 15,
     borderRadius: 10,
     alignItems: "center",

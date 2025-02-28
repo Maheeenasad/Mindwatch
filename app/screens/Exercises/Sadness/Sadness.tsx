@@ -16,11 +16,11 @@ type SadnessScreenProps = NativeStackScreenProps<RootStackParamList, "Sadness"> 
 };
 
 const initialTasks = [
-  { id: 1, title: "Mindful Breathing", time: "5 mins", unlocked: true, completed: false, screen: "SadnessTask1" },
-  { id: 2, title: "Journaling Thoughts", time: "10 mins", unlocked: false, completed: false, screen: "SadnessTask2" },
-  { id: 3, title: "Positive Affirmations", time: "7 mins", unlocked: false, completed: false, screen: "SadnessTask3" },
-  { id: 4, title: "Music Therapy", time: "8 mins", unlocked: false, completed: false, screen: "SadnessTask4" },
-  { id: 5, title: "Cognitive Restructuring", time: "10 mins", unlocked: false, completed: false, screen: "SadnessTask5" },
+  { id: 1, title: "Mindful Breathing", time: "5 mins", unlocked: true, completed: false, screen: "SadnessTask1", image: require("@/assets/exercises/Sadness.jpg") },
+  { id: 2, title: "Journaling Thoughts", time: "10 mins", unlocked: false, completed: false, screen: "SadnessTask2", image: require("@/assets/exercises/SadnessTask2.jpg") },
+  { id: 3, title: "Positive Affirmations", time: "7 mins", unlocked: false, completed: false, screen: "SadnessTask3", image: require("@/assets/exercises/SadnessTask3.jpg") },
+  { id: 4, title: "Music Therapy", time: "8 mins", unlocked: false, completed: false, screen: "SadnessTask4", image: require("@/assets/exercises/SadnessTask4.jpg") },
+  { id: 5, title: "Cognitive Restructuring", time: "10 mins", unlocked: false, completed: false, screen: "SadnessTask5", image: require("@/assets/exercises/SadnessTask5.jpg") },
 ];
 
 export default function SadnessScreen() {
@@ -57,7 +57,7 @@ export default function SadnessScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/Sadness.jpg")} style={styles.taskImage} />
+           <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F0F0F0",
   },
   taskImage: {
-    width: 50,
+    width: 65,
     height: 50,
     borderRadius: 8,
     marginRight: 12,

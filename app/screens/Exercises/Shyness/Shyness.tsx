@@ -16,11 +16,11 @@ type ShynessScreenProps = NativeStackScreenProps<RootStackParamList, "Shyness"> 
 };
 
 const initialTasks = [
-  { id: 1, title: "Confidence Boosting Exercise", time: "5 mins", unlocked: true, completed: false, screen: "ShynessTask1" },
-  { id: 2, title: "Journaling Social Wins", time: "10 mins", unlocked: false, completed: false, screen: "ShynessTask2" },
-  { id: 3, title: "Gradual Exposure Challenge", time: "7 mins", unlocked: false, completed: false, screen: "ShynessTask3" },
-  { id: 4, title: "Mindfulness for Social Anxiety", time: "8 mins", unlocked: false, completed: false, screen: "ShynessTask4" },
-  { id: 5, title: "Positive Self-Talk", time: "10 mins", unlocked: false, completed: false, screen: "ShynessTask5" },
+  { id: 1, title: "Confidence Boosting Exercise", time: "5 mins", unlocked: true, completed: false, screen: "ShynessTask1", image: require("@/assets/exercises/Shyness.jpg") },
+  { id: 2, title: "Journaling Social Wins", time: "10 mins", unlocked: false, completed: false, screen: "ShynessTask2", image: require("@/assets/exercises/ShynessTask2.jpg") },
+  { id: 3, title: "Gradual Exposure Challenge", time: "7 mins", unlocked: false, completed: false, screen: "ShynessTask3", image: require("@/assets/exercises/ShynessTask3.jpg") },
+  { id: 4, title: "Mindfulness for Social Anxiety", time: "8 mins", unlocked: false, completed: false, screen: "ShynessTask4", image: require("@/assets/exercises/ShynessTask4.jpg") },
+  { id: 5, title: "Positive Self-Talk", time: "10 mins", unlocked: false, completed: false, screen: "ShynessTask5", image: require("@/assets/exercises/ShynessTask5.jpg") },
 ];
 
 export default function ShynessScreen() {
@@ -57,7 +57,8 @@ export default function ShynessScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/Shyness.jpg")} style={styles.taskImage} />
+            
+<Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F0F0F0",
   },
   taskImage: {
-    width: 50,
+    width: 65,
     height: 50,
     borderRadius: 8,
     marginRight: 12,

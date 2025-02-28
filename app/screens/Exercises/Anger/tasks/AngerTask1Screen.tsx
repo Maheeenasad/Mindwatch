@@ -3,57 +3,70 @@ import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import { WebView } from "react-native-webview";
 
 const { width } = Dimensions.get("window");
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Anger">;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "AngerTask1">;
 
 export default function AngerTask1Screen() {
   const navigation = useNavigation<NavigationProp>();
-
-  const handleCompleteTask = () => {
-    navigation.replace("Anger", { taskCompleted: true, taskScreen: "AngerTask1" });
-  };
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image source={require("@/assets/exercises/Anger.jpg")} style={styles.image} />
         <View style={styles.content}>
-          <Text style={styles.title}>Deep Breathing Exercise</Text>
-  
+          <Text style={styles.title}>Expressive Art Therapy</Text>
+
           <View style={styles.timeContainer}>
             <Text style={styles.timeText}>~5 min</Text>
           </View>
-  
+
           <View style={styles.stepsContainer}>
-            <Text style={styles.stepTitle}>😤 Step 1: Controlled Breathing (1 min)</Text>
-            <Text style={styles.stepText}>
-              Find a quiet place and sit comfortably. Take a deep breath in through your nose for 4 seconds,
-              hold it for 4 seconds, and exhale slowly through your mouth for 6 seconds.
-              Repeat this for a minute to calm your nervous system.
+            <Text style={styles.description}>
+              Expressive Art Therapy is a creative process that helps individuals process emotions
+              and release anger in a healthy way. By engaging in creative activities such as drawing,
+              painting, or sculpting, you can express your feelings without the need for words.
             </Text>
-  
-            <Text style={styles.stepTitle}>🌬 Step 2: Releasing Tension (2 min)</Text>
+
+            <Text style={styles.stepTitle}>🎨 Step 1: Gather Materials</Text>
             <Text style={styles.stepText}>
-              As you breathe deeply, visualize releasing your anger with each exhale.
-              Imagine the tension leaving your body as you let out each breath.
+              Collect art supplies such as colored pencils, paints, markers, or a sketchbook.
+              Choose materials that allow you to freely express your emotions.
             </Text>
-  
-            <Text style={styles.stepTitle}>🧘‍♂️ Step 3: Grounding Breathwork (2 min)</Text>
+
+            <Text style={styles.stepTitle}>🖌 Step 2: Express Your Feelings</Text>
             <Text style={styles.stepText}>
-              Focus on your breath and count backward from 10 with each inhale and exhale.
-              This helps divert attention from anger and brings a sense of calmness.
+              Start drawing or painting without thinking too much. Let your hand move freely and
+              express any anger, frustration, or stress onto the canvas or paper.
             </Text>
-  
-            <Text style={styles.stepTitle}>🎯 Final Thought</Text>
+
+            <Text style={styles.stepTitle}>🧘‍♂️ Step 3: Reflect on Your Artwork</Text>
             <Text style={styles.stepText}>
-              Deep breathing helps slow your heart rate and reduce anger intensity.
-              Practicing this technique regularly can improve emotional control.
+              Once finished, take a moment to observe your creation. Identify emotions reflected
+              in your work and acknowledge them. You can also write a few words about how you feel.
+            </Text>
+
+            <Text style={styles.stepTitle}>🌿 Final Thought</Text>
+            <Text style={styles.stepText}>
+              Expressive art therapy provides a safe and creative outlet to process emotions.
+              Practicing this regularly can help manage anger and improve emotional well-being.
             </Text>
           </View>
-  
-          <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
+
+          {/* Embedded YouTube Video */}
+          <View style={styles.videoContainer}>
+            <WebView
+              source={{ uri: "https://www.youtube.com/embed/Ptu2ca2Ezp0" }} 
+              style={styles.video}
+              allowsFullscreenVideo={true}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+            />
+          </View>
+
+          <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>
             <Text style={styles.completeButtonText}>Complete Task</Text>
           </TouchableOpacity>
         </View>
@@ -84,7 +97,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#003366", // Updated theme color
+    color: "#003366",
     textAlign: "center",
     marginBottom: 10,
   },
@@ -107,6 +120,12 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
   },
+  description: {
+    fontSize: 16,
+    color: "#333",
+    marginBottom: 10,
+    lineHeight: 22,
+  },
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
@@ -119,9 +138,20 @@ const styles = StyleSheet.create({
     marginTop: 5,
     lineHeight: 22,
   },
+  videoContainer: {
+    marginTop: 20,
+    width: "100%",
+    height: 250,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  video: {
+    width: "100%",
+    height: "100%",
+  },
   completeButton: {
     marginTop: 20,
-    backgroundColor: "#003366", // Updated theme color
+    backgroundColor: "#003366",
     paddingVertical: 15,
     borderRadius: 10,
     alignItems: "center",

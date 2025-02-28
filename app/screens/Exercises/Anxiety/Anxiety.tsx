@@ -1,81 +1,74 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../types/types";
-import NavigationTab from '@/components/NavigationTab';
+import NavigationTab from "@/components/NavigationTab";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-
-type AnxietyScreenProps = NativeStackScreenProps<RootStackParamList, "Anxiety"> & {
-  route: {
-    params: {
-      taskCompleted?: boolean;
-      taskScreen?: string;
-    };
-  };
+const taskCategories: Record<
+  "child" | "teenage" | "adult",
+  { id: number; title: string; time: string; screen: keyof RootStackParamList; image: any }[]
+> = {
+  child: [
+    { id: 1, title: "Grounding Technique", time: "5 mins", screen: "AnxietyTask1", image: require("@/assets/exercises/Anxiety.jpg") },
+    { id: 2, title: "Calming Visualization", time: "5 mins", screen: "AnxietyTask2", image: require("@/assets/exercises/AnxietyTask2.jpg") },
+    { id: 3, title: "Comfort Object Reflection", time: "3 mins", screen: "AnxietyTask3", image: require("@/assets/exercises/AnxietyTask3.jpg") },
+    { id: 4, title: "Simple Movement Exercise", time: "4 mins", screen: "AnxietyTask4", image: require("@/assets/exercises/AnxietyTask4.jpg") },
+  ],
+  teenage: [
+    { id: 1, title: "Journaling for Worries", time: "10 mins", screen: "AnxietyTask5", image: require("@/assets/exercises/Anxiety.jpg") },
+    { id: 2, title: "Mindful Walking", time: "8 mins", screen: "AnxietyTask6", image: require("@/assets/exercises/AnxietyTask2.jpg") },
+    { id: 3, title: "Self-Talk Reframing", time: "6 mins", screen: "AnxietyTask7", image: require("@/assets/exercises/AnxietyTask3.jpg") },
+    { id: 4, title: "Listening to Nature Sounds", time: "5 mins", screen: "AnxietyTask8", image: require("@/assets/exercises/AnxietyTask4.jpg") },
+  ],
+  adult: [
+    { id: 1, title: "Cognitive Restructuring", time: "10 mins", screen: "AnxietyTask9", image: require("@/assets/exercises/Anxiety.jpg") },
+    { id: 2, title: "Breathing with Music", time: "7 mins", screen: "AnxietyTask10", image: require("@/assets/exercises/AnxietyTask2.jpg") },
+    { id: 3, title: "Gratitude Reflection", time: "5 mins", screen: "AnxietyTask11", image: require("@/assets/exercises/AnxietyTask3.jpg") },
+    { id: 4, title: "Stretching & Tension Release", time: "8 mins", screen: "AnxietyTask12", image: require("@/assets/exercises/AnxietyTask4.jpg") },
+  ],
 };
 
-const initialTasks = [
-    { id: 1, title: "Anxiety Body Scan", time: "5 mins", unlocked: true, completed: false, screen: "AnxietyTask1" },
-    { id: 2, title: "Box Breathing Technique", time: "10 mins", unlocked: false, completed: false, screen: "AnxietyTask2" },
-    { id: 3, title: "Safe Space Visualization", time: "7 mins", unlocked: false, completed: false, screen: "AnxietyTask3" },
-    { id: 4, title: "Thought Defusion Exercise", time: "8 mins", unlocked: false, completed: false, screen: "AnxietyTask4" },
-    { id: 5, title: "Expressive Writing for Anxiety", time: "10 mins", unlocked: false, completed: false, screen: "AnxietyTask5" },
-  ];
-
 export default function AnxietyScreen() {
-  const [tasks, setTasks] = useState(initialTasks);
-  const navigation = useNavigation<AnxietyScreenProps["navigation"]>();
-  const route = useRoute<AnxietyScreenProps["route"]>(); 
-
-  useEffect(() => {
-    if (route.params?.taskCompleted) {
-      setTasks((prevTasks) => {
-        const taskIndex = prevTasks.findIndex((task) => task.screen === route.params.taskScreen);
-        if (taskIndex !== -1) {
-          const updatedTasks = [...prevTasks];
-          updatedTasks[taskIndex].completed = true;
-          if (taskIndex < updatedTasks.length - 1) {
-            updatedTasks[taskIndex + 1].unlocked = true;
-          }
-          return updatedTasks;
-        }
-        return prevTasks;
-      });
-    }
-  }, [route.params]);
+  const [selectedTab, setSelectedTab] = useState<"child" | "teenage" | "adult">("child");
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Tasks</Text>
+      <View style={styles.tabContainer}>
+        {(["child", "teenage", "adult"] as const).map((tab) => (
+          <TouchableOpacity key={tab} onPress={() => setSelectedTab(tab)} style={[styles.tab, selectedTab === tab && styles.activeTab]}>
+            <Text style={[styles.tabText, selectedTab === tab && styles.activeTabText]}>
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
 
       <ScrollView contentContainerStyle={styles.taskList}>
-        {tasks.map((task, index) => (
+        {taskCategories[selectedTab].map((task) => (
           <TouchableOpacity
             key={task.id}
-            style={[styles.taskCard, !task.unlocked && styles.lockedTask]}
-            disabled={!task.unlocked}
-            onPress={() => navigation.navigate(task.screen as never)}
+            style={styles.taskCard}
+            onPress={() => {
+              navigation.navigate(task.screen as any, { taskId: task.id });
+            }}
           >
-            <Image source={require("@/assets/exercises/Anxiety.jpg")} style={styles.taskImage} />
+            <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
-              <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
-                {index + 1}. {task.title}
-              </Text>
+              <Text style={styles.taskTitle}>{task.title}</Text>
               <View style={styles.taskTime}>
-                <Ionicons name="time-outline" size={14} color={task.unlocked ? "#000" : "#aaa"} />
-                <Text style={[styles.taskDuration, !task.unlocked && styles.lockedText]}>{task.time}</Text>
+                <Ionicons name="time-outline" size={14} color="#000" />
+                <Text style={styles.taskDuration}>{task.time}</Text>
               </View>
             </View>
-            {task.completed ? (
-              <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />
-            ) : (
-              <Ionicons name={task.unlocked ? "radio-button-off" : "lock-closed"} size={24} color="#aaa" />
-            )}
+            <MaterialCommunityIcons name="chevron-right-circle-outline" size={24} color="#000" />
           </TouchableOpacity>
         ))}
       </ScrollView>
+
       <NavigationTab />
     </View>
   );
@@ -88,11 +81,26 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
   },
-  heading: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#003366",
+  tabContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
     marginBottom: 15,
+  },
+  tab: {
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    backgroundColor: "#E0E0E0",
+  },
+  activeTab: {
+    backgroundColor: "#003366",
+  },
+  tabText: {
+    fontSize: 16,
+    color: "#000",
+  },
+  activeTabText: {
+    color: "#FFF",
   },
   taskList: {
     paddingBottom: 40,
@@ -105,15 +113,10 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 10,
     elevation: 2,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  lockedTask: {
-    backgroundColor: "#F0F0F0",
+    justifyContent: "space-between",
   },
   taskImage: {
-    width: 50,
+    width: 65,
     height: 50,
     borderRadius: 8,
     marginRight: 12,
@@ -136,7 +139,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#000",
   },
-  lockedText: {
-    color: "#aaa",
-  },
 });
+

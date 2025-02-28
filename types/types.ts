@@ -24,6 +24,16 @@ export type RootStackParamList = {
   AngerTask3: undefined;
   AngerTask4: undefined;
   AngerTask5: undefined;
+  AngerTask6: undefined;
+  AngerTask7: undefined;
+  AngerTask8: undefined;
+  AngerTask9: undefined;
+  AngerTask10: undefined;
+  AngerTask11: undefined;
+  AngerTask12: undefined;
+  AngerTask13: undefined;
+  AngerTask14: undefined;
+  AngerTask15: undefined;
   //Anxiety
   Anxiety: { taskCompleted?: boolean; taskScreen?: string };
   AnxietyTask1: undefined;
@@ -31,6 +41,13 @@ export type RootStackParamList = {
   AnxietyTask3: undefined;
   AnxietyTask4: undefined;
   AnxietyTask5: undefined;
+  AnxietyTask6: undefined;
+  AnxietyTask7: undefined;
+  AnxietyTask8: undefined;
+  AnxietyTask9: undefined;
+  AnxietyTask10: undefined;
+  AnxietyTask11: undefined;
+  AnxietyTask12: undefined;
   //Breathing
   Breathing: { taskCompleted?: boolean; taskScreen?: string };
   BreathingTask1: undefined;
@@ -38,6 +55,13 @@ export type RootStackParamList = {
   BreathingTask3: undefined;
   BreathingTask4: undefined;
   BreathingTask5: undefined;
+  BreathingTask6: undefined;
+  BreathingTask7: undefined;
+  BreathingTask8: undefined;
+  BreathingTask9: undefined;
+  BreathingTask10: undefined;
+  BreathingTask11: undefined;
+  BreathingTask12: undefined;
   //Depression
   Depression: { taskCompleted?: boolean; taskScreen?: string };
   DepressionTask1: undefined;

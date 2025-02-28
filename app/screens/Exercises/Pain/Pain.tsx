@@ -16,11 +16,11 @@ type PainScreenProps = NativeStackScreenProps<RootStackParamList, "Pain"> & {
 };
 
 const initialTasks = [
-  { id: 1, title: "Deep Breathing", time: "5 mins", unlocked: true, completed: false, screen: "PainTask1" },
-  { id: 2, title: "Mindful Awareness", time: "10 mins", unlocked: false, completed: false, screen: "PainTask2" },
-  { id: 3, title: "Journaling Your Pain", time: "7 mins", unlocked: false, completed: false, screen: "PainTask3" },
-  { id: 4, title: "Guided Meditation", time: "8 mins", unlocked: false, completed: false, screen: "PainTask4" },
-  { id: 5, title: "Progressive Muscle Relaxation", time: "10 mins", unlocked: false, completed: false, screen: "PainTask5" },
+  { id: 1, title: "Deep Breathing", time: "5 mins", unlocked: true, completed: false, screen: "PainTask1", image: require("@/assets/exercises/Pain.jpg") },
+  { id: 2, title: "Mindful Awareness", time: "10 mins", unlocked: false, completed: false, screen: "PainTask2", image: require("@/assets/exercises/PainTask2.jpg") },
+  { id: 3, title: "Journaling Your Pain", time: "7 mins", unlocked: false, completed: false, screen: "PainTask3", image: require("@/assets/exercises/PainTask3.jpg") },
+  { id: 4, title: "Guided Meditation", time: "8 mins", unlocked: false, completed: false, screen: "PainTask4", image: require("@/assets/exercises/PainTask4.jpg") },
+  { id: 5, title: "Progressive Muscle Relaxation", time: "10 mins", unlocked: false, completed: false, screen: "PainTask5", image: require("@/assets/exercises/PainTask5.jpg") },
 ];
 
 export default function PainScreen() {
@@ -57,7 +57,7 @@ export default function PainScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/Pain.jpg")} style={styles.taskImage} />
+            <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F0F0F0",
   },
   taskImage: {
-    width: 50,
+    width: 65,
     height: 50,
     borderRadius: 8,
     marginRight: 12,

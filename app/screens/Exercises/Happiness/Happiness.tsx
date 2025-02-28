@@ -16,11 +16,11 @@ type HappinessScreenProps = NativeStackScreenProps<RootStackParamList, "Happines
 };
 
 const initialTasks = [
-  { id: 1, title: "Gratitude Exercise", time: "5 mins", unlocked: true, completed: false, screen: "HappinessTask1" },
-  { id: 2, title: "Guided Laughter", time: "10 mins", unlocked: false, completed: false, screen: "HappinessTask2" },
-  { id: 3, title: "Happy Journal", time: "7 mins", unlocked: false, completed: false, screen: "HappinessTask3" },
-  { id: 4, title: "Positive Affirmations", time: "8 mins", unlocked: false, completed: false, screen: "HappinessTask4" },
-  { id: 5, title: "Visualization of Joy", time: "10-15 mins", unlocked: false, completed: false, screen: "HappinessTask5" },
+  { id: 1, title: "Gratitude Exercise", time: "5 mins", unlocked: true, completed: false, screen: "HappinessTask1", image: require("@/assets/exercises/HappinessTask2.jpg") },
+  { id: 2, title: "Guided Laughter", time: "10 mins", unlocked: false, completed: false, screen: "HappinessTask2", image: require("@/assets/exercises/HappinessTask3.jpg") },
+  { id: 3, title: "Happy Journal", time: "7 mins", unlocked: false, completed: false, screen: "HappinessTask3", image: require("@/assets/exercises/HappinessTask4.jpg") },
+  { id: 4, title: "Positive Affirmations", time: "8 mins", unlocked: false, completed: false, screen: "HappinessTask4", image: require("@/assets/exercises/HappinessTask5.jpg") },
+  { id: 5, title: "Positive Affirmations", time: "8 mins", unlocked: false, completed: false, screen: "HappinessTask5", image: require("@/assets/exercises/HappinessTask6.jpg") },
 ];
 
 export default function HappinessScreen() {
@@ -56,7 +56,7 @@ export default function HappinessScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/Happiness.jpg")} style={styles.taskImage} />
+           <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F0F0F0",
   },
   taskImage: {
-    width: 50,
+    width: 65,
     height: 50,
     borderRadius: 8,
     marginRight: 12,

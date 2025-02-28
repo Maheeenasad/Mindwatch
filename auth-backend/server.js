@@ -40,6 +40,7 @@ const journalEntrySchema = new mongoose.Schema({
 
 const JournalEntry = mongoose.model("JournalEntry", journalEntrySchema);
 
+
 // Registration Route
 app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;

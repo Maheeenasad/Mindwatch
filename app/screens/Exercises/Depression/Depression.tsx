@@ -5,6 +5,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../types/types";
 import NavigationTab from '@/components/NavigationTab';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type DepressionScreenProps = NativeStackScreenProps<RootStackParamList, "Depression"> & {
   route: {
@@ -16,20 +17,35 @@ type DepressionScreenProps = NativeStackScreenProps<RootStackParamList, "Depress
 };
 
 const initialTasks = [
-  { id: 1, title: "Morning Walk", time: "15 mins", unlocked: true, completed: false, screen: "DepressionTask1" },
-  { id: 2, title: "Stretching", time: "10 mins", unlocked: false, completed: false, screen: "DepressionTask2" },
-  { id: 3, title: "Meditation", time: "10 mins", unlocked: false, completed: false, screen: "DepressionTask3" },
-  { id: 4, title: "Deep Breathing", time: "8 mins", unlocked: false, completed: false, screen: "DepressionTask4" },
-  { id: 5, title: "Gratitude Journaling", time: "5 mins", unlocked: false, completed: false, screen: "DepressionTask5" },
+  { id: 1, title: "Morning Walk", time: "15 mins", unlocked: true, completed: false, screen: "DepressionTask1", image: require("@/assets/exercises/Depression.jpg") },
+  { id: 2, title: "Stretching", time: "10 mins", unlocked: false, completed: false, screen: "DepressionTask2", image: require("@/assets/exercises/DepressionTask2.jpg") },
+  { id: 3, title: "Meditation", time: "10 mins", unlocked: false, completed: false, screen: "DepressionTask3", image: require("@/assets/exercises/DepressionTask3.jpg") },
+  { id: 4, title: "Deep Breathing", time: "8 mins", unlocked: false, completed: false, screen: "DepressionTask4", image: require("@/assets/exercises/DepressionTask4.jpg") },
+  { id: 5, title: "Gratitude Journaling", time: "5 mins", unlocked: false, completed: false, screen: "DepressionTask5", image: require("@/assets/exercises/DepressionTask5.jpg") },
 ];
 
 export default function DepressionTasksScreen() {
   const [tasks, setTasks] = useState(initialTasks);
-  const navigation = useNavigation<DepressionScreenProps["navigation"]>();
-  const route = useRoute<DepressionScreenProps["route"]>(); 
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const navigation = useNavigation();
+  const route = useRoute();
 
   useEffect(() => {
-    if (route.params?.taskCompleted) {
+    const fetchUser = async () => {
+      const email = await AsyncStorage.getItem("userEmail");
+      setUserEmail(email);
+      if (email) {
+        const savedTasks = await AsyncStorage.getItem(`tasks_${email}`);
+        if (savedTasks) {
+          setTasks(JSON.parse(savedTasks));
+        }
+      }
+    };
+    fetchUser();
+  }, []);
+
+  useEffect(() => {
+    if (route.params?.taskCompleted && userEmail) {
       setTasks((prevTasks) => {
         const taskIndex = prevTasks.findIndex((task) => task.screen === route.params.taskScreen);
         if (taskIndex !== -1) {
@@ -38,17 +54,17 @@ export default function DepressionTasksScreen() {
           if (taskIndex < updatedTasks.length - 1) {
             updatedTasks[taskIndex + 1].unlocked = true;
           }
+          AsyncStorage.setItem(`tasks_${userEmail}`, JSON.stringify(updatedTasks));
           return updatedTasks;
         }
         return prevTasks;
       });
     }
-  }, [route.params]);
+  }, [route.params, userEmail]);
 
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Tasks</Text>
-
       <ScrollView contentContainerStyle={styles.taskList}>
         {tasks.map((task, index) => (
           <TouchableOpacity
@@ -57,15 +73,11 @@ export default function DepressionTasksScreen() {
             disabled={!task.unlocked}
             onPress={() => navigation.navigate(task.screen as never)}
           >
-            <Image source={require("@/assets/exercises/Depression.jpg")} style={styles.taskImage} />
+            <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
               <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
                 {index + 1}. {task.title}
               </Text>
-              <View style={styles.taskTime}>
-                <Ionicons name="time-outline" size={14} color={task.unlocked ? "#000" : "#aaa"} />
-                <Text style={[styles.taskDuration, !task.unlocked && styles.lockedText]}>{task.time}</Text>
-              </View>
             </View>
             {task.completed ? (
               <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />
@@ -75,7 +87,6 @@ export default function DepressionTasksScreen() {
           </TouchableOpacity>
         ))}
       </ScrollView>
-      <NavigationTab />
     </View>
   );
 }
@@ -112,7 +123,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F0F0F0",
   },
   taskImage: {
-    width: 50,
+    width: 65,
     height: 50,
     borderRadius: 8,
     marginRight: 12,

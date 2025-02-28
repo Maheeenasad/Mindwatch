@@ -1,80 +1,74 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../types/types";
-import NavigationTab from '@/components/NavigationTab';
+import NavigationTab from "@/components/NavigationTab";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-type BreathingScreenProps = NativeStackScreenProps<RootStackParamList, "Breathing"> & {
-  route: {
-    params: {
-      taskCompleted?: boolean;
-      taskScreen?: string;
-    };
-  };
+const taskCategories: Record<
+  "child" | "teenage" | "adult",
+  { id: number; title: string; time: string; screen: keyof RootStackParamList; image: any }[]
+> = {
+  child: [
+    { id: 1, title: "Balloon Breathing", time: "5 mins", screen: "BreathingTask1", image: require("@/assets/exercises/BreathingTask1.jpg") },
+    { id: 2, title: "Belly Breathing", time: "5 mins", screen: "BreathingTask2", image: require("@/assets/exercises/BreathingTask2.jpg") },
+    { id: 3, title: "Animal Breaths", time: "3 mins", screen: "BreathingTask3", image: require("@/assets/exercises/BreathingTask3.jpg") },
+    { id: 4, title: "Shape Breathing", time: "4 mins", screen: "BreathingTask4", image: require("@/assets/exercises/BreathingTask4.jpg") },
+  ],
+  teenage: [
+    { id: 1, title: "Box Breathing", time: "10 mins", screen: "BreathingTask5", image: require("@/assets/exercises/BreathingTask1.jpg") },
+    { id: 2, title: "4-7-8 Technique", time: "8 mins", screen: "BreathingTask6", image: require("@/assets/exercises/BreathingTask2.jpg") },
+    { id: 3, title: "Alternate Nostril Breathing", time: "6 mins", screen: "BreathingTask7", image: require("@/assets/exercises/BreathingTask3.jpg") },
+    { id: 4, title: "Guided Deep Breathing", time: "5 mins", screen: "BreathingTask8", image: require("@/assets/exercises/BreathingTask4.jpg") },
+  ],
+  adult: [
+    { id: 1, title: "Resonant Breathing", time: "10 mins", screen: "BreathingTask9", image: require("@/assets/exercises/BreathingTask1.jpg") },
+    { id: 2, title: "Coherent Breathing", time: "7 mins", screen: "BreathingTask10", image: require("@/assets/exercises/BreathingTask2.jpg") },
+    { id: 3, title: "Breathing Meditation", time: "5 mins", screen: "BreathingTask11", image: require("@/assets/exercises/BreathingTask3.jpg") },
+    { id: 4, title: "Progressive Relaxation Breathing", time: "8 mins", screen: "BreathingTask12", image: require("@/assets/exercises/BreathingTask4.jpg") },
+  ],
 };
 
-const initialTasks = [
-  { id: 1, title: "Diaphragmatic Breathing", time: "5 mins", unlocked: true, completed: false, screen: "BreathingTask1" },
-  { id: 2, title: "Breathing Technique", time: "10 mins", unlocked: false, completed: false, screen: "BreathingTask2" },
-  { id: 3, title: "Resonance Breathing", time: "7 mins", unlocked: false, completed: false, screen: "BreathingTask3" },
-  { id: 4, title: "Alternate Nostril Breathing", time: "8 mins", unlocked: false, completed: false, screen: "BreathingTask4" },
-  { id: 5, title: "Pursed Lip Breathing", time: "10 mins", unlocked: false, completed: false, screen: "BreathingTask5" },
-];
-
 export default function BreathingScreen() {
-  const [tasks, setTasks] = useState(initialTasks);
-  const navigation = useNavigation<BreathingScreenProps["navigation"]>();
-  const route = useRoute<BreathingScreenProps["route"]>(); 
-
-  useEffect(() => {
-    if (route.params?.taskCompleted) {
-      setTasks((prevTasks) => {
-        const taskIndex = prevTasks.findIndex((task) => task.screen === route.params.taskScreen);
-        if (taskIndex !== -1) {
-          const updatedTasks = [...prevTasks];
-          updatedTasks[taskIndex].completed = true;
-          if (taskIndex < updatedTasks.length - 1) {
-            updatedTasks[taskIndex + 1].unlocked = true;
-          }
-          return updatedTasks;
-        }
-        return prevTasks;
-      });
-    }
-  }, [route.params]);
+  const [selectedTab, setSelectedTab] = useState<"child" | "teenage" | "adult">("child");
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Tasks</Text>
+      <View style={styles.tabContainer}>
+        {(["child", "teenage", "adult"] as const).map((tab) => (
+          <TouchableOpacity key={tab} onPress={() => setSelectedTab(tab)} style={[styles.tab, selectedTab === tab && styles.activeTab]}>
+            <Text style={[styles.tabText, selectedTab === tab && styles.activeTabText]}>
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
 
       <ScrollView contentContainerStyle={styles.taskList}>
-        {tasks.map((task, index) => (
+        {taskCategories[selectedTab].map((task) => (
           <TouchableOpacity
             key={task.id}
-            style={[styles.taskCard, !task.unlocked && styles.lockedTask]}
-            disabled={!task.unlocked}
-            onPress={() => navigation.navigate(task.screen as never)}
+            style={styles.taskCard}
+            onPress={() => {
+              navigation.navigate(task.screen as any, { taskId: task.id });
+            }}
           >
-            <Image source={require("@/assets/exercises/Breathing.jpg")} style={styles.taskImage} />
+            <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
-              <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
-                {index + 1}. {task.title}
-              </Text>
+              <Text style={styles.taskTitle}>{task.title}</Text>
               <View style={styles.taskTime}>
-                <Ionicons name="time-outline" size={14} color={task.unlocked ? "#000" : "#aaa"} />
-                <Text style={[styles.taskDuration, !task.unlocked && styles.lockedText]}>{task.time}</Text>
+                <Ionicons name="time-outline" size={14} color="#000" />
+                <Text style={styles.taskDuration}>{task.time}</Text>
               </View>
             </View>
-            {task.completed ? (
-              <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />
-            ) : (
-              <Ionicons name={task.unlocked ? "radio-button-off" : "lock-closed"} size={24} color="#aaa" />
-            )}
+            <MaterialCommunityIcons name="chevron-right-circle-outline" size={24} color="#000" />
           </TouchableOpacity>
         ))}
       </ScrollView>
+
       <NavigationTab />
     </View>
   );
@@ -87,11 +81,26 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
   },
-  heading: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#003366",
+  tabContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
     marginBottom: 15,
+  },
+  tab: {
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    backgroundColor: "#E0E0E0",
+  },
+  activeTab: {
+    backgroundColor: "#003366",
+  },
+  tabText: {
+    fontSize: 16,
+    color: "#000",
+  },
+  activeTabText: {
+    color: "#FFF",
   },
   taskList: {
     paddingBottom: 40,
@@ -104,15 +113,10 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 10,
     elevation: 2,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  lockedTask: {
-    backgroundColor: "#F0F0F0",
+    justifyContent: "space-between",
   },
   taskImage: {
-    width: 50,
+    width: 65,
     height: 50,
     borderRadius: 8,
     marginRight: 12,
@@ -134,8 +138,5 @@ const styles = StyleSheet.create({
     marginLeft: 4,
     fontSize: 14,
     color: "#000",
-  },
-  lockedText: {
-    color: "#aaa",
   },
 });

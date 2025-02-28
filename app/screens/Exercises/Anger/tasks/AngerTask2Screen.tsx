@@ -3,55 +3,69 @@ import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import { WebView } from "react-native-webview";
 
 const { width } = Dimensions.get("window");
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Anger">;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "AngerTask2">;
 
 export default function AngerTask2Screen() {
   const navigation = useNavigation<NavigationProp>();
-
-  const handleCompleteTask = () => {
-    navigation.replace("Anger", { taskCompleted: true, taskScreen: "AngerTask2" });
-  };
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image source={require("@/assets/exercises/AngerTask2.jpg")} style={styles.image} />
         <View style={styles.content}>
-          <Text style={styles.title}>Progressive Muscle Relaxation</Text>
+          <Text style={styles.title}>Mindful Counting Exercise</Text>
 
           <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>~10 min</Text>
+            <Text style={styles.timeText}>~5 min</Text>
           </View>
 
           <View style={styles.stepsContainer}>
-            <Text style={styles.stepTitle}>💪 Step 1: Find a Calm Space (1 min)</Text>
-            <Text style={styles.stepText}>
-              Sit or lie down in a comfortable, quiet place. Close your eyes and take a few deep breaths to settle yourself.
+            <Text style={styles.description}>
+              The Mindful Counting Exercise is a simple yet effective technique to help manage anger by grounding your mind and body. By focusing on counting and your breath, you can divert attention from anger triggers and promote a sense of calm.
             </Text>
 
-            <Text style={styles.stepTitle}>✊ Step 2: Tense and Release (6 min)</Text>
+            <Text style={styles.stepTitle}>🧘‍♀️ Step 1: Find a Quiet Space</Text>
             <Text style={styles.stepText}>
-              Start from your toes and work your way up to your head. Tense each muscle group for about 5 seconds, then relax for 10 seconds.
-              Focus on the sensation of relaxation after releasing the tension.
+              Choose a peaceful environment where you won't be disturbed. Sit comfortably with your back straight and shoulders relaxed.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘‍♂️ Step 3: Full-Body Relaxation (2 min)</Text>
+            <Text style={styles.stepTitle}>🌬 Step 2: Begin Counting with Your Breath</Text>
             <Text style={styles.stepText}>
-              After going through all muscle groups, take a deep breath and scan your body.
-              Notice how much lighter and calmer you feel compared to when you started.
+              Close your eyes and take a deep breath in. As you exhale, count "one." On the next exhale, count "two." Continue this pattern up to "ten," then start over at "one." Focus solely on the counting and the rhythm of your breath.
             </Text>
 
-            <Text style={styles.stepTitle}>🎯 Final Thought</Text>
+            <Text style={styles.stepTitle}>🔄 Step 3: Redirect When Distracted</Text>
             <Text style={styles.stepText}>
-              Progressive Muscle Relaxation helps in reducing anger and stress by easing physical tension.
-              Practicing this regularly can help you gain better control over your emotions.
+              It's natural for the mind to wander. When you notice your thoughts drifting, gently bring your focus back to your counting and breathing without judgment.
+            </Text>
+
+            <Text style={styles.stepTitle}>🕰 Step 4: Practice for Several Minutes</Text>
+            <Text style={styles.stepText}>
+              Continue this mindful counting for about five minutes or until you feel a sense of calm. With regular practice, this technique can become a valuable tool in managing anger and enhancing mindfulness.
+            </Text>
+
+            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepText}>
+              Incorporating the Mindful Counting Exercise into your routine can help you develop greater control over your emotional responses, leading to improved well-being and reduced anger.
             </Text>
           </View>
 
-          <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
+          {/* Embedded YouTube Video */}
+          <View style={styles.videoContainer}>
+            <WebView
+              source={{ uri: "https://www.youtube.com/embed/TeCwSfAqAxI" }}
+              style={styles.video}
+              allowsFullscreenVideo={true}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+            />
+          </View>
+
+          <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>
             <Text style={styles.completeButtonText}>Complete Task</Text>
           </TouchableOpacity>
         </View>
@@ -105,6 +119,12 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
   },
+  description: {
+    fontSize: 16,
+    color: "#333",
+    marginBottom: 10,
+    lineHeight: 22,
+  },
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
@@ -116,6 +136,17 @@ const styles = StyleSheet.create({
     color: "#333",
     marginTop: 5,
     lineHeight: 22,
+  },
+  videoContainer: {
+    marginTop: 20,
+    width: "100%",
+    height: 250,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  video: {
+    width: "100%",
+    height: "100%",
   },
   completeButton: {
     marginTop: 20,
@@ -130,4 +161,3 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-
