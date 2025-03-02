@@ -69,6 +69,16 @@ export type RootStackParamList = {
   DepressionTask3: undefined;
   DepressionTask4: undefined;
   DepressionTask5: undefined;
+  DepressionTask6: undefined;
+  DepressionTask7: undefined;
+  DepressionTask8: undefined;
+  DepressionTask9: undefined;
+  DepressionTask10: undefined;
+  DepressionTask11: undefined;
+  DepressionTask12: undefined;
+  DepressionTask13: undefined;
+  DepressionTask14: undefined;
+  DepressionTask15: undefined;
   //Fatigue
   Fatigue: { taskCompleted?: boolean; taskScreen?: string };
   FatigueTask1: undefined;
@@ -76,6 +86,16 @@ export type RootStackParamList = {
   FatigueTask3: undefined;
   FatigueTask4: undefined;
   FatigueTask5: undefined;
+  FatigueTask6: undefined;
+  FatigueTask7: undefined;
+  FatigueTask8: undefined;
+  FatigueTask9: undefined;
+  FatigueTask10: undefined;
+  FatigueTask11: undefined;
+  FatigueTask12: undefined;
+  FatigueTask13: undefined;
+  FatigueTask14: undefined;
+  FatigueTask15: undefined;
   //Fear
   Fear: { taskCompleted?: boolean; taskScreen?: string };
   FearTask1: undefined;
@@ -83,6 +103,13 @@ export type RootStackParamList = {
   FearTask3: undefined;
   FearTask4: undefined;
   FearTask5: undefined;
+  FearTask6: undefined;
+  FearTask7: undefined;
+  FearTask8: undefined;
+  FearTask9: undefined;
+  FearTask10: undefined;
+  FearTask11: undefined;
+  FearTask12: undefined;
   //Fear of Loss
   FearOfLoss: { taskCompleted?: boolean; taskScreen?: string };
   FearOfLossTask1: undefined;

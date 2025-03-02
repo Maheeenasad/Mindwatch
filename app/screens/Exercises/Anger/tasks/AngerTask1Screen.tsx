@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import { RootStackParamList } from "../../../../../types/types"; 
 import { WebView } from "react-native-webview";
 
 const { width } = Dimensions.get("window");
@@ -17,48 +17,56 @@ export default function AngerTask1Screen() {
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image source={require("@/assets/exercises/Anger.jpg")} style={styles.image} />
         <View style={styles.content}>
-          <Text style={styles.title}>Expressive Art Therapy</Text>
+          <Text style={styles.title}>Expressive Art Therapy for Children</Text>
 
           <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>~5 min</Text>
+            <Text style={styles.timeText}>~20-30 min</Text>
           </View>
 
           <View style={styles.stepsContainer}>
             <Text style={styles.description}>
-              Expressive Art Therapy is a creative process that helps individuals process emotions
-              and release anger in a healthy way. By engaging in creative activities such as drawing,
-              painting, or sculpting, you can express your feelings without the need for words.
+              Expressive Art Therapy provides children with a creative outlet to process and manage their emotions, particularly anger. Engaging in art activities can help children express feelings they might find difficult to verbalize, leading to improved emotional regulation.
             </Text>
 
-            <Text style={styles.stepTitle}>🎨 Step 1: Gather Materials</Text>
+            <Text style={styles.stepTitle}>🎨 Step 1: Scribble Drawing</Text>
             <Text style={styles.stepText}>
-              Collect art supplies such as colored pencils, paints, markers, or a sketchbook.
-              Choose materials that allow you to freely express your emotions.
+              Provide your child with a blank sheet of paper and colored pencils or crayons. Encourage them to create a spontaneous scribble that represents their current feelings. This activity allows children to express their emotions freely without focusing on creating a specific image.
             </Text>
 
-            <Text style={styles.stepTitle}>🖌 Step 2: Express Your Feelings</Text>
+            <Text style={styles.stepTitle}>🖌️ Step 2: Transform the Scribble</Text>
             <Text style={styles.stepText}>
-              Start drawing or painting without thinking too much. Let your hand move freely and
-              express any anger, frustration, or stress onto the canvas or paper.
+              Ask your child to look at their scribble and identify any shapes or images they see within it. Using additional colors, they can enhance these shapes to create a more defined picture. This process helps children find meaning and order in chaotic emotions.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘‍♂️ Step 3: Reflect on Your Artwork</Text>
+            <Text style={styles.stepTitle}>🗣️ Step 3: Discuss the Artwork</Text>
             <Text style={styles.stepText}>
-              Once finished, take a moment to observe your creation. Identify emotions reflected
-              in your work and acknowledge them. You can also write a few words about how you feel.
+              Engage your child in a conversation about their artwork. Ask open-ended questions like:
+              {"\n"}- What does this drawing represent?
+              {"\n"}- How did you feel while creating it?
+              {"\n"}- What title would you give this piece?
+              {"\n"}This discussion encourages children to reflect on and articulate their emotions.
             </Text>
 
-            <Text style={styles.stepTitle}>🌿 Final Thought</Text>
+            <Text style={styles.stepTitle}>🧱 Step 4: Clay Modeling</Text>
             <Text style={styles.stepText}>
-              Expressive art therapy provides a safe and creative outlet to process emotions.
-              Practicing this regularly can help manage anger and improve emotional well-being.
+              Provide your child with modeling clay and encourage them to sculpt an "anger monster" or any form that represents their anger. This tactile activity allows children to externalize and manage their anger constructively.
+            </Text>
+
+            <Text style={styles.stepTitle}>📝 Step 5: Art Journal</Text>
+            <Text style={styles.stepText}>
+              Introduce the concept of an art journal where your child can regularly draw or paint their feelings. This ongoing practice promotes self-awareness and provides a safe space for emotional expression.
+            </Text>
+
+            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepText}>
+              Incorporating expressive art activities into your child's routine can serve as a valuable tool for managing anger and other strong emotions. Through creative expression, children learn to process their feelings in a healthy and constructive manner.
             </Text>
           </View>
 
           {/* Embedded YouTube Video */}
           <View style={styles.videoContainer}>
             <WebView
-              source={{ uri: "https://www.youtube.com/embed/Ptu2ca2Ezp0" }} 
+              source={{ uri: "https://www.youtube.com/embed/cs4_joJC3dU" }} // Art Therapy Activity For Anger - express and explore anger through art
               style={styles.video}
               allowsFullscreenVideo={true}
               javaScriptEnabled={true}

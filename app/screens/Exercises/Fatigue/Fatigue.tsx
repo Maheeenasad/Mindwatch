@@ -1,79 +1,77 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../types/types";
-import NavigationTab from '@/components/NavigationTab';
+import NavigationTab from "@/components/NavigationTab";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-type FatigueScreenProps = NativeStackScreenProps<RootStackParamList, "Fatigue"> & {
-  route: {
-    params: {
-      taskCompleted?: boolean;
-      taskScreen?: string;
-    };
-  };
+const taskCategories: Record<
+  "child" | "teenage" | "adult",
+  { id: number; title: string; time: string; screen: keyof RootStackParamList; image: any }[]
+> = {
+  child: [
+    { id: 1, title: "Gentle Stretching", time: "5 mins", screen: "FatigueTask1", image: require("@/assets/exercises/Fatigue.jpg") },
+    { id: 2, title: "Breathing Exercises", time: "5 mins", screen: "FatigueTask2", image: require("@/assets/exercises/FatigueTask2.jpg") },
+    { id: 3, title: "Short Guided Meditation", time: "7 mins", screen: "FatigueTask3", image: require("@/assets/exercises/FatigueTask3.jpg") },
+    { id: 4, title: "Hydration Break", time: "5 mins", screen: "FatigueTask4", image: require("@/assets/exercises/FatigueTask4.jpg") },
+    { id: 5, title: "Soothing Music & Rest", time: "5 mins", screen: "FatigueTask5", image: require("@/assets/exercises/FatigueTask5.jpg") },
+  ],
+  teenage: [
+    { id: 1, title: "Power Nap", time: "10 mins", screen: "FatigueTask6", image: require("@/assets/exercises/Fatigue.jpg") },
+    { id: 2, title: "Light Movement Routine", time: "5 mins", screen: "FatigueTask7", image: require("@/assets/exercises/FatigueTask2.jpg") },
+    { id: 3, title: "Progressive Muscle Relaxation", time: "7 mins", screen: "FatigueTask8", image: require("@/assets/exercises/FatigueTask3.jpg") },
+    { id: 4, title: "Mindful Breathing", time: "8 mins", screen: "FatigueTask9", image: require("@/assets/exercises/FatigueTask4.jpg") },
+    { id: 5, title: "Listening to Nature Sounds", time: "5 mins", screen: "FatigueTask10", image: require("@/assets/exercises/FatigueTask5.jpg") },
+  ],
+  adult: [
+    { id: 1, title: "Quick Desk Stretches", time: "10 mins", screen: "FatigueTask11", image: require("@/assets/exercises/Fatigue.jpg") },
+    { id: 2, title: "Hydration & Deep Breaths", time: "10 mins", screen: "FatigueTask12", image: require("@/assets/exercises/FatigueTask2.jpg") },
+    { id: 3, title: "Guided Relaxation", time: "8 mins", screen: "FatigueTask13", image: require("@/assets/exercises/FatigueTask3.jpg") },
+    { id: 4, title: "Short Walk & Fresh Air", time: "10 mins", screen: "FatigueTask14", image: require("@/assets/exercises/FatigueTask4.jpg") },
+    { id: 5, title: "Listening to Calming Podcasts", time: "10 mins", screen: "FatigueTask15", image: require("@/assets/exercises/FatigueTask5.jpg") },
+  ],
 };
 
-const initialTasks = [
-  { id: 1, title: "Gentle Stretching", time: "5 mins", unlocked: true, completed: false, screen: "FatigueTask1", image: require("@/assets/exercises/Fatigue.jpg") },
-  { id: 2, title: "Progressive Muscle Relaxation", time: "10 mins", unlocked: false, completed: false, screen: "FatigueTask2", image: require("@/assets/exercises/FatigueTask2.jpg") },
-  { id: 3, title: "Mindful Walking", time: "7 mins", unlocked: false, completed: false, screen: "FatigueTask3", image: require("@/assets/exercises/FatigueTask3.jpg") },
-  { id: 4, title: "Hydration and Deep Breathing", time: "8 mins", unlocked: false, completed: false, screen: "FatigueTask4", image: require("@/assets/exercises/FatigueTask4.jpg") },
-  { id: 5, title: "Power Nap", time: "10-15 mins", unlocked: false, completed: false, screen: "FatigueTask5", image: require("@/assets/exercises/FatigueTask5.jpg") },
-];
-
 export default function FatigueScreen() {
-  const [tasks, setTasks] = useState(initialTasks);
-  const navigation = useNavigation<FatigueScreenProps["navigation"]>();
-  const route = useRoute<FatigueScreenProps["route"]>(); 
-
-  useEffect(() => {
-    if (route.params?.taskCompleted) {
-      setTasks((prevTasks) => {
-        const taskIndex = prevTasks.findIndex((task) => task.screen === route.params.taskScreen);
-        if (taskIndex !== -1) {
-          const updatedTasks = [...prevTasks];
-          updatedTasks[taskIndex].completed = true;
-          if (taskIndex < updatedTasks.length - 1) {
-            updatedTasks[taskIndex + 1].unlocked = true;
-          }
-          return updatedTasks;
-        }
-        return prevTasks;
-      });
-    }
-  }, [route.params]);
+  const [selectedTab, setSelectedTab] = useState<"child" | "teenage" | "adult">("child");
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Tasks</Text>
+      <View style={styles.tabContainer}>
+        {(["child", "teenage", "adult"] as const).map((tab) => (
+          <TouchableOpacity key={tab} onPress={() => setSelectedTab(tab)} style={[styles.tab, selectedTab === tab && styles.activeTab]}>
+            <Text style={[styles.tabText, selectedTab === tab && styles.activeTabText]}>
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+
       <ScrollView contentContainerStyle={styles.taskList}>
-        {tasks.map((task, index) => (
+        {taskCategories[selectedTab].map((task) => (
           <TouchableOpacity
             key={task.id}
-            style={[styles.taskCard, !task.unlocked && styles.lockedTask]}
-            disabled={!task.unlocked}
-            onPress={() => navigation.navigate(task.screen as never)}
+            style={styles.taskCard}
+            onPress={() => {
+              navigation.navigate(task.screen as any, { taskId: task.id });
+            }}
           >
-          <Image source={task.image} style={styles.taskImage} />
+            <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
-              <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
-                {index + 1}. {task.title}
-              </Text>
+              <Text style={styles.taskTitle}>{task.title}</Text>
               <View style={styles.taskTime}>
-                <Ionicons name="time-outline" size={14} color={task.unlocked ? "#000" : "#aaa"} />
-                <Text style={[styles.taskDuration, !task.unlocked && styles.lockedText]}>{task.time}</Text>
+                <Ionicons name="time-outline" size={14} color="#000" />
+                <Text style={styles.taskDuration}>{task.time}</Text>
               </View>
             </View>
-            {task.completed ? (
-              <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />
-            ) : (
-              <Ionicons name={task.unlocked ? "radio-button-off" : "lock-closed"} size={24} color="#aaa" />
-            )}
+            <MaterialCommunityIcons name="chevron-right-circle-outline" size={24} color="#000" />
           </TouchableOpacity>
         ))}
       </ScrollView>
+
       <NavigationTab />
     </View>
   );
@@ -86,11 +84,26 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
   },
-  heading: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#003366",
+  tabContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
     marginBottom: 15,
+  },
+  tab: {
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    backgroundColor: "#E0E0E0",
+  },
+  activeTab: {
+    backgroundColor: "#003366",
+  },
+  tabText: {
+    fontSize: 16,
+    color: "#000",
+  },
+  activeTabText: {
+    color: "#FFF",
   },
   taskList: {
     paddingBottom: 40,
@@ -103,12 +116,7 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 10,
     elevation: 2,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  lockedTask: {
-    backgroundColor: "#F0F0F0",
+    justifyContent: "space-between",
   },
   taskImage: {
     width: 65,
@@ -133,8 +141,5 @@ const styles = StyleSheet.create({
     marginLeft: 4,
     fontSize: 14,
     color: "#000",
-  },
-  lockedText: {
-    color: "#aaa",
   },
 });

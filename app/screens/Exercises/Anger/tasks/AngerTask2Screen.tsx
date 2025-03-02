@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import { RootStackParamList } from "../../../../../types/types"; 
 import { WebView } from "react-native-webview";
 
 const { width } = Dimensions.get("window");
@@ -20,44 +20,44 @@ export default function AngerTask2Screen() {
           <Text style={styles.title}>Mindful Counting Exercise</Text>
 
           <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>~5 min</Text>
+            <Text style={styles.timeText}>~5-10 min</Text>
           </View>
 
           <View style={styles.stepsContainer}>
             <Text style={styles.description}>
-              The Mindful Counting Exercise is a simple yet effective technique to help manage anger by grounding your mind and body. By focusing on counting and your breath, you can divert attention from anger triggers and promote a sense of calm.
+              The Mindful Counting Exercise helps children manage anger by focusing their attention on counting breaths, promoting calmness and self-awareness.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘‍♀️ Step 1: Find a Quiet Space</Text>
+            <Text style={styles.stepTitle}>🧘‍♀️ Step 1: Find a Comfortable Position</Text>
             <Text style={styles.stepText}>
-              Choose a peaceful environment where you won't be disturbed. Sit comfortably with your back straight and shoulders relaxed.
+              Have your child sit or lie down in a comfortable position, ensuring they feel relaxed and at ease.
             </Text>
 
-            <Text style={styles.stepTitle}>🌬 Step 2: Begin Counting with Your Breath</Text>
+            <Text style={styles.stepTitle}>🌬️ Step 2: Start Counting Breaths</Text>
             <Text style={styles.stepText}>
-              Close your eyes and take a deep breath in. As you exhale, count "one." On the next exhale, count "two." Continue this pattern up to "ten," then start over at "one." Focus solely on the counting and the rhythm of your breath.
+              Instruct your child to gently close their eyes and begin breathing naturally. Ask them to count each inhale and exhale silently, starting from one up to ten, and then repeat the cycle. This technique helps anchor their attention to the present moment.
             </Text>
 
-            <Text style={styles.stepTitle}>🔄 Step 3: Redirect When Distracted</Text>
+            <Text style={styles.stepTitle}>🔄 Step 3: Refocus When Distracted</Text>
             <Text style={styles.stepText}>
-              It's natural for the mind to wander. When you notice your thoughts drifting, gently bring your focus back to your counting and breathing without judgment.
+              If your child's mind starts to wander, gently guide them to bring their focus back to counting their breaths. Remind them that it's normal for thoughts to drift and encourage them to refocus without judgment.
             </Text>
 
-            <Text style={styles.stepTitle}>🕰 Step 4: Practice for Several Minutes</Text>
+            <Text style={styles.stepTitle}>⏳ Step 4: Practice Regularly</Text>
             <Text style={styles.stepText}>
-              Continue this mindful counting for about five minutes or until you feel a sense of calm. With regular practice, this technique can become a valuable tool in managing anger and enhancing mindfulness.
+              Encourage your child to practice this mindful counting exercise daily, gradually increasing the duration as they become more comfortable. Regular practice can enhance their ability to manage anger and other strong emotions effectively.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>
             <Text style={styles.stepText}>
-              Incorporating the Mindful Counting Exercise into your routine can help you develop greater control over your emotional responses, leading to improved well-being and reduced anger.
+              Mindful counting is a simple yet powerful tool that empowers children to cultivate inner calm and emotional resilience, aiding in the management of anger.
             </Text>
           </View>
 
           {/* Embedded YouTube Video */}
           <View style={styles.videoContainer}>
             <WebView
-              source={{ uri: "https://www.youtube.com/embed/TeCwSfAqAxI" }}
+              source={{ uri: "https://www.youtube.com/embed/4UyPe7S0cSg" }} // Cosmic Counting (Peace Out: Guided Meditation for Kids)
               style={styles.video}
               allowsFullscreenVideo={true}
               javaScriptEnabled={true}

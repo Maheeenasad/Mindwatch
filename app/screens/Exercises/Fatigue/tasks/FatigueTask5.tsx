@@ -3,57 +3,69 @@ import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../../types/types";
+import { WebView } from "react-native-webview";
 
 const { width } = Dimensions.get("window");
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Fatigue">;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "FatigueTask5">;
 
 export default function FatigueTask5Screen() {
   const navigation = useNavigation<NavigationProp>();
-
-  const handleCompleteTask = () => {
-    navigation.replace("Fatigue", { taskCompleted: true, taskScreen: "FatigueTask5" });
-  };
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image source={require("@/assets/exercises/FatigueTask5.jpg")} style={styles.image} />
         <View style={styles.content}>
-          <Text style={styles.title}>Gentle Stretching</Text>
-  
+          <Text style={styles.title}>Soothing Music & Rest</Text>
+
           <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>~5 min</Text>
+            <Text style={styles.timeText}>~10 min</Text>
           </View>
-  
+
           <View style={styles.stepsContainer}>
-            <Text style={styles.stepTitle}>🧘 Step 1: Neck Stretch (1 min)</Text>
-            <Text style={styles.stepText}>
-              Gently tilt your head to one side, bringing your ear towards your shoulder. Hold for 30 seconds on each side.
+            <Text style={styles.description}>
+              Incorporating soothing music into rest periods can significantly reduce fatigue in children by promoting relaxation and improving sleep quality. This activity combines calming melodies with a restful environment to rejuvenate your child's energy levels.
             </Text>
-  
-            <Text style={styles.stepTitle}>🙆‍♂️ Step 2: Shoulder Rolls (1 min)</Text>
+
+            <Text style={styles.stepTitle}>🎵 Step 1: Select Calming Music</Text>
             <Text style={styles.stepText}>
-              Roll your shoulders forward and backward in a circular motion to release tension.
+              Choose gentle, instrumental music known for its relaxing properties. Soft piano tunes or nature sounds are excellent options. Ensure the volume is low to create a peaceful atmosphere.
             </Text>
-  
-            <Text style={styles.stepTitle}>🤸‍♂️ Step 3: Upper Body Stretch (2 min)</Text>
+
+            <Text style={styles.stepTitle}>🛏️ Step 2: Create a Comfortable Resting Space</Text>
             <Text style={styles.stepText}>
-              Extend your arms overhead and interlock your fingers. Stretch from side to side, holding each stretch for 30 seconds.
+              Prepare a cozy area with soft pillows and blankets where your child can lie down comfortably. Dim the lights or use a nightlight to enhance the serene environment.
             </Text>
-  
-            <Text style={styles.stepTitle}>🦵 Step 4: Leg Stretch (1 min)</Text>
+
+            <Text style={styles.stepTitle}>🌬️ Step 3: Practice Deep Breathing</Text>
             <Text style={styles.stepText}>
-              Sit or stand and extend one leg forward. Lean slightly to stretch your hamstring, then switch sides.
+              Encourage your child to take slow, deep breaths in through the nose and out through the mouth. This practice helps in calming the nervous system and preparing the body for rest.
             </Text>
-  
-            <Text style={styles.stepTitle}>💭 Final Thought</Text>
+
+            <Text style={styles.stepTitle}>🧘 Step 4: Mindful Listening</Text>
             <Text style={styles.stepText}>
-              Gentle stretching helps reduce muscle fatigue, improve flexibility, and enhance relaxation.
+              As the music plays, guide your child to focus on the different sounds and instruments. This mindful listening can divert attention from fatigue and promote mental relaxation.
+            </Text>
+
+            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepText}>
+              Regularly integrating soothing music and rest into your child's routine can effectively combat fatigue. This practice not only relaxes the body and mind but also fosters a sense of well-being and tranquility.
             </Text>
           </View>
-  
-          <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
+
+          {/* Embedded YouTube Video */}
+          <View style={styles.videoContainer}>
+            <WebView
+              source={{ uri: "https://www.youtube.com/embed/XgxRHa26JLo" }}
+              style={styles.video}
+              allowsFullscreenVideo={true}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+            />
+          </View>
+
+          <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>
             <Text style={styles.completeButtonText}>Complete Task</Text>
           </TouchableOpacity>
         </View>
@@ -65,7 +77,7 @@ export default function FatigueTask5Screen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F0F8FF", // Light blue for a calming effect
+    backgroundColor: "#F0F8FF",
   },
   scrollContent: {
     paddingBottom: 20,
@@ -84,7 +96,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#004D80", // Deep blue for relaxation
+    color: "#003366",
     textAlign: "center",
     marginBottom: 10,
   },
@@ -92,25 +104,31 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 20,
-    borderColor: "#004D80",
+    borderColor: "#003366",
     borderWidth: 2,
     alignSelf: "center",
     marginBottom: 15,
   },
   timeText: {
     fontSize: 16,
-    color: "#004D80",
+    color: "#003366",
     fontWeight: "600",
   },
   stepsContainer: {
-    backgroundColor: "#DFF4FF",
+    backgroundColor: "#E3F2FD",
     padding: 15,
     borderRadius: 10,
+  },
+  description: {
+    fontSize: 16,
+    color: "#333",
+    marginBottom: 10,
+    lineHeight: 22,
   },
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#004D80",
+    color: "#003366",
     marginTop: 10,
   },
   stepText: {
@@ -119,9 +137,20 @@ const styles = StyleSheet.create({
     marginTop: 5,
     lineHeight: 22,
   },
+  videoContainer: {
+    marginTop: 20,
+    width: "100%",
+    height: 250,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  video: {
+    width: "100%",
+    height: "100%",
+  },
   completeButton: {
     marginTop: 20,
-    backgroundColor: "#004D80",
+    backgroundColor: "#003366",
     paddingVertical: 15,
     borderRadius: 10,
     alignItems: "center",

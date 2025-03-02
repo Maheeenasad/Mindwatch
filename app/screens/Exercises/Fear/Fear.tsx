@@ -1,87 +1,78 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../types/types";
+import NavigationTab from "@/components/NavigationTab";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const API_URL = "http://192.168.100.8:5000"; // Replace with your actual backend URL
-
-const initialTasks = [
-  { id: 1, title: "Deep Breathing Exercise", time: "5 mins", unlocked: true, completed: false, screen: "FearTask1", image: require("@/assets/exercises/Fear.jpg") },
-  { id: 2, title: "Positive Visualization", time: "10 mins", unlocked: false, completed: false, screen: "FearTask2", image: require("@/assets/exercises/FearTask2.jpg") },
-  { id: 3, title: "Grounding Techniques", time: "7 mins", unlocked: false, completed: false, screen: "FearTask3", image: require("@/assets/exercises/FearTask3.jpg") },
-  { id: 4, title: "Affirmations Practice", time: "8 mins", unlocked: false, completed: false, screen: "FearTask4", image: require("@/assets/exercises/FearTask4.jpg") },
-];
+const taskCategories: Record<
+  "child" | "teenage" | "adult",
+  { id: number; title: string; time: string; screen: keyof RootStackParamList; image: any }[]
+> = {
+  child: [
+    { id: 1, title: "Bravery Storytime", time: "5 mins", screen: "FearTask1", image: require("@/assets/exercises/Fear.jpg") },
+    { id: 2, title: "Guided Visualization", time: "7 mins", screen: "FearTask2", image: require("@/assets/exercises/FearTask2.jpg") },
+    { id: 3, title: "Comfort Object Time", time: "5 mins", screen: "FearTask3", image: require("@/assets/exercises/FearTask3.jpg") },
+    { id: 4, title: "Face a Tiny Fear", time: "5 mins", screen: "FearTask4", image: require("@/assets/exercises/FearTask4.jpg") },
+  ],
+  teenage: [
+    { id: 1, title: "Confidence Affirmations", time: "10 mins", screen: "FearTask5", image: require("@/assets/exercises/Fear.jpg") },
+    { id: 2, title: "Exposure Therapy (Mild)", time: "5 mins", screen: "FearTask6", image: require("@/assets/exercises/FearTask2.jpg") },
+    { id: 3, title: "Progressive Relaxation", time: "8 mins", screen: "FearTask7", image: require("@/assets/exercises/FearTask3.jpg") },
+    { id: 4, title: "Power Pose Exercise", time: "5 mins", screen: "FearTask8", image: require("@/assets/exercises/FearTask4.jpg") },
+  ],
+  adult: [
+    { id: 1, title: "Fear Hierarchy Exercise", time: "10 mins", screen: "FearTask9", image: require("@/assets/exercises/Fear.jpg") },
+    { id: 2, title: "Mindful Exposure", time: "10 mins", screen: "FearTask10", image: require("@/assets/exercises/FearTask2.jpg") },
+    { id: 3, title: "Controlled Breathing", time: "8 mins", screen: "FearTask11", image: require("@/assets/exercises/FearTask3.jpg") },
+    { id: 4, title: "Cognitive Reframing", time: "10 mins", screen: "FearTask12", image: require("@/assets/exercises/FearTask4.jpg") },
+  ],
+};
 
 export default function FearScreen() {
-  const [tasks, setTasks] = useState(initialTasks);
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    const fetchCompletedTasks = async () => {
-      const token = await AsyncStorage.getItem("token");
-      if (!token) return;
-
-      try {
-        const response = await fetch(`${API_URL}/completed-tasks`, {
-          method: "GET",
-          headers: { Authorization: `Bearer ${token}` },
-        });
-
-        const completedTasks = await response.json();
-
-        setTasks((prevTasks) =>
-          prevTasks.map((task, index) => {
-            const isCompleted = completedTasks.some((t: { taskScreen: string }) => t.taskScreen === task.screen);
-            return {
-              ...task,
-              completed: isCompleted,
-              unlocked: index === 0 || prevTasks[index - 1].completed, // Unlock next task if previous is completed
-            };
-          })
-        );
-      } catch (error) {
-        console.error("Error fetching completed tasks:", error);
-      }
-    };
-
-    fetchCompletedTasks();
-  }, []);
+  const [selectedTab, setSelectedTab] = useState<"child" | "teenage" | "adult">("child");
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Tasks</Text>
+      <View style={styles.tabContainer}>
+        {(["child", "teenage", "adult"] as const).map((tab) => (
+          <TouchableOpacity key={tab} onPress={() => setSelectedTab(tab)} style={[styles.tab, selectedTab === tab && styles.activeTab]}>
+            <Text style={[styles.tabText, selectedTab === tab && styles.activeTabText]}>
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+
       <ScrollView contentContainerStyle={styles.taskList}>
-        {tasks.map((task, index) => (
+        {taskCategories[selectedTab].map((task) => (
           <TouchableOpacity
             key={task.id}
-            style={[styles.taskCard, !task.unlocked && styles.lockedTask]}
-            disabled={!task.unlocked}
-            onPress={() => navigation.navigate(task.screen)}
+            style={styles.taskCard}
+            onPress={() => {
+              navigation.navigate(task.screen as any, { taskId: task.id });
+            }}
           >
             <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
-              <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
-                {index + 1}. {task.title}
-              </Text>
+              <Text style={styles.taskTitle}>{task.title}</Text>
               <View style={styles.taskTime}>
-                <Ionicons name="time-outline" size={14} color={task.unlocked ? "#000" : "#aaa"} />
-                <Text style={[styles.taskDuration, !task.unlocked && styles.lockedText]}>{task.time}</Text>
+                <Ionicons name="time-outline" size={14} color="#000" />
+                <Text style={styles.taskDuration}>{task.time}</Text>
               </View>
             </View>
-            {task.completed ? (
-              <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />
-            ) : (
-              <Ionicons name={task.unlocked ? "radio-button-off" : "lock-closed"} size={24} color="#aaa" />
-            )}
+            <MaterialCommunityIcons name="chevron-right-circle-outline" size={24} color="#000" />
           </TouchableOpacity>
         ))}
       </ScrollView>
+
+      <NavigationTab />
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -90,11 +81,26 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
   },
-  heading: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#003366",
+  tabContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
     marginBottom: 15,
+  },
+  tab: {
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    backgroundColor: "#E0E0E0",
+  },
+  activeTab: {
+    backgroundColor: "#003366",
+  },
+  tabText: {
+    fontSize: 16,
+    color: "#000",
+  },
+  activeTabText: {
+    color: "#FFF",
   },
   taskList: {
     paddingBottom: 40,
@@ -107,12 +113,7 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 10,
     elevation: 2,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  lockedTask: {
-    backgroundColor: "#F0F0F0",
+    justifyContent: "space-between",
   },
   taskImage: {
     width: 65,
@@ -138,7 +139,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#000",
   },
-  lockedText: {
-    color: "#aaa",
-  },
 });
+

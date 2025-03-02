@@ -1,92 +1,78 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../types/types";
-import NavigationTab from '@/components/NavigationTab';
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import NavigationTab from "@/components/NavigationTab";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-type DepressionScreenProps = NativeStackScreenProps<RootStackParamList, "Depression"> & {
-  route: {
-    params: {
-      taskCompleted?: boolean;
-      taskScreen?: string;
-    };
-  };
+const taskCategories: Record<
+  "child" | "teenage" | "adult",
+  { id: number; title: string; time: string; screen: keyof RootStackParamList; image: any }[]
+> = {
+  child: [
+    { id: 1, title: "Guided Storytelling", time: "5 mins", screen: "DepressionTask1", image: require("@/assets/exercises/Depression.jpg") },
+    { id: 2, title: "Gentle Movement Exercise", time: "5 mins", screen: "DepressionTask2", image: require("@/assets/exercises/DepressionTask2.jpg") },
+    { id: 3, title: "Coloring for Mindfulness", time: "7 mins", screen: "DepressionTask3", image: require("@/assets/exercises/DepressionTask3.jpg") },
+    { id: 4, title: "Gratitude Journal", time: "5 mins", screen: "DepressionTask4", image: require("@/assets/exercises/DepressionTask4.jpg") },
+    { id: 5, title: "Breathing & Relaxation", time: "5 mins", screen: "DepressionTask5", image: require("@/assets/exercises/DepressionTask5.jpg") },
+  ],
+  teenage: [
+    { id: 1, title: "Reflective Journaling", time: "7 mins", screen: "DepressionTask6", image: require("@/assets/exercises/Depression.jpg") },
+    { id: 2, title: "Listening to Uplifting Music", time: "5 mins", screen: "DepressionTask7", image: require("@/assets/exercises/DepressionTask2.jpg") },
+    { id: 3, title: "Stretching & Yoga", time: "7 mins", screen: "DepressionTask8", image: require("@/assets/exercises/DepressionTask3.jpg") },
+    { id: 4, title: "Meditation & Deep Breathing", time: "8 mins", screen: "DepressionTask9", image: require("@/assets/exercises/DepressionTask4.jpg") },
+    { id: 5, title: "Positive Affirmations", time: "5 mins", screen: "DepressionTask10", image: require("@/assets/exercises/DepressionTask5.jpg") },
+  ],
+  adult: [
+    { id: 1, title: "Guided Meditation for Positivity", time: "10 mins", screen: "DepressionTask11", image: require("@/assets/exercises/Depression.jpg") },
+    { id: 2, title: "Physical Exercise Routine", time: "10 mins", screen: "DepressionTask12", image: require("@/assets/exercises/DepressionTask2.jpg") },
+    { id: 3, title: "Cognitive Restructuring", time: "8 mins", screen: "DepressionTask13", image: require("@/assets/exercises/DepressionTask3.jpg") },
+    { id: 4, title: "Therapeutic Writing", time: "10 mins", screen: "DepressionTask14", image: require("@/assets/exercises/DepressionTask4.jpg") },
+    { id: 5, title: "Outdoor Walk & Reflection", time: "10 mins", screen: "DepressionTask15", image: require("@/assets/exercises/DepressionTask5.jpg") },
+  ],
 };
 
-const initialTasks = [
-  { id: 1, title: "Morning Walk", time: "15 mins", unlocked: true, completed: false, screen: "DepressionTask1", image: require("@/assets/exercises/Depression.jpg") },
-  { id: 2, title: "Stretching", time: "10 mins", unlocked: false, completed: false, screen: "DepressionTask2", image: require("@/assets/exercises/DepressionTask2.jpg") },
-  { id: 3, title: "Meditation", time: "10 mins", unlocked: false, completed: false, screen: "DepressionTask3", image: require("@/assets/exercises/DepressionTask3.jpg") },
-  { id: 4, title: "Deep Breathing", time: "8 mins", unlocked: false, completed: false, screen: "DepressionTask4", image: require("@/assets/exercises/DepressionTask4.jpg") },
-  { id: 5, title: "Gratitude Journaling", time: "5 mins", unlocked: false, completed: false, screen: "DepressionTask5", image: require("@/assets/exercises/DepressionTask5.jpg") },
-];
-
-export default function DepressionTasksScreen() {
-  const [tasks, setTasks] = useState(initialTasks);
-  const [userEmail, setUserEmail] = useState<string | null>(null);
-  const navigation = useNavigation();
-  const route = useRoute();
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const email = await AsyncStorage.getItem("userEmail");
-      setUserEmail(email);
-      if (email) {
-        const savedTasks = await AsyncStorage.getItem(`tasks_${email}`);
-        if (savedTasks) {
-          setTasks(JSON.parse(savedTasks));
-        }
-      }
-    };
-    fetchUser();
-  }, []);
-
-  useEffect(() => {
-    if (route.params?.taskCompleted && userEmail) {
-      setTasks((prevTasks) => {
-        const taskIndex = prevTasks.findIndex((task) => task.screen === route.params.taskScreen);
-        if (taskIndex !== -1) {
-          const updatedTasks = [...prevTasks];
-          updatedTasks[taskIndex].completed = true;
-          if (taskIndex < updatedTasks.length - 1) {
-            updatedTasks[taskIndex + 1].unlocked = true;
-          }
-          AsyncStorage.setItem(`tasks_${userEmail}`, JSON.stringify(updatedTasks));
-          return updatedTasks;
-        }
-        return prevTasks;
-      });
-    }
-  }, [route.params, userEmail]);
+export default function DepressionScreen() {
+  const [selectedTab, setSelectedTab] = useState<"child" | "teenage" | "adult">("child");
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Tasks</Text>
+      <View style={styles.tabContainer}>
+        {(["child", "teenage", "adult"] as const).map((tab) => (
+          <TouchableOpacity key={tab} onPress={() => setSelectedTab(tab)} style={[styles.tab, selectedTab === tab && styles.activeTab]}>
+            <Text style={[styles.tabText, selectedTab === tab && styles.activeTabText]}>
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+
       <ScrollView contentContainerStyle={styles.taskList}>
-        {tasks.map((task, index) => (
+        {taskCategories[selectedTab].map((task) => (
           <TouchableOpacity
             key={task.id}
-            style={[styles.taskCard, !task.unlocked && styles.lockedTask]}
-            disabled={!task.unlocked}
-            onPress={() => navigation.navigate(task.screen as never)}
+            style={styles.taskCard}
+            onPress={() => {
+              navigation.navigate(task.screen as any, { taskId: task.id });
+            }}
           >
             <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
-              <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
-                {index + 1}. {task.title}
-              </Text>
+              <Text style={styles.taskTitle}>{task.title}</Text>
+              <View style={styles.taskTime}>
+                <Ionicons name="time-outline" size={14} color="#000" />
+                <Text style={styles.taskDuration}>{task.time}</Text>
+              </View>
             </View>
-            {task.completed ? (
-              <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />
-            ) : (
-              <Ionicons name={task.unlocked ? "radio-button-off" : "lock-closed"} size={24} color="#aaa" />
-            )}
+            <MaterialCommunityIcons name="chevron-right-circle-outline" size={24} color="#000" />
           </TouchableOpacity>
         ))}
       </ScrollView>
+
+      <NavigationTab />
     </View>
   );
 }
@@ -98,11 +84,26 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
   },
-  heading: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#003366",
+  tabContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
     marginBottom: 15,
+  },
+  tab: {
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    backgroundColor: "#E0E0E0",
+  },
+  activeTab: {
+    backgroundColor: "#003366",
+  },
+  tabText: {
+    fontSize: 16,
+    color: "#000",
+  },
+  activeTabText: {
+    color: "#FFF",
   },
   taskList: {
     paddingBottom: 40,
@@ -115,12 +116,7 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 10,
     elevation: 2,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  lockedTask: {
-    backgroundColor: "#F0F0F0",
+    justifyContent: "space-between",
   },
   taskImage: {
     width: 65,
@@ -145,8 +141,5 @@ const styles = StyleSheet.create({
     marginLeft: 4,
     fontSize: 14,
     color: "#000",
-  },
-  lockedText: {
-    color: "#aaa",
   },
 });

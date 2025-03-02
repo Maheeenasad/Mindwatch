@@ -74,6 +74,16 @@ import DepressionTask2 from "./screens/Exercises/Depression/tasks/DepressionTask
 import DepressionTask3 from "./screens/Exercises/Depression/tasks/DepressionTask3";
 import DepressionTask4 from "./screens/Exercises/Depression/tasks/DepressionTask4";
 import DepressionTask5 from "./screens/Exercises/Depression/tasks/DepressionTask5";
+import DepressionTask6 from "./screens/Exercises/Depression/tasks/DepressionTask6";
+import DepressionTask7 from "./screens/Exercises/Depression/tasks/DepressionTask7";
+import DepressionTask8 from "./screens/Exercises/Depression/tasks/DepressionTask8";
+import DepressionTask9 from "./screens/Exercises/Depression/tasks/DepressionTask9";
+import DepressionTask10 from "./screens/Exercises/Depression/tasks/DepressionTask10";
+import DepressionTask11 from "./screens/Exercises/Depression/tasks/DepressionTask11";
+import DepressionTask12 from "./screens/Exercises/Depression/tasks/DepressionTask12";
+import DepressionTask13 from "./screens/Exercises/Depression/tasks/DepressionTask13";
+import DepressionTask14 from "./screens/Exercises/Depression/tasks/DepressionTask14";
+import DepressionTask15 from "./screens/Exercises/Depression/tasks/DepressionTask15";
 //Fatigue
 import Fatigue from "./screens/Exercises/Fatigue/Fatigue";
 import FatigueTask1 from "./screens/Exercises/Fatigue/tasks/FatigueTask1";
@@ -81,6 +91,16 @@ import FatigueTask2 from "./screens/Exercises/Fatigue/tasks/FatigueTask2";
 import FatigueTask3 from "./screens/Exercises/Fatigue/tasks/FatigueTask3";
 import FatigueTask4 from "./screens/Exercises/Fatigue/tasks/FatigueTask4";
 import FatigueTask5 from "./screens/Exercises/Fatigue/tasks/FatigueTask5";
+import FatigueTask6 from "./screens/Exercises/Fatigue/tasks/FatigueTask6";
+import FatigueTask7 from "./screens/Exercises/Fatigue/tasks/FatigueTask7";
+import FatigueTask8 from "./screens/Exercises/Fatigue/tasks/FatigueTask8";
+import FatigueTask9 from "./screens/Exercises/Fatigue/tasks/FatigueTask9";
+import FatigueTask10 from "./screens/Exercises/Fatigue/tasks/FatigueTask10";
+import FatigueTask11 from "./screens/Exercises/Fatigue/tasks/FatigueTask11";
+import FatigueTask12 from "./screens/Exercises/Fatigue/tasks/FatigueTask12";
+import FatigueTask13 from "./screens/Exercises/Fatigue/tasks/FatigueTask13";
+import FatigueTask14 from "./screens/Exercises/Fatigue/tasks/FatigueTask14";
+import FatigueTask15 from "./screens/Exercises/Fatigue/tasks/FatigueTask15";
 //Fear
 import Fear from "./screens/Exercises/Fear/Fear";
 import FearTask1 from "./screens/Exercises/Fear/tasks/FearTask1";
@@ -88,6 +108,13 @@ import FearTask2 from "./screens/Exercises/Fear/tasks/FearTask2";
 import FearTask3 from "./screens/Exercises/Fear/tasks/FearTask3";
 import FearTask4 from "./screens/Exercises/Fear/tasks/FearTask4";
 import FearTask5 from "./screens/Exercises/Fear/tasks/FearTask5";
+import FearTask6 from "./screens/Exercises/Fear/tasks/FearTask6";
+import FearTask7 from "./screens/Exercises/Fear/tasks/FearTask7";
+import FearTask8 from "./screens/Exercises/Fear/tasks/FearTask8";
+import FearTask9 from "./screens/Exercises/Fear/tasks/FearTask9";
+import FearTask10 from "./screens/Exercises/Fear/tasks/FearTask10";
+import FearTask11 from "./screens/Exercises/Fear/tasks/FearTask11";
+import FearTask12 from "./screens/Exercises/Fear/tasks/FearTask12";
 //Fear of loss
 import FearOfLoss from "./screens/Exercises/Fear of Loss/FearofLoss";
 import FearOfLossTask1 from "./screens/Exercises/Fear of Loss/tasks/FearofLossTask1";
@@ -1065,6 +1092,136 @@ export default function RootLayout() {
           }}
         />
         <AppStack.Screen
+          name="DepressionTask6"
+          component={DepressionTask6}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="DepressionTask7"
+          component={DepressionTask7}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="DepressionTask8"
+          component={DepressionTask8}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="DepressionTask9"
+          component={DepressionTask9}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="DepressionTask10"
+          component={DepressionTask10}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "5. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="DepressionTask11"
+          component={DepressionTask11}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="DepressionTask12"
+          component={DepressionTask12}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="DepressionTask13"
+          component={DepressionTask13}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="DepressionTask14"
+          component={DepressionTask14}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="DepressionTask15"
+          component={DepressionTask15}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "5. Task",
+          }}
+        />
+        <AppStack.Screen
           name="Fatigue"
           component={Fatigue}
           options={{
@@ -1132,6 +1289,136 @@ export default function RootLayout() {
         <AppStack.Screen
           name="FatigueTask5"
           component={FatigueTask5}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "5. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FatigueTask6"
+          component={FatigueTask6}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FatigueTask7"
+          component={FatigueTask7}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FatigueTask8"
+          component={FatigueTask8}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FatigueTask9"
+          component={FatigueTask9}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FatigueTask10"
+          component={FatigueTask10}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "5. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FatigueTask11"
+          component={FatigueTask11}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FatigueTask12"
+          component={FatigueTask12}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FatigueTask13"
+          component={FatigueTask13}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FatigueTask14"
+          component={FatigueTask14}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FatigueTask15"
+          component={FatigueTask15}
           options={{
             headerStyle: {
               backgroundColor: "#F0F8FF",
@@ -1217,7 +1504,98 @@ export default function RootLayout() {
               elevation: 0,
             },
             headerTintColor: "#003366",
-            title: "5. Task",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FearTask6"
+          component={FearTask6}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FearTask7"
+          component={FearTask7}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FearTask8"
+          component={FearTask8}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FearTask9"
+          component={FearTask9}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "1. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FearTask10"
+          component={FearTask10}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "2. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FearTask11"
+          component={FearTask11}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "3. Task",
+          }}
+        />
+        <AppStack.Screen
+          name="FearTask12"
+          component={FearTask12}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F0F8FF",
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+            headerTintColor: "#003366",
+            title: "4. Task",
           }}
         />
         <AppStack.Screen

@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import { RootStackParamList } from "../../../../../types/types"; 
 import { WebView } from "react-native-webview";
 
 const { width } = Dimensions.get("window");
@@ -20,47 +20,44 @@ export default function AngerTask3Screen() {
           <Text style={styles.title}>Physical Release Activity</Text>
 
           <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>~10 min</Text>
+            <Text style={styles.timeText}>~10-15 min</Text>
           </View>
 
           <View style={styles.stepsContainer}>
             <Text style={styles.description}>
-              Physical Release Activities are designed to help you channel and dissipate anger through intentional physical movements. Engaging in these activities can reduce tension, promote relaxation, and improve emotional well-being.
+              The Physical Release Activity provides children with a constructive outlet to channel their anger and frustration through movement, promoting emotional regulation and physical well-being.
             </Text>
 
-            <Text style={styles.stepTitle}>🥊 Step 1: Prepare a Safe Space</Text>
+            <Text style={styles.stepTitle}>🏃‍♂️ Step 1: Choose a Physical Activity</Text>
             <Text style={styles.stepText}>
-              Find an area where you can move freely without obstacles. Ensure the space is safe for activities like punching, kicking, or vigorous movements.
+              Encourage your child to select a physical activity they enjoy, such as dancing, jumping rope, or running in place. Engaging in physical movement can help release pent-up energy associated with anger.
             </Text>
 
-            <Text style={styles.stepTitle}>💪 Step 2: Engage in Vigorous Exercise</Text>
+            <Text style={styles.stepTitle}>🎵 Step 2: Incorporate Music</Text>
             <Text style={styles.stepText}>
-              Choose a physical activity that appeals to you, such as:
-              {"\n"}- <Text style={{ fontWeight: "bold" }}>Boxing or Kickboxing:</Text> Use a punching bag or air punches to release energy.
-              {"\n"}- <Text style={{ fontWeight: "bold" }}>Dancing:</Text> Put on your favorite music and let your body move freely.
-              {"\n"}- <Text style={{ fontWeight: "bold" }}>Running or Jogging:</Text> A brisk run can help dissipate built-up tension.
-              {"\n"}- <Text style={{ fontWeight: "bold" }}>Jumping Rope:</Text> This high-intensity activity requires focus and coordination.
-              {"\n"}- <Text style={{ fontWeight: "bold" }}>Cardio Drumming:</Text> Use drumsticks to rhythmically hit an exercise ball, combining music and movement for stress relief.
+              Play some of your child's favorite upbeat music to make the activity more enjoyable. Music can enhance the mood and provide a rhythmic pattern for the physical movements.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘‍♂️ Step 3: Cool Down and Reflect</Text>
+            <Text style={styles.stepTitle}>⏱️ Step 3: Set a Time Frame</Text>
             <Text style={styles.stepText}>
-              After the activity, take a few minutes to cool down:
-              {"\n"}- <Text style={{ fontWeight: "bold" }}>Deep Breathing:</Text> Inhale deeply through your nose, hold for a moment, and exhale slowly through your mouth.
-              {"\n"}- <Text style={{ fontWeight: "bold" }}>Stretching:</Text> Gently stretch your muscles to release any remaining tension.
-              {"\n"}- <Text style={{ fontWeight: "bold" }}>Reflection:</Text> Sit quietly and observe how your body feels after releasing the physical energy associated with anger.
+              Decide on a duration for the activity, typically between 10 to 15 minutes. This provides a structured time for your child to engage in the physical release without feeling rushed.
+            </Text>
+
+            <Text style={styles.stepTitle}>🤗 Step 4: Reflect on Feelings</Text>
+            <Text style={styles.stepText}>
+              After the activity, sit down with your child and discuss how they feel. Reflecting on their emotions post-exercise can help them recognize the benefits of physical activity in managing anger.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>
             <Text style={styles.stepText}>
-              Regularly incorporating Physical Release Activities into your routine can provide a healthy outlet for anger and stress, leading to improved emotional balance and physical health.
+              Engaging in physical activities offers children a healthy way to express and manage their anger, contributing to their overall emotional and physical health.
             </Text>
           </View>
 
           {/* Embedded YouTube Video */}
           <View style={styles.videoContainer}>
             <WebView
-              source={{ uri: "https://www.youtube.com/embed/bPu87cLEHac" }}
+              source={{ uri: "https://www.youtube.com/embed/UZrJBj3kRd0" }} // 3 Movement Or Physical Release-Anger Coping Skills For Kids
               style={styles.video}
               allowsFullscreenVideo={true}
               javaScriptEnabled={true}
@@ -164,4 +161,3 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-

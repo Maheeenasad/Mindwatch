@@ -1,52 +1,78 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, Image, ScrollView, TouchableOpacity,StyleSheet } from "react-native";
+import React from "react";
+import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../../../../types/types"; 
+import { WebView } from "react-native-webview";
+
+const { width } = Dimensions.get("window");
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "DepressionTask1">;
 
 export default function DepressionTask1Screen() {
-  const navigation = useNavigation();
-  const [userEmail, setUserEmail] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchUserEmail = async () => {
-      const email = await AsyncStorage.getItem("userEmail");
-      setUserEmail(email);
-    };
-    fetchUserEmail();
-  }, []);
-
-  const handleCompleteTask = async () => {
-    if (userEmail) {
-      const tasks = await AsyncStorage.getItem(`tasks_${userEmail}`);
-      if (tasks) {
-        let updatedTasks = JSON.parse(tasks);
-        const taskIndex = updatedTasks.findIndex((task: any) => task.screen === "DepressionTask1");
-
-        if (taskIndex !== -1) {
-          updatedTasks[taskIndex].completed = true;
-          if (taskIndex < updatedTasks.length - 1) {
-            updatedTasks[taskIndex + 1].unlocked = true;
-          }
-          await AsyncStorage.setItem(`tasks_${userEmail}`, JSON.stringify(updatedTasks));
-        }
-      }
-      navigation.replace("Depression", { taskCompleted: true, taskScreen: "DepressionTask1" });
-    }
-  };
+  const navigation = useNavigation<NavigationProp>();
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image source={require("@/assets/exercises/Depression.jpg")} style={styles.image} />
-        <Text style={styles.title}>Morning Walk</Text>
-        <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
-          <Text style={styles.completeButtonText}>Complete Task</Text>
-        </TouchableOpacity>
+        <View style={styles.content}>
+          <Text style={styles.title}>Guided Storytelling</Text>
+
+          <View style={styles.timeContainer}>
+            <Text style={styles.timeText}>~10 min</Text>
+          </View>
+
+          <View style={styles.stepsContainer}>
+            <Text style={styles.description}>
+              Guided Storytelling is a therapeutic technique that encourages children to create and share stories as a way to explore and express their emotions. This process can help children process feelings of sadness or depression by externalizing their experiences and gaining new perspectives.
+            </Text>
+
+            <Text style={styles.stepTitle}>📚 Step 1: Choose a Theme</Text>
+            <Text style={styles.stepText}>
+              Select a theme that resonates with you, such as friendship, overcoming challenges, or a journey. This theme will serve as the foundation for your story.
+            </Text>
+
+            <Text style={styles.stepTitle}>✏️ Step 2: Create Your Story</Text>
+            <Text style={styles.stepText}>
+              Begin crafting a story around your chosen theme. Introduce characters, settings, and a plot that reflects the emotions or situations you're experiencing. Allow your imagination to guide you, and don't worry about perfection.
+            </Text>
+
+            <Text style={styles.stepTitle}>🗣 Step 3: Share Your Story</Text>
+            <Text style={styles.stepText}>
+              Share your story with a trusted person, such as a family member, friend, or therapist. Discuss the emotions and themes within the story and how they relate to your own experiences.
+            </Text>
+
+            <Text style={styles.stepTitle}>🔍 Step 4: Reflect on the Process</Text>
+            <Text style={styles.stepText}>
+              After sharing, take time to reflect on how creating and discussing the story made you feel. Consider any insights gained and how they might apply to your real-life situations.
+            </Text>
+
+            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepText}>
+              Engaging in Guided Storytelling can provide a safe space to explore and express complex emotions. Regular practice can enhance emotional understanding and resilience.
+            </Text>
+          </View>
+
+          {/* Embedded YouTube Video */}
+          <View style={styles.videoContainer}>
+            <WebView
+              source={{ uri: "https://www.youtube.com/embed/g4iHKY2p5bY" }}
+              style={styles.video}
+              allowsFullscreenVideo={true}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+            />
+          </View>
+
+          <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>
+            <Text style={styles.completeButtonText}>Complete Task</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -57,7 +83,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   image: {
-    // width: width,
+    width: width,
     height: 250,
     resizeMode: "cover",
     borderBottomLeftRadius: 20,
@@ -70,7 +96,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#004D80",
+    color: "#003366",
     textAlign: "center",
     marginBottom: 10,
   },
@@ -78,25 +104,31 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 20,
-    borderColor: "#004D80",
+    borderColor: "#003366",
     borderWidth: 2,
     alignSelf: "center",
     marginBottom: 15,
   },
   timeText: {
     fontSize: 16,
-    color: "#004D80",
+    color: "#003366",
     fontWeight: "600",
   },
   stepsContainer: {
-    backgroundColor: "#DFF4FF",
+    backgroundColor: "#E3F2FD",
     padding: 15,
     borderRadius: 10,
+  },
+  description: {
+    fontSize: 16,
+    color: "#333",
+    marginBottom: 10,
+    lineHeight: 22,
   },
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#004D80",
+    color: "#003366",
     marginTop: 10,
   },
   stepText: {
@@ -105,9 +137,20 @@ const styles = StyleSheet.create({
     marginTop: 5,
     lineHeight: 22,
   },
+  videoContainer: {
+    marginTop: 20,
+    width: "100%",
+    height: 250,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  video: {
+    width: "100%",
+    height: "100%",
+  },
   completeButton: {
     marginTop: 20,
-    backgroundColor: "#004D80",
+    backgroundColor: "#003366",
     paddingVertical: 15,
     borderRadius: 10,
     alignItems: "center",

@@ -2,53 +2,75 @@ import React from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import { RootStackParamList } from "../../../../../types/types"; 
+import { WebView } from "react-native-webview";
 
 const { width } = Dimensions.get("window");
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Depression">;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "DepressionTask4">;
 
 export default function DepressionTask4Screen() {
   const navigation = useNavigation<NavigationProp>();
-
-  const handleCompleteTask = () => {
-    navigation.replace("Depression", { taskCompleted: true, taskScreen: "DepressionTask4" });
-  };
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image source={require("@/assets/exercises/DepressionTask4.jpg")} style={styles.image} />
         <View style={styles.content}>
-          <Text style={styles.title}>Morning Walk</Text>
-  
+          <Text style={styles.title}>Gratitude Journal</Text>
+
           <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>~15 min</Text>
+            <Text style={styles.timeText}>~10 min</Text>
           </View>
-  
+
           <View style={styles.stepsContainer}>
-            <Text style={styles.stepTitle}>🚶 Step 1: Start with a Warm-up (2 min)</Text>
-            <Text style={styles.stepText}>
-              Begin with light stretching or slow walking to prepare your body.
+            <Text style={styles.description}>
+              Keeping a Gratitude Journal helps children focus on positive aspects of their lives, fostering a sense of appreciation and enhancing emotional well-being. This practice encourages mindfulness and can alleviate feelings of depression.
             </Text>
-  
-            <Text style={styles.stepTitle}>🌳 Step 2: Walk at a Steady Pace (10 min)</Text>
+
+            <Text style={styles.stepTitle}>📓 Step 1: Choose a Journal</Text>
             <Text style={styles.stepText}>
-              Maintain a comfortable pace, focus on deep breathing, and enjoy nature.
+              Select a notebook or journal that your child likes. Personalizing it with drawings or stickers can make it more special and inviting.
             </Text>
-  
-            <Text style={styles.stepTitle}>💆 Step 3: Cool Down (3 min)</Text>
+
+            <Text style={styles.stepTitle}>🖊️ Step 2: Set a Routine</Text>
             <Text style={styles.stepText}>
-              Slow down your pace and take deep breaths to relax your body.
+              Establish a regular time each day for journaling, such as before bed or after school. Consistency helps in building a lasting habit.
             </Text>
-  
-            <Text style={styles.stepTitle}>💭 Final Thought</Text>
+
+            <Text style={styles.stepTitle}>💭 Step 3: Reflect on Positive Moments</Text>
             <Text style={styles.stepText}>
-              A morning walk helps clear your mind, boosts mood, and improves overall well-being.
+              Encourage your child to think about three things they are grateful for each day. These can be simple, like a tasty meal, a fun game, or a kind gesture from a friend.
+            </Text>
+
+            <Text style={styles.stepTitle}>✍️ Step 4: Write or Draw</Text>
+            <Text style={styles.stepText}>
+              Have your child write down or draw their grateful moments in the journal. This creative expression reinforces positive feelings and makes the experience enjoyable.
+            </Text>
+
+            <Text style={styles.stepTitle}>🗣️ Step 5: Share and Discuss</Text>
+            <Text style={styles.stepText}>
+              If comfortable, allow your child to share their entries with you or other family members. Discussing these moments can strengthen family bonds and highlight the importance of gratitude.
+            </Text>
+
+            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepText}>
+              Regularly maintaining a Gratitude Journal can help children develop a positive outlook and improve their mental health. Encourage your child to make this practice a joyful part of their daily routine.
             </Text>
           </View>
-  
-          <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
+
+          {/* Embedded YouTube Video */}
+          <View style={styles.videoContainer}>
+            <WebView
+              source={{ uri: "https://www.youtube.com/embed/fi7eDRt-hDI" }}
+              style={styles.video}
+              allowsFullscreenVideo={true}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+            />
+          </View>
+
+          <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>
             <Text style={styles.completeButtonText}>Complete Task</Text>
           </TouchableOpacity>
         </View>
@@ -79,7 +101,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#004D80",
+    color: "#003366",
     textAlign: "center",
     marginBottom: 10,
   },
@@ -87,25 +109,31 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 20,
-    borderColor: "#004D80",
+    borderColor: "#003366",
     borderWidth: 2,
     alignSelf: "center",
     marginBottom: 15,
   },
   timeText: {
     fontSize: 16,
-    color: "#004D80",
+    color: "#003366",
     fontWeight: "600",
   },
   stepsContainer: {
-    backgroundColor: "#DFF4FF",
+    backgroundColor: "#E3F2FD",
     padding: 15,
     borderRadius: 10,
+  },
+  description: {
+    fontSize: 16,
+    color: "#333",
+    marginBottom: 10,
+    lineHeight: 22,
   },
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#004D80",
+    color: "#003366",
     marginTop: 10,
   },
   stepText: {
@@ -114,9 +142,20 @@ const styles = StyleSheet.create({
     marginTop: 5,
     lineHeight: 22,
   },
+  videoContainer: {
+    marginTop: 20,
+    width: "100%",
+    height: 250,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  video: {
+    width: "100%",
+    height: "100%",
+  },
   completeButton: {
     marginTop: 20,
-    backgroundColor: "#004D80",
+    backgroundColor: "#003366",
     paddingVertical: 15,
     borderRadius: 10,
     alignItems: "center",
