@@ -1,54 +1,76 @@
-import React from "react";
-import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import React from 'react';
+import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../../../../types/types';
+import { WebView } from 'react-native-webview';
 
-const { width } = Dimensions.get("window");
+const { width } = Dimensions.get('window');
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, "FearOfLoss">;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'FearOfLossTask2'>;
 
-export default function FearofLossTask2Screen() {
+export default function FearOfLossTask2Screen() {
   const navigation = useNavigation<NavigationProp>();
-
-  const handleCompleteTask = () => {
-    navigation.replace("FearOfLoss", { taskCompleted: true, taskScreen: "FearOfLossTask2" });
-  };
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/FearOfLossTask2.jpg")} style={styles.image} />
+        <Image source={require('@/assets/exercises/FearOfLossTask2.jpg')} style={styles.image} />
         <View style={styles.content}>
-          <Text style={styles.title}>Deep Breathing Exercise</Text>
-  
+          <Text style={styles.title}>Comfort Drawing</Text>
+
           <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>~5 min</Text>
+            <Text style={styles.timeText}>~25 min</Text>
           </View>
-  
+
           <View style={styles.stepsContainer}>
-            <Text style={styles.stepTitle}>🌬️ Step 1: Find a Comfortable Position (1 min)</Text>
-            <Text style={styles.stepText}>
-              Sit or lie down in a comfortable position. Close your eyes and relax your shoulders.
+            <Text style={styles.description}>
+              Comfort Drawing is a therapeutic activity that allows children to express their emotions and find solace through art. This exercise encourages them to visualize and create images that
+              bring them comfort, aiding in the processing of grief and loss.
             </Text>
-  
-            <Text style={styles.stepTitle}>😌 Step 2: Inhale Deeply (2 min)</Text>
+
+            <Text style={styles.stepTitle}>🛠️ Step 1: Gather Materials</Text>
             <Text style={styles.stepText}>
-              Inhale slowly through your nose, filling your lungs completely. Hold for a few seconds.
+              Collect the following items:
+              {'\n'}- Blank paper or a sketchbook
+              {'\n'}- Colored pencils, crayons, or markers
+              {'\n'}- Optional: Paints and brushes
             </Text>
-  
-            <Text style={styles.stepTitle}>💨 Step 3: Exhale Slowly (2 min)</Text>
+
+            <Text style={styles.stepTitle}>🧘 Step 2: Create a Calm Environment</Text>
+            <Text style={styles.stepText}>Find a quiet and comfortable space free from distractions. Soft background music can enhance relaxation.</Text>
+
+            <Text style={styles.stepTitle}>🖌️ Step 3: Encourage Expression Through Drawing</Text>
             <Text style={styles.stepText}>
-              Slowly exhale through your mouth, releasing any tension. Repeat for a few minutes.
+              Invite the child to draw anything that makes them feel safe, happy, or comforted. This could be a favorite place, a beloved pet, or abstract shapes and colors that resonate with their
+              feelings.
             </Text>
-  
-            <Text style={styles.stepTitle}>💭 Final Thought</Text>
+
+            <Text style={styles.stepTitle}>🗣️ Step 4: Discuss the Artwork</Text>
             <Text style={styles.stepText}>
-              Deep breathing can help reduce fear and anxiety by calming your nervous system.
+              After completing the drawing, encourage the child to share their creation and the emotions behind it. This discussion can help them articulate their feelings and foster a sense of
+              understanding and support.
+            </Text>
+
+            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepText}>
+              Engaging in Comfort Drawing provides children with a creative outlet to process complex emotions. Regular practice can enhance emotional resilience and offer a constructive way to cope
+              with feelings of loss.
             </Text>
           </View>
-  
-          <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
+
+          {/* Embedded YouTube Video */}
+          <View style={styles.videoContainer}>
+            <WebView
+              source={{ uri: 'https://www.youtube.com/embed/yBPeOwnhdH8' }} // Kid's Grief Art Project (death or divorce)
+              style={styles.video}
+              allowsFullscreenVideo={true}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+            />
+          </View>
+
+          <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>
             <Text style={styles.completeButtonText}>Complete Task</Text>
           </TouchableOpacity>
         </View>
@@ -60,7 +82,7 @@ export default function FearofLossTask2Screen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F0F8FF", // Light blue for a calming effect
+    backgroundColor: '#F0F8FF',
   },
   scrollContent: {
     paddingBottom: 20,
@@ -68,7 +90,7 @@ const styles = StyleSheet.create({
   image: {
     width: width,
     height: 250,
-    resizeMode: "cover",
+    resizeMode: 'cover',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
@@ -78,52 +100,69 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
-    color: "#004D80", // Deep blue for relaxation
-    textAlign: "center",
+    fontWeight: 'bold',
+    color: '#003366',
+    textAlign: 'center',
     marginBottom: 10,
   },
   timeContainer: {
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 20,
-    borderColor: "#004D80",
+    borderColor: '#003366',
     borderWidth: 2,
-    alignSelf: "center",
+    alignSelf: 'center',
     marginBottom: 15,
   },
   timeText: {
     fontSize: 16,
-    color: "#004D80",
-    fontWeight: "600",
+    color: '#003366',
+    fontWeight: '600',
   },
   stepsContainer: {
-    backgroundColor: "#DFF4FF",
+    backgroundColor: '#E3F2FD',
     padding: 15,
     borderRadius: 10,
   },
+  description: {
+    fontSize: 16,
+    color: '#333',
+    marginBottom: 10,
+    lineHeight: 22,
+  },
   stepTitle: {
     fontSize: 18,
-    fontWeight: "bold",
-    color: "#004D80",
+    fontWeight: 'bold',
+    color: '#003366',
     marginTop: 10,
   },
   stepText: {
     fontSize: 16,
-    color: "#333",
+    color: '#333',
     marginTop: 5,
     lineHeight: 22,
   },
+  videoContainer: {
+    marginTop: 20,
+    width: '100%',
+    height: 250,
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
+  video: {
+    width: '100%',
+    height: '100%',
+  },
   completeButton: {
     marginTop: 20,
-    backgroundColor: "#004D80",
+    backgroundColor: '#003366',
     paddingVertical: 15,
     borderRadius: 10,
-    alignItems: "center",
+    alignItems: 'center',
   },
   completeButtonText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });

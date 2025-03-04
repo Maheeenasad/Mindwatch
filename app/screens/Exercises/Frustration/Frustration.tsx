@@ -1,79 +1,71 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../../types/types";
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../../../types/types';
 import NavigationTab from '@/components/NavigationTab';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-type FrustrationScreenProps = NativeStackScreenProps<RootStackParamList, "Frustration"> & {
-  route: {
-    params: {
-      taskCompleted?: boolean;
-      taskScreen?: string;
-    };
-  };
+const taskCategories: Record<'child' | 'teenage' | 'adult', { id: number; title: string; time: string; screen: keyof RootStackParamList; image: any }[]> = {
+  child: [
+    { id: 1, title: 'Anger Coloring Activity', time: '15 mins', screen: 'FrustrationTask1', image: require('@/assets/exercises/Frustration.jpg') },
+    { id: 2, title: 'Bubble Wrap Stomping', time: '10 mins', screen: 'FrustrationTask2', image: require('@/assets/exercises/FrustrationTask2.jpg') },
+    { id: 3, title: 'Deep Breathing with Balloons', time: '10 mins', screen: 'FrustrationTask3', image: require('@/assets/exercises/FrustrationTask3.jpg') },
+    { id: 4, title: 'Creating a “Calm Down” Jar', time: '20 mins', screen: 'FrustrationTask4', image: require('@/assets/exercises/FrustrationTask4.jpg') },
+    { id: 5, title: 'Stomp and Shout Exercise', time: '10 mins', screen: 'FrustrationTask5', image: require('@/assets/exercises/FrustrationTask5.jpg') }
+  ],
+  teenage: [
+    { id: 1, title: 'Frustration Journal', time: '15 mins', screen: 'FrustrationTask6', image: require('@/assets/exercises/Frustration.jpg') },
+    { id: 2, title: 'Physical Release Workout', time: '30 mins', screen: 'FrustrationTask7', image: require('@/assets/exercises/FrustrationTask2.jpg') },
+    { id: 3, title: 'Music Therapy for Anger', time: '20 mins', screen: 'FrustrationTask8', image: require('@/assets/exercises/FrustrationTask3.jpg') },
+    { id: 4, title: 'Scream into a Pillow', time: '5 mins', screen: 'FrustrationTask9', image: require('@/assets/exercises/FrustrationTask4.jpg') },
+    { id: 5, title: 'Guided Visualization', time: '15 mins', screen: 'FrustrationTask10', image: require('@/assets/exercises/FrustrationTask5.jpg') }
+  ],
+  adult: [
+    { id: 1, title: 'Cognitive Reframing', time: '30 mins', screen: 'FrustrationTask11', image: require('@/assets/exercises/Frustration.jpg') },
+    { id: 2, title: '5-Minute Grounding Exercise', time: '5 mins', screen: 'FrustrationTask12', image: require('@/assets/exercises/FrustrationTask2.jpg') },
+    { id: 3, title: 'Breathwork for Stress', time: '15 mins', screen: 'FrustrationTask13', image: require('@/assets/exercises/FrustrationTask3.jpg') },
+    { id: 4, title: 'Mindful Walking', time: '20 mins', screen: 'FrustrationTask14', image: require('@/assets/exercises/FrustrationTask4.jpg') },
+    { id: 5, title: 'Writing a Rant Letter (Not Sending)', time: '25 mins', screen: 'FrustrationTask15', image: require('@/assets/exercises/FrustrationTask5.jpg') }
+  ]
 };
 
-const initialTasks = [
-  { id: 1, title: "Breathing Exercise", time: "5 mins", unlocked: true, completed: false, screen: "FrustrationTask1", image: require("@/assets/exercises/Frustration.jpg") },
-  { id: 2, title: "Guided Meditation", time: "10 mins", unlocked: false, completed: false, screen: "FrustrationTask2", image: require("@/assets/exercises/FrustrationTask2.jpg") },
-  { id: 3, title: "Anger Journal", time: "7 mins", unlocked: false, completed: false, screen: "FrustrationTask3", image: require("@/assets/exercises/FrustrationTask3.jpg") },
-  { id: 4, title: "Progressive Muscle Relaxation", time: "8 mins", unlocked: false, completed: false, screen: "FrustrationTask4", image: require("@/assets/exercises/FrustrationTask4.jpg") },
-  { id: 5, title: "Visualization Exercise", time: "10-15 mins", unlocked: false, completed: false, screen: "FrustrationTask5", image: require("@/assets/exercises/FrustrationTask5.jpg") },
-];
-
 export default function FrustrationScreen() {
-  const [tasks, setTasks] = useState(initialTasks);
-  const navigation = useNavigation<FrustrationScreenProps["navigation"]>();
-  const route = useRoute<FrustrationScreenProps["route"]>();
-
-  useEffect(() => {
-    if (route.params?.taskCompleted) {
-      setTasks((prevTasks) => {
-        const taskIndex = prevTasks.findIndex((task) => task.screen === route.params.taskScreen);
-        if (taskIndex !== -1) {
-          const updatedTasks = [...prevTasks];
-          updatedTasks[taskIndex].completed = true;
-          if (taskIndex < updatedTasks.length - 1) {
-            updatedTasks[taskIndex + 1].unlocked = true;
-          }
-          return updatedTasks;
-        }
-        return prevTasks;
-      });
-    }
-  }, [route.params]);
+  const [selectedTab, setSelectedTab] = useState<'child' | 'teenage' | 'adult'>('child');
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Tasks</Text>
+      <View style={styles.tabContainer}>
+        {(['child', 'teenage', 'adult'] as const).map(tab => (
+          <TouchableOpacity key={tab} onPress={() => setSelectedTab(tab)} style={[styles.tab, selectedTab === tab && styles.activeTab]}>
+            <Text style={[styles.tabText, selectedTab === tab && styles.activeTabText]}>{tab.charAt(0).toUpperCase() + tab.slice(1)}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+
       <ScrollView contentContainerStyle={styles.taskList}>
-        {tasks.map((task, index) => (
+        {taskCategories[selectedTab].map(task => (
           <TouchableOpacity
             key={task.id}
-            style={[styles.taskCard, !task.unlocked && styles.lockedTask]}
-            disabled={!task.unlocked}
-            onPress={() => navigation.navigate(task.screen as never)}
-          >
+            style={styles.taskCard}
+            onPress={() => {
+              navigation.navigate(task.screen as any, { taskId: task.id });
+            }}>
             <Image source={task.image} style={styles.taskImage} />
             <View style={styles.taskInfo}>
-              <Text style={[styles.taskTitle, !task.unlocked && styles.lockedText]}>
-                {index + 1}. {task.title}
-              </Text>
+              <Text style={styles.taskTitle}>{task.title}</Text>
               <View style={styles.taskTime}>
-                <Ionicons name="time-outline" size={14} color={task.unlocked ? "#000" : "#aaa"} />
-                <Text style={[styles.taskDuration, !task.unlocked && styles.lockedText]}>{task.time}</Text>
+                <Ionicons name='time-outline' size={14} color='#000' />
+                <Text style={styles.taskDuration}>{task.time}</Text>
               </View>
             </View>
-            {task.completed ? (
-              <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />
-            ) : (
-              <Ionicons name={task.unlocked ? "radio-button-off" : "lock-closed"} size={24} color="#aaa" />
-            )}
+            <MaterialCommunityIcons name='chevron-right-circle-outline' size={24} color='#000' />
           </TouchableOpacity>
         ))}
       </ScrollView>
+
       <NavigationTab />
     </View>
   );
@@ -82,59 +74,66 @@ export default function FrustrationScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F0F8FF",
+    backgroundColor: '#F0F8FF',
     paddingHorizontal: 20,
-    paddingTop: 20,
+    paddingTop: 20
   },
-  heading: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#003366",
-    marginBottom: 15,
+  tabContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 15
+  },
+  tab: {
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    backgroundColor: '#E0E0E0'
+  },
+  activeTab: {
+    backgroundColor: '#003366'
+  },
+  tabText: {
+    fontSize: 16,
+    color: '#000'
+  },
+  activeTabText: {
+    color: '#FFF'
   },
   taskList: {
-    paddingBottom: 40,
+    paddingBottom: 40
   },
   taskCard: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#fff",
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
     borderRadius: 15,
     padding: 12,
     marginBottom: 10,
     elevation: 2,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  lockedTask: {
-    backgroundColor: "#F0F0F0",
+    justifyContent: 'space-between'
   },
   taskImage: {
     width: 65,
     height: 50,
     borderRadius: 8,
-    marginRight: 12,
+    marginRight: 12
   },
   taskInfo: {
-    flex: 1,
+    flex: 1
   },
   taskTitle: {
     fontSize: 16,
-    fontWeight: "bold",
-    color: "#000",
+    fontWeight: 'bold',
+    color: '#000'
   },
   taskTime: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 4,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4
   },
   taskDuration: {
     marginLeft: 4,
     fontSize: 14,
-    color: "#000",
-  },
-  lockedText: {
-    color: "#aaa",
-  },
+    color: '#000'
+  }
 });

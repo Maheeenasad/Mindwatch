@@ -117,6 +117,13 @@ export type RootStackParamList = {
   FearOfLossTask3: undefined;
   FearOfLossTask4: undefined;
   FearOfLossTask5: undefined;
+  FearOfLossTask6: undefined;
+  FearOfLossTask7: undefined;
+  FearOfLossTask8: undefined;
+  FearOfLossTask9: undefined;
+  FearOfLossTask10: undefined;
+  FearOfLossTask11: undefined;
+  FearOfLossTask12: undefined;
   //Forgiveness
   Forgiveness: { taskCompleted?: boolean; taskScreen?: string };
   ForgivenessTask1: undefined;
@@ -124,6 +131,16 @@ export type RootStackParamList = {
   ForgivenessTask3: undefined;
   ForgivenessTask4: undefined;
   ForgivenessTask5: undefined;
+  ForgivenessTask6: undefined;
+  ForgivenessTask7: undefined;
+  ForgivenessTask8: undefined;
+  ForgivenessTask9: undefined;
+  ForgivenessTask10: undefined;
+  ForgivenessTask11: undefined;
+  ForgivenessTask12: undefined;
+  ForgivenessTask13: undefined;
+  ForgivenessTask14: undefined;
+  ForgivenessTask15: undefined;
   //Frustration
   Frustration: { taskCompleted?: boolean; taskScreen?: string };
   FrustrationTask1: undefined;
@@ -131,6 +148,16 @@ export type RootStackParamList = {
   FrustrationTask3: undefined;
   FrustrationTask4: undefined;
   FrustrationTask5: undefined;
+  FrustrationTask6: undefined;
+  FrustrationTask7: undefined;
+  FrustrationTask8: undefined;
+  FrustrationTask9: undefined;
+  FrustrationTask10: undefined;
+  FrustrationTask11: undefined;
+  FrustrationTask12: undefined;
+  FrustrationTask13: undefined;
+  FrustrationTask14: undefined;
+  FrustrationTask15: undefined;
   //Happiness
   Happiness: { taskCompleted?: boolean; taskScreen?: string };
   HappinessTask1: undefined;
@@ -138,6 +165,16 @@ export type RootStackParamList = {
   HappinessTask3: undefined;
   HappinessTask4: undefined;
   HappinessTask5: undefined;
+  HappinessTask6: undefined;
+  HappinessTask7: undefined;
+  HappinessTask8: undefined;
+  HappinessTask9: undefined;
+  HappinessTask10: undefined;
+  HappinessTask11: undefined;
+  HappinessTask12: undefined;
+  HappinessTask13: undefined;
+  HappinessTask14: undefined;
+  HappinessTask15: undefined;
   //Impatience
   Impatience: { taskCompleted: boolean; taskScreen?: string };
   ImpatienceTask1: undefined;
@@ -145,6 +182,16 @@ export type RootStackParamList = {
   ImpatienceTask3: undefined;
   ImpatienceTask4: undefined;
   ImpatienceTask5: undefined;
+  ImpatienceTask6: undefined;
+  ImpatienceTask7: undefined;
+  ImpatienceTask8: undefined;
+  ImpatienceTask9: undefined;
+  ImpatienceTask10: undefined;
+  ImpatienceTask11: undefined;
+  ImpatienceTask12: undefined;
+  ImpatienceTask13: undefined;
+  ImpatienceTask14: undefined;
+  ImpatienceTask15: undefined;
   //Irritation
   Irritation: { taskCompleted?: boolean; taskScreen?: string };
   IrritationTask1: undefined;
@@ -152,6 +199,16 @@ export type RootStackParamList = {
   IrritationTask3: undefined;
   IrritationTask4: undefined;
   IrritationTask5: undefined;
+  IrritationTask6: undefined;
+  IrritationTask7: undefined;
+  IrritationTask8: undefined;
+  IrritationTask9: undefined;
+  IrritationTask10: undefined;
+  IrritationTask11: undefined;
+  IrritationTask12: undefined;
+  IrritationTask13: undefined;
+  IrritationTask14: undefined;
+  IrritationTask15: undefined;
   //Jealousy
   Jealousy: { taskCompleted?: boolean; taskScreen?: string };
   JealousyTask1: undefined;
@@ -159,6 +216,16 @@ export type RootStackParamList = {
   JealousyTask3: undefined;
   JealousyTask4: undefined;
   JealousyTask5: undefined;
+  JealousyTask6: undefined;
+  JealousyTask7: undefined;
+  JealousyTask8: undefined;
+  JealousyTask9: undefined;
+  JealousyTask10: undefined;
+  JealousyTask11: undefined;
+  JealousyTask12: undefined;
+  JealousyTask13: undefined;
+  JealousyTask14: undefined;
+  JealousyTask15: undefined;
   //Loneliness
   Loneliness: { taskCompleted?: boolean; taskScreen?: string };
   LonelinessTask1: undefined;
@@ -166,6 +233,16 @@ export type RootStackParamList = {
   LonelinessTask3: undefined;
   LonelinessTask4: undefined;
   LonelinessTask5: undefined;
+  LonelinessTask6: undefined;
+  LonelinessTask7: undefined;
+  LonelinessTask8: undefined;
+  LonelinessTask9: undefined;
+  LonelinessTask10: undefined;
+  LonelinessTask11: undefined;
+  LonelinessTask12: undefined;
+  LonelinessTask13: undefined;
+  LonelinessTask14: undefined;
+  LonelinessTask15: undefined;
   //Pain
   Pain: { taskCompleted?: boolean; taskScreen?: string };
   PainTask1: undefined;
@@ -173,6 +250,16 @@ export type RootStackParamList = {
   PainTask3: undefined;
   PainTask4: undefined;
   PainTask5: undefined;
+  PainTask6: undefined;
+  PainTask7: undefined;
+  PainTask8: undefined;
+  PainTask9: undefined;
+  PainTask10: undefined;
+  PainTask11: undefined;
+  PainTask12: undefined;
+  PainTask13: undefined;
+  PainTask14: undefined;
+  PainTask15: undefined;
   //Resentment
   Resentment: { taskCompleted?: boolean; taskScreen?: string };
   ResentmentTask1: undefined;
@@ -187,6 +274,16 @@ export type RootStackParamList = {
   SadnessTask3: undefined;
   SadnessTask4: undefined;
   SadnessTask5: undefined;
+  SadnessTask6: undefined;
+  SadnessTask7: undefined;
+  SadnessTask8: undefined;
+  SadnessTask9: undefined;
+  SadnessTask10: undefined;
+  SadnessTask11: undefined;
+  SadnessTask12: undefined;
+  SadnessTask13: undefined;
+  SadnessTask14: undefined;
+  SadnessTask15: undefined;
   //Self-Confidence
   SelfConfidence: { taskCompleted?: boolean; taskScreen?: string };
   SelfConfidenceTask1: undefined;
@@ -194,6 +291,16 @@ export type RootStackParamList = {
   SelfConfidenceTask3: undefined;
   SelfConfidenceTask4: undefined;
   SelfConfidenceTask5: undefined;
+  SelfConfidenceTask6: undefined;
+  SelfConfidenceTask7: undefined;
+  SelfConfidenceTask8: undefined;
+  SelfConfidenceTask9: undefined;
+  SelfConfidenceTask10: undefined;
+  SelfConfidenceTask11: undefined;
+  SelfConfidenceTask12: undefined;
+  SelfConfidenceTask13: undefined;
+  SelfConfidenceTask14: undefined;
+  SelfConfidenceTask15: undefined;
   //Shame
   Shame: { taskCompleted?: boolean; taskScreen?: string };
   ShameTask1: undefined;
@@ -208,6 +315,16 @@ export type RootStackParamList = {
   ShynessTask3: undefined;
   ShynessTask4: undefined;
   ShynessTask5: undefined;
+  ShynessTask6: undefined;
+  ShynessTask7: undefined;
+  ShynessTask8: undefined;
+  ShynessTask9: undefined;
+  ShynessTask10: undefined;
+  ShynessTask11: undefined;
+  ShynessTask12: undefined;
+  ShynessTask13: undefined;
+  ShynessTask14: undefined;
+  ShynessTask15: undefined;
   //Social Anxiety
   SocialAnxiety: { taskCompleted?: boolean; taskScreen?: string };
   SocialAnxietyTask1: undefined;
@@ -215,7 +332,6 @@ export type RootStackParamList = {
   SocialAnxietyTask3: undefined;
   SocialAnxietyTask4: undefined;
   SocialAnxietyTask5: undefined;
-
 
   //Mood Tracking
   MoodTracking: undefined;

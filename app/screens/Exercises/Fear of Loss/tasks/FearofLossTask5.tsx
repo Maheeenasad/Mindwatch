@@ -1,54 +1,80 @@
-import React from "react";
-import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../../../types/types"; // Adjust path if needed
+import React from 'react';
+import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../../../../types/types';
+import { WebView } from 'react-native-webview';
 
-const { width } = Dimensions.get("window");
+const { width } = Dimensions.get('window');
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, "FearOfLoss">;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'FearOfLossTask5'>;
 
-export default function FearofLossTask5Screen() {
+export default function FearOfLossTask5Screen() {
   const navigation = useNavigation<NavigationProp>();
-
-  const handleCompleteTask = () => {
-    navigation.replace("FearOfLoss", { taskCompleted: true, taskScreen: "FearOfLossTask5" });
-  };
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Image source={require("@/assets/exercises/FearOfLossTask5.jpg")} style={styles.image} />
+        <Image source={require('@/assets/exercises/FearOfLoss.jpg')} style={styles.image} />
         <View style={styles.content}>
-          <Text style={styles.title}>Deep Breathing Exercise</Text>
-  
+          <Text style={styles.title}>Gratitude Letters</Text>
+
           <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>~5 min</Text>
+            <Text style={styles.timeText}>~30 min</Text>
           </View>
-  
+
           <View style={styles.stepsContainer}>
-            <Text style={styles.stepTitle}>🌬️ Step 1: Find a Comfortable Position (1 min)</Text>
-            <Text style={styles.stepText}>
-              Sit or lie down in a comfortable position. Close your eyes and relax your shoulders.
+            <Text style={styles.description}>
+              "Gratitude Letters" is a therapeutic exercise aimed at helping teenagers cope with feelings of loss by focusing on the positive relationships in their lives. This activity encourages
+              teens to express appreciation, thereby enhancing their emotional well-being and strengthening social bonds.
             </Text>
-  
-            <Text style={styles.stepTitle}>😌 Step 2: Inhale Deeply (2 min)</Text>
+
+            <Text style={styles.stepTitle}>🛠️ Step 1: Gather Materials</Text>
             <Text style={styles.stepText}>
-              Inhale slowly through your nose, filling your lungs completely. Hold for a few seconds.
+              Collect the following items:
+              {'\n'}- Paper or a notebook
+              {'\n'}- Pen or pencil
+              {'\n'}- Optional: Envelopes and decorative materials like stickers or colored pens
             </Text>
-  
-            <Text style={styles.stepTitle}>💨 Step 3: Exhale Slowly (2 min)</Text>
+
+            <Text style={styles.stepTitle}>🧘 Step 2: Reflect on Positive Relationships</Text>
             <Text style={styles.stepText}>
-              Slowly exhale through your mouth, releasing any tension. Repeat for a few minutes.
+              Find a quiet space and take a few moments to think about people who have had a positive impact on your life. Consider family members, friends, teachers, or mentors who have supported
+              you.
             </Text>
-  
-            <Text style={styles.stepTitle}>💭 Final Thought</Text>
+
+            <Text style={styles.stepTitle}>📝 Step 3: Write the Gratitude Letter</Text>
             <Text style={styles.stepText}>
-              Deep breathing can help reduce fear and anxiety by calming your nervous system.
+              Choose one person from your reflections and write a letter expressing your gratitude. Be specific about what they did and how it affected you. For example, "I appreciate how you always
+              listened to me during tough times; it made me feel valued and understood."
             </Text>
+
+            <Text style={styles.stepTitle}>📬 Step 4: Deliver the Letter</Text>
+            <Text style={styles.stepText}>
+              If possible, deliver the letter in person to observe their reaction and strengthen your connection. If that's not feasible, consider mailing or emailing it.
+            </Text>
+
+            <Text style={styles.stepTitle}>🗣️ Step 5: Reflect on the Experience</Text>
+            <Text style={styles.stepText}>
+              After delivering the letter, take some time to reflect on how the process made you feel. Did it change your perspective on your relationships or your feelings of loss?
+            </Text>
+
+            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepText}>Engaging in the "Gratitude Letters" activity can help shift focus from loss to appreciation, fostering a sense of connection and emotional resilience.</Text>
           </View>
-  
-          <TouchableOpacity style={styles.completeButton} onPress={handleCompleteTask}>
+
+          {/* Embedded YouTube Video */}
+          <View style={styles.videoContainer}>
+            <WebView
+              source={{ uri: 'https://www.youtube.com/embed/oHv6vTKD6lg' }} // An Experiment in Gratitude | The Science of Happiness
+              style={styles.video}
+              allowsFullscreenVideo={true}
+              javaScriptEnabled={true}
+              domStorageEnabled={true}
+            />
+          </View>
+
+          <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>
             <Text style={styles.completeButtonText}>Complete Task</Text>
           </TouchableOpacity>
         </View>
@@ -60,7 +86,7 @@ export default function FearofLossTask5Screen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F0F8FF", // Light blue for a calming effect
+    backgroundColor: '#F0F8FF',
   },
   scrollContent: {
     paddingBottom: 20,
@@ -68,7 +94,7 @@ const styles = StyleSheet.create({
   image: {
     width: width,
     height: 250,
-    resizeMode: "cover",
+    resizeMode: 'cover',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
@@ -78,52 +104,69 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
-    color: "#004D80", // Deep blue for relaxation
-    textAlign: "center",
+    fontWeight: 'bold',
+    color: '#003366',
+    textAlign: 'center',
     marginBottom: 10,
   },
   timeContainer: {
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 20,
-    borderColor: "#004D80",
+    borderColor: '#003366',
     borderWidth: 2,
-    alignSelf: "center",
+    alignSelf: 'center',
     marginBottom: 15,
   },
   timeText: {
     fontSize: 16,
-    color: "#004D80",
-    fontWeight: "600",
+    color: '#003366',
+    fontWeight: '600',
   },
   stepsContainer: {
-    backgroundColor: "#DFF4FF",
+    backgroundColor: '#E3F2FD',
     padding: 15,
     borderRadius: 10,
   },
+  description: {
+    fontSize: 16,
+    color: '#333',
+    marginBottom: 10,
+    lineHeight: 22,
+  },
   stepTitle: {
     fontSize: 18,
-    fontWeight: "bold",
-    color: "#004D80",
+    fontWeight: 'bold',
+    color: '#003366',
     marginTop: 10,
   },
   stepText: {
     fontSize: 16,
-    color: "#333",
+    color: '#333',
     marginTop: 5,
     lineHeight: 22,
   },
+  videoContainer: {
+    marginTop: 20,
+    width: '100%',
+    height: 250,
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
+  video: {
+    width: '100%',
+    height: '100%',
+  },
   completeButton: {
     marginTop: 20,
-    backgroundColor: "#004D80",
+    backgroundColor: '#003366',
     paddingVertical: 15,
     borderRadius: 10,
-    alignItems: "center",
+    alignItems: 'center',
   },
   completeButtonText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });
