@@ -29,37 +29,37 @@ export default function LonelinessTask14Screen() {
               leveraging your inherent social skills.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 1: Identify Your Social Strengths</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 1: Identify Your Social Strengths</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Take 10-15 minutes to list your top 3-5 social strengths. These could include active listening, empathy, humor, or the ability to resolve conflicts. Reflect on past
-              interactions where these strengths were evident.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Take 10-15 minutes to list your top 3-5 social strengths. These could include active listening, empathy, humor, or the ability to
+              resolve conflicts. Reflect on past interactions where these strengths were evident.
             </Text>
 
-            <Text style={styles.stepTitle}>🔍 Step 2: Seek External Feedback</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔍 Step 2: Seek External Feedback</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Reach out to 3-5 trusted individuals from different areas of your life (e.g., family, friends, colleagues) and ask them to share instances when they observed you at your
-              social best. This external perspective can provide valuable insights.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Reach out to 3-5 trusted individuals from different areas of your life (e.g., family, friends, colleagues) and ask them to share
+              instances when they observed you at your social best. This external perspective can provide valuable insights.
             </Text>
 
-            <Text style={styles.stepTitle}>🧠 Step 3: Analyze and Reflect</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧠 Step 3: Analyze and Reflect</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Compare your self-identified strengths with the feedback received. Note any common themes or surprising observations. Reflect on how these strengths have positively
-              impacted your relationships.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Compare your self-identified strengths with the feedback received. Note any common themes or surprising observations. Reflect on
+              how these strengths have positively impacted your relationships.
             </Text>
 
-            <Text style={styles.stepTitle}>🎯 Step 4: Develop an Action Plan</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎯 Step 4: Develop an Action Plan</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose one social strength you'd like to enhance further. Set specific, achievable goals to practice this strength in your daily interactions. For example, if active
-              listening is a strength, aim to practice it consciously in your next conversation.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose one social strength you'd like to enhance further. Set specific, achievable goals to practice this strength in your daily
+              interactions. For example, if active listening is a strength, aim to practice it consciously in your next conversation.
             </Text>
 
-            <Text style={styles.stepTitle}>📆 Step 5: Implement and Reflect</Text>
+            <Text style={styles.stepTitle}>{'\n'}📆 Step 5: Implement and Reflect</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Over the next week, intentionally apply your action plan in social situations. Keep a journal to document your experiences, noting any improvements in your interactions
-              and feelings of connectedness.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Over the next week, intentionally apply your action plan in social situations. Keep a journal to document your experiences, noting
+              any improvements in your interactions and feelings of connectedness.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               By recognizing and cultivating your social strengths, you can build more meaningful connections and alleviate feelings of loneliness. Continuous self-reflection and proactive engagement
               are key to nurturing these strengths.

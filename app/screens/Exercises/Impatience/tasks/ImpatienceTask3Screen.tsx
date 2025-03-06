@@ -31,28 +31,32 @@ export default function ImpatienceTask3Screen() {
 
             <Text style={styles.stepTitle}>🖍️ Step 1: Select a Detailed Coloring Page</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose a coloring page with intricate patterns or designs that require careful attention. Mandalas or nature scenes with fine details are excellent choices.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a coloring page with intricate patterns or designs that require careful attention. Mandalas or nature scenes with fine
+              details are excellent choices.
             </Text>
 
             <Text style={styles.stepTitle}>🎨 Step 2: Gather Coloring Materials</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Provide a variety of coloring tools such as colored pencils, fine-tipped markers, or crayons. Having multiple options allows the child to experiment with different
-              techniques and colors.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Provide a variety of coloring tools such as colored pencils, fine-tipped markers, or crayons. Having multiple options allows the
+              child to experiment with different techniques and colors.
             </Text>
 
             <Text style={styles.stepTitle}>🧘‍♂️ Step 3: Create a Calm Environment</Text>
-            <Text style={styles.stepText}>- **Activity**: Set up a quiet and comfortable space free from distractions. Soft background music or nature sounds can enhance relaxation and focus.</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Set up a quiet and comfortable space free from distractions. Soft background music or nature sounds can enhance relaxation and
+              focus.
+            </Text>
 
             <Text style={styles.stepTitle}>⌛ Step 4: Encourage Slow and Steady Coloring</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage the child to color slowly, paying attention to staying within the lines and selecting colors thoughtfully. Emphasize that there's no rush to complete the
-              picture.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage the child to color slowly, paying attention to staying within the lines and selecting colors thoughtfully. Emphasize
+              that there's no rush to complete the picture.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 5: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After completing the coloring session, discuss how the child felt during the activity. Ask questions like, "Did taking your time make you feel relaxed?" or "How did you
-              decide which colors to use?"
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After completing the coloring session, discuss how the child felt during the activity. Ask questions like, "Did taking your time
+              make you feel relaxed?" or "How did you decide which colors to use?"
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

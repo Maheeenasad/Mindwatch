@@ -31,39 +31,39 @@ export default function ImpatienceTask4Screen() {
 
             <Text style={styles.stepTitle}>🧘‍♀️ Step 1: Introduce Mindful Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Explain to the child that mindful breathing involves paying close attention to each breath as it enters and leaves the body. It's a way to help our minds feel calm and
-              focused.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Explain to the child that mindful breathing involves paying close attention to each breath as it enters and leaves the body. It's
+              a way to help our minds feel calm and focused.
             </Text>
 
             <Text style={styles.stepTitle}>🌬️ Step 2: Practice Deep Belly Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Have the child sit or lie down comfortably. Ask them to place one hand on their belly and the other on their chest. Instruct them to take a slow, deep breath in through
-              the nose, filling the belly with air and making it rise, while the chest remains relatively still. Then, have them slowly exhale through the nose, feeling the belly fall. Repeat this for
-              several breaths.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Have the child sit or lie down comfortably. Ask them to place one hand on their belly and the other on their chest. Instruct them
+              to take a slow, deep breath in through the nose, filling the belly with air and making it rise, while the chest remains relatively still. Then, have them slowly exhale through the nose,
+              feeling the belly fall. Repeat this for several breaths.
             </Text>
 
             <Text style={styles.stepTitle}>🕯️ Step 3: Smell the Flower, Blow Out the Candle</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Ask the child to imagine holding a flower in one hand and a candle in the other. Instruct them to inhale deeply through the nose as if smelling the flower, then exhale
-              slowly through the mouth as if gently blowing out the candle. Repeat this exercise to promote relaxation.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Ask the child to imagine holding a flower in one hand and a candle in the other. Instruct them to inhale deeply through the nose
+              as if smelling the flower, then exhale slowly through the mouth as if gently blowing out the candle. Repeat this exercise to promote relaxation.
             </Text>
 
             <Text style={styles.stepTitle}>🐉 Step 4: Dragon Fire Breaths</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage the child to sit comfortably and take a deep breath in through the nose. Then, have them exhale forcefully through the mouth, imagining they are a dragon
-              breathing out fire. This exercise can help release tension and is both fun and engaging.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage the child to sit comfortably and take a deep breath in through the nose. Then, have them exhale forcefully through the
+              mouth, imagining they are a dragon breathing out fire. This exercise can help release tension and is both fun and engaging.
             </Text>
 
             <Text style={styles.stepTitle}>🎈 Step 5: Bubble Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Provide the child with bubble solution and a wand. Encourage them to take a deep breath in and then blow out slowly to create bubbles. This activity promotes controlled
-              breathing and patience, as blowing too hard or too softly won't produce bubbles.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Provide the child with bubble solution and a wand. Encourage them to take a deep breath in and then blow out slowly to create
+              bubbles. This activity promotes controlled breathing and patience, as blowing too hard or too softly won't produce bubbles.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 6: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After practicing these exercises, discuss with the child how they felt during each activity. Ask questions like, "Which breathing exercise did you enjoy the most?" or
-              "How did your body feel after practicing mindful breathing?"
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After practicing these exercises, discuss with the child how they felt during each activity. Ask questions like, "Which breathing
+              exercise did you enjoy the most?" or "How did your body feel after practicing mindful breathing?"
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

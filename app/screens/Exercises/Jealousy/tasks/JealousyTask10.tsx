@@ -28,32 +28,33 @@ export default function JealousyTask10Screen() {
               Practicing self-compassion enables teenagers to treat themselves with kindness during challenging times, reducing self-criticism and mitigating feelings of jealousy.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘‍♂️ Step 1: Mindful Self-Compassion Meditation</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘‍♂️ Step 1: Mindful Self-Compassion Meditation</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Guide teenagers through a mindfulness meditation focused on self-compassion. Encourage them to sit comfortably, close their eyes, and bring attention to their breath. As
-              they breathe, prompt them to acknowledge any difficult emotions without judgment, offering themselves kindness and understanding. This practice helps in recognizing and soothing their
-              own suffering.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Guide teenagers through a mindfulness meditation focused on self-compassion. Encourage them to sit comfortably, close their eyes,
+              and bring attention to their breath. As they breathe, prompt them to acknowledge any difficult emotions without judgment, offering themselves kindness and understanding. This practice
+              helps in recognizing and soothing their own suffering.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 2: Self-Compassion Journaling</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 2: Self-Compassion Journaling</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage teens to write about a recent experience where they felt inadequate or jealous. Ask them to reflect on this situation with a compassionate perspective,
-              considering what they would say to a friend in a similar scenario. This exercise fosters a kinder inner dialogue and promotes self-acceptance.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage teens to write about a recent experience where they felt inadequate or jealous. Ask them to reflect on this situation
+              with a compassionate perspective, considering what they would say to a friend in a similar scenario. This exercise fosters a kinder inner dialogue and promotes self-acceptance.
             </Text>
 
-            <Text style={styles.stepTitle}>🤝 Step 3: Common Humanity Reflection</Text>
+            <Text style={styles.stepTitle}>{'\n'}🤝 Step 3: Common Humanity Reflection</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Help teenagers understand that suffering and personal inadequacy are part of the shared human experience. Encourage them to reflect on how others might have similar
-              feelings, reinforcing the idea that they are not alone in their struggles. This realization can alleviate feelings of isolation associated with jealousy.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Help teenagers understand that suffering and personal inadequacy are part of the shared human experience. Encourage them to
+              reflect on how others might have similar feelings, reinforcing the idea that they are not alone in their struggles. This realization can alleviate feelings of isolation associated with
+              jealousy.
             </Text>
 
-            <Text style={styles.stepTitle}>💬 Step 4: Positive Self-Talk Practice</Text>
+            <Text style={styles.stepTitle}>{'\n'}💬 Step 4: Positive Self-Talk Practice</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Teach teens to recognize negative self-talk and reframe it into positive, compassionate statements. For example, replacing "I'm not good enough" with "I'm doing my best,
-              and that's okay." Regular practice of positive self-talk can build resilience against jealousy.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Teach teens to recognize negative self-talk and reframe it into positive, compassionate statements. For example, replacing "I'm
+              not good enough" with "I'm doing my best, and that's okay." Regular practice of positive self-talk can build resilience against jealousy.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Integrating self-compassion practices into daily life empowers teenagers to handle challenges with kindness toward themselves, reducing negative emotions like jealousy and enhancing
               overall well-being.

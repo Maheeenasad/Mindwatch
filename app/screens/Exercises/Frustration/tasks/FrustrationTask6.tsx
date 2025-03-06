@@ -29,33 +29,37 @@ export default function FrustrationTask6Screen() {
               clarity and develop effective coping strategies.
             </Text>
 
-            <Text style={styles.stepTitle}>🛠️ Step 1: Set Up Your Journal</Text>
+            <Text style={styles.stepTitle}>{'\n'}🛠️ Step 1: Set Up Your Journal</Text>
             <Text style={styles.stepText}>
-              - **Choose a notebook or digital platform** that you feel comfortable writing in.{'\n'}- **Ensure privacy** so you can express yourself openly without concern.
+              - <Text style={{ fontWeight: 'bold' }}>Choose a notebook or digital platform</Text> that you feel comfortable writing in.{'\n'}-{' '}
+              <Text style={{ fontWeight: 'bold' }}>Ensure privacy</Text> so you can express yourself openly without concern.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 2: Daily Reflection</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 2: Daily Reflection</Text>
             <Text style={styles.stepText}>
-              1. **Allocate 10-15 minutes each day** to write about your feelings and experiences.{'\n'}2. **Focus on moments that triggered frustration**, detailing the situation and your reaction.
+              1. <Text style={{ fontWeight: 'bold' }}>Allocate 10-15 minutes each day</Text> to write about your feelings and experiences.{'\n'}
+              2. <Text style={{ fontWeight: 'bold' }}>Focus on moments that triggered frustration</Text>, detailing the situation and your reaction.
             </Text>
 
-            <Text style={styles.stepTitle}>🔍 Step 3: Identify Patterns</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔍 Step 3: Identify Patterns</Text>
             <Text style={styles.stepText}>
-              1. **Review your entries weekly** to spot recurring themes or triggers.{'\n'}2. **Reflect on how you handled each situation** and the outcomes of your reactions.
+              1. <Text style={{ fontWeight: 'bold' }}>Review your entries weekly</Text> to spot recurring themes or triggers.{'\n'}
+              2. <Text style={{ fontWeight: 'bold' }}>Reflect on how you handled each situation</Text> and the outcomes of your reactions.
             </Text>
 
-            <Text style={styles.stepTitle}>💡 Step 4: Develop Coping Strategies</Text>
+            <Text style={styles.stepTitle}>{'\n'}💡 Step 4: Develop Coping Strategies</Text>
             <Text style={styles.stepText}>
-              1. **Brainstorm alternative responses** to similar situations in the future.{'\n'}2. **Consider relaxation techniques**, such as deep breathing or mindfulness, to manage intense
-              emotions.
+              1. <Text style={{ fontWeight: 'bold' }}>Brainstorm alternative responses</Text> to similar situations in the future.{'\n'}
+              2. <Text style={{ fontWeight: 'bold' }}>Consider relaxation techniques</Text>, such as deep breathing or mindfulness, to manage intense emotions.
             </Text>
 
-            <Text style={styles.stepTitle}>🤝 Step 5: Seek Support</Text>
+            <Text style={styles.stepTitle}>{'\n'}🤝 Step 5: Seek Support</Text>
             <Text style={styles.stepText}>
-              1. **Share your insights** with a trusted friend, family member, or counselor.{'\n'}2. **Discuss potential solutions** and gain different perspectives on handling frustration.
+              1. <Text style={{ fontWeight: 'bold' }}>Share your insights</Text> with a trusted friend, family member, or counselor.{'\n'}
+              2. <Text style={{ fontWeight: 'bold' }}>Discuss potential solutions</Text> and gain different perspectives on handling frustration.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Regular journaling fosters self-awareness and emotional intelligence. By understanding the root causes of your frustration, you can navigate challenges more effectively and cultivate a
               balanced mindset.

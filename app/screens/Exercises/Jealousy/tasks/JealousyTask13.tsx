@@ -29,31 +29,31 @@ export default function JealousyTask13Screen() {
               cultivate inner peace, emotional control, and a more positive outlook on life.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘‍♀️ Step 1: Find a Quiet Space</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘‍♀️ Step 1: Find a Quiet Space</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Start by finding a quiet, comfortable space where you won’t be disturbed. Sit or lie down in a relaxed position and close your eyes. Take a few deep breaths to calm your
-              mind and body.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Start by finding a quiet, comfortable space where you won’t be disturbed. Sit or lie down in a relaxed position and close your
+              eyes. Take a few deep breaths to calm your mind and body.
             </Text>
 
-            <Text style={styles.stepTitle}>🌅 Step 2: Visualize a Peaceful Scene</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌅 Step 2: Visualize a Peaceful Scene</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Imagine yourself in a serene and peaceful place. It could be a beach, a forest, or a mountain top. Focus on the details: the sounds, the smells, the colors, and the
-              textures. Allow yourself to feel the calmness and tranquility of this environment.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Imagine yourself in a serene and peaceful place. It could be a beach, a forest, or a mountain top. Focus on the details: the
+              sounds, the smells, the colors, and the textures. Allow yourself to feel the calmness and tranquility of this environment.
             </Text>
 
-            <Text style={styles.stepTitle}>✨ Step 3: Picture Your Desired Future</Text>
+            <Text style={styles.stepTitle}>{'\n'}✨ Step 3: Picture Your Desired Future</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Now, visualize yourself achieving your goals and feeling content. Picture your success, happiness, and the pride you will feel. Focus on how it will feel to have your
-              desires fulfilled, and let those positive emotions fill you up.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Now, visualize yourself achieving your goals and feeling content. Picture your success, happiness, and the pride you will feel.
+              Focus on how it will feel to have your desires fulfilled, and let those positive emotions fill you up.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Step 4: Release Negative Emotions</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Step 4: Release Negative Emotions</Text>
             <Text style={styles.stepText}>
-              - **Activity**: As you continue visualizing your positive future, gently release any negative emotions, such as jealousy or insecurity. Imagine these emotions leaving your body and being
-              replaced with feelings of peace, joy, and gratitude.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> As you continue visualizing your positive future, gently release any negative emotions, such as jealousy or insecurity. Imagine
+              these emotions leaving your body and being replaced with feelings of peace, joy, and gratitude.
             </Text>
 
-            <Text style={styles.stepTitle}>🌈 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌈 Final Thought</Text>
             <Text style={styles.stepText}>
               Visualization is a powerful tool for transforming negative emotions like jealousy into positive energy. With regular practice, it can help you manage emotional responses and foster a
               mindset focused on personal growth and well-being.

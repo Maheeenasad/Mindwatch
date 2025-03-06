@@ -31,31 +31,32 @@ export default function ImpatienceTask14Screen() {
 
             <Text style={styles.stepTitle}>🌳 Step 1: Select a Natural Setting</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose a natural environment such as a park, forest, or garden where you can sit or walk undisturbed. Ensure it's a place where you feel safe and comfortable.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a natural environment such as a park, forest, or garden where you can sit or walk undisturbed. Ensure it's a place where
+              you feel safe and comfortable.
             </Text>
 
             <Text style={styles.stepTitle}>🧘‍♂️ Step 2: Ground Yourself</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Upon arrival, take a few deep breaths to center yourself. Feel the ground beneath you, whether you're sitting or standing, and become aware of your connection to the
-              earth.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Upon arrival, take a few deep breaths to center yourself. Feel the ground beneath you, whether you're sitting or standing, and
+              become aware of your connection to the earth.
             </Text>
 
             <Text style={styles.stepTitle}>👀 Step 3: Observe Your Surroundings</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Slowly look around, taking in the details of your environment. Notice the colors, shapes, and movements. Pay attention to the interplay of light and shadow, and observe
-              any wildlife or plant life present.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Slowly look around, taking in the details of your environment. Notice the colors, shapes, and movements. Pay attention to the
+              interplay of light and shadow, and observe any wildlife or plant life present.
             </Text>
 
             <Text style={styles.stepTitle}>👂 Step 4: Engage Your Senses</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Close your eyes and focus on the sounds around you—the rustling of leaves, bird calls, or the wind. Feel the texture of the ground or a nearby object, inhale the scents
-              of nature, and notice the temperature and breeze on your skin.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Close your eyes and focus on the sounds around you—the rustling of leaves, bird calls, or the wind. Feel the texture of the ground
+              or a nearby object, inhale the scents of nature, and notice the temperature and breeze on your skin.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 5: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After your observation, take a moment to reflect. How did focusing on nature affect your thoughts and feelings? Did you notice a shift in your level of impatience or
-              stress?
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After your observation, take a moment to reflect. How did focusing on nature affect your thoughts and feelings? Did you notice a
+              shift in your level of impatience or stress?
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

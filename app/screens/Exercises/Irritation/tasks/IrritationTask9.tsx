@@ -31,31 +31,33 @@ export default function IrritationTask9Screen() {
 
             <Text style={styles.stepTitle}>🧘 Step 1: Find a Comfortable Position</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Sit or lie down in a comfortable position. Ensure your back is straight, shoulders relaxed, and hands resting on your lap or by your sides.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Sit or lie down in a comfortable position. Ensure your back is straight, shoulders relaxed, and hands resting on your lap or by
+              your sides.
             </Text>
 
             <Text style={styles.stepTitle}>🌬️ Step 2: Practice Diaphragmatic Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Place one hand on your chest and the other on your abdomen. Inhale deeply through your nose, allowing your abdomen to rise while keeping your chest relatively still.
-              Exhale slowly through your mouth. Repeat this process for 5-10 breaths.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Place one hand on your chest and the other on your abdomen. Inhale deeply through your nose, allowing your abdomen to rise while
+              keeping your chest relatively still. Exhale slowly through your mouth. Repeat this process for 5-10 breaths.
             </Text>
 
             <Text style={styles.stepTitle}>🔲 Step 3: Try Box Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Inhale through your nose for a count of four. Hold your breath for a count of four. Exhale through your mouth for a count of four. Hold your breath again for a count of
-              four. Repeat this cycle for several rounds.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Inhale through your nose for a count of four. Hold your breath for a count of four. Exhale through your mouth for a count of four.
+              Hold your breath again for a count of four. Repeat this cycle for several rounds.
             </Text>
 
             <Text style={styles.stepTitle}>🔄 Step 4: Engage in Alternate Nostril Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Use your right thumb to close your right nostril. Inhale deeply through your left nostril. Close your left nostril with your right ring finger, then release your right
-              nostril and exhale through it. Inhale through your right nostril, close it, and exhale through your left nostril. Continue this pattern for several breaths.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Use your right thumb to close your right nostril. Inhale deeply through your left nostril. Close your left nostril with your right
+              ring finger, then release your right nostril and exhale through it. Inhale through your right nostril, close it, and exhale through your left nostril. Continue this pattern for several
+              breaths.
             </Text>
 
             <Text style={styles.stepTitle}>🧘 Step 5: Conclude with Mindful Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Return to normal breathing. Focus your attention on the sensation of air entering and leaving your nostrils. If your mind wanders, gently bring your focus back to your
-              breath. Continue this mindful breathing for 2-3 minutes.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Return to normal breathing. Focus your attention on the sensation of air entering and leaving your nostrils. If your mind wanders,
+              gently bring your focus back to your breath. Continue this mindful breathing for 2-3 minutes.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

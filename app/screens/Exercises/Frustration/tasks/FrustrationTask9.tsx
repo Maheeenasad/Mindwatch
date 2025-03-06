@@ -29,25 +29,28 @@ export default function FrustrationTask9Screen() {
               cathartic release without causing harm to yourself or others.
             </Text>
 
-            <Text style={styles.stepTitle}>🛠️ Step 1: Prepare Your Environment</Text>
+            <Text style={styles.stepTitle}>{'\n'}🛠️ Step 1: Prepare Your Environment</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 2 minutes{'\n'}- **Activity**: Find a private space where you won't be disturbed. Ensure you have a sturdy pillow available. This setting will allow you to express your
-              emotions freely without concern for others overhearing.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 2 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Find a private space where you won't be disturbed. Ensure
+              you have a sturdy pillow available. This setting will allow you to express your emotions freely without concern for others overhearing.
             </Text>
 
-            <Text style={styles.stepTitle}>😤 Step 2: Physical Release</Text>
+            <Text style={styles.stepTitle}>{'\n'}😤 Step 2: Physical Release</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Hold the pillow close to your face and take a deep breath. As you exhale, scream into the pillow, allowing all your anger and frustration
-              to flow out. Repeat as necessary until you feel a sense of relief. This method can help in releasing built-up tension and stress. [Source: Calm](https://www.calm.com/blog/scream-therapy)
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Hold the pillow close to your face and take a deep breath.
+              As you exhale, scream into the pillow, allowing all your anger and frustration to flow out. Repeat as necessary until you feel a sense of relief. This method can help in releasing
+              built-up tension and stress.{'\n'}
+              <Text style={{ color: 'blue' }}>[Source: Calm](https://www.calm.com/blog/scream-therapy)</Text>
             </Text>
 
-            <Text style={styles.stepTitle}>🧘 Step 3: Reflect and Relax</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘 Step 3: Reflect and Relax</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 3 minutes{'\n'}- **Activity**: After releasing your emotions, sit or lie down in a comfortable position. Close your eyes and take slow, deep breaths, focusing on calming
-              your mind and body. Reflect on the emotions you experienced and acknowledge the release you've achieved.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 3 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After releasing your emotions, sit or lie down in a
+              comfortable position. Close your eyes and take slow, deep breaths, focusing on calming your mind and body. Reflect on the emotions you experienced and acknowledge the release you've
+              achieved.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Utilizing physical outlets like screaming into a pillow can be an effective way to manage intense emotions. It's essential to recognize and address your feelings in a safe manner,
               promoting emotional well-being and resilience.

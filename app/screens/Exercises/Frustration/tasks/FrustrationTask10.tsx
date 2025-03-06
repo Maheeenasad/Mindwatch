@@ -29,26 +29,26 @@ export default function FrustrationTask10Screen() {
               from stressors to peaceful scenarios, aiding in emotional regulation.
             </Text>
 
-            <Text style={styles.stepTitle}>🛠️ Step 1: Find a Comfortable Position</Text>
+            <Text style={styles.stepTitle}>{'\n'}🛠️ Step 1: Find a Comfortable Position</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 2 minutes{'\n'}- **Activity**: Sit or lie down in a quiet, comfortable place where you won't be disturbed. Ensure your body is relaxed, and take a few deep breaths to
-              center yourself.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 2 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Sit or lie down in a quiet, comfortable place where you
+              won't be disturbed. Ensure your body is relaxed, and take a few deep breaths to center yourself.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘 Step 2: Begin the Visualization</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘 Step 2: Begin the Visualization</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Close your eyes and imagine a serene place, such as a beach or forest. Engage all your senses: feel the warmth of the sun, hear the gentle
-              waves, and smell the fresh air. Allow yourself to fully immerse in this calming environment. [Source: Newport
-              Academy](https://www.newportacademy.com/resources/mental-health/positive-visualization/)
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Close your eyes and imagine a serene place, such as a
+              beach or forest. Engage all your senses: feel the warmth of the sun, hear the gentle waves, and smell the fresh air. Allow yourself to fully immerse in this calming environment.{'\n'}
+              <Text style={{ color: 'blue' }}>[Source: Newport Academy](https://www.newportacademy.com/resources/mental-health/positive-visualization/)</Text>
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 3: Reflect on the Experience</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 3: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 3 minutes{'\n'}- **Activity**: Gently bring your awareness back to the present moment. Reflect on how the visualization made you feel and how you can use this technique
-              in future situations to manage frustration.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 3 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Gently bring your awareness back to the present moment.
+              Reflect on how the visualization made you feel and how you can use this technique in future situations to manage frustration.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Guided visualization is a powerful tool that can help shift focus from negative emotions to calming imagery, promoting relaxation and emotional balance. Regular practice can enhance your
               ability to manage stress and frustration effectively.

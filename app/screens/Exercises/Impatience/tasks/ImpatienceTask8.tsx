@@ -31,32 +31,38 @@ export default function ImpatienceTask8Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Choose Your Model</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Select a model kit that interests you, such as a car, airplane, or building. Ensure the difficulty level matches your experience to keep the challenge enjoyable.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Select a model kit that interests you, such as a car, airplane, or building. Ensure the difficulty level matches your experience
+              to keep the challenge enjoyable.
             </Text>
 
             <Text style={styles.stepTitle}>📖 Step 2: Read the Instructions Thoroughly</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Before starting, carefully read through the entire instruction manual. Understanding the steps beforehand will help prevent mistakes and reduce frustration.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Before starting, carefully read through the entire instruction manual. Understanding the steps beforehand will help prevent
+              mistakes and reduce frustration.
             </Text>
 
             <Text style={styles.stepTitle}>🧩 Step 3: Organize Your Pieces</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Lay out all the pieces and tools you'll need. Organizing your workspace ensures a smoother assembly process and minimizes the chances of losing parts.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Lay out all the pieces and tools you'll need. Organizing your workspace ensures a smoother assembly process and minimizes the
+              chances of losing parts.
             </Text>
 
             <Text style={styles.stepTitle}>⏳ Step 4: Assemble Step by Step</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Follow the instructions step by step, taking your time with each part. If you encounter difficulties, pause and reassess rather than rushing, which fosters patience.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Follow the instructions step by step, taking your time with each part. If you encounter difficulties, pause and reassess rather
+              than rushing, which fosters patience.
             </Text>
 
             <Text style={styles.stepTitle}>🎨 Step 5: Add Finishing Touches</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Once assembled, you can paint or decorate your model as desired. This creative aspect enhances attention to detail and personalizes your project.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Once assembled, you can paint or decorate your model as desired. This creative aspect enhances attention to detail and
+              personalizes your project.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 6: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After completing the model, reflect on the process. How did practicing patience impact your experience? How can you apply this patience to other areas of your life?
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After completing the model, reflect on the process. How did practicing patience impact your experience? How can you apply this
+              patience to other areas of your life?
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

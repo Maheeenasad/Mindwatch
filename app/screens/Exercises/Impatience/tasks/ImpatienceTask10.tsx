@@ -31,31 +31,32 @@ export default function ImpatienceTask10Screen() {
 
             <Text style={styles.stepTitle}>🎲 Step 1: Select a Strategy-Based Board Game</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose a board game that emphasizes strategy and planning. Examples include Chess, Risk, Settlers of Catan, or Ticket to Ride. Ensure the game is suitable for your age
-              group and interests.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a board game that emphasizes strategy and planning. Examples include Chess, Risk, Settlers of Catan, or Ticket to Ride.
+              Ensure the game is suitable for your age group and interests.
             </Text>
 
             <Text style={styles.stepTitle}>📚 Step 2: Learn the Rules and Strategies</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Thoroughly read the game's rulebook and explore basic strategies. Understanding the rules and potential tactics is crucial for effective gameplay.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Thoroughly read the game's rulebook and explore basic strategies. Understanding the rules and potential tactics is crucial for
+              effective gameplay.
             </Text>
 
             <Text style={styles.stepTitle}>👥 Step 3: Gather Players</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Invite family members or friends to join you in the game. Playing with others not only makes the experience enjoyable but also enhances social interaction and patience as
-              you wait for your turn.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Invite family members or friends to join you in the game. Playing with others not only makes the experience enjoyable but also
+              enhances social interaction and patience as you wait for your turn.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 4: Develop and Implement Your Strategy</Text>
             <Text style={styles.stepText}>
-              - **Activity**: As you play, focus on developing and adjusting your strategy based on the game's progression. This requires patience and adaptability, especially when facing unexpected
-              challenges.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> As you play, focus on developing and adjusting your strategy based on the game's progression. This requires patience and
+              adaptability, especially when facing unexpected challenges.
             </Text>
 
             <Text style={styles.stepTitle}>🤔 Step 5: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After the game, reflect on your strategic decisions and their outcomes. Consider what strategies worked, what didn't, and how you managed your patience throughout the
-              game.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the game, reflect on your strategic decisions and their outcomes. Consider what strategies worked, what didn't, and how you
+              managed your patience throughout the game.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

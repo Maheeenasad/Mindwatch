@@ -31,25 +31,27 @@ export default function IrritationTask6Screen() {
 
             <Text style={styles.stepTitle}>📝 Step 1: Set Up a Comfortable Writing Environment</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Find a quiet and comfortable space free from distractions. Gather your journaling materials, such as a notebook and pen, or use a digital device if you prefer typing.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Find a quiet and comfortable space free from distractions. Gather your journaling materials, such as a notebook and pen, or use a
+              digital device if you prefer typing.
             </Text>
 
             <Text style={styles.stepTitle}>🖊️ Step 2: Reflect on Recent Experiences</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Think about recent situations that have caused you frustration or irritation. Reflect on what happened, how you felt, and how you reacted.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Think about recent situations that have caused you frustration or irritation. Reflect on what happened, how you felt, and how you
+              reacted.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 3: Explore Your Emotions Through Prompts</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Use the following journal prompts to delve deeper into your feelings: - What are you most frustrated about right now? Why? - How does your body feel when you're
-              irritated? - What thoughts run through your mind when you're frustrated? - How do you typically respond to frustration? Is it effective? - What can you learn from your recent experiences
-              with irritation?
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Use the following journal prompts to delve deeper into your feelings: - What are you most frustrated about right now? Why? - How
+              does your body feel when you're irritated? - What thoughts run through your mind when you're frustrated? - How do you typically respond to frustration? Is it effective? - What can you
+              learn from your recent experiences with irritation?
             </Text>
 
             <Text style={styles.stepTitle}>🔄 Step 4: Identify Patterns and Triggers</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Review your journal entries to identify common themes, triggers, or patterns in your frustration. Understanding these can help you anticipate and manage future situations
-              more effectively.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Review your journal entries to identify common themes, triggers, or patterns in your frustration. Understanding these can help you
+              anticipate and manage future situations more effectively.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

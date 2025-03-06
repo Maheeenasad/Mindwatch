@@ -31,26 +31,26 @@ export default function HappinessTask10Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Choose Your Journaling Medium</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Decide whether you'll use a physical notebook or a digital platform for your journaling. Choose a medium that feels comfortable and
-              accessible to you.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Decide whether you'll use a physical notebook or a digital
+              platform for your journaling. Choose a medium that feels comfortable and accessible to you.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 2: Reflect on Your Day</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes daily{'\n'}- **Activity**: Each evening, take a moment to reflect on your day. Identify at least one positive experience or something you're grateful for, no
-              matter how small.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes daily{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Each evening, take a moment to reflect on your day.
+              Identify at least one positive experience or something you're grateful for, no matter how small.
             </Text>
 
             <Text style={styles.stepTitle}>✍️ Step 3: Write Down Your Happy Moments</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes daily{'\n'}- **Activity**: Write a brief description of your identified happy moment. Include details about the experience and how it made you feel. This
-              practice reinforces positive emotions and helps you recognize joy in everyday life.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes daily{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Write a brief description of your identified happy
+              moment. Include details about the experience and how it made you feel. This practice reinforces positive emotions and helps you recognize joy in everyday life.
             </Text>
 
             <Text style={styles.stepTitle}>📆 Step 4: Review and Reflect Weekly</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 15 minutes weekly{'\n'}- **Activity**: At the end of each week, review your journal entries. Reflect on the positive experiences you've documented and observe any
-              patterns or recurring themes. This reflection can enhance self-awareness and gratitude.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 15 minutes weekly{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> At the end of each week, review your journal
+              entries. Reflect on the positive experiences you've documented and observe any patterns or recurring themes. This reflection can enhance self-awareness and gratitude.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

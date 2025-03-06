@@ -31,26 +31,26 @@ export default function HappinessTask12Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Find a Comfortable Position</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 2 minutes{'\n'}- **Activity**: Sit on a chair or the floor with a straight, relaxed back. Ensure you're comfortable to maintain this posture for the duration of the
-              meditation.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 2 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Sit on a chair or the floor with a straight, relaxed back.
+              Ensure you're comfortable to maintain this posture for the duration of the meditation.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 2: Focus on Your Breath</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5-10 minutes{'\n'}- **Activity**: Close your eyes and direct your attention to your breathing. Notice the sensation of air entering and leaving your nostrils or the rise
-              and fall of your chest. When your mind drifts, gently redirect your focus back to your breath.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5-10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Close your eyes and direct your attention to your
+              breathing. Notice the sensation of air entering and leaving your nostrils or the rise and fall of your chest. When your mind drifts, gently redirect your focus back to your breath.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 3: Body Scan</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Shift your attention systematically through different parts of your body, starting from your toes up to your head. Observe any sensations
-              without trying to change them, promoting relaxation and bodily awareness.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Shift your attention systematically through different parts
+              of your body, starting from your toes up to your head. Observe any sensations without trying to change them, promoting relaxation and bodily awareness.
             </Text>
 
             <Text style={styles.stepTitle}>🕊️ Step 4: Reflect and Journal</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: After meditating, take a moment to reflect on your experience. Jot down any thoughts or feelings that arose during the practice. This
-              reflection can enhance self-awareness and track your mindfulness journey.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After meditating, take a moment to reflect on your
+              experience. Jot down any thoughts or feelings that arose during the practice. This reflection can enhance self-awareness and track your mindfulness journey.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

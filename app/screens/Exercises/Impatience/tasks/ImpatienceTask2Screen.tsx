@@ -31,30 +31,32 @@ export default function ImpatienceTask2Screen() {
 
             <Text style={styles.stepTitle}>⏳ Step 1: Explain the Concept of Waiting</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Discuss with the child what it means to wait and why patience is important. Use simple examples, such as waiting for a turn on the swing or waiting for cookies to bake.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Discuss with the child what it means to wait and why patience is important. Use simple examples, such as waiting for a turn on the
+              swing or waiting for cookies to bake.
             </Text>
 
             <Text style={styles.stepTitle}>🎲 Step 2: Introduce the Waiting Game</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose a simple game that involves waiting, such as "Red Light, Green Light" or "Simon Says." These games require children to listen, follow instructions, and wait for
-              the appropriate moment to act.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a simple game that involves waiting, such as "Red Light, Green Light" or "Simon Says." These games require children to
+              listen, follow instructions, and wait for the appropriate moment to act.
             </Text>
 
             <Text style={styles.stepTitle}>🕰️ Step 3: Gradually Increase Waiting Times</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Start with short waiting periods and gradually increase the duration as the child becomes more comfortable. For example, in "Red Light, Green Light," extend the "red
-              light" periods incrementally.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Start with short waiting periods and gradually increase the duration as the child becomes more comfortable. For example, in "Red
+              Light, Green Light," extend the "red light" periods incrementally.
             </Text>
 
             <Text style={styles.stepTitle}>👏 Step 4: Provide Positive Reinforcement</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Praise the child for waiting patiently and following instructions. Positive reinforcement encourages repetition of the desired behavior.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Praise the child for waiting patiently and following instructions. Positive reinforcement encourages repetition of the desired
+              behavior.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 5: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After the game, discuss with the child how they felt during the waiting periods and what strategies helped them stay patient. This reflection reinforces learning and
-              self-awareness.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the game, discuss with the child how they felt during the waiting periods and what strategies helped them stay patient. This
+              reflection reinforces learning and self-awareness.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

@@ -31,20 +31,23 @@ export default function HappinessTask1Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Introduction to Gratitude</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Begin by discussing the concept of gratitude with the child. Explain that gratitude means appreciating the good things in our lives, no
-              matter how big or small. Share examples of things people might be grateful for, such as family, friends, pets, or favorite activities.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Begin by discussing the concept of gratitude with the
+              child. Explain that gratitude means appreciating the good things in our lives, no matter how big or small. Share examples of things people might be grateful for, such as family, friends,
+              pets, or favorite activities.
             </Text>
 
             <Text style={styles.stepTitle}>🎨 Step 2: Drawing Their Gratitude</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Provide the child with drawing materials like paper, crayons, or markers. Encourage them to draw pictures of things they are grateful for.
-              There's no right or wrong way to do this—it's all about personal expression. For instance, they might draw their family, a pet, a favorite toy, or a memorable experience.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Provide the child with drawing materials like paper,
+              crayons, or markers. Encourage them to draw pictures of things they are grateful for. There's no right or wrong way to do this—it's all about personal expression. For instance, they
+              might draw their family, a pet, a favorite toy, or a memorable experience.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 3: Sharing and Reflecting</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: After completing their drawings, invite the child to share and explain their artwork. Ask open-ended questions like, "Can you tell me about
-              this part of your drawing?" or "How does this make you feel?" This reflection reinforces their feelings of gratitude and allows them to articulate their positive emotions.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After completing their drawings, invite the child to share
+              and explain their artwork. Ask open-ended questions like, "Can you tell me about this part of your drawing?" or "How does this make you feel?" This reflection reinforces their feelings
+              of gratitude and allows them to articulate their positive emotions.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

@@ -31,31 +31,32 @@ export default function ImpatienceTask13Screen() {
 
             <Text style={styles.stepTitle}>📚 Step 1: Choose a Long-Form Material</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Select a book, in-depth article, or comprehensive report that interests you. Ensure the material is substantial enough to require sustained attention and offers a deep
-              dive into the subject matter.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Select a book, in-depth article, or comprehensive report that interests you. Ensure the material is substantial enough to require
+              sustained attention and offers a deep dive into the subject matter.
             </Text>
 
             <Text style={styles.stepTitle}>🛋️ Step 2: Create a Comfortable Reading Environment</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Find a quiet, comfortable space free from distractions. Arrange seating and lighting to support extended reading, and keep necessary items like a bookmark or notepad
-              nearby.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Find a quiet, comfortable space free from distractions. Arrange seating and lighting to support extended reading, and keep
+              necessary items like a bookmark or notepad nearby.
             </Text>
 
             <Text style={styles.stepTitle}>⏳ Step 3: Set a Reading Schedule</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Allocate specific time slots for reading sessions, aiming for at least 30 minutes per session. Consistency helps build the habit and trains your mind to focus for longer
-              periods.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Allocate specific time slots for reading sessions, aiming for at least 30 minutes per session. Consistency helps build the habit
+              and trains your mind to focus for longer periods.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 4: Practice Active Reading</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Engage with the material by taking notes, highlighting key points, or summarizing sections. This active involvement enhances comprehension and retention.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Engage with the material by taking notes, highlighting key points, or summarizing sections. This active involvement enhances
+              comprehension and retention.
             </Text>
 
             <Text style={styles.stepTitle}>🤔 Step 5: Reflect and Discuss</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After completing a reading session, reflect on the content and its implications. Discussing the material with others or writing about it can deepen understanding and
-              provide new perspectives.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After completing a reading session, reflect on the content and its implications. Discussing the material with others or writing
+              about it can deepen understanding and provide new perspectives.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

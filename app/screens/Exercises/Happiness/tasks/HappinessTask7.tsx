@@ -31,20 +31,20 @@ export default function HappinessTask7Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Prepare for Your Walk</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Choose a safe and scenic route where you can enjoy the sunset. Wear comfortable clothing and shoes suitable for walking. Check the time of
-              sunset in your area to plan accordingly.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a safe and scenic route where you can enjoy the
+              sunset. Wear comfortable clothing and shoes suitable for walking. Check the time of sunset in your area to plan accordingly.
             </Text>
 
             <Text style={styles.stepTitle}>🚶 Step 2: Engage in the Sunset Walk</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 20 minutes{'\n'}- **Activity**: Begin your walk a little before sunset to fully experience the changing colors of the sky. As you walk, focus on your surroundings—the
-              sights, sounds, and scents. This mindfulness can enhance relaxation and reduce stress.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 20 minutes{'\n'}-<Text style={{ fontWeight: 'bold' }}>Activity:</Text> Begin your walk a little before sunset to fully experience
+              the changing colors of the sky. As you walk, focus on your surroundings—the sights, sounds, and scents. This mindfulness can enhance relaxation and reduce stress.
             </Text>
 
             <Text style={styles.stepTitle}>🧘 Step 3: Reflect Post-Walk</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: After your walk, take a moment to reflect on how you feel. Notice any changes in your mood or energy levels. Journaling your thoughts can
-              help in processing your experiences and emotions.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After your walk, take a moment to reflect on how you feel.
+              Notice any changes in your mood or energy levels. Journaling your thoughts can help in processing your experiences and emotions.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

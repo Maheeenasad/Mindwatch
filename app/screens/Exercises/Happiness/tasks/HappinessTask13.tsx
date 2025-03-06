@@ -31,20 +31,21 @@ export default function HappinessTask13Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Plan a Shared Activity</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 30-60 minutes{'\n'}- **Activity**: Collaborate with your family or friends to choose an activity everyone enjoys. This could be a game night, cooking a meal together, or
-              going for a walk. Planning together ensures everyone's interests are considered.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 30-60 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Collaborate with your family or friends to choose an
+              activity everyone enjoys. This could be a game night, cooking a meal together, or going for a walk. Planning together ensures everyone's interests are considered.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 2: Engage Fully in the Activity</Text>
             <Text style={styles.stepText}>
-              - **Duration**: Varies based on chosen activity{'\n'}- **Activity**: During the activity, focus on being present. Put away distractions like phones and engage in meaningful
-              conversations. This presence strengthens connections and creates lasting memories.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> Varies based on chosen activity{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> During the activity, focus on being
+              present. Put away distractions like phones and engage in meaningful conversations. This presence strengthens connections and creates lasting memories.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 3: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 15-20 minutes{'\n'}- **Activity**: After the activity, take time individually or as a group to reflect. Discuss what you enjoyed, any challenges faced, and how the
-              experience affected your relationships. Reflection reinforces the positive aspects of spending time together.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 15-20 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the activity, take time individually or as a
+              group to reflect. Discuss what you enjoyed, any challenges faced, and how the experience affected your relationships. Reflection reinforces the positive aspects of spending time
+              together.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

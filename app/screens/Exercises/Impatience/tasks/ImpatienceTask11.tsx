@@ -31,38 +31,38 @@ export default function ImpatienceTask11Screen() {
 
             <Text style={styles.stepTitle}>🛤️ Step 1: Choose a Suitable Location</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Find a quiet and safe place where you can walk undisturbed. This could be a park, a quiet neighborhood, or even a spacious indoor area. Ensure the path allows you to walk
-              back and forth comfortably.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Find a quiet and safe place where you can walk undisturbed. This could be a park, a quiet neighborhood, or even a spacious indoor
+              area. Ensure the path allows you to walk back and forth comfortably.
             </Text>
 
             <Text style={styles.stepTitle}>👟 Step 2: Adopt a Comfortable Posture</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Stand upright with your feet hip-width apart. Keep your knees slightly bent, arms relaxed by your sides, and shoulders relaxed. Maintain a soft gaze or gently close your
-              eyes to minimize visual distractions.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Stand upright with your feet hip-width apart. Keep your knees slightly bent, arms relaxed by your sides, and shoulders relaxed.
+              Maintain a soft gaze or gently close your eyes to minimize visual distractions.
             </Text>
 
             <Text style={styles.stepTitle}>🚶 Step 3: Begin Walking Slowly</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Start walking at a slow, deliberate pace. Pay attention to the sensation of your feet touching the ground, the movement of your legs, and the shifting of your weight with
-              each step.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Start walking at a slow, deliberate pace. Pay attention to the sensation of your feet touching the ground, the movement of your
+              legs, and the shifting of your weight with each step.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 4: Anchor Your Attention</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Focus your attention on a specific aspect of walking, such as the contact of your feet with the ground or the rhythm of your breath. When your mind wanders, gently bring
-              it back to this focal point.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Focus your attention on a specific aspect of walking, such as the contact of your feet with the ground or the rhythm of your
+              breath. When your mind wanders, gently bring it back to this focal point.
             </Text>
 
             <Text style={styles.stepTitle}>🌳 Step 5: Engage Your Senses</Text>
             <Text style={styles.stepText}>
-              - **Activity**: As you walk, notice the sights, sounds, and smells around you. Observe the feeling of the air on your skin and the textures beneath your feet. Engaging your senses
-              anchors you in the present moment.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> As you walk, notice the sights, sounds, and smells around you. Observe the feeling of the air on your skin and the textures
+              beneath your feet. Engaging your senses anchors you in the present moment.
             </Text>
 
             <Text style={styles.stepTitle}>🧘 Step 6: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After your walk, take a moment to reflect on how you feel. Notice any changes in your mood, physical sensations, or mental clarity. Consider how this practice of mindful
-              walking can be integrated into your daily routine to promote patience and mindfulness.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After your walk, take a moment to reflect on how you feel. Notice any changes in your mood, physical sensations, or mental
+              clarity. Consider how this practice of mindful walking can be integrated into your daily routine to promote patience and mindfulness.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

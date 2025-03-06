@@ -29,31 +29,36 @@ export default function LonelinessTask3Screen() {
               strengthening bonds and creating joyful memories.
             </Text>
 
-            <Text style={styles.stepTitle}>🕹️ Step 1: Choose a Family Game</Text>
+            <Text style={styles.stepTitle}>{'\n'}🕹️ Step 1: Choose a Family Game</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Select a game that is suitable for all family members. Options include board games, card games, or interactive activities like charades. Ensure the game is
-              age-appropriate and enjoyable for everyone.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Select a game that is suitable for all family members. Options include board games, card games, or interactive activities like
+              charades. Ensure the game is age-appropriate and enjoyable for everyone.
             </Text>
 
-            <Text style={styles.stepTitle}>🗓️ Step 2: Schedule a Game Time</Text>
+            <Text style={styles.stepTitle}>{'\n'}🗓️ Step 2: Schedule a Game Time</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Set aside a specific time when all family members are available. Consistency is key; consider making it a weekly tradition to enhance bonding.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Set aside a specific time when all family members are available. Consistency is key; consider making it a weekly tradition to
+              enhance bonding.
             </Text>
 
-            <Text style={styles.stepTitle}>📍 Step 3: Create a Comfortable Environment</Text>
-            <Text style={styles.stepText}>- **Activity**: Arrange a cozy space free from distractions. Comfortable seating and good lighting can enhance the gaming experience.</Text>
-
-            <Text style={styles.stepTitle}>🎉 Step 4: Play and Interact</Text>
+            <Text style={styles.stepTitle}>{'\n'}📍 Step 3: Create a Comfortable Environment</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Engage fully in the game, encourage positive interactions, and celebrate each other's successes. This promotes teamwork and understanding among family members.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Arrange a cozy space free from distractions. Comfortable seating and good lighting can enhance the gaming experience.
             </Text>
 
-            <Text style={styles.stepTitle}>🗣️ Step 5: Reflect and Share</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎉 Step 4: Play and Interact</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After the game, take a few minutes to discuss what everyone enjoyed. Sharing thoughts and feelings can enhance communication and emotional connection.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Engage fully in the game, encourage positive interactions, and celebrate each other's successes. This promotes teamwork and
+              understanding among family members.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🗣️ Step 5: Reflect and Share</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the game, take a few minutes to discuss what everyone enjoyed. Sharing thoughts and feelings can enhance communication and
+              emotional connection.
+            </Text>
+
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Regular family playtime not only alleviates feelings of loneliness but also builds a supportive and loving environment for children. It reinforces the idea that they are valued members
               of the family unit.

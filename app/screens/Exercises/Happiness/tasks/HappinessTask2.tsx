@@ -30,20 +30,20 @@ export default function HappinessTask2Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Preparing the Bubble Solution</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Create your own bubble solution by mixing water, dish soap, and a little glycerin or corn syrup. This DIY approach adds an element of
-              creativity and science to the fun. For detailed instructions, refer to this guide: [DIY Bubble Solution Recipe](https://www.redtedart.com/bubble-activities-for-kids/).
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Create your own bubble solution by mixing water, dish soap,
+              and a little glycerin or corn syrup. This DIY approach adds an element of creativity and science to the fun.
             </Text>
 
             <Text style={styles.stepTitle}>🎨 Step 2: Crafting Bubble Wands</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Use materials like pipe cleaners or straws to create custom bubble wands. Shaping them into different forms can add variety to the bubbles
-              produced. This activity encourages creativity and fine motor skills.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Use materials like pipe cleaners or straws to create custom
+              bubble wands. Shaping them into different forms can add variety to the bubbles produced. This activity encourages creativity and fine motor skills.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 3: Bubble Blowing and Mindfulness</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Find a comfortable outdoor space and begin blowing bubbles. Encourage the child to observe the bubbles' colors, movements, and how they
-              float away. This mindful observation can be calming and enhance their awareness of the present moment.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}-<Text style={{ fontWeight: 'bold' }}>Activity:</Text> Find a comfortable outdoor space and begin blowing bubbles.
+              Encourage the child to observe the bubbles' colors, movements, and how they float away. This mindful observation can be calming and enhance their awareness of the present moment.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

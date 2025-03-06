@@ -31,24 +31,26 @@ export default function IrritationTask10Screen() {
 
             <Text style={styles.stepTitle}>🎧 Step 1: Select Calming Audio</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose audio that you find soothing, such as nature sounds, instrumental music, or specific tracks designed to reduce stress. For example, the song "Weightless" by
-              Marconi Union has been scientifically proven to reduce anxiety by up to 65% by lowering blood pressure and heart rate.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose audio that you find soothing, such as nature sounds, instrumental music, or specific tracks designed to reduce stress. For
+              example, the song "Weightless" by Marconi Union has been scientifically proven to reduce anxiety by up to 65% by lowering blood pressure and heart rate.
             </Text>
 
             <Text style={styles.stepTitle}>🔊 Step 2: Create a Comfortable Environment</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Find a quiet space where you won't be disturbed. Use headphones or a quality speaker to enhance the listening experience, ensuring the volume is at a comfortable level.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Find a quiet space where you won't be disturbed. Use headphones or a quality speaker to enhance the listening experience, ensuring
+              the volume is at a comfortable level.
             </Text>
 
             <Text style={styles.stepTitle}>🧘 Step 3: Practice Mindful Listening</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Sit or lie down in a comfortable position. Close your eyes and focus entirely on the sounds, observing any thoughts or sensations that arise without judgment. This
-              practice can help anchor you in the present moment and alleviate stress.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Sit or lie down in a comfortable position. Close your eyes and focus entirely on the sounds, observing any thoughts or sensations
+              that arise without judgment. This practice can help anchor you in the present moment and alleviate stress.
             </Text>
 
             <Text style={styles.stepTitle}>🕰️ Step 4: Set a Regular Routine</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Incorporate listening sessions into your daily routine, such as before bedtime or during study breaks, to maintain consistent stress relief benefits.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Incorporate listening sessions into your daily routine, such as before bedtime or during study breaks, to maintain consistent
+              stress relief benefits.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

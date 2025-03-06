@@ -31,20 +31,20 @@ export default function HappinessTask15Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Free Writing</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Write continuously without worrying about grammar, spelling, or punctuation. Let your thoughts flow freely onto the paper or screen,
-              exploring any topic that comes to mind.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Write continuously without worrying about grammar,
+              spelling, or punctuation. Let your thoughts flow freely onto the paper or screen, exploring any topic that comes to mind.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 2: Story Prompt</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 15 minutes{'\n'}- **Activity**: Choose a prompt such as "Write about a time you overcame a challenge" and craft a short story or narrative based on it. This helps in
-              structuring your thoughts and enhancing creativity.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 15 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a prompt such as "Write about a time you overcame a
+              challenge" and craft a short story or narrative based on it. This helps in structuring your thoughts and enhancing creativity.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 3: Reflect and Revise</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Review what you've written, reflecting on the emotions and ideas expressed. Consider any revisions or expansions to deepen the narrative or
-              clarify your thoughts.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Review what you've written, reflecting on the emotions and
+              ideas expressed. Consider any revisions or expansions to deepen the narrative or clarify your thoughts.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

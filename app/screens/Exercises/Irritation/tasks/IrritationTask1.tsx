@@ -31,14 +31,14 @@ export default function IrritationTask1Screen() {
 
             <Text style={styles.stepTitle}>📝 Step 1: Gather Materials</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Obtain a sheet of bubble wrap, preferably with medium to large-sized bubbles. Ensure the area is safe and free from hazards to allow the child to engage freely in the
-              activity.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text>Obtain a sheet of bubble wrap, preferably with medium to large-sized bubbles. Ensure the area is safe and free from hazards to
+              allow the child to engage freely in the activity.
             </Text>
 
             <Text style={styles.stepTitle}>👂 Step 2: Introduce the Activity</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Explain to the child that they will be popping the bubbles on the sheet. Demonstrate how to press the bubbles to create a popping sound, emphasizing the fun and sensory
-              aspects of the activity.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Explain to the child that they will be popping the bubbles on the sheet. Demonstrate how to press the bubbles to create a popping
+              sound, emphasizing the fun and sensory aspects of the activity.
             </Text>
 
             <Text style={styles.stepTitle}>👐 Step 3: Encourage Exploration</Text>
@@ -49,14 +49,14 @@ export default function IrritationTask1Screen() {
 
             <Text style={styles.stepTitle}>🎯 Step 4: Incorporate Challenges</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Introduce simple challenges, such as popping all the bubbles in a specific area within a set time or using only one hand. This adds a playful element and can help improve
-              focus and coordination.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Introduce simple challenges, such as popping all the bubbles in a specific area within a set time or using only one hand. This
+              adds a playful element and can help improve focus and coordination.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 5: Discuss the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After the activity, engage the child in a brief discussion about how they felt during the bubble popping. Ask if it was enjoyable and if it helped them feel more relaxed
-              or less irritated. This reflection can enhance self-awareness and emotional understanding.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the activity, engage the child in a brief discussion about how they felt during the bubble popping. Ask if it was enjoyable
+              and if it helped them feel more relaxed or less irritated. This reflection can enhance self-awareness and emotional understanding.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

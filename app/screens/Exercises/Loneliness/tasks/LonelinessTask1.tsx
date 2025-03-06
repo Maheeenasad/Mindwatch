@@ -29,30 +29,31 @@ export default function LonelinessTask1Screen() {
               friends, fostering emotional development and companionship.
             </Text>
 
-            <Text style={styles.stepTitle}>🧸 Step 1: Introduce the Stuffed Friend</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧸 Step 1: Introduce the Stuffed Friend</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Ask your child to choose their favorite stuffed animal and introduce it as their new friend. Encourage them to name their stuffed friend and describe its personality
-              traits.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Ask your child to choose their favorite stuffed animal and introduce it as their new friend. Encourage them to name their stuffed
+              friend and describe its personality traits.
             </Text>
 
-            <Text style={styles.stepTitle}>🗣️ Step 2: Share Feelings</Text>
+            <Text style={styles.stepTitle}>{'\n'}🗣️ Step 2: Share Feelings</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Invite your child to have a conversation with their stuffed friend. They can share their thoughts, feelings, or even narrate events from their day. This practice helps
-              children articulate emotions and feel heard.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Invite your child to have a conversation with their stuffed friend. They can share their thoughts, feelings, or even narrate
+              events from their day. This practice helps children articulate emotions and feel heard.
             </Text>
 
-            <Text style={styles.stepTitle}>🎭 Step 3: Role-Playing Scenarios</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎭 Step 3: Role-Playing Scenarios</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage your child to role-play different scenarios with their stuffed friend, such as going on an adventure or attending a tea party. This imaginative play fosters
-              creativity and reduces feelings of isolation.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage your child to role-play different scenarios with their stuffed friend, such as going on an adventure or attending a tea
+              party. This imaginative play fosters creativity and reduces feelings of isolation.
             </Text>
 
-            <Text style={styles.stepTitle}>📖 Step 4: Storytime Together</Text>
+            <Text style={styles.stepTitle}>{'\n'}📖 Step 4: Storytime Together</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Have your child read a story to their stuffed friend or create a new story together. This activity enhances bonding and provides comfort through shared experiences.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Have your child read a story to their stuffed friend or create a new story together. This activity enhances bonding and provides
+              comfort through shared experiences.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Interacting with stuffed animals offers children a safe space to express themselves, nurturing emotional well-being and combating loneliness. Encouraging such activities can lead to
               improved social skills and a sense of companionship.

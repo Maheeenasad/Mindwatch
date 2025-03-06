@@ -28,31 +28,35 @@ export default function JealousyTask6Screen() {
               Engaging in positive journaling helps teenagers focus on the good aspects of their lives, fostering a positive mindset and reducing feelings of jealousy.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 1: Introduction to Positive Journaling</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 1: Introduction to Positive Journaling</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Discuss how writing about positive experiences can enhance well-being. Explain that journaling allows individuals to reflect on and appreciate the good moments in their
-              lives.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Discuss how writing about positive experiences can enhance well-being. Explain that journaling allows individuals to reflect on
+              and appreciate the good moments in their lives.
             </Text>
 
-            <Text style={styles.stepTitle}>🖊️ Step 2: Gratitude Journaling</Text>
+            <Text style={styles.stepTitle}>{'\n'}🖊️ Step 2: Gratitude Journaling</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage teenagers to write down three things they are grateful for each day. This practice shifts focus from negative to positive aspects, promoting a sense of
-              contentment.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage teenagers to write down three things they are grateful for each day. This practice shifts focus from negative to
+              positive aspects, promoting a sense of contentment.
             </Text>
 
-            <Text style={styles.stepTitle}>🔄 Step 3: Reframing Negative Thoughts</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔄 Step 3: Reframing Negative Thoughts</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Teach teens to identify negative thoughts and reframe them into positive ones. For example, changing "I can't do this" to "I will try my best and learn from the
-              experience."
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Teach teens to identify negative thoughts and reframe them into positive ones. For example, changing "I can't do this" to "I will
+              try my best and learn from the experience."
             </Text>
 
-            <Text style={styles.stepTitle}>🎯 Step 4: Setting Positive Affirmations</Text>
-            <Text style={styles.stepText}>- **Activity**: Guide teenagers to write positive affirmations about themselves, reinforcing self-worth and confidence.</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎯 Step 4: Setting Positive Affirmations</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Guide teenagers to write positive affirmations about themselves, reinforcing self-worth and confidence.
+            </Text>
 
-            <Text style={styles.stepTitle}>🌟 Step 5: Reflecting on Achievements</Text>
-            <Text style={styles.stepText}>- **Activity**: Have teens reflect on their accomplishments, no matter how small, to build self-esteem and recognize their growth.</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Step 5: Reflecting on Achievements</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Have teens reflect on their accomplishments, no matter how small, to build self-esteem and recognize their growth.
+            </Text>
 
-            <Text style={styles.stepTitle}>🌈 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌈 Final Thought</Text>
             <Text style={styles.stepText}>
               Regular positive journaling can help teenagers develop a more optimistic outlook, reducing negative emotions like jealousy and enhancing overall well-being.
             </Text>

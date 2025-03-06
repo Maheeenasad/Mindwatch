@@ -31,38 +31,38 @@ export default function HappinessTask14Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Plan Your Garden Space</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 15 minutes{'\n'}- **Activity**: Decide on the type of garden you want—be it a vegetable plot, flower bed, or indoor plants. Consider the space available and the amount of
-              sunlight it receives. Planning sets the foundation for a successful gardening experience.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 15 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Decide on the type of garden you want—be it a vegetable
+              plot, flower bed, or indoor plants. Consider the space available and the amount of sunlight it receives. Planning sets the foundation for a successful gardening experience.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 2: Gather Necessary Tools and Supplies</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 20 minutes{'\n'}- **Activity**: Collect essential gardening tools such as gloves, trowels, watering cans, and appropriate soil. Having the right tools makes the process
-              more enjoyable and efficient.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 20 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Collect essential gardening tools such as gloves, trowels,
+              watering cans, and appropriate soil. Having the right tools makes the process more enjoyable and efficient.
             </Text>
 
             <Text style={styles.stepTitle}>🌱 Step 3: Plant Selection and Soil Preparation</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 30 minutes{'\n'}- **Activity**: Choose plants that are suitable for your climate and gardening space. Prepare the soil by removing weeds and adding compost to enrich it.
-              This step ensures that your plants have a healthy environment to grow.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 30 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose plants that are suitable for your climate and
+              gardening space. Prepare the soil by removing weeds and adding compost to enrich it. This step ensures that your plants have a healthy environment to grow.
             </Text>
 
             <Text style={styles.stepTitle}>💧 Step 4: Planting and Watering</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 30-45 minutes{'\n'}- **Activity**: Plant your chosen seeds or seedlings at the appropriate depth and spacing. Water them adequately to establish roots. This hands-on
-              activity connects you directly with nature, fostering mindfulness and relaxation.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 30-45 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Plant your chosen seeds or seedlings at the appropriate
+              depth and spacing. Water them adequately to establish roots. This hands-on activity connects you directly with nature, fostering mindfulness and relaxation.
             </Text>
 
             <Text style={styles.stepTitle}>🌿 Step 5: Regular Maintenance</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 15 minutes per session{'\n'}- **Activity**: Engage in routine tasks like weeding, pruning, and watering. Regular maintenance not only keeps your garden healthy but also
-              provides ongoing therapeutic benefits.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 15 minutes per session{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Engage in routine tasks like weeding, pruning,
+              and watering. Regular maintenance not only keeps your garden healthy but also provides ongoing therapeutic benefits.
             </Text>
 
             <Text style={styles.stepTitle}>🧘‍♂️ Step 6: Reflect and Enjoy</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Spend time observing the growth and changes in your garden. Reflect on the nurturing process and the tranquility it brings. This
-              reflection enhances mindfulness and a sense of accomplishment.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Spend time observing the growth and changes in your
+              garden. Reflect on the nurturing process and the tranquility it brings. This reflection enhances mindfulness and a sense of accomplishment.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

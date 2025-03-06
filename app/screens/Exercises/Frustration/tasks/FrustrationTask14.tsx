@@ -29,27 +29,29 @@ export default function FrustrationTask14Screen() {
               mood, and contribute to overall well-being.
             </Text>
 
-            <Text style={styles.stepTitle}>🛠️ Step 1: Preparation</Text>
+            <Text style={styles.stepTitle}>{'\n'}🛠️ Step 1: Preparation</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 2 minutes{'\n'}- **Activity**: Choose a safe and comfortable environment for your walk, such as a park or a quiet neighborhood. Wear comfortable clothing and shoes to
-              ensure ease of movement.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 2 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a safe and comfortable environment for your walk,
+              such as a park or a quiet neighborhood. Wear comfortable clothing and shoes to ensure ease of movement.
             </Text>
 
-            <Text style={styles.stepTitle}>🔍 Step 2: Initiate Mindful Walking</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔍 Step 2: Initiate Mindful Walking</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Begin walking at a natural pace. Focus your attention on the sensation of your feet touching the ground, the movement of your legs, and
-              the rhythm of your breath. If your mind wanders, gently bring your focus back to these physical sensations. This practice helps anchor you in the present moment. [Source: Mindful.org - A
-              Guided Walking Meditation for Daily Life](https://www.mindful.org/daily-mindful-walking-practice/)
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Begin walking at a natural pace. Focus your attention on
+              the sensation of your feet touching the ground, the movement of your legs, and the rhythm of your breath. If your mind wanders, gently bring your focus back to these physical sensations.
+              This practice helps anchor you in the present moment.{'\n'}
+              <Text style={{ color: 'blue' }}>[Source: Mindful.org - A Guided Walking Meditation for Daily Life](https://www.mindful.org/daily-mindful-walking-practice/)</Text>
             </Text>
 
-            <Text style={styles.stepTitle}>🧘 Step 3: Engage Your Senses</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘 Step 3: Engage Your Senses</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 3 minutes{'\n'}- **Activity**: As you walk, become aware of your surroundings. Notice the colors, textures, and shapes you see; the sounds you hear; the scents you smell;
-              and the feeling of the air on your skin. Engaging your senses fully enhances the mindfulness experience. [Source: Mindfulness.com - Mindful Walking: Stay Grounded by Walking
-              Mindfully](https://mindfulness.com/mindful-living/mindful-walking)
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 3 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> As you walk, become aware of your surroundings. Notice the
+              colors, textures, and shapes you see; the sounds you hear; the scents you smell; and the feeling of the air on your skin. Engaging your senses fully enhances the mindfulness experience.
+              {'\n'}
+              <Text style={{ color: 'blue' }}>[Source: Mindfulness.com - Mindful Walking: Stay Grounded by Walking Mindfully](https://mindfulness.com/mindful-living/mindful-walking)</Text>
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Incorporating mindful walking into your routine can transform a simple activity into a powerful mindfulness practice, fostering a deeper connection with yourself and your environment.
             </Text>

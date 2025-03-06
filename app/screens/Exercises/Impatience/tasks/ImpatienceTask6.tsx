@@ -31,31 +31,32 @@ export default function ImpatienceTask6Screen() {
 
             <Text style={styles.stepTitle}>🍬 Step 1: Understand the Concept</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Begin by discussing what delayed gratification means. Explain that it's the ability to resist the temptation for an immediate reward and wait for a later, often more
-              satisfying, reward.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Begin by discussing what delayed gratification means. Explain that it's the ability to resist the temptation for an immediate
+              reward and wait for a later, often more satisfying, reward.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 2: Discuss the Benefits</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Talk about how delaying gratification can lead to better outcomes in various aspects of life, such as academics, relationships, and personal goals. For example, waiting
-              to buy something until you've saved enough money can prevent debt and lead to greater satisfaction with the purchase.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Talk about how delaying gratification can lead to better outcomes in various aspects of life, such as academics, relationships,
+              and personal goals. For example, waiting to buy something until you've saved enough money can prevent debt and lead to greater satisfaction with the purchase.
             </Text>
 
             <Text style={styles.stepTitle}>⏳ Step 3: Conduct a Personal Experiment</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose a simple temptation that you often face, such as checking your phone during study time or eating a snack before dinner. Make a conscious effort to delay this
-              gratification for a set period, like 15 minutes, and observe how it feels.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a simple temptation that you often face, such as checking your phone during study time or eating a snack before dinner.
+              Make a conscious effort to delay this gratification for a set period, like 15 minutes, and observe how it feels.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 4: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After the experiment, reflect on the experience. How difficult was it to wait? Did the reward feel more satisfying after waiting? What strategies helped you succeed?
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the experiment, reflect on the experience. How difficult was it to wait? Did the reward feel more satisfying after waiting?
+              What strategies helped you succeed?
             </Text>
 
             <Text style={styles.stepTitle}>🎯 Step 5: Set a Delayed Gratification Goal</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Identify an area in your life where you can practice delayed gratification, such as saving money for a desired item or dedicating time to study before leisure activities.
-              Set a specific goal and plan steps to achieve it.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Identify an area in your life where you can practice delayed gratification, such as saving money for a desired item or dedicating
+              time to study before leisure activities. Set a specific goal and plan steps to achieve it.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

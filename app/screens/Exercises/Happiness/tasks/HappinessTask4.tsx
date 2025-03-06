@@ -30,26 +30,26 @@ export default function HappinessTask4Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Planning the Scavenger Hunt</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Create a list of items commonly found in your local outdoor environment, such as a pinecone, a feather, or a uniquely shaped rock. Ensure
-              the items are safe and appropriate for the children's age group.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Create a list of items commonly found in your local
+              outdoor environment, such as a pinecone, a feather, or a uniquely shaped rock. Ensure the items are safe and appropriate for the children's age group.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 2: Preparing Materials</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Provide each child with a copy of the scavenger hunt list and a bag to collect their findings. Consider including pictures for younger
-              children to aid in item identification.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Provide each child with a copy of the scavenger hunt list
+              and a bag to collect their findings. Consider including pictures for younger children to aid in item identification.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 3: Conducting the Hunt</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 25 minutes{'\n'}- **Activity**: Guide the children through the designated area, encouraging them to find and collect the items on their list. Emphasize teamwork,
-              curiosity, and respect for nature during the activity.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 25 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Guide the children through the designated area,
+              encouraging them to find and collect the items on their list. Emphasize teamwork, curiosity, and respect for nature during the activity.
             </Text>
 
             <Text style={styles.stepTitle}>🎨 Step 4: Sharing Discoveries</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: After the hunt, gather the children to share their findings. Discuss the different items, their characteristics, and any interesting
-              observations made during the activity.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the hunt, gather the children to share their
+              findings. Discuss the different items, their characteristics, and any interesting observations made during the activity.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

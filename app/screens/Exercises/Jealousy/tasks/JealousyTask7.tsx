@@ -26,24 +26,35 @@ export default function JealousyTask7Screen() {
           <View style={styles.stepsContainer}>
             <Text style={styles.description}>Mindful meditation helps teenagers become aware of their thoughts and emotions, promoting emotional regulation and reducing feelings of jealousy.</Text>
 
-            <Text style={styles.stepTitle}>🧘‍♂️ Step 1: Understanding Mindfulness</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘‍♂️ Step 1: Understanding Mindfulness</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Introduce the concept of mindfulness to teenagers, explaining how being present in the moment can help manage emotions and reduce stress.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Introduce the concept of mindfulness to teenagers, explaining how being present in the moment can help manage emotions and reduce
+              stress.
             </Text>
 
-            <Text style={styles.stepTitle}>🌬️ Step 2: Breathing Exercises</Text>
-            <Text style={styles.stepText}>- **Activity**: Guide teens through deep breathing exercises, encouraging them to focus on their breath to anchor themselves in the present moment.</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌬️ Step 2: Breathing Exercises</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Guide teens through deep breathing exercises, encouraging them to focus on their breath to anchor themselves in the present
+              moment.
+            </Text>
 
-            <Text style={styles.stepTitle}>🧠 Step 3: Body Scan Meditation</Text>
-            <Text style={styles.stepText}>- **Activity**: Lead a body scan meditation, asking teens to pay attention to different parts of their body, promoting relaxation and bodily awareness.</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧠 Step 3: Body Scan Meditation</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Lead a body scan meditation, asking teens to pay attention to different parts of their body, promoting relaxation and bodily
+              awareness.
+            </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 4: Reflective Journaling</Text>
-            <Text style={styles.stepText}>- **Activity**: After meditation, encourage teens to journal their experiences, noting any thoughts or emotions that arose during the practice.</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 4: Reflective Journaling</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After meditation, encourage teens to journal their experiences, noting any thoughts or emotions that arose during the practice.
+            </Text>
 
-            <Text style={styles.stepTitle}>🤝 Step 5: Group Discussion</Text>
-            <Text style={styles.stepText}>- **Activity**: Facilitate a group discussion where teens can share their experiences and insights from the meditation and journaling exercises.</Text>
+            <Text style={styles.stepTitle}>{'\n'}🤝 Step 5: Group Discussion</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Facilitate a group discussion where teens can share their experiences and insights from the meditation and journaling exercises.
+            </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Regular practice of mindful meditation can help teenagers develop better emotional regulation, reducing negative emotions like jealousy and enhancing overall well-being.
             </Text>

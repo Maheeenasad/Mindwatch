@@ -29,27 +29,41 @@ export default function JealousyTask1Screen() {
               jealousy and encourage cooperative behavior.
             </Text>
 
-            <Text style={styles.stepTitle}>🧩 Step 1: Collaborative Puzzle Building</Text>
+            <Text style={styles.stepTitle}>
+              {'\n'}🧩 <Text style={{ fontWeight: 'bold' }}>Step 1: Collaborative Puzzle Building</Text>
+            </Text>
             <Text style={styles.stepText}>
-              - **Activity**: Provide a jigsaw puzzle and encourage children to work together to complete it. Emphasize the importance of sharing pieces and collaborating to achieve a common goal.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Provide a jigsaw puzzle and encourage children to work together to complete it. Emphasize the importance of sharing pieces and
+              collaborating to achieve a common goal.
             </Text>
 
-            <Text style={styles.stepTitle}>🎨 Step 2: Group Art Project</Text>
+            <Text style={styles.stepTitle}>
+              {'\n'}🎨 <Text style={{ fontWeight: 'bold' }}>Step 2: Group Art Project</Text>
+            </Text>
             <Text style={styles.stepText}>
-              - **Activity**: Set up a large canvas or paper and supply various art materials. Guide the children to create a collective artwork, sharing tools and ideas throughout the process.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Set up a large canvas or paper and supply various art materials. Guide the children to create a collective artwork, sharing tools
+              and ideas throughout the process.
             </Text>
 
-            <Text style={styles.stepTitle}>📖 Step 3: Storytelling Circle</Text>
+            <Text style={styles.stepTitle}>
+              {'\n'}📖 <Text style={{ fontWeight: 'bold' }}>Step 3: Storytelling Circle</Text>
+            </Text>
             <Text style={styles.stepText}>
-              - **Activity**: Initiate a storytelling session where each child contributes a part of the story. This activity encourages listening, sharing ideas, and building a narrative together.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Initiate a storytelling session where each child contributes a part of the story. This activity encourages listening, sharing
+              ideas, and building a narrative together.
             </Text>
 
-            <Text style={styles.stepTitle}>🤝 Step 4: Sharing Personal Items</Text>
+            <Text style={styles.stepTitle}>
+              {'\n'}🤝 <Text style={{ fontWeight: 'bold' }}>Step 4: Sharing Personal Items</Text>
+            </Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage children to bring a favorite toy or book and share it with their peers for a short period. Discuss how sharing can lead to new friendships and experiences.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage children to bring a favorite toy or book and share it with their peers for a short period. Discuss how sharing can lead
+              to new friendships and experiences.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>
+              {'\n'}🌟 <Text style={{ fontWeight: 'bold' }}>Final Thought</Text>
+            </Text>
             <Text style={styles.stepText}>
               Incorporating sharing activities into daily routines can significantly reduce feelings of jealousy and promote a sense of community among children. These exercises not only teach the
               value of generosity but also enhance social skills and emotional intelligence.

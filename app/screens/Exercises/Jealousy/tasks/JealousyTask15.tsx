@@ -29,27 +29,31 @@ export default function JealousyTask15Screen() {
               and regain balance.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 1: Identify Your Social Media Habits</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 1: Identify Your Social Media Habits</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Take a moment to reflect on your social media usage. How much time do you spend daily on platforms like Instagram, Facebook, or Twitter? Write down your observations.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Take a moment to reflect on your social media usage. How much time do you spend daily on platforms like Instagram, Facebook, or
+              Twitter? Write down your observations.
             </Text>
 
-            <Text style={styles.stepTitle}>🌱 Step 2: Set Clear Goals for Your Detox</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌱 Step 2: Set Clear Goals for Your Detox</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Define what you hope to achieve during this detox. Is it to reduce anxiety, gain more focus, or reconnect with real-life relationships? Write down at least one goal.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Define what you hope to achieve during this detox. Is it to reduce anxiety, gain more focus, or reconnect with real-life
+              relationships? Write down at least one goal.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Step 3: Design a Social Media-Free Environment</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Step 3: Design a Social Media-Free Environment</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Remove apps from your phone or log out of your social media accounts. Create a space that encourages real-life connections and replace screen time with hobbies.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Remove apps from your phone or log out of your social media accounts. Create a space that encourages real-life connections and
+              replace screen time with hobbies.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘‍♂️ Step 4: Focus on Mindfulness and Presence</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘‍♂️ Step 4: Focus on Mindfulness and Presence</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Practice mindfulness during conversations, meals, or walks. Be present and avoid checking your phone. Write down your reflections at the end of each day.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Practice mindfulness during conversations, meals, or walks. Be present and avoid checking your phone. Write down your reflections
+              at the end of each day.
             </Text>
 
-            <Text style={styles.stepTitle}>🌻 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌻 Final Thought</Text>
             <Text style={styles.stepText}>
               The detox isn't just about stepping away from screens; it's about reclaiming control over your time and mental space. Use this opportunity for self-care and mindfulness.
             </Text>

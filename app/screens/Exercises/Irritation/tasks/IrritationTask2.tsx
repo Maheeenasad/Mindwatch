@@ -31,32 +31,32 @@ export default function IrritationTask2Screen() {
 
             <Text style={styles.stepTitle}>📝 Step 1: Prepare the Materials</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Gather non-toxic modeling clay or play dough in various colors. Ensure the clay is soft and easy to manipulate. Set up a clean, flat surface where the child can
-              comfortably engage in the activity.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Gather non-toxic modeling clay or play dough in various colors. Ensure the clay is soft and easy to manipulate. Set up a clean,
+              flat surface where the child can comfortably engage in the activity.
             </Text>
 
             <Text style={styles.stepTitle}>👐 Step 2: Introduce the Activity</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Explain to the child that they will be using the clay to create shapes, figures, or simply squeeze and mold it as they like. Encourage them to explore the texture and
-              temperature of the clay, emphasizing that there's no right or wrong way to play.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Explain to the child that they will be using the clay to create shapes, figures, or simply squeeze and mold it as they like.
+              Encourage them to explore the texture and temperature of the clay, emphasizing that there's no right or wrong way to play.
             </Text>
 
             <Text style={styles.stepTitle}>🎨 Step 3: Encourage Creativity</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Invite the child to create anything they imagine—be it animals, shapes, or abstract forms. This creative process allows for self-expression and can be particularly
-              soothing, helping to alleviate feelings of irritation.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Invite the child to create anything they imagine—be it animals, shapes, or abstract forms. This creative process allows for
+              self-expression and can be particularly soothing, helping to alleviate feelings of irritation.
             </Text>
 
             <Text style={styles.stepTitle}>🤲 Step 4: Squeezing and Molding</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage the child to squeeze, roll, and stretch the clay. These actions can help release tension and improve hand strength, providing both physical and emotional
-              benefits.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage the child to squeeze, roll, and stretch the clay. These actions can help release tension and improve hand strength,
+              providing both physical and emotional benefits.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 5: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After the activity, discuss with the child how they felt during the clay squeezing. Ask if it was enjoyable and if it helped them feel more relaxed or less irritated.
-              This reflection can enhance self-awareness and emotional understanding.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the activity, discuss with the child how they felt during the clay squeezing. Ask if it was enjoyable and if it helped them
+              feel more relaxed or less irritated. This reflection can enhance self-awareness and emotional understanding.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

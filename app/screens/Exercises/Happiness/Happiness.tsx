@@ -10,24 +10,24 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 const taskCategories: Record<'child' | 'teenage' | 'adult', { id: number; title: string; time: string; screen: keyof RootStackParamList; image: any }[]> = {
   child: [
     { id: 1, title: 'Gratitude Drawing', time: '20 mins', screen: 'HappinessTask1', image: require('@/assets/exercises/HappinessTask2.jpg') },
-    { id: 2, title: 'Bubble Fun', time: '10 mins', screen: 'HappinessTask2', image: require('@/assets/exercises/HappinessTask3.jpg') },
-    { id: 3, title: 'Storytelling with Friends', time: '20 mins', screen: 'HappinessTask3', image: require('@/assets/exercises/HappinessTask4.jpg') },
-    { id: 4, title: 'Outdoor Scavenger Hunt', time: '25 mins', screen: 'HappinessTask4', image: require('@/assets/exercises/HappinessTask5.jpg') },
-    { id: 5, title: 'Animal Imitation Game', time: '15 mins', screen: 'HappinessTask5', image: require('@/assets/exercises/HappinessTask6.jpg') }
+    { id: 2, title: 'Bubble Fun', time: '15 mins', screen: 'HappinessTask2', image: require('@/assets/exercises/HappinessTask3.jpg') },
+    { id: 3, title: 'Storytelling with Friends', time: '30 mins', screen: 'HappinessTask3', image: require('@/assets/exercises/HappinessTask4.jpg') },
+    { id: 4, title: 'Outdoor Scavenger Hunt', time: '45 mins', screen: 'HappinessTask4', image: require('@/assets/exercises/HappinessTask5.jpg') },
+    { id: 5, title: 'Animal Imitation Game', time: '30 mins', screen: 'HappinessTask5', image: require('@/assets/exercises/HappinessTask6.jpg') }
   ],
   teenage: [
     { id: 1, title: 'Vision Board Creation', time: '30 mins', screen: 'HappinessTask6', image: require('@/assets/exercises/HappinessTask2.jpg') },
-    { id: 2, title: 'Sunset Walk', time: '20 mins', screen: 'HappinessTask7', image: require('@/assets/exercises/HappinessTask3.jpg') },
-    { id: 3, title: 'Acts of Kindness Challenge', time: '10 mins', screen: 'HappinessTask8', image: require('@/assets/exercises/HappinessTask4.jpg') },
+    { id: 2, title: 'Sunset Walk', time: '30 mins', screen: 'HappinessTask7', image: require('@/assets/exercises/HappinessTask3.jpg') },
+    { id: 3, title: 'Acts of Kindness Challenge', time: '1 week', screen: 'HappinessTask8', image: require('@/assets/exercises/HappinessTask4.jpg') },
     { id: 4, title: 'Laughter Yoga', time: '15 mins', screen: 'HappinessTask9', image: require('@/assets/exercises/HappinessTask5.jpg') },
-    { id: 5, title: 'Journaling Happy Moments', time: '20 mins', screen: 'HappinessTask10', image: require('@/assets/exercises/HappinessTask6.jpg') }
+    { id: 5, title: 'Journaling Happy Moments', time: '15 mins daily', screen: 'HappinessTask10', image: require('@/assets/exercises/HappinessTask6.jpg') }
   ],
   adult: [
-    { id: 1, title: 'Cooking a New Recipe', time: '40 mins', screen: 'HappinessTask11', image: require('@/assets/exercises/HappinessTask2.jpg') },
-    { id: 2, title: 'Mindful Meditation', time: '15 mins', screen: 'HappinessTask12', image: require('@/assets/exercises/HappinessTask3.jpg') },
-    { id: 3, title: 'Spending Time with Loved Ones', time: '30 mins', screen: 'HappinessTask13', image: require('@/assets/exercises/HappinessTask4.jpg') },
-    { id: 4, title: 'Gardening Therapy', time: '25 mins', screen: 'HappinessTask14', image: require('@/assets/exercises/HappinessTask5.jpg') },
-    { id: 5, title: 'Creative Writing Exercise', time: '20 mins', screen: 'HappinessTask15', image: require('@/assets/exercises/HappinessTask6.jpg') }
+    { id: 1, title: 'Cooking a New Recipe', time: '1-2 hours', screen: 'HappinessTask11', image: require('@/assets/exercises/HappinessTask2.jpg') },
+    { id: 2, title: 'Mindful Meditation', time: '10-20 mins daily', screen: 'HappinessTask12', image: require('@/assets/exercises/HappinessTask3.jpg') },
+    { id: 3, title: 'Spending Time with Loved Ones', time: 'varies based on activity', screen: 'HappinessTask13', image: require('@/assets/exercises/HappinessTask4.jpg') },
+    { id: 4, title: 'Gardening Therapy', time: '2-3 times a week', screen: 'HappinessTask14', image: require('@/assets/exercises/HappinessTask5.jpg') },
+    { id: 5, title: 'Creative Writing Exercise', time: '15-30 mins daily', screen: 'HappinessTask15', image: require('@/assets/exercises/HappinessTask6.jpg') }
   ]
 };
 

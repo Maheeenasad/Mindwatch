@@ -26,28 +26,31 @@ export default function JealousyTask8Screen() {
           <View style={styles.stepsContainer}>
             <Text style={styles.description}>Engaging in self-worth exercises helps teenagers recognize their intrinsic value, fostering self-esteem and reducing feelings of jealousy.</Text>
 
-            <Text style={styles.stepTitle}>📝 Step 1: Positive Affirmation Creation</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 1: Positive Affirmation Creation</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Guide teenagers to write down positive affirmations about themselves, focusing on their strengths and qualities. Repeating these affirmations daily can reinforce
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Guide teenagers to write down positive affirmations about themselves, focusing on their strengths and qualities. Repeating these
+              affirmations daily can reinforce self-worth.
+            </Text>
+
+            <Text style={styles.stepTitle}>{'\n'}🎨 Step 2: Vision Board Development</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage teens to create a vision board that represents their goals and aspirations. This visual representation can boost
+              motivation and self-confidence.
+            </Text>
+
+            <Text style={styles.stepTitle}>{'\n'}🧘‍♀️ Step 3: Mindfulness Meditation</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Introduce mindfulness meditation practices to help teens become more aware of their thoughts and feelings, promoting
+              self-acceptance and reducing negative self-talk.
+            </Text>
+
+            <Text style={styles.stepTitle}>{'\n'}📚 Step 4: Goal Setting</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Assist teenagers in setting realistic and achievable goals. Accomplishing these goals can enhance their sense of competence and
               self-worth.
             </Text>
 
-            <Text style={styles.stepTitle}>🎨 Step 2: Vision Board Development</Text>
-            <Text style={styles.stepText}>
-              - **Activity**: Encourage teens to create a vision board that represents their goals and aspirations. This visual representation can boost motivation and self-confidence.
-            </Text>
-
-            <Text style={styles.stepTitle}>🧘‍♀️ Step 3: Mindfulness Meditation</Text>
-            <Text style={styles.stepText}>
-              - **Activity**: Introduce mindfulness meditation practices to help teens become more aware of their thoughts and feelings, promoting self-acceptance and reducing negative self-talk.
-            </Text>
-
-            <Text style={styles.stepTitle}>📚 Step 4: Goal Setting</Text>
-            <Text style={styles.stepText}>
-              - **Activity**: Assist teenagers in setting realistic and achievable goals. Accomplishing these goals can enhance their sense of competence and self-worth.
-            </Text>
-
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Regular engagement in self-worth exercises can help teenagers build a strong sense of self, reducing negative emotions like jealousy and enhancing overall well-being.
             </Text>

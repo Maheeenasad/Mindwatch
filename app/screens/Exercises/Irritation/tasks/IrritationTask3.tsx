@@ -31,25 +31,26 @@ export default function IrritationTask3Screen() {
 
             <Text style={styles.stepTitle}>📝 Step 1: Gather Materials</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Collect watercolor paints, brushes, paper, and a water container. Ensure the workspace is protected and all materials are easily accessible.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Collect watercolor paints, brushes, paper, and a water container. Ensure the workspace is protected and all materials are easily
+              accessible.
             </Text>
 
             <Text style={styles.stepTitle}>🎨 Step 2: Introduce the Concept</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Explain to the child that they will paint their feelings. Discuss how colors and brushstrokes can represent different emotions, encouraging them to think about how they
-              feel and how they might express that through art.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Explain to the child that they will paint their feelings. Discuss how colors and brushstrokes can represent different emotions,
+              encouraging them to think about how they feel and how they might express that through art.
             </Text>
 
             <Text style={styles.stepTitle}>🖌️ Step 3: Encourage Free Expression</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Allow the child to paint freely, choosing colors and techniques that resonate with their current emotions. Emphasize that there is no right or wrong way to express
-              feelings through art.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Allow the child to paint freely, choosing colors and techniques that resonate with their current emotions. Emphasize that there is
+              no right or wrong way to express feelings through art.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 4: Reflect on the Artwork</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After painting, discuss the artwork with the child. Ask them to describe their painting and the emotions they intended to convey, fostering self-awareness and emotional
-              articulation.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After painting, discuss the artwork with the child. Ask them to describe their painting and the emotions they intended to convey,
+              fostering self-awareness and emotional articulation.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

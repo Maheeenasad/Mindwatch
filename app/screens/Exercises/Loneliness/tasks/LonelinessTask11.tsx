@@ -29,35 +29,37 @@ export default function LonelinessTask11Screen() {
               judgment, you can gain insights into your inner experiences and address feelings of loneliness.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 1: Set Up Your Journaling Space</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 1: Set Up Your Journaling Space</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Find a quiet, comfortable space where you won't be disturbed. Gather your journaling materials, such as a notebook and pen, or use a digital device if you prefer.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Find a quiet, comfortable space where you won't be disturbed. Gather your journaling materials, such as a notebook and pen, or use
+              a digital device if you prefer.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘 Step 2: Center Yourself</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘 Step 2: Center Yourself</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Before you begin writing, take a few deep breaths to center yourself. Allow your mind to settle and bring your attention to the present moment.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Before you begin writing, take a few deep breaths to center yourself. Allow your mind to settle and bring your attention to the
+              present moment.
             </Text>
 
-            <Text style={styles.stepTitle}>✍️ Step 3: Begin Writing</Text>
+            <Text style={styles.stepTitle}>{'\n'}✍️ Step 3: Begin Writing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Start writing about your current thoughts and feelings. Don't worry about grammar or structure; let your words flow naturally. Focus on being honest and open with
-              yourself.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Start writing about your current thoughts and feelings. Don't worry about grammar or structure; let your words flow naturally.
+              Focus on being honest and open with yourself.
             </Text>
 
-            <Text style={styles.stepTitle}>🔍 Step 4: Reflect on Your Entries</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔍 Step 4: Reflect on Your Entries</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After writing, read over your entries. Reflect on any patterns or insights that emerge. Consider how these reflections might inform your understanding of your feelings of
-              loneliness.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After writing, read over your entries. Reflect on any patterns or insights that emerge. Consider how these reflections might
+              inform your understanding of your feelings of loneliness.
             </Text>
 
-            <Text style={styles.stepTitle}>📅 Step 5: Establish a Routine</Text>
+            <Text style={styles.stepTitle}>{'\n'}📅 Step 5: Establish a Routine</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Aim to incorporate mindful journaling into your routine, whether daily or weekly. Consistency can deepen your self-awareness and contribute to emotional well-being over
-              time.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Aim to incorporate mindful journaling into your routine, whether daily or weekly. Consistency can deepen your self-awareness and
+              contribute to emotional well-being over time.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Mindful journaling is a personal journey toward understanding and accepting your emotions. By dedicating time to this practice, you nurture a compassionate relationship with yourself,
               which can alleviate feelings of loneliness and promote inner peace.

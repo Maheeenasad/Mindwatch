@@ -29,31 +29,31 @@ export default function JealousyTask14Screen() {
               reduce jealousy by focusing on personal development, achievements, and the journey towards becoming the best version of oneself.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 1: Reflect on Your Personal Achievements</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 1: Reflect on Your Personal Achievements</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Take a few moments to reflect on your personal achievements, big or small. Think about milestones you've reached, whether in your career, relationships, or personal
-              goals. Write down at least three accomplishments that you're proud of.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Take a few moments to reflect on your personal achievements, big or small. Think about milestones you've reached, whether in your
+              career, relationships, or personal goals. Write down at least three accomplishments that you're proud of.
             </Text>
 
-            <Text style={styles.stepTitle}>🌱 Step 2: Identify Areas for Growth</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌱 Step 2: Identify Areas for Growth</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Think about areas in your life where you'd like to improve or grow. This could be anything from learning new skills, improving relationships, or focusing on emotional
-              resilience. Write down one area you'd like to grow in and consider the steps you can take to make progress.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Think about areas in your life where you'd like to improve or grow. This could be anything from learning new skills, improving
+              relationships, or focusing on emotional resilience. Write down one area you'd like to grow in and consider the steps you can take to make progress.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Step 3: Acknowledge Your Strengths</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Step 3: Acknowledge Your Strengths</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Reflect on your strengths and unique qualities. What makes you special? Acknowledge the talents, skills, or personal qualities that you have, and recognize how these
-              contribute to your success and happiness. Write them down.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Reflect on your strengths and unique qualities. What makes you special? Acknowledge the talents, skills, or personal qualities
+              that you have, and recognize how these contribute to your success and happiness. Write them down.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘‍♂️ Step 4: Set Intentions for the Future</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘‍♂️ Step 4: Set Intentions for the Future</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Set an intention for your personal growth. This could be a long-term goal or a short-term focus, such as improving self-compassion, taking risks, or practicing gratitude.
-              Write down how you will move forward with your intentions and why they are meaningful to you.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Set an intention for your personal growth. This could be a long-term goal or a short-term focus, such as improving
+              self-compassion, taking risks, or practicing gratitude. Write down how you will move forward with your intentions and why they are meaningful to you.
             </Text>
 
-            <Text style={styles.stepTitle}>🌻 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌻 Final Thought</Text>
             <Text style={styles.stepText}>
               Personal growth is a continuous journey, and it's important to celebrate progress, no matter how small. By focusing on your achievements, strengths, and growth areas, you can shift your
               energy away from jealousy and towards self-improvement and fulfillment.

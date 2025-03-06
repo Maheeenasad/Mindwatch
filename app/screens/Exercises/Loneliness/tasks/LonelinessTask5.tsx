@@ -22,38 +22,37 @@ export default function LonelinessTask5Screen() {
           <View style={styles.timeContainer}>
             <Text style={styles.timeText}>~15-20 minutes</Text>
           </View>
-
           <View style={styles.stepsContainer}>
             <Text style={styles.description}>
               Engaging with nature sounds can help children relax, reduce anxiety, and improve their mood. This activity guides children to immerse themselves in the soothing sounds of nature,
               promoting a sense of peace and connection to the natural world.
             </Text>
 
-            <Text style={styles.stepTitle}>🌳 Step 1: Choose a Comfortable Setting</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌳 Step 1: Choose a Comfortable Setting</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Find a quiet and comfortable place where your child can sit or lie down without distractions. This could be indoors or outdoors, depending on availability and weather
-              conditions.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Find a quiet and comfortable place where your child can sit or lie down without distractions. This could be indoors or outdoors,
+              depending on availability and weather conditions.
             </Text>
 
-            <Text style={styles.stepTitle}>🎧 Step 2: Select Nature Sounds</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎧 Step 2: Select Nature Sounds</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose a nature sound recording that your child finds calming. Examples include rainfall, ocean waves, or birdsong. You can find such recordings online or use a nature
-              sounds app.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a nature sound recording that your child finds calming. Examples include rainfall, ocean waves, or birdsong. You can find
+              such recordings online or use a nature sounds app.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘 Step 3: Begin the Listening Session</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘 Step 3: Begin the Listening Session</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Have your child close their eyes and focus on the sounds. Encourage them to take deep breaths, inhaling slowly through the nose and exhaling through the mouth, to enhance
-              relaxation.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Have your child close their eyes and focus on the sounds. Encourage them to take deep breaths, inhaling slowly through the nose
+              and exhaling through the mouth, to enhance relaxation.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 4: Reflect on the Experience</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 4: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After the session, discuss with your child how they felt while listening to the nature sounds. Ask if it made them feel more relaxed or if it reminded them of any
-              pleasant experiences.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the session, discuss with your child how they felt while listening to the nature sounds. Ask if it made them feel more
+              relaxed or if it reminded them of any pleasant experiences.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Regularly incorporating nature sounds into your child's routine can provide a simple yet effective way to reduce stress and promote emotional well-being. It fosters a connection to
               nature, even when indoors, and can be a valuable tool in managing feelings of loneliness.

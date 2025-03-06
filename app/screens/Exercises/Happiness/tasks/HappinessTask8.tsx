@@ -31,25 +31,26 @@ export default function HappinessTask8Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Plan Your Acts of Kindness</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 15 minutes{'\n'}- **Activity**: Brainstorm a list of kind acts you can perform over the next week. These can be small gestures like complimenting someone, helping a
-              family member with chores, or writing a thank-you note to a teacher.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 15 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Brainstorm a list of kind acts you can perform over the
+              next week. These can be small gestures like complimenting someone, helping a family member with chores, or writing a thank-you note to a teacher.
             </Text>
 
             <Text style={styles.stepTitle}>📅 Step 2: Schedule Your Kind Acts</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 15 minutes{'\n'}- **Activity**: Assign each act of kindness to a specific day of the week. Having a plan can help ensure you follow through with your intentions.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 15 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Assign each act of kindness to a specific day of the week.
+              Having a plan can help ensure you follow through with your intentions.
             </Text>
 
             <Text style={styles.stepTitle}>🤝 Step 3: Perform and Reflect</Text>
             <Text style={styles.stepText}>
-              - **Duration**: Varies daily{'\n'}- **Activity**: Carry out your planned act of kindness each day. Afterward, take a few minutes to reflect on how it made you feel and how it might have
-              impacted the recipient.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> Varies daily{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Carry out your planned act of kindness each day.
+              Afterward, take a few minutes to reflect on how it made you feel and how it might have impacted the recipient.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 4: Share Your Experience</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: At the end of the week, consider sharing your experiences with friends or family. Discussing the positive effects of kindness can inspire
-              others to participate as well.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> At the end of the week, consider sharing your experiences
+              with friends or family. Discussing the positive effects of kindness can inspire others to participate as well.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

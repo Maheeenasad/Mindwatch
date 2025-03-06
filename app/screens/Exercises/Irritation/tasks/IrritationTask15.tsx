@@ -31,25 +31,26 @@ export default function IrritationTask15Screen() {
 
             <Text style={styles.stepTitle}>🎧 Step 1: Select a Comfortable Environment</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Find a quiet and comfortable space where you can sit or lie down without interruptions. This setting will enhance your ability to fully immerse yourself in the music.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Find a quiet and comfortable space where you can sit or lie down without interruptions. This setting will enhance your ability to
+              fully immerse yourself in the music.
             </Text>
 
             <Text style={styles.stepTitle}>🔊 Step 2: Choose Appropriate Music</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Opt for instrumental tracks known for their calming effects, such as classical pieces, ambient sounds, or nature-inspired compositions. These genres are effective in
-              reducing stress and promoting relaxation.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Opt for instrumental tracks known for their calming effects, such as classical pieces, ambient sounds, or nature-inspired
+              compositions. These genres are effective in reducing stress and promoting relaxation.
             </Text>
 
             <Text style={styles.stepTitle}>🧘 Step 3: Practice Deep Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: As you listen, focus on your breathing. Inhale deeply through your nose, hold for a few seconds, and exhale slowly through your mouth. This technique can enhance the
-              relaxation response induced by the music.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> As you listen, focus on your breathing. Inhale deeply through your nose, hold for a few seconds, and exhale slowly through your
+              mouth. This technique can enhance the relaxation response induced by the music.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 4: Visualize a Peaceful Scene</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Allow the music to guide your imagination to a serene place—a quiet beach, a lush forest, or a tranquil meadow. Visualization can amplify the stress-relieving benefits of
-              the exercise.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Allow the music to guide your imagination to a serene place—a quiet beach, a lush forest, or a tranquil meadow. Visualization can
+              amplify the stress-relieving benefits of the exercise.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

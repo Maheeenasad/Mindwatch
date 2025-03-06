@@ -29,26 +29,29 @@ export default function FrustrationTask11Screen() {
               restructuring negative thoughts, one can manage frustration more effectively and enhance overall well-being.
             </Text>
 
-            <Text style={styles.stepTitle}>🛠️ Step 1: Identify Unhelpful Thoughts</Text>
+            <Text style={styles.stepTitle}>{'\n'}🛠️ Step 1: Identify Unhelpful Thoughts</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Reflect on recent situations where you felt frustrated. Write down the thoughts that accompanied these feelings. For example, "I always
-              mess things up" or "Nothing ever goes right for me."
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Reflect on recent situations where you felt frustrated.
+              Write down the thoughts that accompanied these feelings. For example, "I always mess things up" or "Nothing ever goes right for me."
             </Text>
 
-            <Text style={styles.stepTitle}>🔍 Step 2: Challenge These Thoughts</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔍 Step 2: Challenge These Thoughts</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Examine the evidence for and against each unhelpful thought. Ask yourself questions like: "Is this thought based on facts or assumptions?"
-              and "Have there been times when this wasn't true?" This process helps in recognizing cognitive distortions. [Source: NHS - Reframing Unhelpful
-              Thoughts](https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/self-help-cbt-techniques/reframing-unhelpful-thoughts/)
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Examine the evidence for and against each unhelpful
+              thought. Ask yourself questions like: "Is this thought based on facts or assumptions?" and "Have there been times when this wasn't true?" This process helps in recognizing cognitive
+              distortions.{'\n'}
+              <Text style={{ color: 'blue' }}>
+                [Source: NHS - Reframing Unhelpful Thoughts](https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/self-help-cbt-techniques/reframing-unhelpful-thoughts/)
+              </Text>
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 3: Reframe to Positive Thoughts</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 3: Reframe to Positive Thoughts</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Replace each unhelpful thought with a more balanced perspective. For instance, change "I always mess things up" to "I sometimes make
-              mistakes, but I learn and improve." This reframing fosters a healthier mindset.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Replace each unhelpful thought with a more balanced
+              perspective. For instance, change "I always mess things up" to "I sometimes make mistakes, but I learn and improve." This reframing fosters a healthier mindset.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Regular practice of cognitive reframing can transform negative thought patterns, leading to improved emotional regulation and reduced frustration. Embracing this technique empowers you
               to view challenges from a constructive angle.

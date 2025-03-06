@@ -29,44 +29,57 @@ export default function FrustrationTask4Screen() {
               calm and regain control over their feelings.
             </Text>
 
-            <Text style={styles.stepTitle}>🛠️ Step 1: Gather Materials</Text>
+            <Text style={styles.stepTitle}>{'\n'}🛠️ Step 1: Gather Materials</Text>
             <Text style={styles.stepText}>
-              - **Clear plastic or glass jar with a tight-fitting lid**{'\n'}- **Warm water**{'\n'}- **Clear glue or glitter glue**{'\n'}- **Fine and chunky glitter**{'\n'}- **Food coloring
-              (optional)**{'\n'}- **Dish soap (optional)**{'\n'}- **Super glue or hot glue (to secure the lid)**
+              - <Text style={{ fontWeight: 'bold' }}>Clear plastic or glass jar with a tight-fitting lid</Text>
+              {'\n'}- <Text style={{ fontWeight: 'bold' }}>Warm water</Text>
+              {'\n'}- <Text style={{ fontWeight: 'bold' }}>Clear glue or glitter glue</Text>
+              {'\n'}- <Text style={{ fontWeight: 'bold' }}>Fine and chunky glitter</Text>
+              {'\n'}- <Text style={{ fontWeight: 'bold' }}>Food coloring (optional)</Text>
+              {'\n'}- <Text style={{ fontWeight: 'bold' }}>Dish soap (optional)</Text>
+              {'\n'}- <Text style={{ fontWeight: 'bold' }}>Super glue or hot glue (to secure the lid)</Text>
             </Text>
 
-            <Text style={styles.stepTitle}>🔧 Step 2: Prepare the Mixture</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔧 Step 2: Prepare the Mixture</Text>
             <Text style={styles.stepText}>
-              1. **Fill the jar about three-quarters full with warm water.** The warmth helps the glue and glitter mix more easily. 2. **Add clear glue to the water.** The more glue you add, the
-              slower the glitter will settle. Start with about half a cup and adjust as needed. 3. **Pour in your choice of glitter.** Combining fine and chunky glitter adds visual interest. Start
-              with one to two tablespoons and adjust to your preference. 4. **Add a few drops of food coloring** if you'd like to tint the water. This step is optional and depends on your desired
-              aesthetic. 5. **Add a drop or two of dish soap** to help the glitter disperse more evenly and prevent it from clumping.
+              1. <Text style={{ fontWeight: 'bold' }}>Fill the jar about three-quarters full with warm water.</Text> The warmth helps the glue and glitter mix more easily.{'\n'}
+              2. <Text style={{ fontWeight: 'bold' }}>Add clear glue to the water.</Text> The more glue you add, the slower the glitter will settle. Start with about half a cup and adjust as needed.
+              {'\n'}
+              3. <Text style={{ fontWeight: 'bold' }}>Pour in your choice of glitter.</Text> Combining fine and chunky glitter adds visual interest. Start with one to two tablespoons and adjust to
+              your preference.{'\n'}
+              4. <Text style={{ fontWeight: 'bold' }}>Add a few drops of food coloring</Text> if you'd like to tint the water. This step is optional and depends on your desired aesthetic.{'\n'}
+              5. <Text style={{ fontWeight: 'bold' }}>Add a drop or two of dish soap</Text> to help the glitter disperse more evenly and prevent it from clumping.
             </Text>
 
-            <Text style={styles.stepTitle}>🔄 Step 3: Mix and Adjust</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔄 Step 3: Mix and Adjust</Text>
             <Text style={styles.stepText}>
-              1. **Stir the mixture thoroughly** to ensure all components are well combined. 2. **Observe how the glitter settles.** If it falls too quickly, add more glue to slow it down. If it's too
-              slow, add a bit more water. 3. **Top off the jar with additional warm water**, leaving a small space at the top to allow for shaking.
+              1. <Text style={{ fontWeight: 'bold' }}>Stir the mixture thoroughly</Text> to ensure all components are well combined.{'\n'}
+              2. <Text style={{ fontWeight: 'bold' }}>Observe how the glitter settles.</Text> If it falls too quickly, add more glue to slow it down. If it's too slow, add a bit more water.{'\n'}
+              3. <Text style={{ fontWeight: 'bold' }}>Top off the jar with additional warm water</Text>, leaving a small space at the top to allow for shaking.
             </Text>
 
-            <Text style={styles.stepTitle}>🧒 Step 4: Secure the Lid</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧒 Step 4: Secure the Lid</Text>
             <Text style={styles.stepText}>
-              1. **Dry the rim of the jar and the lid** to ensure they are free from moisture. 2. **Apply super glue or hot glue** around the inside edge of the lid. 3. **Carefully screw the lid onto
-              the jar**, ensuring it's tight and secure to prevent leaks.
+              1. <Text style={{ fontWeight: 'bold' }}>Dry the rim of the jar and the lid</Text> to ensure they are free from moisture.{'\n'}
+              2. <Text style={{ fontWeight: 'bold' }}>Apply super glue or hot glue</Text> around the inside edge of the lid.{'\n'}
+              3. <Text style={{ fontWeight: 'bold' }}>Carefully screw the lid onto the jar</Text>, ensuring it's tight and secure to prevent leaks.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Step 5: Using the Calm Down Jar</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Step 5: Using the Calm Down Jar</Text>
             <Text style={styles.stepText}>
-              1. **Shake the jar vigorously** to suspend the glitter throughout the liquid. 2. **Encourage the child to watch the glitter swirl and slowly settle** to the bottom. This visual can be
-              soothing and serve as a mindfulness exercise. 3. **Use the jar during moments of frustration or anxiety** to help the child focus, breathe deeply, and calm down.
+              1. <Text style={{ fontWeight: 'bold' }}>Shake the jar vigorously</Text> to suspend the glitter throughout the liquid.{'\n'}
+              2. <Text style={{ fontWeight: 'bold' }}>Encourage the child to watch the glitter swirl and slowly settle</Text> to the bottom. This visual can be soothing and serve as a mindfulness
+              exercise.{'\n'}
+              3. <Text style={{ fontWeight: 'bold' }}>Use the jar during moments of frustration or anxiety</Text> to help the child focus, breathe deeply, and calm down.
             </Text>
 
-            <Text style={styles.stepTitle}>💬 Step 6: Discuss the Experience</Text>
+            <Text style={styles.stepTitle}>{'\n'}💬 Step 6: Discuss the Experience</Text>
             <Text style={styles.stepText}>
-              After using the jar, **talk with the child about how they felt** during the process. Discuss how focusing on the glitter helped them feel calmer and more in control of their emotions.
+              After using the jar, <Text style={{ fontWeight: 'bold' }}>talk with the child about how they felt</Text> during the process. Discuss how focusing on the glitter helped them feel calmer
+              and more in control of their emotions.
             </Text>
 
-            <Text style={styles.stepTitle}>🌈 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌈 Final Thought</Text>
             <Text style={styles.stepText}>
               Creating and using a Calm Down Jar provides children with a tangible method to manage their emotions. This simple tool can be a valuable addition to their coping strategies, promoting
               mindfulness and emotional regulation.

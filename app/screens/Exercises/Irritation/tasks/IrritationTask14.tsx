@@ -31,28 +31,32 @@ export default function IrritationTask14Screen() {
 
             <Text style={styles.stepTitle}>👟 Step 1: Choose Your Location</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Select a nearby park, trail, or any natural setting where you can walk safely and comfortably. Being in nature has been shown to improve mood and reduce anxiety.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Select a nearby park, trail, or any natural setting where you can walk safely and comfortably. Being in nature has been shown to
+              improve mood and reduce anxiety.
             </Text>
 
             <Text style={styles.stepTitle}>🕒 Step 2: Set Aside Time</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Allocate 30 to 45 minutes for your walk. This duration allows you to reap the mental health benefits associated with moderate physical activity.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Allocate 30 to 45 minutes for your walk. This duration allows you to reap the mental health benefits associated with moderate
+              physical activity.
             </Text>
 
             <Text style={styles.stepTitle}>🌿 Step 3: Practice Mindfulness</Text>
             <Text style={styles.stepText}>
-              - **Activity**: As you walk, pay attention to the sights, sounds, and smells around you. Engaging your senses can enhance the calming effects of the walk and help divert your mind from
-              irritations.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> As you walk, pay attention to the sights, sounds, and smells around you. Engaging your senses can enhance the calming effects of
+              the walk and help divert your mind from irritations.
             </Text>
 
             <Text style={styles.stepTitle}>📵 Step 4: Disconnect from Technology</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Leave your phone on silent or at home to fully immerse yourself in the experience. Disconnecting from technology can enhance relaxation and mindfulness.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Leave your phone on silent or at home to fully immerse yourself in the experience. Disconnecting from technology can enhance
+              relaxation and mindfulness.
             </Text>
 
             <Text style={styles.stepTitle}>🧘 Step 5: Reflect and Relax</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Use this time to reflect on positive thoughts or simply enjoy the present moment. Walking in nature has been linked to improved mood and reduced stress levels.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Use this time to reflect on positive thoughts or simply enjoy the present moment. Walking in nature has been linked to improved
+              mood and reduced stress levels.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

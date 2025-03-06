@@ -31,37 +31,38 @@ export default function IrritationTask7Screen() {
 
             <Text style={styles.stepTitle}>🧘 Step 1: Create a Calm Environment</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Find a quiet space where you won't be disturbed. Wear comfortable clothing that allows free movement. Consider playing soft, calming music to enhance relaxation.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Find a quiet space where you won't be disturbed. Wear comfortable clothing that allows free movement. Consider playing soft,
+              calming music to enhance relaxation.
             </Text>
 
             <Text style={styles.stepTitle}>🦶 Step 2: Begin with Deep Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Stand or sit comfortably. Close your eyes and take slow, deep breaths, inhaling through your nose and exhaling through your mouth. Focus on the sensation of your breath
-              entering and leaving your body.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Stand or sit comfortably. Close your eyes and take slow, deep breaths, inhaling through your nose and exhaling through your mouth.
+              Focus on the sensation of your breath entering and leaving your body.
             </Text>
 
             <Text style={styles.stepTitle}>🧍 Step 3: Perform Gentle Neck Stretches</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Slowly tilt your head to the right, bringing your ear toward your shoulder. Hold for a few breaths, feeling the stretch on the left side of your neck. Repeat on the other
-              side. Ensure movements are slow and deliberate, maintaining awareness of sensations.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Slowly tilt your head to the right, bringing your ear toward your shoulder. Hold for a few breaths, feeling the stretch on the
+              left side of your neck. Repeat on the other side. Ensure movements are slow and deliberate, maintaining awareness of sensations.
             </Text>
 
             <Text style={styles.stepTitle}>🙆 Step 4: Shoulder Rolls</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Lift your shoulders toward your ears and then roll them back and down in a circular motion. Repeat this movement several times, synchronizing with your breath. Notice any
-              release of tension in the shoulder area.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Lift your shoulders toward your ears and then roll them back and down in a circular motion. Repeat this movement several times,
+              synchronizing with your breath. Notice any release of tension in the shoulder area.
             </Text>
 
             <Text style={styles.stepTitle}>🧎 Step 5: Forward Bend</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Stand with feet hip-width apart. Gently bend forward at the hips, allowing your upper body to hang toward the floor. Keep your knees slightly bent. Hold this position for
-              a few breaths, feeling the stretch in your hamstrings and lower back. Slowly rise back to standing.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Stand with feet hip-width apart. Gently bend forward at the hips, allowing your upper body to hang toward the floor. Keep your
+              knees slightly bent. Hold this position for a few breaths, feeling the stretch in your hamstrings and lower back. Slowly rise back to standing.
             </Text>
 
             <Text style={styles.stepTitle}>🧘 Step 6: Seated Butterfly Stretch</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Sit on the floor with the soles of your feet touching and knees bent outward. Hold your feet with your hands and gently press your knees toward the floor. Maintain an
-              upright posture and breathe deeply, feeling the stretch in your inner thighs.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Sit on the floor with the soles of your feet touching and knees bent outward. Hold your feet with your hands and gently press your
+              knees toward the floor. Maintain an upright posture and breathe deeply, feeling the stretch in your inner thighs.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

@@ -29,31 +29,31 @@ export default function JealousyTask12Screen() {
               gratitude, individuals can reduce negative emotions and promote emotional well-being.
             </Text>
 
-            <Text style={styles.stepTitle}>📖 Step 1: Reflect on Positive Moments</Text>
+            <Text style={styles.stepTitle}>{'\n'}📖 Step 1: Reflect on Positive Moments</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Take a moment to reflect on a recent event where you felt happy, proud, or content. This could be a small victory or a meaningful interaction. Write down the details of
-              that experience and how it made you feel.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Take a moment to reflect on a recent event where you felt happy, proud, or content. This could be a small victory or a meaningful
+              interaction. Write down the details of that experience and how it made you feel.
             </Text>
 
-            <Text style={styles.stepTitle}>✍️ Step 2: List Three Things You're Grateful For</Text>
+            <Text style={styles.stepTitle}>{'\n'}✍️ Step 2: List Three Things You're Grateful For</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Write down three things you are grateful for in your life. These can be big or small, from relationships to simple pleasures. Try to focus on aspects of your life that
-              bring you joy and fulfillment.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Write down three things you are grateful for in your life. These can be big or small, from relationships to simple pleasures. Try
+              to focus on aspects of your life that bring you joy and fulfillment.
             </Text>
 
-            <Text style={styles.stepTitle}>🔄 Step 3: Reframe Negative Thoughts</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔄 Step 3: Reframe Negative Thoughts</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Think about a situation that triggered feelings of jealousy recently. Reframe your thoughts by finding aspects of that situation for which you can feel grateful. For
-              example, if you felt jealous of a colleague's success, acknowledge their achievement and express gratitude for the inspiration it provides.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Think about a situation that triggered feelings of jealousy recently. Reframe your thoughts by finding aspects of that situation
+              for which you can feel grateful. For example, if you felt jealous of a colleague's success, acknowledge their achievement and express gratitude for the inspiration it provides.
             </Text>
 
-            <Text style={styles.stepTitle}>💬 Step 4: Express Gratitude to Someone</Text>
+            <Text style={styles.stepTitle}>{'\n'}💬 Step 4: Express Gratitude to Someone</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Reach out to someone in your life and express your gratitude. Whether it’s a friend, family member, or colleague, let them know how much you appreciate them and their
-              positive impact on your life.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Reach out to someone in your life and express your gratitude. Whether it’s a friend, family member, or colleague, let them know
+              how much you appreciate them and their positive impact on your life.
             </Text>
 
-            <Text style={styles.stepTitle}>✨ Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}✨ Final Thought</Text>
             <Text style={styles.stepText}>
               Regular gratitude journaling helps foster a mindset of abundance, counteracting jealousy by shifting focus from what is lacking to what is present. By integrating this practice into your
               daily routine, you can enhance emotional resilience and experience greater contentment.

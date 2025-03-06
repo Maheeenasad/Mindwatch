@@ -28,37 +28,37 @@ export default function JealousyTask5Screen() {
               Engaging children in listening to upbeat and joyful music can elevate their mood and provide a healthy outlet for emotions, thereby mitigating feelings of jealousy.
             </Text>
 
-            <Text style={styles.stepTitle}>🎵 Step 1: Introduction to Happy Music</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎵 Step 1: Introduction to Happy Music</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Begin by discussing with the children how music can influence our emotions. Explain that listening to happy, upbeat music can make us feel more joyful and less focused on
-              negative feelings like jealousy.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Begin by discussing with the children how music can influence our emotions. Explain that listening to happy, upbeat music can make
+              us feel more joyful and less focused on negative feelings like jealousy.
             </Text>
 
-            <Text style={styles.stepTitle}>🎧 Step 2: Listening Session</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎧 Step 2: Listening Session</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Play a selection of cheerful songs that are appropriate for children. Encourage them to listen attentively and notice how the music makes them feel. For example, you can
-              play "Happy Upbeat Background Music For Kids" by Morning Relaxing Music.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Play a selection of cheerful songs that are appropriate for children. Encourage them to listen attentively and notice how the
+              music makes them feel. For example, you can play "Happy Upbeat Background Music For Kids" by Morning Relaxing Music.
             </Text>
 
-            <Text style={styles.stepTitle}>🕺 Step 3: Movement and Dance</Text>
+            <Text style={styles.stepTitle}>{'\n'}🕺 Step 3: Movement and Dance</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Invite the children to move or dance along with the music. This physical activity can enhance the positive effects of the music and allow them to express their emotions
-              freely.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Invite the children to move or dance along with the music. This physical activity can enhance the positive effects of the music
+              and allow them to express their emotions freely.
             </Text>
 
-            <Text style={styles.stepTitle}>🗣️ Step 4: Group Reflection</Text>
+            <Text style={styles.stepTitle}>{'\n'}🗣️ Step 4: Group Reflection</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After the listening and movement session, gather the children for a discussion. Ask questions like: - How did the music make you feel? - Did moving to the music change
-              your mood? - Can you think of times when listening to happy music might help you feel better?
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the listening and movement session, gather the children for a discussion. Ask questions like: {'\n'} - How did the music
+              make you feel? {'\n'} - Did moving to the music change your mood? {'\n'} - Can you think of times when listening to happy music might help you feel better?
             </Text>
 
-            <Text style={styles.stepTitle}>🎨 Step 5: Creative Expression</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎨 Step 5: Creative Expression</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Provide art supplies and encourage the children to draw or paint how the music made them feel. This allows them to express their emotions creatively and reinforces the
-              positive experience associated with happy music.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Provide art supplies and encourage the children to draw or paint how the music made them feel. This allows them to express their
+              emotions creatively and reinforces the positive experience associated with happy music.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Incorporating happy music into daily routines can be a simple yet effective strategy to enhance children's emotional well-being and reduce negative feelings such as jealousy.
             </Text>

@@ -54,7 +54,7 @@ export default function ForgivenessTask12Screen() {
 
           {/* Embedded YouTube Video */}
           <View style={styles.videoContainer}>
-            <WebView source={{ uri: 'https://www.youtube.com/embed/4GQxYzG9r6k' }} style={styles.video} allowsFullscreenVideo={true} javaScriptEnabled={true} domStorageEnabled={true} />
+            <WebView source={{ uri: 'https://www.youtube.com/embed/rIwLB0KhcLg' }} style={styles.video} allowsFullscreenVideo={true} javaScriptEnabled={true} domStorageEnabled={true} />
           </View>
 
           <TouchableOpacity style={styles.completeButton} onPress={() => navigation.goBack()}>

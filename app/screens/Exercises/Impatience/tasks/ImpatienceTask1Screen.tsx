@@ -30,26 +30,26 @@ export default function ImpatienceTask1Screen() {
 
             <Text style={styles.stepTitle}>🧩 Step 1: Choose an Appropriate Puzzle</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Select a puzzle that matches the child's age and skill level. Options include jigsaw puzzles, Sudoku, or brainteasers. Starting with simpler puzzles and gradually
-              increasing the difficulty can help build confidence and patience.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Select a puzzle that matches the child's age and skill level. Options include jigsaw puzzles, Sudoku, or brainteasers. Starting
+              with simpler puzzles and gradually increasing the difficulty can help build confidence and patience.
             </Text>
 
             <Text style={styles.stepTitle}>⏳ Step 2: Set a Realistic Goal</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Establish a clear objective, such as completing a certain section of the puzzle within a set timeframe. This helps in managing expectations and encourages time management
-              skills.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Establish a clear objective, such as completing a certain section of the puzzle within a set timeframe. This helps in managing
+              expectations and encourages time management skills.
             </Text>
 
             <Text style={styles.stepTitle}>🤔 Step 3: Encourage Problem-Solving Strategies</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Guide the child to develop strategies like sorting puzzle pieces by color or edge, looking for patterns, or breaking down the puzzle into manageable parts. This fosters
-              analytical thinking and patience.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Guide the child to develop strategies like sorting puzzle pieces by color or edge, looking for patterns, or breaking down the
+              puzzle into manageable parts. This fosters analytical thinking and patience.
             </Text>
 
             <Text style={styles.stepTitle}>🎉 Step 4: Celebrate Achievements</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Acknowledge and celebrate the completion of the puzzle or milestones achieved along the way. Positive reinforcement boosts confidence and reinforces the value of
-              perseverance.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Acknowledge and celebrate the completion of the puzzle or milestones achieved along the way. Positive reinforcement boosts
+              confidence and reinforces the value of perseverance.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

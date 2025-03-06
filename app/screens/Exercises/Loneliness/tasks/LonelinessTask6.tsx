@@ -29,40 +29,42 @@ export default function LonelinessTask6Screen() {
               and aspirations, fostering self-awareness and personal growth. By envisioning their future, they can build a sense of connection and purpose, which can alleviate feelings of loneliness.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 1: Find a Quiet Space</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 1: Find a Quiet Space</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose a comfortable and quiet place where you can reflect without interruptions. This could be your bedroom, a cozy corner in your home, or any place where you feel at
-              ease.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a comfortable and quiet place where you can reflect without interruptions. This could be your bedroom, a cozy corner in
+              your home, or any place where you feel at ease.
             </Text>
 
-            <Text style={styles.stepTitle}>🖊️ Step 2: Gather Writing Materials</Text>
-            <Text style={styles.stepText}>- **Activity**: Use a pen and paper, or a digital device if you prefer typing. Select whichever medium allows you to express yourself most freely.</Text>
-
-            <Text style={styles.stepTitle}>🧠 Step 3: Reflect on Your Current Self</Text>
+            <Text style={styles.stepTitle}>{'\n'}🖊️ Step 2: Gather Writing Materials</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Take a few moments to think about your current feelings, challenges, achievements, and aspirations. Consider what aspects of your life are most significant to you right
-              now.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Use a pen and paper, or a digital device if you prefer typing. Select whichever medium allows you to express yourself most freely.
             </Text>
 
-            <Text style={styles.stepTitle}>✍️ Step 4: Write the Letter</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧠 Step 3: Reflect on Your Current Self</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Begin your letter with a greeting to your future self. Write about your current experiences, emotions, and any goals you hope to achieve. Pose questions to your future
-              self about what they might have accomplished or learned. This exercise can help in setting and visualizing personal goals.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Take a few moments to think about your current feelings, challenges, achievements, and aspirations. Consider what aspects of your
+              life are most significant to you right now.
             </Text>
 
-            <Text style={styles.stepTitle}>📅 Step 5: Set a Future Date to Read the Letter</Text>
+            <Text style={styles.stepTitle}>{'\n'}✍️ Step 4: Write the Letter</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Decide on a specific date in the future when you will read this letter. It could be six months, a year, or even five years from now. Mark this date on your calendar as a
-              reminder.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Begin your letter with a greeting to your future self. Write about your current experiences, emotions, and any goals you hope to
+              achieve. Pose questions to your future self about what they might have accomplished or learned. This exercise can help in setting and visualizing personal goals.
             </Text>
 
-            <Text style={styles.stepTitle}>📂 Step 6: Store the Letter Safely</Text>
+            <Text style={styles.stepTitle}>{'\n'}📅 Step 5: Set a Future Date to Read the Letter</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Place the letter in a safe location where it won't be disturbed until the chosen date. If it's a digital letter, consider using a service that will email it to you at the
-              designated time.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Decide on a specific date in the future when you will read this letter. It could be six months, a year, or even five years from
+              now. Mark this date on your calendar as a reminder.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}📂 Step 6: Store the Letter Safely</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Place the letter in a safe location where it won't be disturbed until the chosen date. If it's a digital letter, consider using a
+              service that will email it to you at the designated time.
+            </Text>
+
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Engaging in this exercise can provide a meaningful perspective on your personal growth and journey. It serves as a reminder that change is constant and that you have the power to
               influence your own path. Reflecting on your progress can boost self-esteem and reduce feelings of isolation.

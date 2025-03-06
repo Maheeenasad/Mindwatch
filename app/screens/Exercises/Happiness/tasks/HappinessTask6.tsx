@@ -31,26 +31,26 @@ export default function HappinessTask6Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Gather Your Materials</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Collect materials such as a poster board, magazines, scissors, glue, markers, and any other decorative items you'd like to use. If you
-              prefer a digital approach, tools like Canva can be helpful.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Collect materials such as a poster board, magazines,
+              scissors, glue, markers, and any other decorative items you'd like to use. If you prefer a digital approach, tools like Canva can be helpful.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 2: Reflect on Your Goals</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Take a moment to think about your short-term and long-term goals. Consider areas like academics, personal growth, relationships, and
-              hobbies. Write down key words or phrases that encapsulate your aspirations.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Take a moment to think about your short-term and long-term
+              goals. Consider areas like academics, personal growth, relationships, and hobbies. Write down key words or phrases that encapsulate your aspirations.
             </Text>
 
             <Text style={styles.stepTitle}>🖼️ Step 3: Select Visual Representations</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Browse through magazines or online resources to find images, quotes, and symbols that resonate with your goals. Cut or print them out,
-              ensuring they align with the vision you have for your future.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Browse through magazines or online resources to find
+              images, quotes, and symbols that resonate with your goals. Cut or print them out, ensuring they align with the vision you have for your future.
             </Text>
 
             <Text style={styles.stepTitle}>🎨 Step 4: Assemble Your Vision Board</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Arrange and glue your selected visuals onto the poster board or compile them digitally. Organize them in a way that feels inspiring and
-              motivating to you.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Arrange and glue your selected visuals onto the poster
+              board or compile them digitally. Organize them in a way that feels inspiring and motivating to you.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

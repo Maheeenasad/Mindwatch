@@ -31,32 +31,33 @@ export default function IrritationTask4Screen() {
 
             <Text style={styles.stepTitle}>📝 Step 1: Explain the Importance of Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Discuss with the child how deep breathing can help calm the mind and body. Explain that focusing on their breath can reduce feelings of irritation and help them feel more
-              relaxed.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Discuss with the child how deep breathing can help calm the mind and body. Explain that focusing on their breath can reduce
+              feelings of irritation and help them feel more relaxed.
             </Text>
 
             <Text style={styles.stepTitle}>🧘 Step 2: Practice Belly Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Have the child sit or lie down comfortably. Instruct them to place one hand on their belly and the other on their chest. Guide them to take a deep breath in through the
-              nose, filling the belly with air, and then slowly exhale through the mouth. Repeat this process several times, encouraging them to notice the rise and fall of their belly.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Have the child sit or lie down comfortably. Instruct them to place one hand on their belly and the other on their chest. Guide
+              them to take a deep breath in through the nose, filling the belly with air, and then slowly exhale through the mouth. Repeat this process several times, encouraging them to notice the
+              rise and fall of their belly.
             </Text>
 
             <Text style={styles.stepTitle}>🌬️ Step 3: Introduce "Smell the Flower, Blow Out the Candle"</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Ask the child to imagine holding a flower in one hand and a candle in the other. Instruct them to inhale deeply through the nose as if smelling the flower, then exhale
-              slowly through the mouth as if blowing out the candle. This visualization can make the breathing exercise more engaging.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Ask the child to imagine holding a flower in one hand and a candle in the other. Instruct them to inhale deeply through the nose
+              as if smelling the flower, then exhale slowly through the mouth as if blowing out the candle. This visualization can make the breathing exercise more engaging.
             </Text>
 
             <Text style={styles.stepTitle}>🖐️ Step 4: Teach "Take-Five Breathing"</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Have the child hold one hand up like a starfish. Using the index finger of the other hand, guide them to trace up and down each finger. Instruct them to breathe in while
-              tracing up and breathe out while tracing down. This tactile method helps maintain focus on the breath.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Have the child hold one hand up like a starfish. Using the index finger of the other hand, guide them to trace up and down each
+              finger. Instruct them to breathe in while tracing up and breathe out while tracing down. This tactile method helps maintain focus on the breath.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 5: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After practicing the breathing exercises, discuss with the child how they felt during the process. Ask if they noticed any changes in their mood or physical sensations,
-              reinforcing the connection between breathing and emotional state.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After practicing the breathing exercises, discuss with the child how they felt during the process. Ask if they noticed any changes
+              in their mood or physical sensations, reinforcing the connection between breathing and emotional state.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

@@ -31,20 +31,20 @@ export default function IrritationTask13Screen() {
 
             <Text style={styles.stepTitle}>📝 Step 1: Free Writing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Set a timer for 10 minutes and write continuously without worrying about grammar or punctuation. Let your thoughts flow freely onto the paper or screen. This exercise can
-              help clear your mind and release pent-up emotions.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Set a timer for 10 minutes and write continuously without worrying about grammar or punctuation. Let your thoughts flow freely
+              onto the paper or screen. This exercise can help clear your mind and release pent-up emotions.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 2: Reflective Journaling</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Reflect on a recent experience that caused irritation. Write about the event, your feelings during that time, and any insights gained. This practice can help you
-              understand your triggers and responses better.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Reflect on a recent experience that caused irritation. Write about the event, your feelings during that time, and any insights
+              gained. This practice can help you understand your triggers and responses better.
             </Text>
 
             <Text style={styles.stepTitle}>🎨 Step 3: Creative Storytelling</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Create a short story where the main character overcomes a challenge similar to your own. This exercise encourages problem-solving and offers a new perspective on personal
-              situations.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Create a short story where the main character overcomes a challenge similar to your own. This exercise encourages problem-solving
+              and offers a new perspective on personal situations.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

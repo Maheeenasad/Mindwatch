@@ -29,32 +29,37 @@ export default function LonelinessTask10Screen() {
               self-expression, skill development, and social interaction, all of which contribute to improved mental health and overall well-being.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 1: Identify Your Interests</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 1: Identify Your Interests</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Reflect on activities that intrigue you or skills you've always wanted to learn. Consider areas like art, music, sports, writing, or technology.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Reflect on activities that intrigue you or skills you've always wanted to learn. Consider areas like art, music, sports, writing,
+              or technology.
             </Text>
 
-            <Text style={styles.stepTitle}>🔍 Step 2: Research Potential Hobbies</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔍 Step 2: Research Potential Hobbies</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Explore various hobbies that align with your interests. Look for online tutorials, local clubs, or community classes that offer beginner sessions.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Explore various hobbies that align with your interests. Look for online tutorials, local clubs, or community classes that offer
+              beginner sessions.
             </Text>
 
-            <Text style={styles.stepTitle}>🛠️ Step 3: Gather Necessary Materials</Text>
+            <Text style={styles.stepTitle}>{'\n'}🛠️ Step 3: Gather Necessary Materials</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Once you've chosen a hobby, compile the essential tools or materials. Starting simple can help you gauge your interest without a significant investment.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Once you've chosen a hobby, compile the essential tools or materials. Starting simple can help you gauge your interest without a
+              significant investment.
             </Text>
 
-            <Text style={styles.stepTitle}>⏲️ Step 4: Dedicate Regular Time</Text>
+            <Text style={styles.stepTitle}>{'\n'}⏲️ Step 4: Dedicate Regular Time</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Allocate specific periods in your week to practice or engage in your new hobby. Consistency is key to developing skills and deriving enjoyment.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Allocate specific periods in your week to practice or engage in your new hobby. Consistency is key to developing skills and
+              deriving enjoyment.
             </Text>
 
-            <Text style={styles.stepTitle}>🤝 Step 5: Connect with Others</Text>
+            <Text style={styles.stepTitle}>{'\n'}🤝 Step 5: Connect with Others</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Join groups or online communities centered around your hobby. Sharing experiences and learning from others can enhance your skills and provide social connections.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Join groups or online communities centered around your hobby. Sharing experiences and learning from others can enhance your skills
+              and provide social connections.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Embarking on a new hobby can open doors to personal growth, new friendships, and a deeper understanding of yourself. Embrace the journey, and remember that the goal is enjoyment and
               self-discovery.

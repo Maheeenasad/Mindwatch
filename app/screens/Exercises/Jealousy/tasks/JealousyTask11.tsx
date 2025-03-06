@@ -29,30 +29,31 @@ export default function JealousyTask11Screen() {
               they can change their emotional response and reduce jealousy.
             </Text>
 
-            <Text style={styles.stepTitle}>🔍 Step 1: Identify Negative Thoughts</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔍 Step 1: Identify Negative Thoughts</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Ask yourself when you last felt jealous and reflect on the thoughts that triggered those feelings. Write down these thoughts, acknowledging any negative self-judgments or
-              assumptions that arose.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Ask yourself when you last felt jealous and reflect on the thoughts that triggered those feelings. Write down these thoughts,
+              acknowledging any negative self-judgments or assumptions that arose.
             </Text>
 
-            <Text style={styles.stepTitle}>💭 Step 2: Examine the Evidence</Text>
+            <Text style={styles.stepTitle}>{'\n'}💭 Step 2: Examine the Evidence</Text>
             <Text style={styles.stepText}>
-              - **Activity**: For each negative thought, examine the evidence supporting it. Is there concrete proof that the situation is as negative as it feels? Challenge the automatic assumptions
-              you made and consider alternative perspectives.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> For each negative thought, examine the evidence supporting it. Is there concrete proof that the situation is as negative as it
+              feels? Challenge the automatic assumptions you made and consider alternative perspectives.
             </Text>
 
-            <Text style={styles.stepTitle}>🌈 Step 3: Reframe the Thoughts</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌈 Step 3: Reframe the Thoughts</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Reframe your negative thoughts into more balanced or positive statements. For example, instead of thinking "They have it all, and I’ll never be enough," try reframing it
-              to "They have achieved something I'm working toward, and I can learn from their success."
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Reframe your negative thoughts into more balanced or positive statements. For example, instead of thinking "They have it all, and
+              I’ll never be enough," try reframing it to "They have achieved something I'm working toward, and I can learn from their success."
             </Text>
 
-            <Text style={styles.stepTitle}>🔄 Step 4: Practice Gratitude</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔄 Step 4: Practice Gratitude</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Practice gratitude by writing down three things you are thankful for in your own life. Shifting focus from scarcity to abundance can help decrease feelings of jealousy.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Practice gratitude by writing down three things you are thankful for in your own life. Shifting focus from scarcity to abundance
+              can help decrease feelings of jealousy.
             </Text>
 
-            <Text style={styles.stepTitle}>✨ Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}✨ Final Thought</Text>
             <Text style={styles.stepText}>
               Reframing your thoughts is a powerful tool for transforming feelings of jealousy. With regular practice, it helps build emotional resilience and fosters a healthier outlook on life and
               others’ successes.

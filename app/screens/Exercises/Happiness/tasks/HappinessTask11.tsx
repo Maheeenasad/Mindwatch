@@ -31,26 +31,26 @@ export default function HappinessTask11Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Select a New Recipe</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 15-30 minutes{'\n'}- **Activity**: Choose a recipe you've never tried before. It could be from a different cuisine, a new cooking technique, or an ingredient you're
-              unfamiliar with. Selecting something exciting can boost your enthusiasm and engagement.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 15-30 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a recipe you've never tried before. It could be
+              from a different cuisine, a new cooking technique, or an ingredient you're unfamiliar with. Selecting something exciting can boost your enthusiasm and engagement.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 2: Gather Ingredients and Tools</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 30-45 minutes{'\n'}- **Activity**: Make a list of all necessary ingredients and kitchen tools required for the recipe. Shopping for these items can be part of the
-              adventure, introducing you to new sections of the grocery store or local markets.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 30-45 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Make a list of all necessary ingredients and kitchen
+              tools required for the recipe. Shopping for these items can be part of the adventure, introducing you to new sections of the grocery store or local markets.
             </Text>
 
             <Text style={styles.stepTitle}>👩‍🍳 Step 3: Prepare and Cook</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 1-2 hours{'\n'}- **Activity**: Follow the recipe step-by-step, embracing the process of creating something new. Focus on the sensory experiences—the aromas, textures, and
-              colors—as this mindfulness can enhance the therapeutic benefits of cooking.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 1-2 hours{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Follow the recipe step-by-step, embracing the process of
+              creating something new. Focus on the sensory experiences—the aromas, textures, and colors—as this mindfulness can enhance the therapeutic benefits of cooking.
             </Text>
 
             <Text style={styles.stepTitle}>🍽️ Step 4: Enjoy and Reflect</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 30 minutes{'\n'}- **Activity**: Savor the dish you've prepared. Reflect on the experience—what you enjoyed, any challenges you faced, and how you felt throughout the
-              process. Sharing the meal with others can also enhance social connections and joy.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 30 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Savor the dish you've prepared. Reflect on the
+              experience—what you enjoyed, any challenges you faced, and how you felt throughout the process. Sharing the meal with others can also enhance social connections and joy.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

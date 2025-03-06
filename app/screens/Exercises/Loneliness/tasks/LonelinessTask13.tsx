@@ -29,33 +29,37 @@ export default function LonelinessTask13Screen() {
               understanding of our interconnectedness.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘 Step 1: Prepare Your Space</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘 Step 1: Prepare Your Space</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose a quiet, comfortable space where you won't be disturbed. Ensure you're seated comfortably, either on a chair or on the floor with a cushion.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a quiet, comfortable space where you won't be disturbed. Ensure you're seated comfortably, either on a chair or on the
+              floor with a cushion.
             </Text>
 
-            <Text style={styles.stepTitle}>🎧 Step 2: Select a Guided Meditation</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎧 Step 2: Select a Guided Meditation</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose a guided meditation that focuses on fostering connection. For example, the "Guided Meditation for a Deep Soul Connection" is a 10-minute session designed to help
-              you connect deeply with yourself and the universe.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a guided meditation that focuses on fostering connection. For example, the "Guided Meditation for a Deep Soul Connection"
+              is a 10-minute session designed to help you connect deeply with yourself and the universe.
             </Text>
 
-            <Text style={styles.stepTitle}>🕯️ Step 3: Begin the Meditation</Text>
+            <Text style={styles.stepTitle}>{'\n'}🕯️ Step 3: Begin the Meditation</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Play the selected guided meditation. Close your eyes, take deep breaths, and follow the instructions provided, allowing yourself to fully engage with the experience.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Play the selected guided meditation. Close your eyes, take deep breaths, and follow the instructions provided, allowing yourself
+              to fully engage with the experience.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 4: Reflect on the Experience</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 4: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After completing the meditation, take a few moments to reflect on how you feel. Consider journaling any thoughts or emotions that arose during the practice.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After completing the meditation, take a few moments to reflect on how you feel. Consider journaling any thoughts or emotions that
+              arose during the practice.
             </Text>
 
-            <Text style={styles.stepTitle}>📅 Step 5: Incorporate into Your Routine</Text>
+            <Text style={styles.stepTitle}>{'\n'}📅 Step 5: Incorporate into Your Routine</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Aim to incorporate guided meditations into your regular routine, whether daily or weekly, to continually nurture a sense of connection and well-being.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Aim to incorporate guided meditations into your regular routine, whether daily or weekly, to continually nurture a sense of
+              connection and well-being.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Regular practice of guided meditations focusing on connection can enhance your sense of belonging and reduce feelings of loneliness. Embracing this practice can lead to a more connected
               and fulfilling life.

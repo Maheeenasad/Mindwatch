@@ -28,20 +28,32 @@ export default function JealousyTask2Screen() {
               Engaging in gratitude drawing helps children recognize and appreciate the positive aspects of their lives, fostering emotional well-being and reducing feelings of jealousy.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 1: Introduction to Gratitude</Text>
-            <Text style={styles.stepText}>- **Activity**: Begin by discussing what gratitude means. Explain that it's about appreciating the good things in our lives, no matter how small.</Text>
-
-            <Text style={styles.stepTitle}>🎨 Step 2: Drawing What We're Thankful For</Text>
+            <Text style={styles.stepTitle}>
+              {'\n'}📝 <Text style={{ fontWeight: 'bold' }}>Step 1: Introduction to Gratitude</Text>
+            </Text>
             <Text style={styles.stepText}>
-              - **Activity**: Provide paper and drawing materials. Ask the children to draw something or someone they are thankful for. It could be family, friends, pets, or favorite activities.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Begin by discussing what gratitude means. Explain that it's about appreciating the good things in our lives, no matter how small.
             </Text>
 
-            <Text style={styles.stepTitle}>🗣️ Step 3: Sharing Our Drawings</Text>
+            <Text style={styles.stepTitle}>
+              {'\n'}🎨 <Text style={{ fontWeight: 'bold' }}>Step 2: Drawing What We're Thankful For</Text>
+            </Text>
             <Text style={styles.stepText}>
-              - **Activity**: After completing their drawings, encourage each child to share their artwork with the group and explain why they chose that particular subject.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Provide paper and drawing materials. Ask the children to draw something or someone they are thankful for. It could be family,
+              friends, pets, or favorite activities.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>
+              {'\n'}🗣️ <Text style={{ fontWeight: 'bold' }}>Step 3: Sharing Our Drawings</Text>
+            </Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After completing their drawings, encourage each child to share their artwork with the group and explain why they chose that
+              particular subject.
+            </Text>
+
+            <Text style={styles.stepTitle}>
+              {'\n'}🌟 <Text style={{ fontWeight: 'bold' }}>Final Thought</Text>
+            </Text>
             <Text style={styles.stepText}>
               Practicing gratitude through drawing allows children to visually express their appreciation, reinforcing positive feelings and diminishing negative emotions like jealousy.
             </Text>

@@ -31,32 +31,32 @@ export default function IrritationTask5Screen() {
 
             <Text style={styles.stepTitle}>📝 Step 1: Introduce the Concept of Music Therapy</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Explain to the child that music can influence our emotions and that engaging with music can help manage feelings like irritation. Discuss how different types of music can
-              evoke various emotions.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Explain to the child that music can influence our emotions and that engaging with music can help manage feelings like irritation.
+              Discuss how different types of music can evoke various emotions.
             </Text>
 
             <Text style={styles.stepTitle}>🎵 Step 2: Explore Different Musical Instruments</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Provide a variety of simple instruments such as drums, tambourines, or maracas. Encourage the child to play these instruments, exploring different rhythms and volumes to
-              express their current emotions. This hands-on exploration can help them channel their feelings constructively.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Provide a variety of simple instruments such as drums, tambourines, or maracas. Encourage the child to play these instruments,
+              exploring different rhythms and volumes to express their current emotions. This hands-on exploration can help them channel their feelings constructively.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 3: Sing Along to Favorite Songs</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Identify songs that the child enjoys and encourage them to sing along. Singing can be a powerful emotional release and can elevate mood. Discuss the lyrics and how the
-              music makes them feel, fostering emotional awareness.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Identify songs that the child enjoys and encourage them to sing along. Singing can be a powerful emotional release and can elevate
+              mood. Discuss the lyrics and how the music makes them feel, fostering emotional awareness.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 4: Create a Personalized Playlist</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Collaborate with the child to create a playlist of songs that help them feel calm or happy. This personalized playlist can serve as a tool for them to use whenever they
-              feel irritated, promoting self-regulation.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Collaborate with the child to create a playlist of songs that help them feel calm or happy. This personalized playlist can serve
+              as a tool for them to use whenever they feel irritated, promoting self-regulation.
             </Text>
 
             <Text style={styles.stepTitle}>🧘 Step 5: Engage in Music and Movement</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Combine music with physical movement by encouraging the child to dance or move to the rhythm of the music. This combination can help release built-up energy associated
-              with irritation and improve overall mood.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Combine music with physical movement by encouraging the child to dance or move to the rhythm of the music. This combination can
+              help release built-up energy associated with irritation and improve overall mood.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

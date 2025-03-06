@@ -26,26 +26,30 @@ export default function JealousyTask3Screen() {
           <View style={styles.stepsContainer}>
             <Text style={styles.description}>Storytelling is a powerful tool to help children understand and value friendship, which can reduce feelings of jealousy and promote empathy.</Text>
 
-            <Text style={styles.stepTitle}>📖 Step 1: Read a Friendship Story</Text>
-            <Text style={styles.stepText}>- **Activity**: Select a story that highlights the importance of friendship. For example, "The Little Book Of Friendship" is an excellent choice.</Text>
-
-            <Text style={styles.stepTitle}>🗣️ Step 2: Group Discussion</Text>
+            <Text style={styles.stepTitle}>{'\n'}📖 Step 1: Read a Friendship Story</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After reading, engage the children in a discussion about the story. Ask questions like: - What did you like about the story? - How did the characters show friendship? -
-              Have you ever experienced something similar?
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Select a story that highlights the importance of friendship. For example, "The Little Book Of Friendship" is an excellent choice.
             </Text>
 
-            <Text style={styles.stepTitle}>🎭 Step 3: Role-Playing</Text>
+            <Text style={styles.stepTitle}>{'\n'}🗣️ Step 2: Group Discussion</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Divide the children into small groups and assign them scenes from the story to act out. This helps them internalize the lessons on friendship.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After reading, engage the children in a discussion about the story. Ask questions like: {'\n'}- What did you like about the story?
+              {'\n'}- How did the characters show friendship?{'\n'}- Have you ever experienced something similar?
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 4: Create Their Own Friendship Stories</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎭 Step 3: Role-Playing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage the children to write or draw their own stories about friendship. They can share these stories with the group, fostering a sense of community and understanding.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Divide the children into small groups and assign them scenes from the story to act out. This helps them internalize the lessons on
+              friendship.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 4: Create Their Own Friendship Stories</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage the children to write or draw their own stories about friendship. They can share these stories with the group, fostering
+              a sense of community and understanding.
+            </Text>
+
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Through storytelling, children can explore the dynamics of friendship, learn to appreciate their friends, and develop empathy, which helps in reducing feelings of jealousy.
             </Text>

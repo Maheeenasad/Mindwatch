@@ -29,26 +29,35 @@ export default function LonelinessTask12Screen() {
               social connections.
             </Text>
 
-            <Text style={styles.stepTitle}>🔍 Step 1: Identify Your Interests and Skills</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔍 Step 1: Identify Your Interests and Skills</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Reflect on causes you're passionate about and skills you can offer. Aligning your interests with volunteer opportunities ensures a fulfilling experience.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Reflect on causes you're passionate about and skills you can offer. Aligning your interests with volunteer opportunities ensures a
+              fulfilling experience.
             </Text>
 
-            <Text style={styles.stepTitle}>🌐 Step 2: Research Volunteer Opportunities</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌐 Step 2: Research Volunteer Opportunities</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Look for local organizations or online platforms that match your interests. Consider community centers, non-profits, or virtual volunteering options.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Look for local organizations or online platforms that match your interests. Consider community centers, non-profits, or virtual
+              volunteering options.
             </Text>
 
-            <Text style={styles.stepTitle}>📅 Step 3: Commit to a Schedule</Text>
-            <Text style={styles.stepText}>- **Activity**: Determine how much time you can dedicate to volunteering. Consistency helps build relationships and a sense of community.</Text>
+            <Text style={styles.stepTitle}>{'\n'}📅 Step 3: Commit to a Schedule</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Determine how much time you can dedicate to volunteering. Consistency helps build relationships and a sense of community.
+            </Text>
 
-            <Text style={styles.stepTitle}>🤝 Step 4: Engage and Connect</Text>
-            <Text style={styles.stepText}>- **Activity**: Participate actively in your chosen volunteer role. Engage with fellow volunteers and beneficiaries to build meaningful connections.</Text>
+            <Text style={styles.stepTitle}>{'\n'}🤝 Step 4: Engage and Connect</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Participate actively in your chosen volunteer role. Engage with fellow volunteers and beneficiaries to build meaningful
+              connections.
+            </Text>
 
-            <Text style={styles.stepTitle}>🧘 Step 5: Reflect on Your Experience</Text>
-            <Text style={styles.stepText}>- **Activity**: After volunteering, take time to reflect on how the experience affected your feelings of loneliness and overall well-being.</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘 Step 5: Reflect on Your Experience</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After volunteering, take time to reflect on how the experience affected your feelings of loneliness and overall well-being.
+            </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Volunteering is a powerful way to connect with others and contribute to your community. It offers an opportunity to build relationships, develop new skills, and find purpose, all of
               which can alleviate feelings of loneliness.

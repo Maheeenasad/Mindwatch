@@ -29,41 +29,43 @@ export default function FrustrationTask5Screen() {
               movements and vocal expressions, children can experience a sense of relief and emotional release.
             </Text>
 
-            <Text style={styles.stepTitle}>🛠️ Step 1: Create a Safe Space</Text>
+            <Text style={styles.stepTitle}>{'\n'}🛠️ Step 1: Create a Safe Space</Text>
             <Text style={styles.stepText}>
-              - **Choose an open area free from obstacles** to ensure safety during the activity.{'\n'}- **Ensure the floor is non-slippery** to prevent any accidental falls.
+              - <Text style={{ fontWeight: 'bold' }}>Choose an open area free from obstacles</Text> to ensure safety during the activity.{'\n'}-{' '}
+              <Text style={{ fontWeight: 'bold' }}>Ensure the floor is non-slippery</Text> to prevent any accidental falls.
             </Text>
 
-            <Text style={styles.stepTitle}>🔧 Step 2: Introduce the Activity</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔧 Step 2: Introduce the Activity</Text>
             <Text style={styles.stepText}>
-              1. **Explain to the child** that they will be participating in a fun activity where they can stomp their feet and shout to let out any feelings of frustration or anger.
+              1. <Text style={{ fontWeight: 'bold' }}>Explain to the child</Text> that they will be participating in a fun activity where they can stomp their feet and shout to let out any feelings of
+              frustration or anger.
             </Text>
 
-            <Text style={styles.stepTitle}>🔄 Step 3: Demonstrate the Movements</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔄 Step 3: Demonstrate the Movements</Text>
             <Text style={styles.stepText}>
-              1. **Show the child how to stomp their feet** firmly on the ground, alternating between left and right foot.{'\n'}
-              2. **Encourage them to pair each stomp with a loud shout**, such as "Ha!" or "Ho!".
+              1. <Text style={{ fontWeight: 'bold' }}>Show the child how to stomp their feet</Text> firmly on the ground, alternating between left and right foot.{'\n'}
+              2. <Text style={{ fontWeight: 'bold' }}>Encourage them to pair each stomp with a loud shout</Text>, such as "Ha!" or "Ho!".
             </Text>
 
-            <Text style={styles.stepTitle}>🧒 Step 4: Engage in the Exercise Together</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧒 Step 4: Engage in the Exercise Together</Text>
             <Text style={styles.stepText}>
-              1. **Start a rhythm** by stomping and shouting together in a consistent pattern.{'\n'}
-              2. **Gradually increase the pace** to make the activity more engaging and to help release more energy.
+              1. <Text style={{ fontWeight: 'bold' }}>Start a rhythm</Text> by stomping and shouting together in a consistent pattern.{'\n'}
+              2. <Text style={{ fontWeight: 'bold' }}>Gradually increase the pace</Text> to make the activity more engaging and to help release more energy.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Step 5: Introduce Variations</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Step 5: Introduce Variations</Text>
             <Text style={styles.stepText}>
-              1. **Incorporate clapping or arm movements** to add variety to the exercise.{'\n'}
-              2. **Use a drum or play energetic music** to provide a rhythmic background for the activity.
+              1. <Text style={{ fontWeight: 'bold' }}>Incorporate clapping or arm movements</Text> to add variety to the exercise.{'\n'}
+              2. <Text style={{ fontWeight: 'bold' }}>Use a drum or play energetic music</Text> to provide a rhythmic background for the activity.
             </Text>
 
-            <Text style={styles.stepTitle}>💬 Step 6: Reflect on the Experience</Text>
+            <Text style={styles.stepTitle}>{'\n'}💬 Step 6: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              After the activity, **sit down with the child and discuss how they felt** during the exercise. Ask questions like, "Did stomping and shouting make you feel better?" or "How does your
-              body feel now?"
+              After the activity, <Text style={{ fontWeight: 'bold' }}>sit down with the child and discuss how they felt</Text> during the exercise. Ask questions like, "Did stomping and shouting make
+              you feel better?" or "How does your body feel now?"
             </Text>
 
-            <Text style={styles.stepTitle}>🌈 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌈 Final Thought</Text>
             <Text style={styles.stepText}>
               The "Stomp and Shout" exercise offers children a physical outlet to express and manage their emotions. Regularly practicing this activity can help them develop healthy coping mechanisms
               for dealing with frustration and anger.

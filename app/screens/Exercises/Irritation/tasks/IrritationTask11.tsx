@@ -31,30 +31,32 @@ export default function IrritationTask11Screen() {
 
             <Text style={styles.stepTitle}>🧘 Step 1: Find a Comfortable Position</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Sit or lie down in a comfortable position. Ensure your back is straight yet relaxed, and your hands rest gently on your lap or by your sides.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Sit or lie down in a comfortable position. Ensure your back is straight yet relaxed, and your hands rest gently on your lap or by
+              your sides.
             </Text>
 
             <Text style={styles.stepTitle}>🌬️ Step 2: Focus on Your Breath</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Close your eyes and bring attention to your breathing. Inhale deeply through your nose for a count of four, hold for a count of four, and exhale slowly through your mouth
-              for a count of four. Repeat this box breathing technique several times to center your mind.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Close your eyes and bring attention to your breathing. Inhale deeply through your nose for a count of four, hold for a count of
+              four, and exhale slowly through your mouth for a count of four. Repeat this box breathing technique several times to center your mind.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 3: Observe Your Thoughts and Emotions</Text>
             <Text style={styles.stepText}>
-              - **Activity**: As you continue to breathe deeply, notice any thoughts or emotions that arise, especially feelings of anger. Acknowledge them without judgment, allowing them to come and
-              go like passing clouds.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> As you continue to breathe deeply, notice any thoughts or emotions that arise, especially feelings of anger. Acknowledge them
+              without judgment, allowing them to come and go like passing clouds.
             </Text>
 
             <Text style={styles.stepTitle}>❤️ Step 4: Practice Loving-Kindness Meditation</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Silently repeat phrases such as "May I be happy," "May I be free from anger," and "May I be at peace." Gradually extend these wishes to others, including those you may
-              feel anger towards, fostering empathy and understanding.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Silently repeat phrases such as "May I be happy," "May I be free from anger," and "May I be at peace." Gradually extend these
+              wishes to others, including those you may feel anger towards, fostering empathy and understanding.
             </Text>
 
             <Text style={styles.stepTitle}>🕰️ Step 5: Set a Regular Routine</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Incorporate this meditation practice into your daily routine, dedicating time each day to cultivate mindfulness and manage anger effectively.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Incorporate this meditation practice into your daily routine, dedicating time each day to cultivate mindfulness and manage anger
+              effectively.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

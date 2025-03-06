@@ -29,28 +29,38 @@ export default function FrustrationTask7Screen() {
               tension, improve mood, and promote overall well-being.
             </Text>
 
-            <Text style={styles.stepTitle}>🛠️ Step 1: Warm-Up</Text>
-            <Text style={styles.stepText}>- **Duration**: 5 minutes{'\n'}- **Activities**: Light jogging in place, jumping jacks, or dynamic stretching to prepare your body for the workout.</Text>
-
-            <Text style={styles.stepTitle}>🏋️ Step 2: High-Intensity Exercises</Text>
+            <Text style={styles.stepTitle}>{'\n'}🛠️ Step 1: Warm-Up</Text>
             <Text style={styles.stepText}>
-              1. **Boxing or Shadowboxing**{'\n'} - **Duration**: 10 minutes{'\n'} - **Description**: Perform boxing movements, either with a punching bag or shadowboxing, to release pent-up energy.
-              Focus on your form and breathing. [Source: Verywell Fit](https://www.verywellfit.com/the-best-exercises-for-when-you-re-feeling-angry-5120367)
-            </Text>
-            <Text style={styles.stepText}>
-              2. **Cardio Drumming**{'\n'} - **Duration**: 10 minutes{'\n'} - **Description**: Use drumsticks to rhythmically hit an exercise ball, combining movement with music to relieve stress.
-              This fun activity enhances self-esteem and motivation. [Source: New York Post](https://nypost.com/2024/09/02/lifestyle/cardio-drumming-is-hot-new-exercise-trend-how-it-works/)
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activities:</Text> Light jogging in place, jumping jacks, or dynamic
+              stretching to prepare your body for the workout.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘 Step 3: Cool Down and Stretching</Text>
+            <Text style={styles.stepTitle}>{'\n'}🏋️ Step 2: High-Intensity Exercises</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activities**: Gentle stretching focusing on major muscle groups, deep breathing exercises to relax your mind and body.
+              1. <Text style={{ fontWeight: 'bold' }}>Boxing or Shadowboxing</Text>
+              {'\n'}- <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Description:</Text> Perform boxing movements, either with a punching
+              bag or shadowboxing, to release pent-up energy. Focus on your form and breathing. {'\n'}
+              <Text style={{ color: 'blue' }}>[Source: Verywell Fit](https://www.verywellfit.com/the-best-exercises-for-when-you-re-feeling-angry-5120367)</Text>
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepText}>
+              2. <Text style={{ fontWeight: 'bold' }}>Cardio Drumming</Text>
+              {'\n'}- <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Description:</Text> Use drumsticks to rhythmically hit an exercise
+              ball, combining movement with music to relieve stress. This fun activity enhances self-esteem and motivation. {'\n'}
+              <Text style={{ color: 'blue' }}>[Source: New York Post](https://nypost.com/2024/09/02/lifestyle/cardio-drumming-is-hot-new-exercise-trend-how-it-works/)</Text>
+            </Text>
+
+            <Text style={styles.stepTitle}>{'\n'}🧘 Step 3: Cool Down and Stretching</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activities:</Text> Gentle stretching focusing on major muscle groups, deep
+              breathing exercises to relax your mind and body.
+            </Text>
+
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Incorporating physical activities into your routine can serve as a healthy outlet for frustration. Regular exercise not only improves physical health but also boosts mental well-being by
-              releasing endorphins and reducing stress levels. [Source: Verywell Health](https://www.verywellhealth.com/benefits-of-exercise-on-your-mental-health-8732057)
+              releasing endorphins and reducing stress levels. {'\n'}
+              <Text style={{ color: 'blue' }}>[Source: Verywell Health](https://www.verywellhealth.com/benefits-of-exercise-on-your-mental-health-8732057)</Text>
             </Text>
           </View>
 

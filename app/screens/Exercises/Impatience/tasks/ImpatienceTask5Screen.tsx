@@ -31,29 +31,32 @@ export default function ImpatienceTask5Screen() {
 
             <Text style={styles.stepTitle}>📖 Step 1: Choose a Story Highlighting Patience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Select a children's book that emphasizes the theme of patience. For example, "Waiting Is Not Easy!" by Mo Willems portrays a character learning to wait patiently.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Select a children's book that emphasizes the theme of patience. For example, "Waiting Is Not Easy!" by Mo Willems portrays a
+              character learning to wait patiently.
             </Text>
 
             <Text style={styles.stepTitle}>🛋️ Step 2: Create a Comfortable Storytelling Environment</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Set up a cozy reading area with soft seating and minimal distractions. This environment helps children focus and engage more deeply with the story.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Set up a cozy reading area with soft seating and minimal distractions. This environment helps children focus and engage more
+              deeply with the story.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 3: Engage in Interactive Storytelling</Text>
             <Text style={styles.stepText}>
-              - **Activity**: As you read, pause to ask open-ended questions about the characters' feelings and actions. For instance, "How do you think the character feels about waiting?" This
-              encourages children to reflect on the concept of patience.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> As you read, pause to ask open-ended questions about the characters' feelings and actions. For instance, "How do you think the
+              character feels about waiting?" This encourages children to reflect on the concept of patience.
             </Text>
 
             <Text style={styles.stepTitle}>⏳ Step 4: Discuss Personal Experiences</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After the story, invite children to share times when they had to be patient. Discuss how they felt and what strategies helped them wait calmly.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the story, invite children to share times when they had to be patient. Discuss how they felt and what strategies helped them
+              wait calmly.
             </Text>
 
             <Text style={styles.stepTitle}>🎭 Step 5: Role-Play Scenarios</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Create simple role-playing situations where children practice patience, such as waiting for a turn or standing in line. This hands-on approach reinforces the lesson
-              learned from the story.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Create simple role-playing situations where children practice patience, such as waiting for a turn or standing in line. This
+              hands-on approach reinforces the lesson learned from the story.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

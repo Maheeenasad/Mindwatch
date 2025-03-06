@@ -31,41 +31,44 @@ export default function ImpatienceTask12Screen() {
 
             <Text style={styles.stepTitle}>📝 Step 1: Select a Slow-Cooked Recipe</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Choose a recipe that requires slow cooking, such as a stew, braised dish, or slow-roasted entrée. Opt for a dish that appeals to your taste and allows you to explore new
-              culinary techniques.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Choose a recipe that requires slow cooking, such as a stew, braised dish, or slow-roasted entrée. Opt for a dish that appeals to
+              your taste and allows you to explore new culinary techniques.
             </Text>
 
             <Text style={styles.stepTitle}>🛒 Step 2: Gather Fresh Ingredients</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Visit a local market to select fresh, high-quality ingredients. Take your time to choose each item thoughtfully, appreciating the colors, textures, and aromas.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Visit a local market to select fresh, high-quality ingredients. Take your time to choose each item thoughtfully, appreciating the
+              colors, textures, and aromas.
             </Text>
 
             <Text style={styles.stepTitle}>🔪 Step 3: Prepare Ingredients Mindfully</Text>
             <Text style={styles.stepText}>
-              - **Activity**: As you wash, chop, and measure, focus on each action. Notice the sensations and movements involved, allowing yourself to be fully present in the preparation process.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> As you wash, chop, and measure, focus on each action. Notice the sensations and movements involved, allowing yourself to be fully
+              present in the preparation process.
             </Text>
 
             <Text style={styles.stepTitle}>🍲 Step 4: Engage in the Cooking Process</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Follow the recipe's steps with attention and care. Embrace the slow pace of cooking, observing how flavors develop and transform over time.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Follow the recipe's steps with attention and care. Embrace the slow pace of cooking, observing how flavors develop and transform
+              over time.
             </Text>
 
             <Text style={styles.stepTitle}>⏳ Step 5: Practice Patience During Cooking</Text>
             <Text style={styles.stepText}>
-              - **Activity**: While the dish cooks, resist the urge to rush or distract yourself. Use this time for reflection, relaxation, or engaging in a calming activity, acknowledging the value
-              of waiting.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> While the dish cooks, resist the urge to rush or distract yourself. Use this time for reflection, relaxation, or engaging in a
+              calming activity, acknowledging the value of waiting.
             </Text>
 
             <Text style={styles.stepTitle}>🍽️ Step 6: Savor the Meal</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Once the dish is ready, set a pleasant dining environment. As you eat, focus on the flavors, textures, and satisfaction derived from the meal, appreciating the effort and
-              patience invested.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Once the dish is ready, set a pleasant dining environment. As you eat, focus on the flavors, textures, and satisfaction derived
+              from the meal, appreciating the effort and patience invested.
             </Text>
 
             <Text style={styles.stepTitle}>🤔 Step 7: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After dining, contemplate how the process of slow cooking influenced your mood and thoughts. Consider how embracing patience in cooking can translate to other areas of
-              your life.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After dining, contemplate how the process of slow cooking influenced your mood and thoughts. Consider how embracing patience in
+              cooking can translate to other areas of your life.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

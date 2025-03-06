@@ -34,20 +34,26 @@ export default function ImpatienceTask7Screen() {
 
             <Text style={styles.stepTitle}>🌬️ Step 2: Focus on Your Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Close your eyes and bring attention to your breath. Notice the sensation of air entering and leaving your nostrils. If your mind wanders, gently bring it back to your
-              breath.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Close your eyes and bring attention to your breath. Notice the sensation of air entering and leaving your nostrils. If your mind
+              wanders, gently bring it back to your breath.
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 3: Observe Your Thoughts</Text>
             <Text style={styles.stepText}>
-              - **Activity**: As thoughts or feelings arise, observe them without judgment. Acknowledge their presence and let them pass, returning your focus to your breathing.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> As thoughts or feelings arise, observe them without judgment. Acknowledge their presence and let them pass, returning your focus
+              to your breathing.
             </Text>
 
             <Text style={styles.stepTitle}>⏳ Step 4: Visualize Patience</Text>
-            <Text style={styles.stepText}>- **Activity**: Imagine a situation where you feel impatient. Visualize yourself responding with calm and patience, handling the situation gracefully.</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Imagine a situation where you feel impatient. Visualize yourself responding with calm and patience, handling the situation
+              gracefully.
+            </Text>
 
             <Text style={styles.stepTitle}>📝 Step 5: Reflect on the Experience</Text>
-            <Text style={styles.stepText}>- **Activity**: After the meditation, take a few moments to reflect. How do you feel? How can you apply this sense of patience in your daily life?</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the meditation, take a few moments to reflect. How do you feel? How can you apply this sense of patience in your daily life?
+            </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>
             <Text style={styles.stepText}>

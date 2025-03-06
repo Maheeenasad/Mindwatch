@@ -9,25 +9,25 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const taskCategories: Record<'child' | 'teenage' | 'adult', { id: number; title: string; time: string; screen: keyof RootStackParamList; image: any }[]> = {
   child: [
-    { id: 1, title: 'Bubble Wrap Popping', time: '15 mins', screen: 'IrritationTask1', image: require('@/assets/exercises/Irritation.jpg') },
-    { id: 2, title: 'Clay Squeezing', time: '20 mins', screen: 'IrritationTask2', image: require('@/assets/exercises/IrritationTask2.jpg') },
-    { id: 3, title: 'Painting Emotions', time: '30 mins', screen: 'IrritationTask3', image: require('@/assets/exercises/IrritationTask3.jpg') },
-    { id: 4, title: 'Guided Breathing', time: '10 mins', screen: 'IrritationTask4', image: require('@/assets/exercises/IrritationTask4.jpg') },
-    { id: 5, title: 'Music Therapy', time: '25 mins', screen: 'IrritationTask5', image: require('@/assets/exercises/IrritationTask5.jpg') }
+    { id: 1, title: 'Bubble Wrap Popping', time: '15-20 mins', screen: 'IrritationTask1', image: require('@/assets/exercises/Irritation.jpg') },
+    { id: 2, title: 'Clay Squeezing', time: '20-30 mins', screen: 'IrritationTask2', image: require('@/assets/exercises/IrritationTask2.jpg') },
+    { id: 3, title: 'Painting Emotions', time: '25-35 mins', screen: 'IrritationTask3', image: require('@/assets/exercises/IrritationTask3.jpg') },
+    { id: 4, title: 'Guided Breathing', time: '15-20 mins', screen: 'IrritationTask4', image: require('@/assets/exercises/IrritationTask4.jpg') },
+    { id: 5, title: 'Music Therapy', time: '20-30 mins', screen: 'IrritationTask5', image: require('@/assets/exercises/IrritationTask5.jpg') }
   ],
   teenage: [
-    { id: 1, title: 'Journaling Frustration', time: '20 mins', screen: 'IrritationTask6', image: require('@/assets/exercises/Irritation.jpg') },
-    { id: 2, title: 'Mindful Stretching', time: '15 mins', screen: 'IrritationTask7', image: require('@/assets/exercises/IrritationTask2.jpg') },
-    { id: 3, title: 'Physical Exercise', time: '30 mins', screen: 'IrritationTask8', image: require('@/assets/exercises/IrritationTask3.jpg') },
-    { id: 4, title: 'Controlled Deep Breathing', time: '10 mins', screen: 'IrritationTask9', image: require('@/assets/exercises/IrritationTask4.jpg') },
-    { id: 5, title: 'Listening to Calming Sounds', time: '25 mins', screen: 'IrritationTask10', image: require('@/assets/exercises/IrritationTask5.jpg') }
+    { id: 1, title: 'Journaling Frustration', time: '15-20 mins', screen: 'IrritationTask6', image: require('@/assets/exercises/Irritation.jpg') },
+    { id: 2, title: 'Mindful Stretching', time: '15-20 mins', screen: 'IrritationTask7', image: require('@/assets/exercises/IrritationTask2.jpg') },
+    { id: 3, title: 'Physical Exercise', time: '20-30 mins', screen: 'IrritationTask8', image: require('@/assets/exercises/IrritationTask3.jpg') },
+    { id: 4, title: 'Controlled Deep Breathing', time: '10-15 mins', screen: 'IrritationTask9', image: require('@/assets/exercises/IrritationTask4.jpg') },
+    { id: 5, title: 'Listening to Calming Sounds', time: '15-20 mins', screen: 'IrritationTask10', image: require('@/assets/exercises/IrritationTask5.jpg') }
   ],
   adult: [
-    { id: 1, title: 'Meditation for Anger', time: '20 mins', screen: 'IrritationTask11', image: require('@/assets/exercises/Irritation.jpg') },
-    { id: 2, title: 'Progressive Muscle Relaxation', time: '30 mins', screen: 'IrritationTask12', image: require('@/assets/exercises/IrritationTask2.jpg') },
-    { id: 3, title: 'Creative Writing', time: '45 mins', screen: 'IrritationTask13', image: require('@/assets/exercises/IrritationTask3.jpg') },
-    { id: 4, title: 'Outdoor Walk', time: '25 mins', screen: 'IrritationTask14', image: require('@/assets/exercises/IrritationTask4.jpg') },
-    { id: 5, title: 'Listening to Instrumental Music', time: '40 mins', screen: 'IrritationTask15', image: require('@/assets/exercises/IrritationTask5.jpg') }
+    { id: 1, title: 'Meditation for Anger', time: '15-20 mins', screen: 'IrritationTask11', image: require('@/assets/exercises/Irritation.jpg') },
+    { id: 2, title: 'Progressive Muscle Relaxation', time: '15-20 mins', screen: 'IrritationTask12', image: require('@/assets/exercises/IrritationTask2.jpg') },
+    { id: 3, title: 'Creative Writing', time: '20-30 mins', screen: 'IrritationTask13', image: require('@/assets/exercises/IrritationTask3.jpg') },
+    { id: 4, title: 'Outdoor Walk', time: '30-45 mins', screen: 'IrritationTask14', image: require('@/assets/exercises/IrritationTask4.jpg') },
+    { id: 5, title: 'Listening to Instrumental Music', time: '15-20 mins', screen: 'IrritationTask15', image: require('@/assets/exercises/IrritationTask5.jpg') }
   ]
 };
 

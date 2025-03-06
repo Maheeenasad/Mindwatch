@@ -9,25 +9,25 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const taskCategories: Record<'child' | 'teenage' | 'adult', { id: number; title: string; time: string; screen: keyof RootStackParamList; image: any }[]> = {
   child: [
-    { id: 1, title: 'Talking to a Stuffed Friend', time: '15 mins', screen: 'LonelinessTask1', image: require('@/assets/exercises/Loneliness.jpg') },
-    { id: 2, title: 'Drawing Happy Moments', time: '20 mins', screen: 'LonelinessTask2', image: require('@/assets/exercises/LonelinessTask2.jpg') },
-    { id: 3, title: 'Playing with Family', time: '30 mins', screen: 'LonelinessTask3', image: require('@/assets/exercises/LonelinessTask3.jpg') },
-    { id: 4, title: 'Singing Favorite Poems', time: '10 mins', screen: 'LonelinessTask4', image: require('@/assets/exercises/LonelinessTask4.jpg') },
-    { id: 5, title: 'Listening to Nature Sounds', time: '25 mins', screen: 'LonelinessTask5', image: require('@/assets/exercises/LonelinessTask5.jpg') }
+    { id: 1, title: 'Talking to a Stuffed Friend', time: '15-20 mins', screen: 'LonelinessTask1', image: require('@/assets/exercises/Loneliness.jpg') },
+    { id: 2, title: 'Drawing Happy Moments', time: '20-25 mins', screen: 'LonelinessTask2', image: require('@/assets/exercises/LonelinessTask2.jpg') },
+    { id: 3, title: 'Playing with Family', time: '30-45 mins', screen: 'LonelinessTask3', image: require('@/assets/exercises/LonelinessTask3.jpg') },
+    { id: 4, title: 'Singing Favorite Poems', time: '20-30 mins', screen: 'LonelinessTask4', image: require('@/assets/exercises/LonelinessTask4.jpg') },
+    { id: 5, title: 'Listening to Nature Sounds', time: '15-20 mins', screen: 'LonelinessTask5', image: require('@/assets/exercises/LonelinessTask5.jpg') }
   ],
   teenage: [
-    { id: 1, title: 'Writing Letters to Future Self', time: '20 mins', screen: 'LonelinessTask6', image: require('@/assets/exercises/Loneliness.jpg') },
-    { id: 2, title: 'Joining an Online Community', time: '15 mins', screen: 'LonelinessTask7', image: require('@/assets/exercises/LonelinessTask2.jpg') },
-    { id: 3, title: 'Practicing Gratitude', time: '30 mins', screen: 'LonelinessTask8', image: require('@/assets/exercises/LonelinessTask3.jpg') },
-    { id: 4, title: 'Calling a Friend or Family', time: '10 mins', screen: 'LonelinessTask9', image: require('@/assets/exercises/LonelinessTask4.jpg') },
-    { id: 5, title: 'Trying a New Hobby', time: '25 mins', screen: 'LonelinessTask10', image: require('@/assets/exercises/LonelinessTask5.jpg') }
+    { id: 1, title: 'Writing Letters to Future Self', time: '20-30 mins', screen: 'LonelinessTask6', image: require('@/assets/exercises/Loneliness.jpg') },
+    { id: 2, title: 'Joining an Online Community', time: '30-45 mins', screen: 'LonelinessTask7', image: require('@/assets/exercises/LonelinessTask2.jpg') },
+    { id: 3, title: 'Practicing Gratitude', time: '15-20 mins daily', screen: 'LonelinessTask8', image: require('@/assets/exercises/LonelinessTask3.jpg') },
+    { id: 4, title: 'Calling a Friend or Family', time: '10-30 mins', screen: 'LonelinessTask9', image: require('@/assets/exercises/LonelinessTask4.jpg') },
+    { id: 5, title: 'Trying a New Hobby', time: '30-60 mins', screen: 'LonelinessTask10', image: require('@/assets/exercises/LonelinessTask5.jpg') }
   ],
   adult: [
-    { id: 1, title: 'Mindful Journaling', time: '20 mins', screen: 'LonelinessTask11', image: require('@/assets/exercises/Loneliness.jpg') },
-    { id: 2, title: 'Volunteering Activity', time: '30 mins', screen: 'LonelinessTask12', image: require('@/assets/exercises/LonelinessTask2.jpg') },
-    { id: 3, title: 'Guided Meditation for Connection', time: '45 mins', screen: 'LonelinessTask13', image: require('@/assets/exercises/LonelinessTask3.jpg') },
-    { id: 4, title: 'Reflecting on Social Strengths', time: '25 mins', screen: 'LonelinessTask14', image: require('@/assets/exercises/LonelinessTask4.jpg') },
-    { id: 5, title: 'Writing a Gratitude Letter', time: '40 mins', screen: 'LonelinessTask15', image: require('@/assets/exercises/LonelinessTask5.jpg') }
+    { id: 1, title: 'Mindful Journaling', time: '15-30 mins', screen: 'LonelinessTask11', image: require('@/assets/exercises/Loneliness.jpg') },
+    { id: 2, title: 'Volunteering Activity', time: 'Varies based on activity', screen: 'LonelinessTask12', image: require('@/assets/exercises/LonelinessTask2.jpg') },
+    { id: 3, title: 'Guided Meditation for Connection', time: '10-20 mins', screen: 'LonelinessTask13', image: require('@/assets/exercises/LonelinessTask3.jpg') },
+    { id: 4, title: 'Reflecting on Social Strengths', time: '30-45 mins', screen: 'LonelinessTask14', image: require('@/assets/exercises/LonelinessTask4.jpg') },
+    { id: 5, title: 'Writing a Gratitude Letter', time: '30-45 mins', screen: 'LonelinessTask15', image: require('@/assets/exercises/LonelinessTask5.jpg') }
   ]
 };
 

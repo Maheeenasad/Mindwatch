@@ -29,28 +29,31 @@ export default function LonelinessTask2Screen() {
               them reconnect with positive experiences and emotions.
             </Text>
 
-            <Text style={styles.stepTitle}>🎨 Step 1: Gather Art Supplies</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎨 Step 1: Gather Art Supplies</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Provide your child with drawing materials such as paper, crayons, markers, or colored pencils. Ensure a comfortable and quiet space for them to work.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Provide your child with drawing materials such as paper, crayons, markers, or colored pencils. Ensure a comfortable and quiet
+              space for them to work.
             </Text>
 
-            <Text style={styles.stepTitle}>🖼️ Step 2: Reflect on Happy Moments</Text>
+            <Text style={styles.stepTitle}>{'\n'}🖼️ Step 2: Reflect on Happy Moments</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage your child to think about a time when they felt very happy. This could be a family vacation, a fun day at school, or a special moment with friends or pets.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage your child to think about a time when they felt very happy. This could be a family vacation, a fun day at school, or a
+              special moment with friends or pets.
             </Text>
 
-            <Text style={styles.stepTitle}>✏️ Step 3: Draw the Memory</Text>
+            <Text style={styles.stepTitle}>{'\n'}✏️ Step 3: Draw the Memory</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Ask your child to draw the happy moment they recalled. Remind them that the artwork doesn't need to be perfect; it's about expressing their feelings and memories.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Ask your child to draw the happy moment they recalled. Remind them that the artwork doesn't need to be perfect; it's about
+              expressing their feelings and memories.
             </Text>
 
-            <Text style={styles.stepTitle}>🗣️ Step 4: Share the Story</Text>
+            <Text style={styles.stepTitle}>{'\n'}🗣️ Step 4: Share the Story</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After completing the drawing, invite your child to share the story behind their artwork. Listen attentively and ask open-ended questions to encourage them to express
-              their emotions and thoughts.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After completing the drawing, invite your child to share the story behind their artwork. Listen attentively and ask open-ended
+              questions to encourage them to express their emotions and thoughts.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Engaging in art activities like drawing happy moments allows children to process and express their emotions constructively. This exercise can help alleviate feelings of loneliness by
               focusing on positive experiences and fostering open communication.

@@ -26,27 +26,31 @@ export default function JealousyTask9Screen() {
           <View style={styles.stepsContainer}>
             <Text style={styles.description}>Writing letters of appreciation encourages teenagers to focus on positive relationships, fostering gratitude and reducing feelings of jealousy.</Text>
 
-            <Text style={styles.stepTitle}>🧠 Step 1: Reflect on Positive Influences</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧠 Step 1: Reflect on Positive Influences</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage teens to think about individuals who have positively impacted their lives—such as friends, family members, teachers, or coaches.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage teens to think about individuals who have positively impacted their lives—such as friends, family members, teachers, or
+              coaches.
             </Text>
 
-            <Text style={styles.stepTitle}>✍️ Step 2: Compose the Letter</Text>
+            <Text style={styles.stepTitle}>{'\n'}✍️ Step 2: Compose the Letter</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Guide teens to write a heartfelt letter to one of these individuals, expressing specific reasons why they are grateful for their support or kindness.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Guide teens to write a heartfelt letter to one of these individuals, expressing specific reasons why they are grateful for their
+              support or kindness.
             </Text>
 
-            <Text style={styles.stepTitle}>📬 Step 3: Deliver the Letter</Text>
+            <Text style={styles.stepTitle}>{'\n'}📬 Step 3: Deliver the Letter</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage teens to deliver the letter in person or send it via mail or email, allowing them to share their appreciation directly with the recipient.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage teens to deliver the letter in person or send it via mail or email, allowing them to share their appreciation directly
+              with the recipient.
             </Text>
 
-            <Text style={styles.stepTitle}>🗣️ Step 4: Reflect on the Experience</Text>
+            <Text style={styles.stepTitle}>{'\n'}🗣️ Step 4: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After delivering the letter, have teens reflect on how expressing gratitude made them feel and how it may have strengthened their relationship.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After delivering the letter, have teens reflect on how expressing gratitude made them feel and how it may have strengthened their
+              relationship.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Regularly expressing appreciation can help teenagers build stronger connections and foster a positive mindset, reducing negative emotions like jealousy.
             </Text>

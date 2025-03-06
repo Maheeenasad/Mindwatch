@@ -31,35 +31,38 @@ export default function IrritationTask8Screen() {
 
             <Text style={styles.stepTitle}>🏃 Step 1: Choose an Enjoyable Activity</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Select a physical activity that you enjoy, such as jogging, dancing, cycling, or playing a sport. Enjoyment increases motivation and consistency.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Select a physical activity that you enjoy, such as jogging, dancing, cycling, or playing a sport. Enjoyment increases motivation
+              and consistency.
             </Text>
 
             <Text style={styles.stepTitle}>⏰ Step 2: Set a Realistic Schedule</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Aim for at least 60 minutes of moderate to vigorous physical activity daily, as recommended by health guidelines. This can be broken into shorter sessions throughout the
-              day.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Aim for at least 60 minutes of moderate to vigorous physical activity daily, as recommended by health guidelines. This can be
+              broken into shorter sessions throughout the day.
             </Text>
 
             <Text style={styles.stepTitle}>🤸 Step 3: Warm-Up and Cool Down</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Begin with a 5-10 minute warm-up, such as light jogging or dynamic stretches, to prepare your body. After exercising, perform static stretches to cool down and reduce
-              muscle soreness.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Begin with a 5-10 minute warm-up, such as light jogging or dynamic stretches, to prepare your body. After exercising, perform
+              static stretches to cool down and reduce muscle soreness.
             </Text>
 
             <Text style={styles.stepTitle}>👥 Step 4: Incorporate Social Interaction</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Engage in group activities or team sports to combine physical exercise with social interaction, enhancing mood and reducing feelings of isolation.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Engage in group activities or team sports to combine physical exercise with social interaction, enhancing mood and reducing
+              feelings of isolation.
             </Text>
 
             <Text style={styles.stepTitle}>🧘 Step 5: Practice Mind-Body Exercises</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Include exercises like yoga or tai chi that focus on both physical movement and mental relaxation, promoting mindfulness and reducing stress.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Include exercises like yoga or tai chi that focus on both physical movement and mental relaxation, promoting mindfulness and
+              reducing stress.
             </Text>
 
             <Text style={styles.stepTitle}>📈 Step 6: Monitor Progress</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Keep a journal or use a fitness app to track your physical activity, noting improvements in mood and energy levels. This can boost motivation and provide insight into the
-              positive effects of exercise.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Keep a journal or use a fitness app to track your physical activity, noting improvements in mood and energy levels. This can boost
+              motivation and provide insight into the positive effects of exercise.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

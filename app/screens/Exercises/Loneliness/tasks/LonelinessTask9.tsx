@@ -29,36 +29,37 @@ export default function LonelinessTask9Screen() {
               connect with loved ones, fostering a sense of belonging and emotional well-being.
             </Text>
 
-            <Text style={styles.stepTitle}>📞 Step 1: Choose Someone to Call</Text>
+            <Text style={styles.stepTitle}>{'\n'}📞 Step 1: Choose Someone to Call</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Think of a friend or family member you haven't spoken to in a while or someone you miss. Consider individuals who have been supportive or with whom you've shared positive
-              experiences.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Think of a friend or family member you haven't spoken to in a while or someone you miss. Consider individuals who have been
+              supportive or with whom you've shared positive experiences.
             </Text>
 
-            <Text style={styles.stepTitle}>🗓️ Step 2: Schedule a Convenient Time</Text>
+            <Text style={styles.stepTitle}>{'\n'}🗓️ Step 2: Schedule a Convenient Time</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Reach out via text or message to find a suitable time for both of you to have a meaningful conversation. Scheduling ensures that both parties are available and can engage
-              fully.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Reach out via text or message to find a suitable time for both of you to have a meaningful conversation. Scheduling ensures that
+              both parties are available and can engage fully.
             </Text>
 
-            <Text style={styles.stepTitle}>🗣️ Step 3: Engage in Open Conversation</Text>
+            <Text style={styles.stepTitle}>{'\n'}🗣️ Step 3: Engage in Open Conversation</Text>
             <Text style={styles.stepText}>
-              - **Activity**: During the call, share your thoughts and feelings openly. Ask about their well-being, recent activities, and any challenges they might be facing. Active listening and
-              empathy can deepen your connection.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> During the call, share your thoughts and feelings openly. Ask about their well-being, recent activities, and any challenges they
+              might be facing. Active listening and empathy can deepen your connection.
             </Text>
 
-            <Text style={styles.stepTitle}>🎯 Step 4: Set Regular Catch-Ups</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎯 Step 4: Set Regular Catch-Ups</Text>
             <Text style={styles.stepText}>
-              - **Activity**: If the conversation is enjoyable, propose setting up regular calls or meetups. Consistent communication helps maintain strong relationships and provides ongoing support.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> If the conversation is enjoyable, propose setting up regular calls or meetups. Consistent communication helps maintain strong
+              relationships and provides ongoing support.
             </Text>
 
-            <Text style={styles.stepTitle}>🧘 Step 5: Reflect on the Experience</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘 Step 5: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After the call, take a moment to reflect on how it made you feel. Recognize the positive emotions that come from connecting with loved ones and consider making such calls
-              a regular practice.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the call, take a moment to reflect on how it made you feel. Recognize the positive emotions that come from connecting with
+              loved ones and consider making such calls a regular practice.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Regularly reaching out to friends and family can enhance your emotional well-being and create a robust support system. These connections remind you that you're not alone and that others
               care about your experiences and feelings.

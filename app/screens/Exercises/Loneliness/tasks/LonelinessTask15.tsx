@@ -29,31 +29,31 @@ export default function LonelinessTask15Screen() {
               reducing feelings of loneliness.
             </Text>
 
-            <Text style={styles.stepTitle}>📝 Step 1: Select the Recipient</Text>
+            <Text style={styles.stepTitle}>{'\n'}📝 Step 1: Select the Recipient</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Identify a person who has made a significant positive impact on your life but whom you have not yet thanked properly. This could be a teacher, friend, family member, or
-              colleague.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Identify a person who has made a significant positive impact on your life but whom you have not yet thanked properly. This could
+              be a teacher, friend, family member, or colleague.
             </Text>
 
-            <Text style={styles.stepTitle}>✍️ Step 2: Write the Letter</Text>
+            <Text style={styles.stepTitle}>{'\n'}✍️ Step 2: Write the Letter</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Spend 20-30 minutes writing a heartfelt letter to this person. Be specific about what they did, how it affected you, and why you are grateful. Aim for at least 300 words
-              to convey your appreciation fully.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Spend 20-30 minutes writing a heartfelt letter to this person. Be specific about what they did, how it affected you, and why you
+              are grateful. Aim for at least 300 words to convey your appreciation fully.
             </Text>
 
-            <Text style={styles.stepTitle}>📨 Step 3: Deliver the Letter</Text>
+            <Text style={styles.stepTitle}>{'\n'}📨 Step 3: Deliver the Letter</Text>
             <Text style={styles.stepText}>
-              - **Activity**: If possible, arrange to deliver the letter in person to observe their reaction and strengthen your connection. If an in-person meeting isn't feasible, consider sending it
-              via mail or email.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> If possible, arrange to deliver the letter in person to observe their reaction and strengthen your connection. If an in-person
+              meeting isn't feasible, consider sending it via mail or email.
             </Text>
 
-            <Text style={styles.stepTitle}>🧠 Step 4: Reflect on the Experience</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧠 Step 4: Reflect on the Experience</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After delivering the letter, take some time to reflect on how the process made you feel. Consider journaling your thoughts and any responses you received from the
-              recipient.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After delivering the letter, take some time to reflect on how the process made you feel. Consider journaling your thoughts and any
+              responses you received from the recipient.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Engaging in gratitude practices like writing a letter can enhance your mood, improve relationships, and reduce feelings of loneliness. Making this a regular habit can lead to lasting
               positive changes in your social well-being.

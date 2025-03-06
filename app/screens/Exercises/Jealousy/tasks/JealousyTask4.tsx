@@ -26,31 +26,31 @@ export default function JealousyTask4Screen() {
           <View style={styles.stepsContainer}>
             <Text style={styles.description}>Mirror affirmations are a powerful tool to boost children's self-esteem and reduce feelings of jealousy by reinforcing positive self-beliefs.</Text>
 
-            <Text style={styles.stepTitle}>🪞 Step 1: Introduction to Affirmations</Text>
+            <Text style={styles.stepTitle}>{'\n'}🪞 Step 1: Introduction to Affirmations</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Explain to the children that affirmations are positive statements we say to ourselves to build confidence and self-worth. Discuss how believing in our own strengths can
-              make us feel better and less jealous of others.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Explain to the children that affirmations are positive statements we say to ourselves to build confidence and self-worth. Discuss
+              how believing in our own strengths can make us feel better and less jealous of others.
             </Text>
 
-            <Text style={styles.stepTitle}>🗣️ Step 2: Creating Personal Affirmations</Text>
+            <Text style={styles.stepTitle}>{'\n'}🗣️ Step 2: Creating Personal Affirmations</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Encourage each child to think of positive qualities about themselves. Assist them in crafting simple affirmations such as "I am kind," "I am strong," or "I am a good
-              friend." Write these affirmations on sticky notes or index cards.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Encourage each child to think of positive qualities about themselves. Assist them in crafting simple affirmations such as "I am
+              kind," "I am strong," or "I am a good friend." Write these affirmations on sticky notes or index cards.
             </Text>
 
-            <Text style={styles.stepTitle}>🪞 Step 3: Practicing in Front of the Mirror</Text>
+            <Text style={styles.stepTitle}>{'\n'}🪞 Step 3: Practicing in Front of the Mirror</Text>
             <Text style={styles.stepText}>
-              - **Activity**: One at a time, have each child stand in front of a mirror, look into their own eyes, and repeat their affirmations aloud. Encourage them to say each affirmation with
-              confidence and believe in the words they are speaking.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> One at a time, have each child stand in front of a mirror, look into their own eyes, and repeat their affirmations aloud.
+              Encourage them to say each affirmation with confidence and believe in the words they are speaking.
             </Text>
 
-            <Text style={styles.stepTitle}>🎨 Step 4: Decorating Affirmation Mirrors</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎨 Step 4: Decorating Affirmation Mirrors</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Provide small handheld mirrors and art supplies like stickers, markers, and glitter. Let the children decorate their mirrors, making them personal and special. This
-              creative process reinforces the positive experience associated with affirmations.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Provide small handheld mirrors and art supplies like stickers, markers, and glitter. Let the children decorate their mirrors,
+              making them personal and special. This creative process reinforces the positive experience associated with affirmations.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Regularly practicing mirror affirmations can help children internalize positive beliefs about themselves, reducing jealousy and promoting emotional well-being.
             </Text>

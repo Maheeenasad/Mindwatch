@@ -9,25 +9,25 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const taskCategories: Record<'child' | 'teenage' | 'adult', { id: number; title: string; time: string; screen: keyof RootStackParamList; image: any }[]> = {
   child: [
-    { id: 1, title: 'Sharing is Caring', time: '15 mins', screen: 'JealousyTask1', image: require('@/assets/exercises/Jealousy.jpg') },
-    { id: 2, title: 'Gratitude Drawing', time: '20 mins', screen: 'JealousyTask2', image: require('@/assets/exercises/JealousyTask2.jpg') },
-    { id: 3, title: 'Storytelling on Friendship', time: '30 mins', screen: 'JealousyTask3', image: require('@/assets/exercises/JealousyTask3.jpg') },
-    { id: 4, title: 'Mirror Affirmations', time: '10 mins', screen: 'JealousyTask4', image: require('@/assets/exercises/JealousyTask4.jpg') },
-    { id: 5, title: 'Listening to Happy Music', time: '25 mins', screen: 'JealousyTask5', image: require('@/assets/exercises/JealousyTask5.jpg') }
+    { id: 1, title: 'Sharing is Caring', time: '20-25 mins', screen: 'JealousyTask1', image: require('@/assets/exercises/Jealousy.jpg') },
+    { id: 2, title: 'Gratitude Drawing', time: '20-30 mins', screen: 'JealousyTask2', image: require('@/assets/exercises/JealousyTask2.jpg') },
+    { id: 3, title: 'Storytelling on Friendship', time: '25-35 mins', screen: 'JealousyTask3', image: require('@/assets/exercises/JealousyTask3.jpg') },
+    { id: 4, title: 'Mirror Affirmations', time: '15-20 mins', screen: 'JealousyTask4', image: require('@/assets/exercises/JealousyTask4.jpg') },
+    { id: 5, title: 'Listening to Happy Music', time: '20-25 mins', screen: 'JealousyTask5', image: require('@/assets/exercises/JealousyTask5.jpg') }
   ],
   teenage: [
-    { id: 1, title: 'Journaling Positivity', time: '20 mins', screen: 'JealousyTask6', image: require('@/assets/exercises/Jealousy.jpg') },
-    { id: 2, title: 'Mindful Meditation', time: '15 mins', screen: 'JealousyTask7', image: require('@/assets/exercises/JealousyTask2.jpg') },
-    { id: 3, title: 'Self-Worth Exercises', time: '30 mins', screen: 'JealousyTask8', image: require('@/assets/exercises/JealousyTask3.jpg') },
-    { id: 4, title: 'Writing Letters of Appreciation', time: '10 mins', screen: 'JealousyTask9', image: require('@/assets/exercises/JealousyTask4.jpg') },
-    { id: 5, title: 'Practicing Self-Compassion', time: '25 mins', screen: 'JealousyTask10', image: require('@/assets/exercises/JealousyTask5.jpg') }
+    { id: 1, title: 'Journaling Positivity', time: '15-20 mins', screen: 'JealousyTask6', image: require('@/assets/exercises/Jealousy.jpg') },
+    { id: 2, title: 'Mindful Meditation', time: '10-15 mins', screen: 'JealousyTask7', image: require('@/assets/exercises/JealousyTask2.jpg') },
+    { id: 3, title: 'Self-Worth Exercises', time: '15-20 mins', screen: 'JealousyTask8', image: require('@/assets/exercises/JealousyTask3.jpg') },
+    { id: 4, title: 'Writing Letters of Appreciation', time: '20-25 mins', screen: 'JealousyTask9', image: require('@/assets/exercises/JealousyTask4.jpg') },
+    { id: 5, title: 'Practicing Self-Compassion', time: '15-20 mins', screen: 'JealousyTask10', image: require('@/assets/exercises/JealousyTask5.jpg') }
   ],
   adult: [
-    { id: 1, title: 'Cognitive Reframing', time: '20 mins', screen: 'JealousyTask11', image: require('@/assets/exercises/Jealousy.jpg') },
-    { id: 2, title: 'Gratitude Journaling', time: '30 mins', screen: 'JealousyTask12', image: require('@/assets/exercises/JealousyTask2.jpg') },
-    { id: 3, title: 'Guided Visualization', time: '45 mins', screen: 'JealousyTask13', image: require('@/assets/exercises/JealousyTask3.jpg') },
-    { id: 4, title: 'Personal Growth Reflection', time: '25 mins', screen: 'JealousyTask14', image: require('@/assets/exercises/JealousyTask4.jpg') },
-    { id: 5, title: 'Social Media Detox', time: '40 mins', screen: 'JealousyTask15', image: require('@/assets/exercises/JealousyTask5.jpg') }
+    { id: 1, title: 'Cognitive Reframing', time: '15-20 mins', screen: 'JealousyTask11', image: require('@/assets/exercises/Jealousy.jpg') },
+    { id: 2, title: 'Gratitude Journaling', time: '15-20 mins', screen: 'JealousyTask12', image: require('@/assets/exercises/JealousyTask2.jpg') },
+    { id: 3, title: 'Guided Visualization', time: '20 mins', screen: 'JealousyTask13', image: require('@/assets/exercises/JealousyTask3.jpg') },
+    { id: 4, title: 'Personal Growth Reflection', time: '20 mins', screen: 'JealousyTask14', image: require('@/assets/exercises/JealousyTask4.jpg') },
+    { id: 5, title: 'Social Media Detox', time: '30 mins', screen: 'JealousyTask15', image: require('@/assets/exercises/JealousyTask5.jpg') }
   ]
 };
 

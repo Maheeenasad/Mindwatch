@@ -31,26 +31,26 @@ export default function HappinessTask3Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Setting Up the Group</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Gather a small group of children (3-5 participants) and have them sit in a circle. Explain that they will create a story together, with
-              each person contributing to the narrative.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Gather a small group of children (3-5 participants) and
+              have them sit in a circle. Explain that they will create a story together, with each person contributing to the narrative.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 2: Introducing the Story Elements</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Introduce basic story elements such as character, setting, and plot. Encourage each child to think of a character or setting they would
-              like to include in the story.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Introduce basic story elements such as character, setting,
+              and plot. Encourage each child to think of a character or setting they would like to include in the story.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 3: Collaborative Storytelling</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Start the story with an opening line, such as "Once upon a time...". Each child then adds a sentence or two, building upon the previous
-              contributions. Continue until the story reaches a natural conclusion.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Start the story with an opening line, such as "Once upon a
+              time...". Each child then adds a sentence or two, building upon the previous contributions. Continue until the story reaches a natural conclusion.
             </Text>
 
             <Text style={styles.stepTitle}>🎨 Step 4: Illustrating the Story</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Provide drawing materials and invite the children to illustrate scenes or characters from their story. This visual representation
-              reinforces their engagement and creativity.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Provide drawing materials and invite the children to
+              illustrate scenes or characters from their story. This visual representation reinforces their engagement and creativity.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

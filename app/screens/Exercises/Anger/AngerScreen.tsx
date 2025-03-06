@@ -13,21 +13,21 @@ const taskCategories: Record<'child' | 'teenage' | 'adult', { id: number; title:
     { id: 2, title: 'Mindful Counting Exercise', time: '5-10 mins', screen: 'AngerTask2', image: require('@/assets/exercises/AngerTask2.jpg') },
     { id: 3, title: 'Physical Release Activity', time: '10-15 mins', screen: 'AngerTask3', image: require('@/assets/exercises/AngerTask3.jpg') },
     { id: 4, title: 'Comfort & Self-Soothing', time: '5-10 mins', screen: 'AngerTask4', image: require('@/assets/exercises/AngerTask4.jpg') },
-    { id: 5, title: 'Controlled Breathing Practice', time: '5 mins', screen: 'AngerTask5', image: require('@/assets/exercises/AngerTask5.jpg') }
+    { id: 5, title: 'Controlled Breathing Practice', time: '5-10 mins', screen: 'AngerTask5', image: require('@/assets/exercises/AngerTask5.jpg') }
   ],
   teenage: [
-    { id: 1, title: 'Reflective Writing Exercise', time: '5 mins', screen: 'AngerTask6', image: require('@/assets/exercises/Anger.jpg') },
-    { id: 2, title: 'Energy Discharge Routine', time: '5 mins', screen: 'AngerTask7', image: require('@/assets/exercises/AngerTask2.jpg') },
-    { id: 3, title: 'Auditory Relaxation Therapy', time: '7 mins', screen: 'AngerTask8', image: require('@/assets/exercises/AngerTask3.jpg') },
-    { id: 4, title: 'Deep Breathing & Relaxation', time: '5 mins', screen: 'AngerTask9', image: require('@/assets/exercises/AngerTask4.jpg') },
-    { id: 5, title: 'Meditative Mind Reset', time: '10 mins', screen: 'AngerTask10', image: require('@/assets/exercises/AngerTask5.jpg') }
+    { id: 1, title: 'Reflective Writing Exercise', time: '15 mins', screen: 'AngerTask6', image: require('@/assets/exercises/Anger.jpg') },
+    { id: 2, title: 'Energy Discharge Routine', time: '20 mins', screen: 'AngerTask7', image: require('@/assets/exercises/AngerTask2.jpg') },
+    { id: 3, title: 'Auditory Relaxation Therapy', time: '15 mins', screen: 'AngerTask8', image: require('@/assets/exercises/AngerTask3.jpg') },
+    { id: 4, title: 'Deep Breathing & Relaxation', time: '10 mins', screen: 'AngerTask9', image: require('@/assets/exercises/AngerTask4.jpg') },
+    { id: 5, title: 'Meditative Mind Reset', time: '15 mins', screen: 'AngerTask10', image: require('@/assets/exercises/AngerTask5.jpg') }
   ],
   adult: [
-    { id: 1, title: 'Guided Anger Meditation', time: '10 mins', screen: 'AngerTask11', image: require('@/assets/exercises/Anger.jpg') },
-    { id: 2, title: 'Progressive Muscle Relaxation', time: '10 mins', screen: 'AngerTask12', image: require('@/assets/exercises/AngerTask2.jpg') },
-    { id: 3, title: 'Cognitive Reframing Strategy', time: '8 mins', screen: 'AngerTask13', image: require('@/assets/exercises/AngerTask3.jpg') },
-    { id: 4, title: 'Therapeutic Journaling', time: '10 mins', screen: 'AngerTask14', image: require('@/assets/exercises/AngerTask4.jpg') },
-    { id: 5, title: 'Active Stress Release', time: '10 mins', screen: 'AngerTask15', image: require('@/assets/exercises/AngerTask5.jpg') }
+    { id: 1, title: 'Guided Anger Meditation', time: '20 mins', screen: 'AngerTask11', image: require('@/assets/exercises/Anger.jpg') },
+    { id: 2, title: 'Progressive Muscle Relaxation', time: '15 mins', screen: 'AngerTask12', image: require('@/assets/exercises/AngerTask2.jpg') },
+    { id: 3, title: 'Cognitive Reframing Strategy', time: '20 mins', screen: 'AngerTask13', image: require('@/assets/exercises/AngerTask3.jpg') },
+    { id: 4, title: 'Therapeutic Journaling', time: '15 mins', screen: 'AngerTask14', image: require('@/assets/exercises/AngerTask4.jpg') },
+    { id: 5, title: 'Active Stress Release', time: '20 mins', screen: 'AngerTask15', image: require('@/assets/exercises/AngerTask5.jpg') }
   ]
 };
 

@@ -31,34 +31,37 @@ export default function IrritationTask12Screen() {
 
             <Text style={styles.stepTitle}>🛋️ Step 1: Find a Comfortable Position</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Sit or lie down in a quiet, comfortable place where you won't be disturbed. Ensure your body is fully supported, and loosen any tight clothing.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Sit or lie down in a quiet, comfortable place where you won't be disturbed. Ensure your body is fully supported, and loosen any
+              tight clothing.
             </Text>
 
             <Text style={styles.stepTitle}>🌬️ Step 2: Focus on Your Breathing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Close your eyes and take slow, deep breaths. Inhale deeply through your nose, hold for a moment, and then exhale slowly through your mouth. Repeat this breathing pattern
-              a few times to center yourself.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Close your eyes and take slow, deep breaths. Inhale deeply through your nose, hold for a moment, and then exhale slowly through
+              your mouth. Repeat this breathing pattern a few times to center yourself.
             </Text>
 
             <Text style={styles.stepTitle}>💪 Step 3: Tense and Relax Muscle Groups</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Starting from your feet and working up to your head, tense each muscle group for about 5 seconds, then release the tension and relax for 10-15 seconds. Notice the
-              contrast between tension and relaxation. For example: - **Feet**: Curl your toes downward, then relax. - **Calves**: Tighten your calf muscles by pointing your toes upward, then relax. -
-              **Thighs**: Squeeze your thigh muscles, then relax. - **Abdomen**: Tighten your stomach muscles, then relax. - **Hands**: Clench your fists, then relax. - **Arms**: Bend your elbows and
-              tense your biceps, then relax. - **Shoulders**: Shrug your shoulders up toward your ears, then relax. - **Face**: Tense your facial muscles by squeezing your eyes shut and clenching your
-              jaw, then relax.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Starting from your feet and working up to your head, tense each muscle group for about 5 seconds, then release the tension and
+              relax for 10-15 seconds. Notice the contrast between tension and relaxation.{'\n\n'}- <Text style={{ fontWeight: 'bold' }}>Feet:</Text> Curl your toes downward, then relax.{'\n'}-{' '}
+              <Text style={{ fontWeight: 'bold' }}>Calves:</Text> Tighten your calf muscles by pointing your toes upward, then relax.{'\n'}- <Text style={{ fontWeight: 'bold' }}>Thighs:</Text> Squeeze
+              your thigh muscles, then relax.{'\n'}- <Text style={{ fontWeight: 'bold' }}>Abdomen:</Text> Tighten your stomach muscles, then relax.{'\n'}-{' '}
+              <Text style={{ fontWeight: 'bold' }}>Hands:</Text> Clench your fists, then relax.{'\n'}- <Text style={{ fontWeight: 'bold' }}>Arms:</Text> Bend your elbows and tense your biceps, then
+              relax.{'\n'}- <Text style={{ fontWeight: 'bold' }}>Shoulders:</Text> Shrug your shoulders up toward your ears, then relax.{'\n'}- <Text style={{ fontWeight: 'bold' }}>Face:</Text> Tense
+              your facial muscles by squeezing your eyes shut and clenching your jaw, then relax.
             </Text>
 
             <Text style={styles.stepTitle}>🧘 Step 4: Enjoy the Relaxation</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After completing the muscle groups, take a few moments to enjoy the sensation of relaxation throughout your body. Continue to breathe slowly and deeply, appreciating the
-              calm state you've achieved.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After completing the muscle groups, take a few moments to enjoy the sensation of relaxation throughout your body. Continue to
+              breathe slowly and deeply, appreciating the calm state you've achieved.
             </Text>
 
             <Text style={styles.stepTitle}>🕰️ Step 5: Practice Regularly</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Incorporate PMR into your daily routine, especially during times of increased stress or irritation. Regular practice can enhance your ability to manage stress and
-              maintain relaxation.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Incorporate PMR into your daily routine, especially during times of increased stress or irritation. Regular practice can enhance
+              your ability to manage stress and maintain relaxation.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

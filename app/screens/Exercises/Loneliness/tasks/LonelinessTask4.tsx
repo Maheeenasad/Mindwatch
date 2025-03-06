@@ -29,28 +29,36 @@ export default function LonelinessTask4Screen() {
               fostering joy and reducing feelings of loneliness.
             </Text>
 
-            <Text style={styles.stepTitle}>🎵 Step 1: Select Favorite Poems</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎵 Step 1: Select Favorite Poems</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Sit with your child and choose a few of their favorite poems or nursery rhymes. This selection process allows them to express their preferences and feel involved.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Sit with your child and choose a few of their favorite poems or nursery rhymes. This selection process allows them to express
+              their preferences and feel involved.
             </Text>
 
-            <Text style={styles.stepTitle}>📖 Step 2: Read and Recite Together</Text>
-            <Text style={styles.stepText}>- **Activity**: Read the selected poems aloud together. Encourage your child to recite along, promoting language skills and rhythm awareness.</Text>
-
-            <Text style={styles.stepTitle}>🎤 Step 3: Sing the Poems</Text>
+            <Text style={styles.stepTitle}>{'\n'}📖 Step 2: Read and Recite Together</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Turn the recited poems into songs. Use simple melodies or mimic tunes from familiar nursery rhymes. Singing can elevate mood and create a fun atmosphere.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Read the selected poems aloud together. Encourage your child to recite along, promoting language skills and rhythm awareness.
             </Text>
 
-            <Text style={styles.stepTitle}>🕺 Step 4: Add Movements</Text>
-            <Text style={styles.stepText}>- **Activity**: Incorporate hand motions or simple dance steps to accompany the songs. This physical engagement enhances memory and adds excitement.</Text>
-
-            <Text style={styles.stepTitle}>📹 Step 5: Record the Performance</Text>
+            <Text style={styles.stepTitle}>{'\n'}🎤 Step 3: Sing the Poems</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Record your child's performance to celebrate their efforts. Watching the playback can boost their confidence and provide a sense of accomplishment.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Turn the recited poems into songs. Use simple melodies or mimic tunes from familiar nursery rhymes. Singing can elevate mood and
+              create a fun atmosphere.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🕺 Step 4: Add Movements</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Incorporate hand motions or simple dance steps to accompany the songs. This physical engagement enhances memory and adds
+              excitement.
+            </Text>
+
+            <Text style={styles.stepTitle}>{'\n'}📹 Step 5: Record the Performance</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Record your child's performance to celebrate their efforts. Watching the playback can boost their confidence and provide a sense
+              of accomplishment.
+            </Text>
+
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Engaging in singing activities not only improves linguistic abilities but also strengthens emotional bonds and alleviates feelings of loneliness. It's a joyful way to connect and create
               lasting memories.

@@ -30,26 +30,32 @@ export default function ImpatienceTask9Screen() {
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 1: Prepare Your Materials</Text>
-            <Text style={styles.stepText}>- **Activity**: Gather a notebook or journal and a pen. Choose a quiet, comfortable space where you can write without interruptions.</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Gather a notebook or journal and a pen. Choose a quiet, comfortable space where you can write without interruptions.
+            </Text>
 
             <Text style={styles.stepTitle}>⏰ Step 2: Set a Timer</Text>
             <Text style={styles.stepText}>
-              - **Activity**: Decide on a specific amount of time for your journaling session, such as 10, 15, or 20 minutes. Use a timer to keep track, ensuring you write continuously for the entire
-              period.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Decide on a specific amount of time for your journaling session, such as 10, 15, or 20 minutes. Use a timer to keep track,
+              ensuring you write continuously for the entire period.
             </Text>
 
             <Text style={styles.stepTitle}>🖋️ Step 3: Begin Free Writing</Text>
-            <Text style={styles.stepText}>- **Activity**: Start writing whatever comes to mind, without worrying about grammar or structure. Let your thoughts flow freely onto the paper.</Text>
+            <Text style={styles.stepText}>
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Start writing whatever comes to mind, without worrying about grammar or structure. Let your thoughts flow freely onto the paper.
+            </Text>
 
             <Text style={styles.stepTitle}>💡 Step 4: Use Prompts if Needed</Text>
             <Text style={styles.stepText}>
-              - **Activity**: If you're unsure where to start, consider using prompts such as: - "Reflect on a recent experience where you felt impatient. What triggered this feeling?" - "Describe a
-              situation where you successfully practiced patience. How did it make you feel?" - "What strategies can you implement to become more patient in daily life?"
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> If you're unsure where to start, consider using prompts such as: - "Reflect on a recent experience where you felt impatient. What
+              triggered this feeling?" - "Describe a situation where you successfully practiced patience. How did it make you feel?" - "What strategies can you implement to become more patient in
+              daily life?"
             </Text>
 
             <Text style={styles.stepTitle}>🧠 Step 5: Reflect on Your Writing</Text>
             <Text style={styles.stepText}>
-              - **Activity**: After the timer goes off, read through what you've written. Reflect on any patterns, insights, or emotions that emerged during the process.
+              - <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After the timer goes off, read through what you've written. Reflect on any patterns, insights, or emotions that emerged during the
+              process.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

@@ -31,25 +31,26 @@ export default function HappinessTask5Screen() {
 
             <Text style={styles.stepTitle}>🛠️ Step 1: Preparing the Game</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Gather the children in an open space where they can move freely. Explain that they will be imitating different animals and that others will
-              guess which animal is being portrayed.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Gather the children in an open space where they can move
+              freely. Explain that they will be imitating different animals and that others will guess which animal is being portrayed.
             </Text>
 
             <Text style={styles.stepTitle}>📝 Step 2: Demonstrating Animal Movements</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: Demonstrate a few animal movements and sounds as examples. For instance, slither like a snake, hop like a frog, or stomp like an elephant.
-              Encourage children to observe and practice these movements.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Demonstrate a few animal movements and sounds as examples.
+              For instance, slither like a snake, hop like a frog, or stomp like an elephant. Encourage children to observe and practice these movements.
             </Text>
 
             <Text style={styles.stepTitle}>🗣️ Step 3: Playing the Imitation Game</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 10 minutes{'\n'}- **Activity**: One child starts by imitating an animal without speaking, while the others guess which animal it is. Rotate turns so each child has the
-              opportunity to act and guess.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> One child starts by imitating an animal without speaking,
+              while the others guess which animal it is. Rotate turns so each child has the opportunity to act and guess.
             </Text>
 
             <Text style={styles.stepTitle}>🎨 Step 4: Group Imitation</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 5 minutes{'\n'}- **Activity**: Call out the name of an animal, and have all the children imitate it simultaneously. This promotes unity and adds excitement to the game.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Call out the name of an animal, and have all the children
+              imitate it simultaneously. This promotes unity and adds excitement to the game.
             </Text>
 
             <Text style={styles.stepTitle}>🌟 Final Thought</Text>

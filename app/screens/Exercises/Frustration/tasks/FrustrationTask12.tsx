@@ -29,26 +29,29 @@ export default function FrustrationTask12Screen() {
               immediate surroundings and bodily sensations, you can divert attention from distressing thoughts and promote calmness.
             </Text>
 
-            <Text style={styles.stepTitle}>🛠️ Step 1: Find a Comfortable Position</Text>
+            <Text style={styles.stepTitle}>{'\n'}🛠️ Step 1: Find a Comfortable Position</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 1 minute{'\n'}- **Activity**: Sit or stand in a comfortable position with your feet flat on the ground. Ensure your back is straight yet relaxed, and let your hands rest
-              naturally by your sides or on your lap. Close your eyes if it feels comfortable.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 1 minute{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Sit or stand in a comfortable position with your feet flat
+              on the ground. Ensure your back is straight yet relaxed, and let your hands rest naturally by your sides or on your lap. Close your eyes if it feels comfortable.
             </Text>
 
-            <Text style={styles.stepTitle}>🔍 Step 2: Engage Your Senses</Text>
+            <Text style={styles.stepTitle}>{'\n'}🔍 Step 2: Engage Your Senses</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 3 minutes{'\n'}- **Activity**: Utilize the 5-4-3-2-1 grounding technique to connect with your environment: - **5**: Acknowledge five things you can see around you. -
-              **4**: Identify four things you can touch. - **3**: Notice three things you can hear. - **2**: Recognize two things you can smell. - **1**: Become aware of one thing you can taste. This
-              method helps shift your focus to the present moment. [Source: Calm - 5-4-3-2-1 Grounding Technique](https://www.calm.com/blog/5-4-3-2-1-a-simple-exercise-to-calm-the-mind)
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 3 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Utilize the 5-4-3-2-1 grounding technique to connect with
+              your environment:{'\n'}- <Text style={{ fontWeight: 'bold' }}>5:</Text> Acknowledge five things you can see around you.{'\n'}- <Text style={{ fontWeight: 'bold' }}>4:</Text> Identify
+              four things you can touch.{'\n'}- <Text style={{ fontWeight: 'bold' }}>3:</Text> Notice three things you can hear.{'\n'}- <Text style={{ fontWeight: 'bold' }}>2:</Text> Recognize two
+              things you can smell.{'\n'}- <Text style={{ fontWeight: 'bold' }}>1:</Text> Become aware of one thing you can taste.{'\n'}
+              This method helps shift your focus to the present moment.{'\n'}
+              <Text style={{ color: 'blue' }}>[Source: Calm - 5-4-3-2-1 Grounding Technique](https://www.calm.com/blog/5-4-3-2-1-a-simple-exercise-to-calm-the-mind)</Text>
             </Text>
 
-            <Text style={styles.stepTitle}>🧘 Step 3: Deep Breathing</Text>
+            <Text style={styles.stepTitle}>{'\n'}🧘 Step 3: Deep Breathing</Text>
             <Text style={styles.stepText}>
-              - **Duration**: 1 minute{'\n'}- **Activity**: Take slow, deep breaths. Inhale deeply through your nose, hold for a moment, and then exhale slowly through your mouth. Repeat this process
-              several times, allowing your body to relax with each exhale.
+              - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 1 minute{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Take slow, deep breaths. Inhale deeply through your nose,
+              hold for a moment, and then exhale slowly through your mouth. Repeat this process several times, allowing your body to relax with each exhale.
             </Text>
 
-            <Text style={styles.stepTitle}>🌟 Final Thought</Text>
+            <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
             <Text style={styles.stepText}>
               Practicing this grounding exercise regularly can enhance your ability to manage stress and frustration by bringing your attention to the present moment. It's a simple yet powerful tool
               to incorporate into your daily routine.

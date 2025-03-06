@@ -9,25 +9,25 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const taskCategories: Record<'child' | 'teenage' | 'adult', { id: number; title: string; time: string; screen: keyof RootStackParamList; image: any }[]> = {
   child: [
-    { id: 1, title: 'Anger Coloring Activity', time: '15 mins', screen: 'FrustrationTask1', image: require('@/assets/exercises/Frustration.jpg') },
-    { id: 2, title: 'Bubble Wrap Stomping', time: '10 mins', screen: 'FrustrationTask2', image: require('@/assets/exercises/FrustrationTask2.jpg') },
+    { id: 1, title: 'Anger Coloring Activity', time: '20 mins', screen: 'FrustrationTask1', image: require('@/assets/exercises/Frustration.jpg') },
+    { id: 2, title: 'Bubble Wrap Stomping', time: '15 mins', screen: 'FrustrationTask2', image: require('@/assets/exercises/FrustrationTask2.jpg') },
     { id: 3, title: 'Deep Breathing with Balloons', time: '10 mins', screen: 'FrustrationTask3', image: require('@/assets/exercises/FrustrationTask3.jpg') },
     { id: 4, title: 'Creating a “Calm Down” Jar', time: '20 mins', screen: 'FrustrationTask4', image: require('@/assets/exercises/FrustrationTask4.jpg') },
-    { id: 5, title: 'Stomp and Shout Exercise', time: '10 mins', screen: 'FrustrationTask5', image: require('@/assets/exercises/FrustrationTask5.jpg') }
+    { id: 5, title: 'Stomp and Shout Exercise', time: '15 mins', screen: 'FrustrationTask5', image: require('@/assets/exercises/FrustrationTask5.jpg') }
   ],
   teenage: [
-    { id: 1, title: 'Frustration Journal', time: '15 mins', screen: 'FrustrationTask6', image: require('@/assets/exercises/Frustration.jpg') },
+    { id: 1, title: 'Frustration Journal', time: '20 mins', screen: 'FrustrationTask6', image: require('@/assets/exercises/Frustration.jpg') },
     { id: 2, title: 'Physical Release Workout', time: '30 mins', screen: 'FrustrationTask7', image: require('@/assets/exercises/FrustrationTask2.jpg') },
-    { id: 3, title: 'Music Therapy for Anger', time: '20 mins', screen: 'FrustrationTask8', image: require('@/assets/exercises/FrustrationTask3.jpg') },
-    { id: 4, title: 'Scream into a Pillow', time: '5 mins', screen: 'FrustrationTask9', image: require('@/assets/exercises/FrustrationTask4.jpg') },
+    { id: 3, title: 'Music Therapy for Anger', time: '25 mins', screen: 'FrustrationTask8', image: require('@/assets/exercises/FrustrationTask3.jpg') },
+    { id: 4, title: 'Scream into a Pillow', time: '10 mins', screen: 'FrustrationTask9', image: require('@/assets/exercises/FrustrationTask4.jpg') },
     { id: 5, title: 'Guided Visualization', time: '15 mins', screen: 'FrustrationTask10', image: require('@/assets/exercises/FrustrationTask5.jpg') }
   ],
   adult: [
-    { id: 1, title: 'Cognitive Reframing', time: '30 mins', screen: 'FrustrationTask11', image: require('@/assets/exercises/Frustration.jpg') },
+    { id: 1, title: 'Cognitive Reframing', time: '20 mins', screen: 'FrustrationTask11', image: require('@/assets/exercises/Frustration.jpg') },
     { id: 2, title: '5-Minute Grounding Exercise', time: '5 mins', screen: 'FrustrationTask12', image: require('@/assets/exercises/FrustrationTask2.jpg') },
-    { id: 3, title: 'Breathwork for Stress', time: '15 mins', screen: 'FrustrationTask13', image: require('@/assets/exercises/FrustrationTask3.jpg') },
-    { id: 4, title: 'Mindful Walking', time: '20 mins', screen: 'FrustrationTask14', image: require('@/assets/exercises/FrustrationTask4.jpg') },
-    { id: 5, title: 'Writing a Rant Letter (Not Sending)', time: '25 mins', screen: 'FrustrationTask15', image: require('@/assets/exercises/FrustrationTask5.jpg') }
+    { id: 3, title: 'Breathwork for Stress', time: '10 mins', screen: 'FrustrationTask13', image: require('@/assets/exercises/FrustrationTask3.jpg') },
+    { id: 4, title: 'Mindful Walking', time: '15 mins', screen: 'FrustrationTask14', image: require('@/assets/exercises/FrustrationTask4.jpg') },
+    { id: 5, title: 'Writing a Rant Letter (Not Sending)', time: '20 mins', screen: 'FrustrationTask15', image: require('@/assets/exercises/FrustrationTask5.jpg') }
   ]
 };
 
