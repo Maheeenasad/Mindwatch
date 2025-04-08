@@ -15,6 +15,10 @@ export type RootStackParamList = {
   TherapeuticQuestionsScreen: undefined;
   //Islamic
   Islamic: undefined;
+  //ChatBot
+  Chatbot: undefined;
+  //
+  HealthScreen: undefined;
   //Exercises
   Exercises: undefined;
   //Anger

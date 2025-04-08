@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../types/types'; 
+import { RootStackParamList } from '../../types/types';
 import NavigationTab from '@/components/NavigationTab';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'MainTabs'>;
@@ -12,17 +12,17 @@ export default function HomeScreen({ navigation }: Props) {
   const [quote, setQuote] = useState<string>('');
 
   const quotes = [
-    "The greatest wealth is mental health. Take a deep breath and keep moving forward.",
+    'The greatest wealth is mental health. Take a deep breath and keep moving forward.',
     "Believe you can and you're halfway there.",
-    "Your mind is a powerful thing. When you fill it with positive thoughts, your life will start to change.",
-    "Happiness is not by chance, but by choice.",
+    'Your mind is a powerful thing. When you fill it with positive thoughts, your life will start to change.',
+    'Happiness is not by chance, but by choice.',
     "Don't watch the clock; do what it does. Keep going.",
-    "The only limit to our realization of tomorrow is our doubts of today.",
+    'The only limit to our realization of tomorrow is our doubts of today.'
   ];
 
   useEffect(() => {
     const fetchUserName = async () => {
-      const name = await AsyncStorage.getItem("userName");
+      const name = await AsyncStorage.getItem('userName');
       if (name) {
         setUserName(name);
       }
@@ -36,20 +36,20 @@ export default function HomeScreen({ navigation }: Props) {
   useEffect(() => {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     setQuote(randomQuote);
-  }, []); 
+  }, []);
 
   const handleFeaturePress = (featureName: string) => {
     if (featureName === 'Journaling') {
       navigation.navigate('Journaling');
-    }  
+    }
     if (featureName === 'Islamic') {
-      navigation.navigate('Islamic'); 
+      navigation.navigate('Islamic');
     }
     if (featureName === 'Exercises') {
-      navigation.navigate('Exercises'); 
+      navigation.navigate('Exercises');
     }
-    if (featureName === 'Mood Tracking') {
-      navigation.navigate('MoodTracking'); 
+    if (featureName === 'AI Companion') {
+      navigation.navigate('Chatbot');
     }
   };
 
@@ -72,7 +72,7 @@ export default function HomeScreen({ navigation }: Props) {
           <View style={styles.stats}>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>7/10</Text>
-              <Text style={styles.statLabel}>Mood</Text>
+              <Text style={styles.statLabel}>Blood Pressure</Text>
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>72 bpm</Text>
@@ -80,7 +80,7 @@ export default function HomeScreen({ navigation }: Props) {
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>6 hrs</Text>
-              <Text style={styles.statLabel}>Sleep</Text>
+              <Text style={styles.statLabel}>Blood Oxygen</Text>
             </View>
           </View>
         </View>
@@ -88,17 +88,17 @@ export default function HomeScreen({ navigation }: Props) {
           <Text style={styles.featuresTitle}>Explore Features</Text>
           <View style={styles.featuresGrid}>
             {features.map((feature, index) => (
-              <TouchableOpacity
-                key={index}
-                style={styles.featureTile}
-                onPress={() => handleFeaturePress(feature.name)}
-              >
+              <TouchableOpacity key={index} style={styles.featureTile} onPress={() => handleFeaturePress(feature.name)}>
                 <Image source={feature.icon} style={styles.featureIcon} />
                 <Text style={styles.featureText}>{feature.name}</Text>
               </TouchableOpacity>
             ))}
           </View>
         </View>
+        <TouchableOpacity style={styles.moodTracking} onPress={() => navigation.navigate('MoodTracking')}>
+          <Text style={styles.moodTrackingText}>Track Your Mood Now!</Text>
+        </TouchableOpacity>
+
         <View style={styles.quoteContainer}>
           <Text style={styles.quote}>{quote}</Text>
         </View>
@@ -110,18 +110,17 @@ export default function HomeScreen({ navigation }: Props) {
 
 // Features data
 const features = [
-  { name: 'Mood Tracking', icon: require('@/assets/icons/mood.png') },
+  { name: 'AI Companion', icon: require('@/assets/icons/robot.png') },
   { name: 'Journaling', icon: require('@/assets/icons/journal.png') },
   { name: 'Exercises', icon: require('@/assets/icons/meditation.png') }, // Combined icon
-  { name: 'Islamic', icon: require('@/assets/icons/mosque.png') }, 
+  { name: 'Islamic', icon: require('@/assets/icons/mosque.png') }
 ];
-
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F0F8FF', // Keeping light grey for the main container
     padding: 16,
-    paddingBottom: 80,
+    paddingBottom: 80
   },
   headerContainer: {
     flexDirection: 'row',
@@ -129,17 +128,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 16,
     paddingHorizontal: 16,
-    marginTop: 20,
+    marginTop: 20
   },
   greeting: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#003366', // Dark blue for greeting text
+    color: '#003366' // Dark blue for greeting text
   },
   profileIcon: {
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: 20
   },
   header: {
     alignItems: 'center',
@@ -151,73 +150,73 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 2,
+    elevation: 2
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#003366', // Dark blue for title
+    color: '#003366' // Dark blue for title
   },
   logo: {
     width: 60,
     height: 60,
     marginBottom: 8,
-    resizeMode: 'contain',
+    resizeMode: 'contain'
   },
   tagline: {
     fontSize: 16,
-    color: '#003366', // Light blue for tagline
-    marginTop: 8,
+    color: '#003366',
+    marginTop: 8
   },
   statsContainer: {
-    backgroundColor: '#FFF', // White background for stats container
+    backgroundColor: '#FFF',
     borderRadius: 12,
     padding: 16,
     marginBottom: 24,
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 2,
+    elevation: 2
   },
   statsTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 12,
-    color: '#003366', // Dark blue for stats title
+    color: '#003366' // Dark blue for stats title
   },
   stats: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-around'
   },
   stat: {
-    alignItems: 'center',
+    alignItems: 'center'
   },
   statNumber: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#003366', // Dark blue for stat numbers
+    color: '#003366' // Dark blue for stat numbers
   },
   statLabel: {
     fontSize: 14,
-    color: '#888',
+    color: '#888'
   },
   featuresContainer: {
-    marginBottom: 24,
+    marginBottom: 24
   },
   featuresTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 16,
-    color: '#003366', // Dark blue for features title
+    color: '#003366'
   },
   featuresGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   featureTile: {
     width: '48%',
-    backgroundColor: '#FFF', // White background for feature tile
+    backgroundColor: '#FFF',
     borderRadius: 12,
     padding: 16,
     alignItems: 'center',
@@ -225,27 +224,44 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 2,
+    elevation: 2
   },
   featureIcon: {
     width: 50,
     height: 50,
-    marginBottom: 8,
+    marginBottom: 8
   },
   featureText: {
     fontSize: 14,
-    color: '#003366', // Dark blue for feature text
+    color: '#003366'
+  },
+  moodTracking: {
+    backgroundColor: '#ffffff',
+    paddingVertical: 16,
+    borderRadius: 12,
+    alignItems: 'center',
+    marginVertical: 16,
+    marginTop: -20,
+    width: '100%',
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2
+  },
+  moodTrackingText: {
+    fontSize: 18,
+    fontWeight: 'medium',
+    color: '#003366'
   },
   quoteContainer: {
     backgroundColor: '#003366', // Dark blue for quote background
     borderRadius: 12,
-    padding: 16,
+    padding: 16
   },
   quote: {
     fontSize: 16,
     color: '#FFF', // White text for quote
     fontStyle: 'italic',
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 });
-

@@ -4,9 +4,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
+const { spawn } = require('child_process');
 
 const app = express();
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
+
 const corsOptions = {
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -15,12 +18,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-// Connect to MongoDB
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB connected successfully'))
-  .catch(err => console.error('MongoDB connection error:', err));
 
 // Define User Schema
 const userSchema = new mongoose.Schema({
@@ -31,14 +28,42 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Define JournalEntry Schema
-const journalEntrySchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  date: { type: Date, default: Date.now },
-  content: { type: String, required: true } // Store the content as a JSON string
-});
+// Mood Analysis Endpoint
+app.post('/analyze-mood', async (req, res) => {
+  try {
+    const { image } = req.body;
+    if (!image) return res.status(400).json({ message: 'No image provided' });
 
-const JournalEntry = mongoose.model('JournalEntry', journalEntrySchema);
+    const imagePath = 'temp_image.jpeg';
+    fs.writeFileSync(imagePath, Buffer.from(image, 'base64'));
+
+    // Run analysis in a separate process to avoid blocking the main thread
+    const pythonProcess = spawn('python', ['analyze_mood.py', imagePath]);
+
+    let mood = '';
+    let errorMessage = '';
+
+    pythonProcess.stdout.on('data', data => {
+      mood += data.toString();
+    });
+
+    pythonProcess.stderr.on('data', data => {
+      errorMessage += data.toString();
+    });
+
+    pythonProcess.on('close', code => {
+      if (code === 0) {
+        res.json({ mood: mood.trim() });
+      } else {
+        console.error(`Error: ${errorMessage}`);
+        res.status(500).json({ message: 'DeepFace analysis failed' });
+      }
+    });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 // Registration Route
 app.post('/register', async (req, res) => {
@@ -184,6 +209,14 @@ app.delete('/profile/delete', async (req, res) => {
   }
 });
 
+// Define JournalEntry Schema
+const journalEntrySchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  date: { type: Date, default: Date.now },
+  content: { type: String, required: true } // Store the content as a JSON string
+});
+
+const JournalEntry = mongoose.model('JournalEntry', journalEntrySchema);
 // Save Journal Entry Route
 app.post('/journal', async (req, res) => {
   const token = req.headers.authorization?.split(' ')[1];
@@ -253,6 +286,81 @@ app.get('/journal/:year/:month/:day', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+const axios = require('axios');
+
+const predefinedResponses = {
+  'situational depression':
+    "It looks like you're dealing with a tough life change. Acknowledge your emotions and try talking to someone you trust. Engaging in physical activity and self-care can also help.",
+  'persistent depressive disorder':
+    "You're not alone. Managing long-term depression can be difficult, but small daily habits like gratitude journaling, mindfulness, and therapy can make a difference.",
+  'major depressive disorder':
+    "I'm sorry you're feeling this way. Seeking professional help can be very beneficial. In the meantime, deep breathing, meditation, and structured daily activities can help.",
+  'atypical depression': 'Atypical depression can be confusing because moods fluctuate. Try maintaining a routine and engaging in activities that bring joy, even when it feels hard.',
+  'postpartum depression': 'You are not alone in this journey. Connecting with a support group or therapist can help. Self-care and asking for help from loved ones are important.',
+  'seasonal affective disorder': 'Changes in light exposure can impact mood. Try light therapy, spending more time outdoors, and maintaining social connections during darker months.',
+  'study pressure': 'Feeling overwhelmed by studies? Try breaking tasks into smaller steps, using the Pomodoro technique (25 minutes of study, 5-minute break), and staying organized with a planner.',
+  burnout: 'Burnout can be tough. Make sure to schedule breaks, prioritize self-care, and engage in activities that help you relax and recharge.',
+  'social anxiety': 'Social situations can be stressful, but deep breathing exercises and small exposure steps can help. Remember, progress takes time.',
+  'self-esteem': 'Building self-esteem starts with positive self-talk. Try writing down things you like about yourself and setting small, achievable goals.',
+  loneliness: 'Feeling lonely? Try reaching out to a friend, joining a community group, or engaging in hobbies that connect you with others.',
+  insomnia: 'Struggling with sleep? Try a bedtime routine, reducing screen time before bed, and practicing relaxation techniques like deep breathing.',
+  'work stress': 'Work stress is common. Set boundaries, prioritize tasks, and take short breaks to reset your mind throughout the day.'
+};
+
+app.post('/chat', async (req, res) => {
+  const { message } = req.body;
+  if (!message) return res.status(400).json({ error: 'Message is required' });
+
+  const lowerMessage = message.toLowerCase();
+  const detectedKey = Object.keys(predefinedResponses).find(key => lowerMessage.includes(key));
+
+  if (detectedKey) {
+    return res.json({ reply: predefinedResponses[detectedKey] });
+  }
+
+  try {
+    const response = await axios.post(
+      'https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash-8b:generateContent',
+      {
+        contents: [
+          {
+            role: 'user',
+            parts: [
+              {
+                text: `You are a mental health chatbot for the Mindwatch app. Categorize the user's depression type and provide a personalized response with a coping strategy.\nNow, here is the user's message: "${message}"`
+              }
+            ]
+          }
+        ],
+        safetySettings: [{ category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' }],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 300,
+          topP: 0.9,
+          topK: 40
+        }
+      },
+      {
+        headers: { 'Content-Type': 'application/json' },
+        params: { key: process.env.GOOGLE_AI_KEY }
+      }
+    );
+
+    const botReply = response.data?.candidates?.[0]?.content?.parts?.[0]?.text || 'I am here to support you with mental health and Mindwatch-related queries.';
+
+    res.json({ reply: botReply });
+  } catch (error) {
+    console.error('Chatbot error:', error.response?.data || error.message);
+    res.status(500).json({ error: 'Failed to fetch response from AI' });
+  }
+});
+
+// Connect to MongoDB
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));

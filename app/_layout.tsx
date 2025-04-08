@@ -20,6 +20,8 @@ import TherapeuticQuestionsScreen from './screens/Journals/TherapeuticQuestionsS
 import IslamicScreen from './screens/Islamic/IslamicScreen';
 import ExercisesScreen from './screens/Exercises/ExercisesScreen';
 import MoodTrackingScreen from './screens/MoodTrackingScreen';
+import ChatbotScreen from './screens/Chatbot';
+// import HealthScreen from './screens/HealthScreen';
 //Anger
 import AngerScreen from './screens/Exercises/Anger/AngerScreen';
 import AngerTask1Screen from './screens/Exercises/Anger/tasks/AngerTask1Screen';
@@ -390,6 +392,19 @@ export default function RootLayout() {
           }}
         />
         <AppStack.Screen
+          name='Chatbot'
+          component={ChatbotScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: '#F0F8FF',
+              shadowOpacity: 0,
+              elevation: 0
+            },
+            headerTintColor: '#003366',
+            title: 'Mindwatch AI Companion'
+          }}
+        />
+        <AppStack.Screen
           name='Journaling'
           component={JournalingScreen}
           options={{
@@ -482,6 +497,19 @@ export default function RootLayout() {
             title: 'Mood Tracking'
           }}
         />
+        {/* <AppStack.Screen
+          name='HealthScreen'
+          component={HealthScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: '#F0F8FF',
+              shadowOpacity: 0,
+              elevation: 0
+            },
+            headerTintColor: '#003366',
+            title: 'Health'
+          }}
+        /> */}
         <AppStack.Screen
           name='Exercises'
           component={ExercisesScreen}
