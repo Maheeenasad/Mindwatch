@@ -40,7 +40,6 @@ export default function FrustrationTask14Screen() {
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Begin walking at a natural pace. Focus your attention on
               the sensation of your feet touching the ground, the movement of your legs, and the rhythm of your breath. If your mind wanders, gently bring your focus back to these physical sensations.
               This practice helps anchor you in the present moment.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Mindful.org - A Guided Walking Meditation for Daily Life](https://www.mindful.org/daily-mindful-walking-practice/)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🧘 Step 3: Engage Your Senses</Text>
@@ -48,7 +47,6 @@ export default function FrustrationTask14Screen() {
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 3 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> As you walk, become aware of your surroundings. Notice the
               colors, textures, and shapes you see; the sounds you hear; the scents you smell; and the feeling of the air on your skin. Engaging your senses fully enhances the mindfulness experience.
               {'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Mindfulness.com - Mindful Walking: Stay Grounded by Walking Mindfully](https://mindfulness.com/mindful-living/mindful-walking)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>

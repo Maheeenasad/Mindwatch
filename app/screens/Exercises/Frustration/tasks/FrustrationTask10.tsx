@@ -39,7 +39,6 @@ export default function FrustrationTask10Screen() {
             <Text style={styles.stepText}>
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Close your eyes and imagine a serene place, such as a
               beach or forest. Engage all your senses: feel the warmth of the sun, hear the gentle waves, and smell the fresh air. Allow yourself to fully immerse in this calming environment.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Newport Academy](https://www.newportacademy.com/resources/mental-health/positive-visualization/)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}📝 Step 3: Reflect on the Experience</Text>

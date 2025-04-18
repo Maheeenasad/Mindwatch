@@ -1,35 +1,28 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, ActivityIndicator, ScrollView } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import CONFIG from '../../config';
+import NavigationTab from '@/components/NavigationTab';
 
 export default function MoodTrackingScreen() {
-  const [selectedMood, setSelectedMood] = useState<string | null>(null);
   const [image, setImage] = useState<string | null>(null);
   const [analyzedMood, setAnalyzedMood] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const pickImageFromCamera = async () => {
-    let result = await ImagePicker.launchCameraAsync({
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-      base64: true
-    });
-
-    if (!result.canceled && result.assets[0].base64) {
-      setImage(result.assets[0].uri);
-      analyzeMood(result.assets[0].base64);
-    }
-  };
-
-  const pickImageFromGallery = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-      base64: true
-    });
+  const pickImage = async (fromCamera: boolean) => {
+    const result = fromCamera
+      ? await ImagePicker.launchCameraAsync({
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,
+          base64: true
+        })
+      : await ImagePicker.launchImageLibraryAsync({
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,
+          base64: true
+        });
 
     if (!result.canceled && result.assets[0].base64) {
       setImage(result.assets[0].uri);
@@ -58,49 +51,85 @@ export default function MoodTrackingScreen() {
   };
 
   return (
-    <View style={styles.screen}>
-      <Text style={styles.header}>How are you feeling today?</Text>
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <View style={styles.screen}>
+          {/* Today's Summary */}
+          <View style={styles.statsContainer}>
+            <Text style={styles.statsTitle}>Today's Summary</Text>
+            <View style={styles.stats}>
+              <View style={styles.stat}>
+                <Text style={styles.statNumber}>120/90</Text>
+                <Text style={styles.statLabel}>Blood Pressure</Text>
+              </View>
+              <View style={styles.stat}>
+                <Text style={styles.statNumber}>72 bpm</Text>
+                <Text style={styles.statLabel}>Heart Rate</Text>
+              </View>
+              <View style={styles.stat}>
+                <Text style={styles.statNumber}>90%</Text>
+                <Text style={styles.statLabel}>Blood Oxygen</Text>
+              </View>
+            </View>
+          </View>
 
-      {image && <Image source={{ uri: image }} style={styles.preview} />}
+          <Text style={styles.mainHeading}>Detect your Mood and Stress level by giving your facial expressions</Text>
 
-      <TouchableOpacity style={styles.button} onPress={pickImageFromCamera}>
-        <Text style={styles.buttonText}>📷 Capture Image</Text>
-      </TouchableOpacity>
+          {image && <Image source={{ uri: image }} style={styles.preview} />}
 
-      <TouchableOpacity style={styles.button} onPress={pickImageFromGallery}>
-        <Text style={styles.buttonText}>🖼 Upload Image</Text>
-      </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => pickImage(true)}>
+            <Text style={styles.buttonText}>📷 Capture Image</Text>
+          </TouchableOpacity>
 
-      {loading ? <ActivityIndicator size='large' color='#003366' /> : analyzedMood ? <Text style={styles.result}>Detected Mood: {analyzedMood}</Text> : null}
+          <TouchableOpacity style={styles.button} onPress={() => pickImage(false)}>
+            <Text style={styles.buttonText}>🖼 Upload Image</Text>
+          </TouchableOpacity>
 
-      <TouchableOpacity style={styles.submitButton}>
-        <Text style={styles.submitText}>Save Mood</Text>
-      </TouchableOpacity>
+          {loading ? (
+            <ActivityIndicator size='large' color='#003366' style={{ marginTop: 15 }} />
+          ) : analyzedMood ? (
+            <>
+              <Text style={styles.result}>Detected Mood: {analyzedMood}</Text>
+              <Text style={styles.stressLevel}>Stress Level: Relaxed</Text>
+            </>
+          ) : null}
+        </View>
+      </ScrollView>
+
+      {/* Fixed at the bottom */}
+      <NavigationTab />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
+  container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
     backgroundColor: '#F0F8FF'
   },
-  header: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#003366',
-    marginBottom: 20
+  scrollContent: {
+    paddingBottom: 20
+  },
+  screen: {
+    alignItems: 'center',
+    backgroundColor: '#F0F8FF',
+    paddingVertical: 20
   },
   preview: {
-    width: 200,
-    height: 200,
+    width: 150,
+    height: 150,
     borderRadius: 15,
     marginBottom: 20,
     borderWidth: 2,
     borderColor: '#A5D8FF'
+  },
+  mainHeading: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#003366',
+    marginBottom: 20,
+    paddingHorizontal: 20,
+    textAlign: 'center'
   },
   button: {
     backgroundColor: '#A5D8FF',
@@ -127,23 +156,45 @@ const styles = StyleSheet.create({
     color: '#003366',
     marginTop: 15
   },
-  submitButton: {
-    backgroundColor: '#003366',
-    paddingVertical: 14,
-    paddingHorizontal: 20,
-    borderRadius: 30,
-    marginTop: 25,
-    width: 200,
-    alignItems: 'center',
+  statsContainer: {
+    backgroundColor: '#FFF',
+    borderRadius: 12,
+    padding: 20,
+    marginBottom: 24,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 5
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2
   },
-  submitText: {
-    color: '#F0F8FF',
-    fontSize: 16,
-    fontWeight: 'bold'
+  statsTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 12,
+    color: '#003366'
+  },
+  stats: {
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  stat: {
+    alignItems: 'center'
+  },
+  statNumber: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#003366',
+    marginRight: 10
+  },
+  statLabel: {
+    fontSize: 14,
+    color: '#888',
+    marginRight: 10
+  },
+  stressLevel: {
+    marginTop: 15,
+    marginBottom: 20,
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#ff6b6b'
   }
 });

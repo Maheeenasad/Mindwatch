@@ -67,11 +67,11 @@ export default function HomeScreen({ navigation }: Props) {
           <Text style={styles.title}>Mindwatch</Text>
           <Text style={styles.tagline}>Your Companion for Mental Wellness</Text>
         </View>
-        <View style={styles.statsContainer}>
+        {/* <View style={styles.statsContainer}>
           <Text style={styles.statsTitle}>Today's Summary</Text>
           <View style={styles.stats}>
             <View style={styles.stat}>
-              <Text style={styles.statNumber}>7/10</Text>
+              <Text style={styles.statNumber}>120/90</Text>
               <Text style={styles.statLabel}>Blood Pressure</Text>
             </View>
             <View style={styles.stat}>
@@ -79,11 +79,11 @@ export default function HomeScreen({ navigation }: Props) {
               <Text style={styles.statLabel}>Heart Rate</Text>
             </View>
             <View style={styles.stat}>
-              <Text style={styles.statNumber}>6 hrs</Text>
+              <Text style={styles.statNumber}>90%</Text>
               <Text style={styles.statLabel}>Blood Oxygen</Text>
             </View>
           </View>
-        </View>
+        </View> */}
         <View style={styles.featuresContainer}>
           <Text style={styles.featuresTitle}>Explore Features</Text>
           <View style={styles.featuresGrid}>
@@ -96,7 +96,7 @@ export default function HomeScreen({ navigation }: Props) {
           </View>
         </View>
         <TouchableOpacity style={styles.moodTracking} onPress={() => navigation.navigate('MoodTracking')}>
-          <Text style={styles.moodTrackingText}>Track Your Mood Now!</Text>
+          <Text style={styles.moodTrackingText}>Track Your Mood & Stress Now!</Text>
         </TouchableOpacity>
 
         <View style={styles.quoteContainer}>
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 16,
     paddingHorizontal: 16,
-    marginTop: 20
+    marginTop: 35
   },
   greeting: {
     fontSize: 18,

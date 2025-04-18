@@ -21,7 +21,7 @@ import IslamicScreen from './screens/Islamic/IslamicScreen';
 import ExercisesScreen from './screens/Exercises/ExercisesScreen';
 import MoodTrackingScreen from './screens/MoodTrackingScreen';
 import ChatbotScreen from './screens/Chatbot';
-// import HealthScreen from './screens/HealthScreen';
+// import Health from './screens/HealthScreen';
 //Anger
 import AngerScreen from './screens/Exercises/Anger/AngerScreen';
 import AngerTask1Screen from './screens/Exercises/Anger/tasks/AngerTask1Screen';
@@ -357,6 +357,7 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      {/* <HealthProvider> */}
       <AppStack.Navigator initialRouteName='Welcome'>
         <AppStack.Screen name='Welcome' component={WelcomeScreen} options={{ headerShown: false }} />
         <AppStack.Screen
@@ -498,18 +499,18 @@ export default function RootLayout() {
           }}
         />
         {/* <AppStack.Screen
-          name='HealthScreen'
-          component={HealthScreen}
-          options={{
-            headerStyle: {
-              backgroundColor: '#F0F8FF',
-              shadowOpacity: 0,
-              elevation: 0
-            },
-            headerTintColor: '#003366',
-            title: 'Health'
-          }}
-        /> */}
+            name='Health'
+            component={Health}
+            options={{
+              headerStyle: {
+                backgroundColor: '#F0F8FF',
+                shadowOpacity: 0,
+                elevation: 0
+              },
+              headerTintColor: '#003366',
+              title: 'Health'
+            }}
+          /> */}
         <AppStack.Screen
           name='Exercises'
           component={ExercisesScreen}
@@ -4351,6 +4352,7 @@ export default function RootLayout() {
       </AppStack.Navigator>
 
       <StatusBar style='auto' />
+      {/* </HealthProvider> */}
     </ThemeProvider>
   );
 }

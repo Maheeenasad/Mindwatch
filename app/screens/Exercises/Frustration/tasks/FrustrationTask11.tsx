@@ -40,9 +40,6 @@ export default function FrustrationTask11Screen() {
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Examine the evidence for and against each unhelpful
               thought. Ask yourself questions like: "Is this thought based on facts or assumptions?" and "Have there been times when this wasn't true?" This process helps in recognizing cognitive
               distortions.{'\n'}
-              <Text style={{ color: 'blue' }}>
-                [Source: NHS - Reframing Unhelpful Thoughts](https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/self-help-cbt-techniques/reframing-unhelpful-thoughts/)
-              </Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}📝 Step 3: Reframe to Positive Thoughts</Text>

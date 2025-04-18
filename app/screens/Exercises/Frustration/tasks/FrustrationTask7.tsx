@@ -40,14 +40,12 @@ export default function FrustrationTask7Screen() {
               1. <Text style={{ fontWeight: 'bold' }}>Boxing or Shadowboxing</Text>
               {'\n'}- <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Description:</Text> Perform boxing movements, either with a punching
               bag or shadowboxing, to release pent-up energy. Focus on your form and breathing. {'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Verywell Fit](https://www.verywellfit.com/the-best-exercises-for-when-you-re-feeling-angry-5120367)</Text>
             </Text>
 
             <Text style={styles.stepText}>
               2. <Text style={{ fontWeight: 'bold' }}>Cardio Drumming</Text>
               {'\n'}- <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Description:</Text> Use drumsticks to rhythmically hit an exercise
               ball, combining movement with music to relieve stress. This fun activity enhances self-esteem and motivation. {'\n'}
-              <Text style={{ color: 'blue' }}>[Source: New York Post](https://nypost.com/2024/09/02/lifestyle/cardio-drumming-is-hot-new-exercise-trend-how-it-works/)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🧘 Step 3: Cool Down and Stretching</Text>
@@ -60,7 +58,6 @@ export default function FrustrationTask7Screen() {
             <Text style={styles.stepText}>
               Incorporating physical activities into your routine can serve as a healthy outlet for frustration. Regular exercise not only improves physical health but also boosts mental well-being by
               releasing endorphins and reducing stress levels. {'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Verywell Health](https://www.verywellhealth.com/benefits-of-exercise-on-your-mental-health-8732057)</Text>
             </Text>
           </View>
 

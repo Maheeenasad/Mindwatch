@@ -1,41 +1,34 @@
-import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
 
-
-import JournalingScreen from "../screens/Journals/JournalingScreen";
-
+import JournalingScreen from '../screens/Journals/JournalingScreen';
+import MoodTrackingScreen from '../screens/MoodTrackingScreen';
 
 const Tab = createBottomTabNavigator();
 
 export default function TabLayout() {
   return (
     <Tab.Navigator
-      initialRouteName="MoodTracking"
+      initialRouteName='MoodTracking'
       screenOptions={({ route }) => ({
-        tabBarStyle: { height: 60, backgroundColor: "blue" },
+        tabBarStyle: { height: 60, backgroundColor: 'blue' },
         tabBarIcon: ({ color, size }) => {
           const icons: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-            MoodTracking: "happy",
-            Journaling: "book",
-            Breathing: "leaf",
-            Meditation: "medkit",
+            MoodTracking: 'happy',
+            Journaling: 'book',
+            Breathing: 'leaf',
+            Meditation: 'medkit'
           };
 
-          const iconName = icons[route.name] || "help-circle";
+          const iconName = icons[route.name] || 'help-circle';
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "white",
-        tabBarInactiveTintColor: "gray",
-      })}
-    >
-     
-      <Tab.Screen
-        name="Journaling"
-        component={JournalingScreen}
-        options={{ title: "Journal" }}
-      />
-     
+        tabBarActiveTintColor: 'white',
+        tabBarInactiveTintColor: 'gray'
+      })}>
+      <Tab.Screen name='Journaling' component={JournalingScreen} options={{ title: 'Journal' }} />
+      <Tab.Screen name='MoodTracking' component={MoodTrackingScreen} options={{ title: 'Mood Tracking' }} />
     </Tab.Navigator>
   );
 }

@@ -40,14 +40,12 @@ export default function FrustrationTask15Screen() {
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Address the letter to the person or situation causing you
               frustration. Write freely and honestly, expressing all your thoughts and emotions without censoring yourself. Remember, this letter is for your eyes only and will not be sent. This
               exercise helps in venting out suppressed emotions and can lead to emotional relief.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Anxiety MD - Cathartic Letters for Anger]</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🧘 Step 3: Reflect and Release</Text>
             <Text style={styles.stepText}>
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> After writing, take a moment to reflect on what you've
               expressed. Notice any changes in your emotional state. Once you've reflected, dispose of the letter by shredding or deleting it, symbolizing the release of those pent-up emotions.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Esther Kane - Therapeutic Letter-Writing Part Two: The Rant Letter]</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>

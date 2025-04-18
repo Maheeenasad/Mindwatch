@@ -40,7 +40,6 @@ export default function FrustrationTask9Screen() {
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Hold the pillow close to your face and take a deep breath.
               As you exhale, scream into the pillow, allowing all your anger and frustration to flow out. Repeat as necessary until you feel a sense of relief. This method can help in releasing
               built-up tension and stress.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Calm](https://www.calm.com/blog/scream-therapy)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🧘 Step 3: Reflect and Relax</Text>

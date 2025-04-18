@@ -61,7 +61,7 @@ export default function BreathingTask12Screen() {
           {/* Embedded YouTube Video */}
           <View style={styles.videoContainer}>
             <WebView
-              source={{ uri: 'https://www.youtube.com/embed/suzElyDrM6g' }} // Guided Progressive Muscle Relaxation
+              source={{ uri: 'https://www.youtube.com/embed/utGa6rqzs3g' }} // Guided Progressive Muscle Relaxation
               style={styles.video}
               allowsFullscreenVideo={true}
               javaScriptEnabled={true}

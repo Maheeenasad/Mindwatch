@@ -23,7 +23,9 @@ app.use(cors(corsOptions));
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  familyName: { type: String, default: '' },
+  familyContact: { type: String, default: '' }
 });
 
 const User = mongoose.model('User', userSchema);
@@ -68,6 +70,16 @@ app.post('/analyze-mood', async (req, res) => {
 // Registration Route
 app.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
+  const nameRegex = /^[A-Za-z\s]+$/;
+  const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{8,}$/;
+
+  if (!nameRegex.test(name)) {
+    return res.status(400).json({ message: 'Name must contain only letters and spaces' });
+  }
+
+  if (!strongPasswordRegex.test(password)) {
+    return res.status(400).json({ message: 'Password is not strong enough' });
+  }
 
   console.log('Received data:', { name, email, password }); // Check data received
 
@@ -186,6 +198,27 @@ app.put('/profile/change-password', async (req, res) => {
   }
 });
 
+app.put('/profile/family', async (req, res) => {
+  const token = req.headers.authorization?.split(' ')[1];
+  if (!token) return res.status(401).json({ message: 'Unauthorized' });
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const { familyName, familyContact } = req.body;
+
+    const user = await User.findByIdAndUpdate(decoded.userId, { familyName, familyContact }, { new: true, runValidators: true }).select('-password');
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json({ message: 'Family details updated successfully' });
+  } catch (error) {
+    console.error('Error updating family details:', error.message);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 // Delete User Account
 app.delete('/profile/delete', async (req, res) => {
   const token = req.headers.authorization?.split(' ')[1];
@@ -211,43 +244,33 @@ app.delete('/profile/delete', async (req, res) => {
 
 // Define JournalEntry Schema
 const journalEntrySchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  date: { type: Date, default: Date.now },
-  content: { type: String, required: true } // Store the content as a JSON string
+  date: { type: Date, required: true, unique: true }, // ensure only one entry per day
+  content: { type: String, required: true }
 });
 
 const JournalEntry = mongoose.model('JournalEntry', journalEntrySchema);
+const moment = require('moment-timezone');
+
 // Save Journal Entry Route
 app.post('/journal', async (req, res) => {
-  const token = req.headers.authorization?.split(' ')[1];
-  if (!token) {
-    return res.status(401).json({ message: 'Unauthorized' });
-  }
-
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
     const { mood, bodyFeeling, reflectionText, therapeuticAnswers, day, month, year } = req.body;
 
-    console.log(`Received Date: Year: ${year}, Month: ${month}, Day: ${day}`);
+    // Ensure the date is in Asia/Karachi timezone
+    const journalDate = moment
+      .tz({ year, month: month - 1, day }, 'Asia/Karachi')
+      .startOf('day')
+      .utc()
+      .toDate();
 
-    const journalDate = new Date(year, month - 1, day); // Adjust month because it's 0-based
     if (isNaN(journalDate.getTime())) {
       return res.status(400).json({ message: 'Invalid Date' });
     }
 
-    const newJournalEntry = new JournalEntry({
-      userId: decoded.userId,
-      date: journalDate,
-      content: JSON.stringify({
-        mood,
-        bodyFeeling,
-        reflectionText,
-        therapeuticAnswers
-      })
-    });
+    const content = JSON.stringify({ mood, bodyFeeling, reflectionText, therapeuticAnswers });
 
-    await newJournalEntry.save();
+    await JournalEntry.findOneAndUpdate({ date: journalDate }, { content }, { upsert: true, new: true });
+
     res.status(201).json({ message: 'Journal entry saved successfully' });
   } catch (error) {
     console.error('Error saving journal entry:', error.message);
@@ -255,29 +278,21 @@ app.post('/journal', async (req, res) => {
   }
 });
 
-app.get('/journal/:year/:month/:day', async (req, res) => {
-  const { year, month, day } = req.params;
-
-  console.log(`Received Date: Year: ${year}, Month: ${month}, Day: ${day}`);
+// Fetch Journal Entry Route
+app.get('/journal/:date', async (req, res) => {
+  const { date } = req.params; // Date passed in format: 'YYYY-MM-DD'
 
   try {
-    // Local time start and end
-    const startDate = new Date(year, month - 1, day, 0, 0, 0); // Start of the day
-    const endDate = new Date(year, month - 1, day, 23, 59, 59); // End of the day
+    // Parse the date passed by the frontend, ensuring it's in the correct timezone
+    const startDate = moment.tz(date, 'Asia/Karachi').startOf('day').utc().toDate();
+    const endDate = moment.tz(date, 'Asia/Karachi').endOf('day').utc().toDate();
 
-    // Convert both start and end dates to UTC
-    const startDateUTC = new Date(startDate).toISOString();
-    const endDateUTC = new Date(endDate).toISOString();
-
-    console.log(`Start date: ${startDateUTC}, End date: ${endDateUTC}`);
-
-    // Fetch the journal entry for the specific day using UTC dates
     const journalEntry = await JournalEntry.findOne({
-      date: { $gte: startDateUTC, $lte: endDateUTC }
+      date: { $gte: startDate, $lte: endDate }
     });
 
     if (journalEntry) {
-      res.json({ entry: journalEntry.content });
+      res.json({ entry: JSON.parse(journalEntry.content) });
     } else {
       res.status(404).send('Journal entry not found');
     }

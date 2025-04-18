@@ -42,7 +42,6 @@ export default function FrustrationTask12Screen() {
               four things you can touch.{'\n'}- <Text style={{ fontWeight: 'bold' }}>3:</Text> Notice three things you can hear.{'\n'}- <Text style={{ fontWeight: 'bold' }}>2:</Text> Recognize two
               things you can smell.{'\n'}- <Text style={{ fontWeight: 'bold' }}>1:</Text> Become aware of one thing you can taste.{'\n'}
               This method helps shift your focus to the present moment.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Calm - 5-4-3-2-1 Grounding Technique](https://www.calm.com/blog/5-4-3-2-1-a-simple-exercise-to-calm-the-mind)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🧘 Step 3: Deep Breathing</Text>

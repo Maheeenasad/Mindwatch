@@ -339,4 +339,6 @@ export type RootStackParamList = {
 
   //Mood Tracking
   MoodTracking: undefined;
+  //HealthScreen
+  Health: undefined;
 };

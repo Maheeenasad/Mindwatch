@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, ScrollView } from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationProp } from '@react-navigation/native';
@@ -11,6 +11,8 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [loading, setLoading] = useState(true);
+  const [familyName, setFamilyName] = useState('');
+  const [familyContact, setFamilyContact] = useState('');
 
   const fetchProfile = async () => {
     try {
@@ -20,6 +22,8 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
       });
       setName(response.data.name);
       setEmail(response.data.email);
+      setFamilyName(response.data.familyName || '');
+      setFamilyContact(response.data.familyContact || '');
       setLoading(false);
     } catch (error) {
       Alert.alert('Error', 'Failed to fetch profile');
@@ -30,7 +34,13 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
   const updateProfile = async () => {
     try {
       const token = await AsyncStorage.getItem('userToken');
-      await axios.put('http://192.168.100.8:5000/profile', { name, email }, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.put(
+        `${CONFIG.SERVER_URL}/profile`,
+        { name, email },
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        }
+      );
       await AsyncStorage.setItem('userName', name);
       Alert.alert('Success', 'Profile updated successfully');
     } catch (error) {
@@ -41,12 +51,28 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
   const changePassword = async () => {
     try {
       const token = await AsyncStorage.getItem('userToken');
-      await axios.put('http://192.168.100.8:5000/profile/change-password', { currentPassword, newPassword }, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.put(
+        `${CONFIG.SERVER_URL}/profile/change-password`,
+        { currentPassword, newPassword },
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        }
+      );
       Alert.alert('Success', 'Password updated successfully');
       setCurrentPassword('');
       setNewPassword('');
     } catch (error) {
       Alert.alert('Error', (error as any).response?.data.message || 'Failed to update password');
+    }
+  };
+  // Update Family Details
+  const updateFamilyDetails = async () => {
+    try {
+      const token = await AsyncStorage.getItem('userToken');
+      await axios.put(`${CONFIG.SERVER_URL}/profile/family`, { familyName, familyContact }, { headers: { Authorization: `Bearer ${token}` } });
+      Alert.alert('Success', 'Family details updated');
+    } catch (error) {
+      Alert.alert('Error', 'Failed to update family details');
     }
   };
 
@@ -74,7 +100,7 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
         onPress: async () => {
           try {
             const token = await AsyncStorage.getItem('userToken');
-            await axios.delete('http://192.168.100.8:5000/profile/delete', {
+            await axios.delete(`${CONFIG.SERVER_URL}/profile/delete`, {
               headers: { Authorization: `Bearer ${token}` }
             });
             await AsyncStorage.removeItem('userToken');
@@ -104,39 +130,53 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>General</Text>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <View style={styles.container}>
+        <Text style={styles.title}>General</Text>
 
-      <TextInput placeholder='Name' style={styles.input} value={name} onChangeText={setName} />
-      <TextInput placeholder='Email' style={styles.input} value={email} onChangeText={setEmail} />
-      <TouchableOpacity style={styles.button} onPress={updateProfile}>
-        <Text style={styles.buttonText}>Update Profile</Text>
-      </TouchableOpacity>
+        <TextInput placeholder='Name' style={styles.input} value={name} onChangeText={setName} />
+        <TextInput placeholder='Email' style={styles.input} value={email} onChangeText={setEmail} />
+        <TouchableOpacity style={styles.button} onPress={updateProfile}>
+          <Text style={styles.buttonText}>Update Profile</Text>
+        </TouchableOpacity>
 
-      <Text style={styles.sectionTitle}>Change Password</Text>
-      <TextInput placeholder='Current Password' style={styles.input} secureTextEntry value={currentPassword} onChangeText={setCurrentPassword} />
-      <TextInput placeholder='New Password' style={styles.input} secureTextEntry value={newPassword} onChangeText={setNewPassword} />
-      <TouchableOpacity style={styles.button} onPress={changePassword}>
-        <Text style={styles.buttonText}>Change Password</Text>
-      </TouchableOpacity>
+        <Text style={styles.sectionTitle}>Change Password</Text>
+        <TextInput placeholder='Current Password' style={styles.input} secureTextEntry value={currentPassword} onChangeText={setCurrentPassword} />
+        <TextInput placeholder='New Password' style={styles.input} secureTextEntry value={newPassword} onChangeText={setNewPassword} />
+        <TouchableOpacity style={styles.button} onPress={changePassword}>
+          <Text style={styles.buttonText}>Change Password</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={styles.logoutButton} onPress={logout}>
-        <Text style={styles.buttonText}>Logout</Text>
-      </TouchableOpacity>
+        <Text style={styles.sectionTitle}>Family Details</Text>
+        <TextInput placeholder='Family Member Name' style={styles.input} value={familyName} onChangeText={setFamilyName} />
+        <TextInput placeholder='Contact Number' style={styles.input} keyboardType='phone-pad' value={familyContact} onChangeText={setFamilyContact} />
+        <TouchableOpacity style={styles.button} onPress={updateFamilyDetails}>
+          <Text style={styles.buttonText}>Save</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={styles.deleteButton} onPress={deleteAccount}>
-        <Text style={styles.buttonText}>Delete Account</Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity style={styles.logoutButton} onPress={logout}>
+          <Text style={styles.buttonText}>Logout</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.deleteButton} onPress={deleteAccount}>
+          <Text style={styles.buttonText}>Delete Account</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: 'flex-start',
+    paddingBottom: 30
+  },
   container: {
     flex: 1,
     paddingTop: 40,
     paddingHorizontal: 20,
-    backgroundColor: '#F0F8FF' // Light blue background color
+    backgroundColor: '#F0F8FF'
   },
   loadingText: {
     fontSize: 20,
@@ -145,14 +185,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#003366', // Dark blue color for title
+    color: '#003366',
     marginBottom: 30,
     textAlign: 'center'
   },
   sectionTitle: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#003366', // Dark blue for section titles
+    color: '#003366',
     marginTop: 30,
     marginBottom: 10,
     textAlign: 'left'
@@ -169,26 +209,27 @@ const styles = StyleSheet.create({
     color: '#333'
   },
   button: {
-    backgroundColor: '#003366', // Light blue button color
+    backgroundColor: '#003366',
     padding: 15,
     marginBottom: 10,
     borderRadius: 8,
     alignItems: 'center'
   },
   buttonText: {
-    color: '#ffffff', // Dark blue for the button text
+    color: '#ffffff',
     fontSize: 16,
     fontWeight: 'bold'
   },
   logoutButton: {
-    backgroundColor: '#FF7043', // Lighter orange-red for logout
+    backgroundColor: '#D32F2F', // Dark Red
     padding: 15,
+    marginTop: 20,
     marginBottom: 10,
     borderRadius: 8,
     alignItems: 'center'
   },
   deleteButton: {
-    backgroundColor: '#FF7043', // Lighter red for delete account
+    backgroundColor: '#B71C1C', // Deeper Red
     padding: 15,
     borderRadius: 8,
     alignItems: 'center'

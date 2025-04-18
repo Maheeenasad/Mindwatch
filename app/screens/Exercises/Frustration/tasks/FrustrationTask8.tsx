@@ -33,7 +33,6 @@ export default function FrustrationTask8Screen() {
             <Text style={styles.stepText}>
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 10 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Create a playlist of songs that reflect your current
               emotions. Listen to each track and note how it resonates with your feelings. This practice can help in acknowledging and understanding your anger.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Positive Psychology](https://positivepsychology.com/music-therapy-activities-tools/)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}📝 Step 2: Lyric Analysis and Reflection</Text>
@@ -41,7 +40,6 @@ export default function FrustrationTask8Screen() {
               1. <Text style={{ fontWeight: 'bold' }}>Choose a song with expressive lyrics</Text> that relate to your feelings of anger or frustration.{'\n'}
               2. <Text style={{ fontWeight: 'bold' }}>Reflect on the lyrics</Text>, considering how they mirror your own experiences and emotions. This can provide insight into your feelings and
               promote emotional processing.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Imagine Fort Collins](https://www.ftcollinsimagine.com/mental-health-blog/music-therapy-activities-for-teens/)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🥁 Step 3: Rhythmic Expression</Text>
@@ -49,14 +47,12 @@ export default function FrustrationTask8Screen() {
               1. <Text style={{ fontWeight: 'bold' }}>Engage in drumming or tapping exercises</Text> to physically release tension associated with anger.{'\n'}
               2. <Text style={{ fontWeight: 'bold' }}>Use household items</Text> like a desk or your lap to create rhythms that match your current emotional state. This activity can serve as a
               constructive outlet for anger.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Columbia Blogs](https://blogs.cuit.columbia.edu/are2126/category/techniques/)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🧘 Step 4: Relaxation Through Music</Text>
             <Text style={styles.stepText}>
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 5 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Listen to calming music or binaural beats designed to
               reduce anger and promote relaxation. Focus on your breathing and allow the music to soothe your mind.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: YouTube](https://www.youtube.com/watch?v=Omaq3CGHKAA)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>

@@ -34,7 +34,6 @@ export default function FrustrationTask13Screen() {
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 3 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Sit or lie down in a comfortable position. Place one hand
               on your chest and the other on your abdomen. Inhale deeply through your nose, ensuring your diaphragm (not your chest) inflates with enough air to create a stretch in the lungs. Exhale
               slowly through your mouth. This technique increases oxygen intake and promotes relaxation.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: WebMD - Breathing Techniques for Stress Relief](https://www.webmd.com/balance/stress-management/stress-relief-breathing-techniques)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🔍 Step 2: Box Breathing</Text>
@@ -42,9 +41,6 @@ export default function FrustrationTask13Screen() {
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 4 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Inhale through your nose for a count of four. Hold your
               breath for another count of four. Exhale slowly through your mouth for a count of four. Hold your breath again for a count of four. Repeat this cycle for the duration. This method helps
               in calming the nervous system and improving focus.{'\n'}
-              <Text style={{ color: 'blue' }}>
-                [Source: British Heart Foundation - Breathing Exercises](https://www.bhf.org.uk/informationsupport/heart-matters-magazine/wellbeing/breathing-exercises)
-              </Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🧘 Step 3: 4-7-8 Breathing</Text>
@@ -52,7 +48,6 @@ export default function FrustrationTask13Screen() {
               - <Text style={{ fontWeight: 'bold' }}>Duration:</Text> 3 minutes{'\n'}- <Text style={{ fontWeight: 'bold' }}>Activity:</Text> Inhale quietly through your nose for a count of four. Hold
               your breath for a count of seven. Exhale completely through your mouth, making a whoosh sound, for a count of eight. Repeat the cycle up to four times. This technique is known to reduce
               anxiety and help manage cravings.{'\n'}
-              <Text style={{ color: 'blue' }}>[Source: Healthline - 10 Breathing Techniques for Stress Relief](https://www.healthline.com/health/breathing-exercise)</Text>
             </Text>
 
             <Text style={styles.stepTitle}>{'\n'}🌟 Final Thought</Text>
