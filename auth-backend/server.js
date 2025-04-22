@@ -31,41 +31,135 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Mood Analysis Endpoint
+// Updated Mood Analysis Endpoint with stress level calculation
 app.post('/analyze-mood', async (req, res) => {
   try {
-    const { image } = req.body;
-    if (!image) return res.status(400).json({ message: 'No image provided' });
+    const { image, biometrics } = req.body;
 
-    const imagePath = 'temp_image.jpeg';
-    fs.writeFileSync(imagePath, Buffer.from(image, 'base64'));
+    if (!image && !biometrics) {
+      return res.status(400).json({ message: 'No data provided for analysis' });
+    }
 
-    // Run analysis in a separate process to avoid blocking the main thread
-    const pythonProcess = spawn('python', ['analyze_mood.py', imagePath]);
+    let mood = 'Neutral';
+    let facialStressLevel = 'Moderate';
+    let biometricStressLevel = 'Moderate';
+    let finalStressLevel = 'Moderate';
+    let emotionData = {};
 
-    let mood = '';
-    let errorMessage = '';
+    // Analyze facial expression if image is provided
+    if (image) {
+      const imagePath = 'temp_image.jpeg';
+      fs.writeFileSync(imagePath, Buffer.from(image, 'base64'));
 
-    pythonProcess.stdout.on('data', data => {
-      mood += data.toString();
-    });
+      const pythonProcess = spawn('python', ['analyze_mood.py', imagePath]);
 
-    pythonProcess.stderr.on('data', data => {
-      errorMessage += data.toString();
-    });
+      let pythonOutput = '';
+      let errorMessage = '';
 
-    pythonProcess.on('close', code => {
-      if (code === 0) {
-        res.json({ mood: mood.trim() });
-      } else {
-        console.error(`Error: ${errorMessage}`);
-        res.status(500).json({ message: 'DeepFace analysis failed' });
-      }
+      pythonProcess.stdout.on('data', data => {
+        pythonOutput += data.toString();
+      });
+
+      pythonProcess.stderr.on('data', data => {
+        errorMessage += data.toString();
+      });
+
+      await new Promise((resolve, reject) => {
+        pythonProcess.on('close', code => {
+          if (code === 0) {
+            try {
+              const result = JSON.parse(pythonOutput);
+              mood = result.mood || 'Neutral';
+              facialStressLevel = result.stressLevel || 'Moderate';
+              emotionData = result.emotionData || {};
+              resolve(true);
+            } catch (parseError) {
+              console.error('Error parsing Python output:', parseError);
+              reject(new Error('Failed to parse analysis results'));
+            }
+          } else {
+            console.error(`Python script error: ${errorMessage}`);
+            reject(new Error('DeepFace analysis failed'));
+          }
+        });
+      });
+    }
+
+    // Analyze biometric data if provided
+    if (biometrics) {
+      const { bloodPressure, heartRate, spo2 } = biometrics;
+      biometricStressLevel = calculateBiometricStressLevel(bloodPressure, heartRate, spo2);
+    }
+
+    // Combine facial and biometric stress levels
+    finalStressLevel = combineStressLevels(facialStressLevel, biometricStressLevel);
+
+    res.json({
+      mood,
+      stressLevel: finalStressLevel,
+      facialStressLevel,
+      biometricStressLevel,
+      emotionData // Include the detailed emotion data
     });
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error analyzing mood:', error.message);
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+// Helper function to calculate stress from biometrics
+function calculateBiometricStressLevel(bloodPressure, heartRate, spo2) {
+  // Convert inputs to numbers
+  const bp = bloodPressure ? bloodPressure.split('/').map(Number) : [0, 0];
+  const systolic = bp[0] || 120;
+  const diastolic = bp[1] || 80;
+  const hr = Number(heartRate) || 72;
+  const oxygen = Number(spo2) || 98;
+
+  // Calculate stress score (higher = more stressed)
+  let score = 0;
+
+  // Blood pressure scoring
+  if (systolic > 140 || diastolic > 90) score += 2; // Hypertension
+  else if (systolic < 90 || diastolic < 60) score += 1; // Hypotension
+  else score -= 1; // Normal BP reduces stress score
+
+  // Heart rate scoring
+  if (hr > 100) score += 2; // Tachycardia
+  else if (hr < 60) score += 1; // Bradycardia
+  else score -= 1; // Normal HR reduces stress score
+
+  // Blood oxygen scoring
+  if (oxygen < 95) score += 1;
+  if (oxygen < 90) score += 2;
+  else score -= 1; // Good oxygen reduces stress score
+
+  // Determine stress level based on score
+  if (score >= 3) return 'High';
+  if (score >= 1) return 'Moderate';
+  return 'Low';
+}
+
+// Helper function to combine facial and biometric stress levels
+function combineStressLevels(facialLevel, biometricLevel) {
+  // Convert levels to numerical values
+  const levelValues = {
+    Low: 1,
+    Moderate: 2,
+    High: 3
+  };
+
+  const facialValue = levelValues[facialLevel] || 2;
+  const biometricValue = levelValues[biometricLevel] || 2;
+
+  // Weighted average (60% facial, 40% biometric)
+  const combinedValue = facialValue * 0.6 + biometricValue * 0.4;
+
+  // Convert back to stress level
+  if (combinedValue >= 2.5) return 'High';
+  if (combinedValue >= 1.5) return 'Moderate';
+  return 'Low';
+}
 
 // Registration Route
 app.post('/register', async (req, res) => {

@@ -92,6 +92,7 @@ android {
         targetSdkVersion 34 // Update targetSdkVersion
         versionCode 1
         versionName "1.0.0"
+        missingDimensionStrategy 'react-native-ble-plx', 'general'
     }
     signingConfigs {
         debug {

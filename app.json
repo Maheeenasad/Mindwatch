@@ -12,6 +12,13 @@
       "supportsTablet": true
     },
     "android": {
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/mw-logo.png",
         "backgroundColor": "#F0F8FF"
@@ -34,7 +41,8 @@
           "backgroundColor": "#F0F8FF"
         }
       ],
-      "expo-font"
+      "expo-font",
+      "react-native-ble-plx"
     ],
     "experiments": {
       "typedRoutes": true

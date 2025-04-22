@@ -67,23 +67,6 @@ export default function HomeScreen({ navigation }: Props) {
           <Text style={styles.title}>Mindwatch</Text>
           <Text style={styles.tagline}>Your Companion for Mental Wellness</Text>
         </View>
-        {/* <View style={styles.statsContainer}>
-          <Text style={styles.statsTitle}>Today's Summary</Text>
-          <View style={styles.stats}>
-            <View style={styles.stat}>
-              <Text style={styles.statNumber}>120/90</Text>
-              <Text style={styles.statLabel}>Blood Pressure</Text>
-            </View>
-            <View style={styles.stat}>
-              <Text style={styles.statNumber}>72 bpm</Text>
-              <Text style={styles.statLabel}>Heart Rate</Text>
-            </View>
-            <View style={styles.stat}>
-              <Text style={styles.statNumber}>90%</Text>
-              <Text style={styles.statLabel}>Blood Oxygen</Text>
-            </View>
-          </View>
-        </View> */}
         <View style={styles.featuresContainer}>
           <Text style={styles.featuresTitle}>Explore Features</Text>
           <View style={styles.featuresGrid}>
