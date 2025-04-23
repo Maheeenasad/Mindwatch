@@ -5,6 +5,10 @@ import NavigationTab from '@/components/NavigationTab';
 import CONFIG from '../../../config';
 import moment from 'moment-timezone';
 
+interface SentimentDisplayProps {
+  score: number;
+}
+
 export default function JournalingScreen({ navigation }: NativeStackScreenProps<any>) {
   const [currentDate, setCurrentDate] = useState(moment().tz('Asia/Karachi').toDate());
   const [activeDay, setActiveDay] = useState<number>(currentDate.getDate());
@@ -80,6 +84,65 @@ export default function JournalingScreen({ navigation }: NativeStackScreenProps<
 
   const daysWithEntries = Object.keys(journalEntries).filter(key => journalEntries[key]);
 
+  const SentimentDisplay = ({ score }: SentimentDisplayProps) => {
+    let sentiment = '';
+    let message = '';
+    let emoji = '😐';
+    let style = styles.sentimentNeutral;
+
+    // More sensitive thresholds with additional categories
+    if (score > 0.7) {
+      sentiment = 'Ecstatic';
+      message = 'You seem to be feeling absolutely wonderful! This is fantastic to see.';
+      emoji = '🤩';
+      style = styles.sentimentVeryPositive;
+    } else if (score > 0.3) {
+      sentiment = 'Very Positive';
+      message = 'You appear to be in a great mood! Cherish these positive feelings.';
+      emoji = '😁';
+      style = styles.sentimentPositive;
+    } else if (score > 0.1) {
+      sentiment = 'Positive';
+      message = 'You seem content. Notice what small things are contributing to this good feeling.';
+      emoji = '🙂';
+      style = styles.sentimentPositive;
+    } else if (score < -0.7) {
+      sentiment = 'Distressed';
+      message = 'You seem to be in significant distress. Please know support is available. Consider reaching out to someone you trust.';
+      emoji = '😣';
+      style = styles.sentimentVeryNegative;
+    } else if (score < -0.4) {
+      sentiment = 'Very Negative';
+      message = 'You appear to be really struggling. It might help to talk about these feelings or practice some self-care.';
+      emoji = '😔';
+      style = styles.sentimentNegative;
+    } else if (score < -0.15) {
+      sentiment = 'Negative';
+      message = "You seem a bit down. Remember it's okay to feel this way. What small thing might help lift your spirits?";
+      emoji = '😕';
+      style = styles.sentimentNegative;
+    } else if (score < -0.05) {
+      sentiment = 'Slightly Negative';
+      message = 'You seem to be feeling a bit off. Maybe some reflection or a short walk could help.';
+      emoji = '😐';
+      style = styles.sentimentSlightlyNegative;
+    } else {
+      sentiment = 'Neutral';
+      message = 'Your feelings seem balanced. This could be a good time for mindful reflection.';
+      emoji = '😐';
+      style = styles.sentimentNeutral;
+    }
+
+    return (
+      <View style={[styles.sentimentContainer, style]}>
+        <Text style={styles.sentimentText}>
+          {emoji} {sentiment}
+        </Text>
+        <Text style={styles.sentimentMessage}>{message}</Text>
+      </View>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -138,6 +201,19 @@ export default function JournalingScreen({ navigation }: NativeStackScreenProps<
                     <Text style={[styles.entryAnswer, { marginLeft: 12, marginTop: 2 }]}>{journalData.entry.therapeuticAnswers[idx] || 'No answer provided.'}</Text>
                   </View>
                 ))}
+
+                {/* Moved Sentiment Analysis Section to the end */}
+                <Text style={styles.entryHeading}>Overall Sentiment Analysis</Text>
+                <Text style={styles.entryAnswer}>Based on your reflection and answers, your overall sentiment is:</Text>
+                <SentimentDisplay score={journalData.entry.sentiment?.score || 0} />
+                <View style={{ marginTop: 8 }}>
+                  <Text style={styles.entryAnswer}>
+                    <Text style={{ fontWeight: 'bold' }}>Score:</Text> {(journalData.entry.sentiment?.score || 0).toFixed(2)}
+                  </Text>
+                  <Text style={styles.entryAnswer}>
+                    <Text style={{ fontWeight: 'bold' }}>Comparative:</Text> {(journalData.entry.sentiment?.comparative || 0).toFixed(2)}
+                  </Text>
+                </View>
               </View>
             ) : (
               <View>
@@ -192,6 +268,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#003366',
     borderRadius: 50,
     padding: 10,
+    paddingTop: 7,
     paddingHorizontal: 18
   },
   arrow: {
@@ -259,7 +336,8 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     marginBottom: 16,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginTop: -40
   },
   placeholderText: {
     fontSize: 16,
@@ -318,5 +396,38 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#333',
     lineHeight: 22
+  },
+  sentimentContainer: {
+    padding: 10,
+    borderRadius: 20,
+    marginVertical: 10,
+    alignSelf: 'flex-start'
+  },
+  sentimentText: {
+    color: 'white',
+    fontWeight: 'bold'
+  },
+  sentimentMessage: {
+    color: 'white',
+    marginTop: 5,
+    fontSize: 14
+  },
+  sentimentVeryPositive: {
+    backgroundColor: '#2E7D32' // Darker green
+  },
+  sentimentPositive: {
+    backgroundColor: '#4CAF50' // Green
+  },
+  sentimentNeutral: {
+    backgroundColor: '#FFC107' // Yellow
+  },
+  sentimentSlightlyNegative: {
+    backgroundColor: '#FF9800' // Orange
+  },
+  sentimentNegative: {
+    backgroundColor: '#F44336' // Red
+  },
+  sentimentVeryNegative: {
+    backgroundColor: '#C62828' // Darker red
   }
 });

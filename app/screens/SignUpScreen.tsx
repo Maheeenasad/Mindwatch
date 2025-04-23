@@ -65,7 +65,7 @@ export default function SignUpScreen() {
       <View style={styles.passwordContainer}>
         <TextInput placeholder='Enter your password' style={styles.passwordInput} secureTextEntry={!showPassword} value={password} onChangeText={setPassword} />
         <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-          <Ionicons name='eye' size={24} color='#888' />
+          <Ionicons name={showPassword ? 'eye' : 'eye-off'} size={24} color='#888' />
         </TouchableOpacity>
       </View>
 
@@ -73,7 +73,7 @@ export default function SignUpScreen() {
       <View style={styles.passwordContainer}>
         <TextInput placeholder='Repeat your password' style={styles.passwordInput} secureTextEntry={!showRepeatPassword} value={repeatPassword} onChangeText={setRepeatPassword} />
         <TouchableOpacity onPress={() => setShowRepeatPassword(!showRepeatPassword)}>
-          <Ionicons name='eye' size={24} color='#888' />
+          <Ionicons name={showRepeatPassword ? 'eye' : 'eye-off'} size={24} color='#888' />
         </TouchableOpacity>
       </View>
 
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   },
   link: {
     color: '#003366', // Dark blue for the link
-    textDecorationLine: 'underline',
+    // textDecorationLine: 'underline',
     fontSize: 16
   },
   passwordContainer: {

@@ -6,6 +6,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const { spawn } = require('child_process');
+const Sentiment = require('sentiment');
+const sentiment = new Sentiment();
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 
 const app = express();
 app.use(express.json({ limit: '10mb' }));
@@ -31,7 +35,6 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Mood Analysis Endpoint
-// Updated Mood Analysis Endpoint with stress level calculation
 app.post('/analyze-mood', async (req, res) => {
   try {
     const { image, biometrics } = req.body;
@@ -194,7 +197,7 @@ app.post('/register', async (req, res) => {
   res.status(201).json({ message: 'User registered successfully', token });
 });
 
-// Login Route
+// Login Route (unchanged)
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -203,6 +206,115 @@ app.post('/login', async (req, res) => {
     res.json({ token, name: user.name });
   } else {
     res.status(401).json({ message: 'Invalid credentials' });
+  }
+});
+
+// Email transporter setup
+const transporter = nodemailer.createTransport({
+  host: 'smtp.sendgrid.net',
+  port: 587,
+  secure: false,
+  auth: {
+    user: 'apikey',
+    pass: process.env.SENDGRID_API_KEY
+  }
+});
+
+// Forgot Password Route (updated)
+// Forgot Password Route - Updated for 6-digit code
+app.post('/forgot-password', async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      // Don't reveal if email exists for security
+      return res.json({ message: 'If an account exists, a reset code has been sent.' });
+    }
+
+    // Generate 6-digit code
+    const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
+    const resetCodeExpires = Date.now() + 3600000; // 1 hour expiration
+
+    // Update user with code and expiration
+    user.resetPasswordToken = resetCode;
+    user.resetPasswordExpires = resetCodeExpires;
+    await user.save();
+
+    // In development, return the code to the app
+    if (process.env.NODE_ENV !== 'production') {
+      return res.json({
+        message: 'Reset code generated (dev mode)',
+        code: resetCode // Send code back to app for testing
+      });
+    }
+
+    // In production, send email with code
+    await transporter.sendMail({
+      from: '"MindWatch Support" <mindwatch3@gmail.com>',
+      to: user.email,
+      subject: 'Your MindWatch Password Reset Code',
+      text: `Your password reset code is: ${resetCode}\nThis code expires in 1 hour.`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="background-color: #003366; padding: 20px; text-align: center; color: white;">
+            <h2>MindWatch Password Reset</h2>
+          </div>
+          <div style="padding: 20px; border: 1px solid #ddd;">
+            <p>Hello ${user.name || 'User'},</p>
+            <p>Your password reset code is:</p>
+            <div style="font-size: 24px; font-weight: bold; text-align: center; margin: 20px 0;">
+              ${resetCode}
+            </div>
+            <p>Enter this code in the app to reset your password.</p>
+            <p>This code expires in 1 hour.</p>
+          </div>
+          <div style="padding: 10px; text-align: center; font-size: 12px; color: #666;">
+            <p>© ${new Date().getFullYear()} MindWatch</p>
+          </div>
+        </div>
+      `
+    });
+
+    res.json({ message: 'Password reset code sent to your email.' });
+  } catch (error) {
+    console.error('Error sending reset code:', error);
+    res.status(500).json({ message: 'Error sending reset code' });
+  }
+});
+
+// Reset Password Route - Updated for code verification
+app.post('/reset-password', async (req, res) => {
+  const { email, code, newPassword } = req.body;
+  const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{8,}$/;
+
+  if (!strongPasswordRegex.test(newPassword)) {
+    return res.status(400).json({
+      message: 'Password must be 8+ characters with uppercase, lowercase, number, and special character'
+    });
+  }
+
+  try {
+    const user = await User.findOne({
+      email: email,
+      resetPasswordToken: code,
+      resetPasswordExpires: { $gt: Date.now() }
+    });
+
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid or expired reset code' });
+    }
+
+    // Update password and clear reset fields
+    user.password = await bcrypt.hash(newPassword, 10);
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpires = undefined;
+    await user.save();
+
+    res.json({ message: 'Password has been reset successfully' });
+  } catch (error) {
+    console.error('Reset error:', error);
+    res.status(500).json({ message: 'Error resetting password' });
   }
 });
 
@@ -350,6 +462,9 @@ app.post('/journal', async (req, res) => {
   try {
     const { mood, bodyFeeling, reflectionText, therapeuticAnswers, day, month, year } = req.body;
 
+    // Analyze sentiment of the reflection text
+    const sentimentResult = sentiment.analyze(reflectionText);
+
     // Ensure the date is in Asia/Karachi timezone
     const journalDate = moment
       .tz({ year, month: month - 1, day }, 'Asia/Karachi')
@@ -361,7 +476,17 @@ app.post('/journal', async (req, res) => {
       return res.status(400).json({ message: 'Invalid Date' });
     }
 
-    const content = JSON.stringify({ mood, bodyFeeling, reflectionText, therapeuticAnswers });
+    const content = JSON.stringify({
+      mood,
+      bodyFeeling,
+      reflectionText,
+      therapeuticAnswers,
+      sentiment: {
+        score: sentimentResult.score,
+        comparative: sentimentResult.comparative,
+        analysis: getSentimentLabel(sentimentResult.score)
+      }
+    });
 
     await JournalEntry.findOneAndUpdate({ date: journalDate }, { content }, { upsert: true, new: true });
 
@@ -371,6 +496,69 @@ app.post('/journal', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+// Helper function to convert score to label
+function getSentimentLabel(score) {
+  if (score > 0.5) return 'Very Positive';
+  if (score > 0.1) return 'Positive';
+  if (score < -0.5) return 'Very Negative';
+  if (score < -0.1) return 'Negative';
+  return 'Neutral';
+}
+
+// Enhanced sentiment analysis function
+function analyzeJournalSentiment(entry) {
+  // Analyze main reflection text with higher weight
+  const reflectionAnalysis = sentiment.analyze(entry.reflectionText);
+
+  // Analyze therapeutic answers with lower weight
+  const answersAnalysis = entry.therapeuticAnswers.filter(answer => answer && answer.trim() !== '').map(answer => sentiment.analyze(answer));
+
+  // Calculate weighted score (60% reflection, 40% answers average)
+  const answersScore = answersAnalysis.length > 0 ? answersAnalysis.reduce((sum, curr) => sum + curr.score, 0) / answersAnalysis.length : 0;
+
+  const weightedScore = reflectionAnalysis.score * 0.6 + answersScore * 0.4;
+
+  // Adjust for comparative score (how strongly positive/negative)
+  const comparative = reflectionAnalysis.comparative * 0.7 + answersAnalysis.reduce((sum, curr) => sum + curr.comparative, 0) * 0.3;
+
+  // Final score adjustment based on comparative intensity
+  const finalScore = weightedScore * (1 + Math.min(Math.max(comparative, -1), 1));
+
+  return {
+    score: finalScore,
+    comparative: comparative,
+    analysis: getEnhancedSentimentLabel(finalScore, comparative)
+  };
+}
+
+// More nuanced sentiment labeling
+function getEnhancedSentimentLabel(score, comparative) {
+  const absComparative = Math.abs(comparative);
+
+  if (score > 0.7) {
+    return absComparative > 0.5 ? 'Ecstatic' : 'Very Positive';
+  }
+  if (score > 0.4) {
+    return absComparative > 0.4 ? 'Very Positive' : 'Positive';
+  }
+  if (score > 0.1) {
+    return 'Positive';
+  }
+  if (score < -0.7) {
+    return absComparative > 0.6 ? 'Distressed' : 'Very Negative';
+  }
+  if (score < -0.4) {
+    return absComparative > 0.5 ? 'Very Negative' : 'Negative';
+  }
+  if (score < -0.15) {
+    return 'Negative';
+  }
+  if (score < -0.05) {
+    return 'Slightly Negative';
+  }
+  return 'Neutral';
+}
 
 // Fetch Journal Entry Route
 app.get('/journal/:date', async (req, res) => {

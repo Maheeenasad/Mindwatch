@@ -86,22 +86,22 @@ export default function MoodTrackingScreen() {
     {
       name: 'Facial',
       stressLevel: getStressValue(analysisResult.facialStressLevel),
-      color: '#FF7E5E',
-      legendFontColor: '#6B7C93',
+      color: '#A5D8FF',
+      legendFontColor: '#4A6FA5',
       legendFontSize: 14
     },
     {
       name: 'Biometric',
       stressLevel: getStressValue(analysisResult.biometricStressLevel),
-      color: '#5E8BFF',
-      legendFontColor: '#6B7C93',
+      color: '#003366',
+      legendFontColor: '#4A6FA5',
       legendFontSize: 14
     },
     {
       name: 'Overall',
       stressLevel: getStressValue(analysisResult.stressLevel),
-      color: '#4CAF50',
-      legendFontColor: '#6B7C93',
+      color: '#4A90E2',
+      legendFontColor: '#4A6FA5',
       legendFontSize: 14
     }
   ];
@@ -216,11 +216,12 @@ export default function MoodTrackingScreen() {
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <View style={styles.screen}>
           <Text style={styles.mainHeading}>Mood & Stress Analysis</Text>
+          <Text style={styles.subHeading1}>Understand your mood patterns through facial and biometric analysis</Text>
 
           <View style={styles.stats}>
             <View style={styles.statCard}>
               <View style={styles.iconContainer}>
-                <Ionicons name='heart' size={24} color='#FF5E5E' />
+                <FontAwesome name='thermometer' size={24} color='#FF7E5E' />
               </View>
               <TextInput
                 style={styles.input}
@@ -235,7 +236,7 @@ export default function MoodTrackingScreen() {
 
             <View style={styles.statCard}>
               <View style={styles.iconContainer}>
-                <FontAwesome name='heartbeat' size={24} color='#FF7E5E' />
+                <FontAwesome name='heartbeat' size={24} color='#FF5E5E' />
               </View>
               <TextInput
                 style={styles.input}
@@ -250,7 +251,7 @@ export default function MoodTrackingScreen() {
 
             <View style={styles.statCard}>
               <View style={styles.iconContainer}>
-                <MaterialIcons name='air' size={24} color='#5E8BFF' />
+                <FontAwesome name='tint' size={24} color='#5E8BFF' />
               </View>
               <TextInput style={styles.input} placeholder='98' value={manualData.spo2} onChangeText={text => handleInputChange('spo2', text)} keyboardType='numeric' placeholderTextColor='#888' />
               <Text style={styles.statLabel}>SpO2 (%)</Text>
@@ -294,7 +295,7 @@ export default function MoodTrackingScreen() {
 
           {loading ? (
             <View style={styles.loadingContainer}>
-              <ActivityIndicator size='large' color='#5E8BFF' />
+              <ActivityIndicator size='large' color='#003366' />
               <Text style={styles.loadingText}>Analyzing your data...</Text>
             </View>
           ) : analysisResult.mood ? (
@@ -318,30 +319,32 @@ export default function MoodTrackingScreen() {
                 <Text style={styles.sectionTitle}>Facial Analysis</Text>
                 {analysisResult.emotionData ? (
                   <View style={styles.chartContainer}>
-                    <BarChart
-                      data={{
-                        labels: Object.keys(analysisResult.emotionData),
-                        datasets: [
-                          {
-                            data: Object.values(analysisResult.emotionData)
-                          }
-                        ]
-                      }}
-                      width={screenWidth}
-                      height={220}
-                      yAxisLabel=''
-                      yAxisSuffix='%'
-                      chartConfig={{
-                        ...chartConfig,
-                        color: (opacity = 1) => `rgba(255, 126, 94, ${opacity})`,
-                        barPercentage: 0.5 // Adjust bar width to prevent overlap
-                      }}
-                      style={styles.chart}
-                      fromZero
-                      showBarTops={false}
-                      withInnerLines={false}
-                      verticalLabelRotation={-45} // Rotate labels to prevent overlap
-                    />
+                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} style={styles.horizontalScrollContainer} contentContainerStyle={styles.chartWrapper}>
+                      <BarChart
+                        data={{
+                          labels: Object.keys(analysisResult.emotionData),
+                          datasets: [
+                            {
+                              data: Object.values(analysisResult.emotionData)
+                            }
+                          ]
+                        }}
+                        width={Object.keys(analysisResult.emotionData).length * 60}
+                        height={220}
+                        yAxisLabel=''
+                        yAxisSuffix='%'
+                        chartConfig={{
+                          ...chartConfig,
+                          color: (opacity = 1) => `rgba(94, 139, 255, ${opacity})`,
+                          barPercentage: 0.8
+                        }}
+                        style={styles.chart}
+                        fromZero
+                        showBarTops={false}
+                        withInnerLines={false}
+                        verticalLabelRotation={0}
+                      />
+                    </ScrollView>
                     <View style={styles.resultRow}>
                       <Text style={styles.resultSubLabel}>Stress Level:</Text>
                       <Text style={[styles.resultSubValue, getStressLevelStyle(analysisResult.facialStressLevel)]}>{analysisResult.facialStressLevel}</Text>
@@ -384,13 +387,14 @@ export default function MoodTrackingScreen() {
                 <View style={styles.chartContainer}>
                   <PieChart
                     data={stressComparisonData}
-                    width={screenWidth}
+                    width={Dimensions.get('window').width - 30} // Adjusted width calculation
                     height={200}
                     chartConfig={chartConfig}
                     accessor='stressLevel'
                     backgroundColor='transparent'
-                    paddingLeft='15'
-                    style={styles.chart}
+                    paddingLeft='0' // Removed left padding
+                    center={[10, 10]} // Adjust chart center position
+                    style={styles.pieChart} // Added specific style
                     absolute
                   />
                 </View>
@@ -407,16 +411,16 @@ export default function MoodTrackingScreen() {
 const getStressLevelStyle = (stressLevel: string | null) => {
   if (!stressLevel) return {};
   const level = stressLevel.toLowerCase();
-  if (level.includes('low') || level.includes('relaxed')) return { color: '#4CAF50' };
-  if (level.includes('moderate')) return { color: '#FFC107' };
-  if (level.includes('high') || level.includes('stressed')) return { color: '#F44336' };
+  if (level.includes('low') || level.includes('relaxed')) return { color: '#4A90E2' };
+  if (level.includes('moderate')) return { color: '#FFA500' };
+  if (level.includes('high') || level.includes('stressed')) return { color: '#E74C3C' };
   return {};
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F7FA'
+    backgroundColor: '#F0F8FF'
   },
   scrollContent: {
     paddingBottom: 100,
@@ -425,7 +429,7 @@ const styles = StyleSheet.create({
   },
   screen: {
     alignItems: 'center',
-    backgroundColor: '#F5F7FA',
+    backgroundColor: '#F0F8FF',
     paddingVertical: 15
   },
   imagePreviewContainer: {
@@ -438,20 +442,20 @@ const styles = StyleSheet.create({
     height: 220,
     borderRadius: 20,
     borderWidth: 3,
-    borderColor: '#5E8BFF',
+    borderColor: '#A5D8FF',
     backgroundColor: '#f8f8f8'
   },
   imageUploadedText: {
     marginTop: 10,
-    color: '#5E8BFF',
+    color: '#003366',
     fontWeight: '600'
   },
   mainHeading: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#2E4A7D',
+    color: '#003366',
     marginBottom: 20,
-    marginTop: 20,
+    marginTop: 40,
     textAlign: 'center'
   },
   subHeading: {
@@ -462,6 +466,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 22
   },
+  subHeading1: {
+    fontSize: 15,
+    color: '#6B7C93',
+    marginBottom: 25,
+    paddingHorizontal: 30,
+    marginTop: -10,
+    textAlign: 'center',
+    lineHeight: 22
+  },
   loadingContainer: {
     alignItems: 'center',
     marginTop: 30,
@@ -469,7 +482,7 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     marginTop: 12,
-    color: '#5E8BFF',
+    color: '#003366',
     fontSize: 16
   },
   resultContainer: {
@@ -480,7 +493,7 @@ const styles = StyleSheet.create({
   resultCard: {
     backgroundColor: 'white',
     borderRadius: 15,
-    padding: 10,
+    padding: 20,
     shadowColor: '#2E4A7D',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.1,
@@ -541,7 +554,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 15,
     marginBottom: 15,
-    shadowColor: '#2E4A7D',
+    shadowColor: '#003366',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
@@ -559,20 +572,20 @@ const styles = StyleSheet.create({
   input: {
     height: 45,
     width: '100%',
-    borderColor: '#D6E4FF',
+    borderColor: '#7A9CC6',
     borderWidth: 1.5,
     borderRadius: 10,
-    paddingHorizontal: 10,
+    paddingHorizontal: 2,
     marginBottom: 8,
     backgroundColor: 'white',
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '600',
-    color: '#2E4A7D'
+    color: '#7A9CC6'
   },
   statLabel: {
     fontSize: 14,
-    color: '#5E8BFF',
+    color: '#7A9CC6',
     fontWeight: '600',
     textAlign: 'center'
   },
@@ -619,7 +632,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#5E8BFF',
+    backgroundColor: '#003366',
     paddingVertical: 16,
     paddingHorizontal: 25,
     borderRadius: 30,
@@ -632,7 +645,7 @@ const styles = StyleSheet.create({
     elevation: 6
   },
   disabledButton: {
-    backgroundColor: '#CCD9FF'
+    backgroundColor: '#003366'
   },
   detectButtonText: {
     color: 'white',
@@ -653,8 +666,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     overflow: 'hidden'
   },
+  pieChart: {
+    marginLeft: 15,
+    alignSelf: 'center' // Centers the chart
+  },
   chartContainer: {
-    overflow: 'hidden',
+    overflow: 'visible',
     borderRadius: 16,
     marginBottom: 10,
     width: '100%'
@@ -663,5 +680,12 @@ const styles = StyleSheet.create({
     color: '#6B7C93',
     textAlign: 'center',
     marginVertical: 10
+  },
+  horizontalScrollContainer: {
+    width: '100%',
+    height: 250
+  },
+  chartWrapper: {
+    width: 440
   }
 });

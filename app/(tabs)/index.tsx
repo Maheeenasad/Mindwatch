@@ -78,9 +78,12 @@ export default function HomeScreen({ navigation }: Props) {
             ))}
           </View>
         </View>
-        <TouchableOpacity style={styles.moodTracking} onPress={() => navigation.navigate('MoodTracking')}>
-          <Text style={styles.moodTrackingText}>Track Your Mood & Stress Now!</Text>
-        </TouchableOpacity>
+        <View style={{ alignItems: 'center', width: '100%' }}>
+          <TouchableOpacity style={styles.moodTracking} onPress={() => navigation.navigate('MoodTracking')}>
+            <Image source={require('@/assets/icons/mood.png')} style={styles.moodImage} />
+            <Text style={styles.moodTrackingText}>Track Your Mood & Stress Now!</Text>
+          </TouchableOpacity>
+        </View>
 
         <View style={styles.quoteContainer}>
           <Text style={styles.quote}>{quote}</Text>
@@ -112,6 +115,13 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     paddingHorizontal: 16,
     marginTop: 35
+  },
+  moodImage: {
+    width: 50,
+    height: 50,
+    resizeMode: 'contain',
+    marginBottom: 0,
+    marginTop: -10
   },
   greeting: {
     fontSize: 18,
@@ -211,8 +221,8 @@ const styles = StyleSheet.create({
   },
   featureIcon: {
     width: 50,
-    height: 50,
-    marginBottom: 8
+    height: 50
+    // marginBottom: 8
   },
   featureText: {
     fontSize: 14,
@@ -232,7 +242,7 @@ const styles = StyleSheet.create({
     elevation: 2
   },
   moodTrackingText: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: 'medium',
     color: '#003366'
   },
