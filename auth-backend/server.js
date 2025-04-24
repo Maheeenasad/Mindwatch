@@ -529,10 +529,17 @@ app.delete('/profile/delete', async (req, res) => {
 });
 
 // Define JournalEntry Schema
-const journalEntrySchema = new mongoose.Schema({
-  date: { type: Date, required: true, unique: true }, // ensure only one entry per day
-  content: { type: String, required: true }
-});
+const journalEntrySchema = new mongoose.Schema(
+  {
+    date: { type: Date, required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    content: { type: String, required: true }
+  },
+  {
+    // Add compound index to ensure one entry per user per day
+    indexes: [{ unique: true, fields: ['date', 'user'] }]
+  }
+);
 
 const JournalEntry = mongoose.model('JournalEntry', journalEntrySchema);
 const moment = require('moment-timezone');
@@ -540,21 +547,21 @@ const moment = require('moment-timezone');
 // Save Journal Entry Route
 app.post('/journal', async (req, res) => {
   try {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) return res.status(401).json({ message: 'Unauthorized' });
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const { mood, bodyFeeling, reflectionText, therapeuticAnswers, day, month, year } = req.body;
 
-    // Analyze sentiment of the reflection text
+    // Analyze sentiment
     const sentimentResult = sentiment.analyze(reflectionText);
 
-    // Ensure the date is in Asia/Karachi timezone
+    // Create date in Asia/Karachi timezone
     const journalDate = moment
       .tz({ year, month: month - 1, day }, 'Asia/Karachi')
       .startOf('day')
       .utc()
       .toDate();
-
-    if (isNaN(journalDate.getTime())) {
-      return res.status(400).json({ message: 'Invalid Date' });
-    }
 
     const content = JSON.stringify({
       mood,
@@ -568,7 +575,14 @@ app.post('/journal', async (req, res) => {
       }
     });
 
-    await JournalEntry.findOneAndUpdate({ date: journalDate }, { content }, { upsert: true, new: true });
+    await JournalEntry.findOneAndUpdate(
+      {
+        date: journalDate,
+        user: new mongoose.Types.ObjectId(decoded.userId)
+      },
+      { content },
+      { upsert: true, new: true }
+    );
 
     res.status(201).json({ message: 'Journal entry saved successfully' });
   } catch (error) {
@@ -923,15 +937,20 @@ function getEnhancedSentimentLabel(score, comparative) {
 
 // Fetch Journal Entry Route
 app.get('/journal/:date', async (req, res) => {
-  const { date } = req.params; // Date passed in format: 'YYYY-MM-DD'
+  const token = req.headers.authorization?.split(' ')[1];
+  if (!token) return res.status(401).json({ message: 'Unauthorized' });
 
   try {
-    // Parse the date passed by the frontend, ensuring it's in the correct timezone
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const { date } = req.params;
+
+    // Parse the date with timezone
     const startDate = moment.tz(date, 'Asia/Karachi').startOf('day').utc().toDate();
     const endDate = moment.tz(date, 'Asia/Karachi').endOf('day').utc().toDate();
 
     const journalEntry = await JournalEntry.findOne({
-      date: { $gte: startDate, $lte: endDate }
+      date: { $gte: startDate, $lte: endDate },
+      user: new mongoose.Types.ObjectId(decoded.userId)
     });
 
     if (journalEntry) {

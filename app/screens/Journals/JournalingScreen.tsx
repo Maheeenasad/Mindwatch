@@ -4,6 +4,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import NavigationTab from '@/components/NavigationTab';
 import CONFIG from '../../../config';
 import moment from 'moment-timezone';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface SentimentDisplayProps {
   score: number;
@@ -40,13 +41,21 @@ export default function JournalingScreen({ navigation }: NativeStackScreenProps<
   };
 
   const fetchJournalEntry = async (day: number) => {
-    const dateKey = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${day}`;
+    const token = await AsyncStorage.getItem('userToken');
+    if (!token) {
+      navigation.navigate('Login');
+      return;
+    }
 
-    // Use moment to correctly format the date in Asia/Karachi timezone
+    const dateKey = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${day}`;
     const formattedDate = moment.tz({ year: currentDate.getFullYear(), month: currentDate.getMonth(), day }, 'Asia/Karachi').format('YYYY-MM-DD');
 
     try {
-      const response = await fetch(`${CONFIG.SERVER_URL}/journal/${formattedDate}`);
+      const response = await fetch(`${CONFIG.SERVER_URL}/journal/${formattedDate}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
 
       if (response.ok) {
         const data = await response.json();

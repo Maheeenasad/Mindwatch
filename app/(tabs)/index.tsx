@@ -114,11 +114,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 16,
     paddingHorizontal: 16,
-    marginTop: 24
+    marginTop: 40
   },
   moodImage: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     resizeMode: 'contain',
     marginBottom: 0,
     marginTop: -10
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
     elevation: 2
   },
   moodTrackingText: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: 'medium',
     color: '#003366'
   },
