@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 16,
     paddingHorizontal: 16,
-    marginTop: 35
+    marginTop: 24
   },
   moodImage: {
     width: 50,

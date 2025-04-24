@@ -28,8 +28,14 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  familyName: { type: String, default: '' },
-  familyContact: { type: String, default: '' }
+  familyMembers: [
+    {
+      name: { type: String, required: true },
+      contact: { type: String, required: true }
+    }
+  ],
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
 });
 
 const User = mongoose.model('User', userSchema);
@@ -221,31 +227,49 @@ const transporter = nodemailer.createTransport({
 });
 
 // Forgot Password Route (updated)
-// Forgot Password Route - Updated for 6-digit code
 app.post('/forgot-password', async (req, res) => {
   const { email } = req.body;
+  console.log('Forgot password request for:', email);
 
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      // Don't reveal if email exists for security
+      console.log('No user found with email:', email);
+      if (process.env.NODE_ENV !== 'production') {
+        return res.json({
+          message: 'No user found with this email (dev mode)',
+          code: null
+        });
+      }
       return res.json({ message: 'If an account exists, a reset code has been sent.' });
     }
 
-    // Generate 6-digit code
     const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
-    const resetCodeExpires = Date.now() + 3600000; // 1 hour expiration
+    const resetCodeExpires = Date.now() + 3600000; // 1 hour
 
-    // Update user with code and expiration
-    user.resetPasswordToken = resetCode;
-    user.resetPasswordExpires = resetCodeExpires;
-    await user.save();
+    // Use { new: true } to get the updated document
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: user._id },
+      {
+        $set: {
+          resetPasswordToken: resetCode,
+          resetPasswordExpires: new Date(resetCodeExpires)
+        }
+      },
+      { new: true }
+    );
 
-    // In development, return the code to the app
+    console.log('Updated user with reset code:', {
+      email: updatedUser.email,
+      resetCode: updatedUser.resetPasswordToken,
+      expires: updatedUser.resetPasswordExpires
+    });
+
     if (process.env.NODE_ENV !== 'production') {
       return res.json({
         message: 'Reset code generated (dev mode)',
-        code: resetCode // Send code back to app for testing
+        code: resetCode,
+        email: updatedUser.email
       });
     }
 
@@ -278,14 +302,14 @@ app.post('/forgot-password', async (req, res) => {
 
     res.json({ message: 'Password reset code sent to your email.' });
   } catch (error) {
-    console.error('Error sending reset code:', error);
+    console.error('Error in forgot-password:', error);
     res.status(500).json({ message: 'Error sending reset code' });
   }
 });
 
 // Reset Password Route - Updated for code verification
 app.post('/reset-password', async (req, res) => {
-  const { email, code, newPassword } = req.body;
+  const { email, newPassword } = req.body;
   const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{8,}$/;
 
   if (!strongPasswordRegex.test(newPassword)) {
@@ -295,14 +319,10 @@ app.post('/reset-password', async (req, res) => {
   }
 
   try {
-    const user = await User.findOne({
-      email: email,
-      resetPasswordToken: code,
-      resetPasswordExpires: { $gt: Date.now() }
-    });
+    const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(400).json({ message: 'Invalid or expired reset code' });
+      return res.status(400).json({ message: 'User not found' });
     }
 
     // Update password and clear reset fields
@@ -315,6 +335,40 @@ app.post('/reset-password', async (req, res) => {
   } catch (error) {
     console.error('Reset error:', error);
     res.status(500).json({ message: 'Error resetting password' });
+  }
+});
+
+app.post('/verify-reset-code', async (req, res) => {
+  const { email, code } = req.body;
+  console.log('Verification attempt:', { email, code });
+
+  try {
+    const user = await User.findOne({
+      email,
+      resetPasswordToken: code,
+      resetPasswordExpires: { $gt: Date.now() }
+    });
+
+    if (!user) {
+      console.log('Verification failed - no matching user or expired');
+      // For better debugging, let's check why it failed
+      const potentialUser = await User.findOne({ email });
+      if (!potentialUser) {
+        console.log('No user exists with this email');
+      } else {
+        console.log('User exists but:', {
+          codeMatches: potentialUser.resetPasswordToken === code,
+          notExpired: potentialUser.resetPasswordExpires > Date.now()
+        });
+      }
+      return res.status(400).json({ message: 'Invalid or expired reset code' });
+    }
+
+    console.log('Verification successful for user:', user.email);
+    res.json({ message: 'Code verified successfully' });
+  } catch (error) {
+    console.error('Verification error:', error);
+    res.status(500).json({ message: 'Error verifying code' });
   }
 });
 
@@ -404,21 +458,47 @@ app.put('/profile/change-password', async (req, res) => {
   }
 });
 
+// Update the family endpoint to:
 app.put('/profile/family', async (req, res) => {
   const token = req.headers.authorization?.split(' ')[1];
   if (!token) return res.status(401).json({ message: 'Unauthorized' });
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const { familyName, familyContact } = req.body;
+    const { familyMembers } = req.body;
 
-    const user = await User.findByIdAndUpdate(decoded.userId, { familyName, familyContact }, { new: true, runValidators: true }).select('-password');
+    // Validate input
+    if (!Array.isArray(familyMembers)) {
+      return res.status(400).json({ message: 'Invalid family members data' });
+    }
+
+    // Create full update object to ensure atomic update
+    const update = {
+      $set: {
+        familyMembers,
+        // Remove legacy fields if they exist
+        familyName: undefined,
+        familyContact: undefined
+      }
+    };
+
+    const options = {
+      new: true,
+      runValidators: true,
+      // Remove these fields from the document
+      fields: { familyName: 0, familyContact: 0 }
+    };
+
+    const user = await User.findByIdAndUpdate(decoded.userId, update, options).select('-password');
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    res.json({ message: 'Family details updated successfully' });
+    res.json({
+      message: 'Family details updated successfully',
+      familyMembers: user.familyMembers
+    });
   } catch (error) {
     console.error('Error updating family details:', error.message);
     res.status(500).json({ message: 'Server error' });
@@ -508,27 +588,308 @@ function getSentimentLabel(score) {
 
 // Enhanced sentiment analysis function
 function analyzeJournalSentiment(entry) {
-  // Analyze main reflection text with higher weight
+  // Negative indicators that should carry strong weight
+  const STRONG_NEGATIVE_WORDS = [
+    // Emotional states
+    'overwhelmed',
+    'failing',
+    'disappointing',
+    'disconnected',
+    'hopeless',
+    'helpless',
+    'worthless',
+    'miserable',
+    'depressed',
+    'anxious',
+    'stressed',
+    'frustrated',
+    'angry',
+    'irritable',
+    'agitated',
+    'lonely',
+    'isolated',
+    'abandoned',
+    'rejected',
+    'ashamed',
+    'humiliated',
+    'embarrassed',
+    'guilty',
+    'regretful',
+    'remorseful',
+    'sad',
+    'unhappy',
+    'gloomy',
+    'heartbroken',
+    'devastated',
+    'desperate',
+    'dread',
+    'fearful',
+    'terrified',
+    'panicked',
+    'nervous',
+    'worried',
+    'concerned',
+    'apprehensive',
+    'tense',
+    'stressed',
+    'burned out',
+    'exhausted',
+    'fatigued',
+    'drained',
+    'weary',
+    'spent',
+
+    // Physical sensations
+    'heavy',
+    'sore',
+    'achy',
+    'painful',
+    'tired',
+    'weak',
+    'numb',
+    'tense',
+    'jittery',
+    'shaky',
+    'sick',
+    'ill',
+    'nauseous',
+    'dizzy',
+    'faint',
+
+    // Cognitive states
+    'scattered',
+    'confused',
+    'foggy',
+    'forgetful',
+    'distracted',
+    'spacey',
+    'indecisive',
+    'uncertain',
+    'doubtful',
+    'pessimistic',
+    'cynical',
+    'skeptical',
+    'suspicious',
+    'paranoid',
+    'delusional',
+
+    // Behavioral indicators
+    'withdrawn',
+    'avoidant',
+    'isolating',
+    'hiding',
+    'escaping',
+    'procrastinating',
+    'self-harming',
+    'suicidal',
+    'hurting',
+    'abusing',
+    'neglecting',
+
+    // Life circumstances
+    'failure',
+    'loss',
+    'grief',
+    'trauma',
+    'abuse',
+    'neglect',
+    'poverty',
+    'homeless',
+    'jobless',
+    'broken',
+    'damaged',
+    'ruined',
+    'destroyed',
+    'hopeless',
+    'pointless',
+    'meaningless',
+    'empty',
+    'void',
+    'alone'
+  ];
+
+  // Positive indicators (though none in this entry)
+  const STRONG_POSITIVE_WORDS = [
+    // Emotional states
+    'happy',
+    'joyful',
+    'connected',
+    'peaceful',
+    'energized',
+    'excited',
+    'thrilled',
+    'elated',
+    'ecstatic',
+    'blissful',
+    'content',
+    'satisfied',
+    'fulfilled',
+    'grateful',
+    'thankful',
+    'appreciative',
+    'hopeful',
+    'optimistic',
+    'confident',
+    'secure',
+    'safe',
+    'loved',
+    'cherished',
+    'valued',
+    'respected',
+    'admired',
+    'supported',
+    'understood',
+    'accepted',
+    'calm',
+    'relaxed',
+    'serene',
+    'tranquil',
+    'balanced',
+    'centered',
+    'mindful',
+    'present',
+    'aware',
+    'awake',
+    'alive',
+    'vibrant',
+
+    // Physical sensations
+    'light',
+    'energetic',
+    'strong',
+    'healthy',
+    'fit',
+    'flexible',
+    'agile',
+    'rested',
+    'refreshed',
+    'rejuvenated',
+    'healed',
+    'recovered',
+    'well',
+    'comfortable',
+    'cozy',
+    'warm',
+    'tingly',
+    'buzzy',
+    'floaty',
+
+    // Cognitive states
+    'focused',
+    'clear',
+    'sharp',
+    'brilliant',
+    'smart',
+    'creative',
+    'inspired',
+    'innovative',
+    'productive',
+    'efficient',
+    'organized',
+    'decisive',
+    'certain',
+    'determined',
+    'resolute',
+    'committed',
+    'motivated',
+    'driven',
+    'ambitious',
+    'purposeful',
+    'meaningful',
+
+    // Behavioral indicators
+    'social',
+    'outgoing',
+    'friendly',
+    'kind',
+    'generous',
+    'helpful',
+    'compassionate',
+    'empathetic',
+    'loving',
+    'caring',
+    'nurturing',
+    'supportive',
+    'encouraging',
+    'inclusive',
+    'accepting',
+    'forgiving',
+    'patient',
+    'tolerant',
+    'understanding',
+    'wise',
+
+    // Life circumstances
+    'success',
+    'achievement',
+    'accomplishment',
+    'progress',
+    'growth',
+    'development',
+    'improvement',
+    'breakthrough',
+    'opportunity',
+    'blessing',
+    'miracle',
+    'fortune',
+    'luck',
+    'wealth',
+    'abundance',
+    'plenty',
+    'enough',
+    'stable',
+    'secure',
+    'comfortable',
+    'harmonious',
+    'balanced',
+    'whole'
+  ];
+  const NEGATIVE_PHRASES = ["can't cope", 'falling apart', 'at my limit', 'hit rock bottom', 'losing control', 'nothing works', 'no way out', 'end of my rope'];
+
+  const POSITIVE_PHRASES = ['on top of', 'in the zone', 'flow state', 'best day ever', "everything's working", 'full of energy', "can't wait to"];
+  const INTENSIFIERS = ['extremely', 'incredibly', 'absolutely', 'completely', 'totally', 'utterly', 'exceptionally', 'remarkably', 'particularly'];
+
+  // Convert text to lowercase for case-insensitive matching
+  const textLower = text.toLowerCase();
+
+  // Check for both individual words and phrases
+  const negativeScore = STRONG_NEGATIVE_WORDS.filter(word => textLower.includes(word.toLowerCase())).length;
+
+  const positiveScore = STRONG_POSITIVE_WORDS.filter(word => textLower.includes(word.toLowerCase())).length;
+  // Base sentiment analysis
   const reflectionAnalysis = sentiment.analyze(entry.reflectionText);
 
-  // Analyze therapeutic answers with lower weight
+  // Analyze each therapeutic answer
   const answersAnalysis = entry.therapeuticAnswers.filter(answer => answer && answer.trim() !== '').map(answer => sentiment.analyze(answer));
 
-  // Calculate weighted score (60% reflection, 40% answers average)
+  // Check for strong negative phrases in reflection
+  const strongNegativeCount = STRONG_NEGATIVE_WORDS.filter(word => entry.reflectionText.toLowerCase().includes(word)).length;
+
+  // Check therapeutic answers for strong negatives
+  const answerNegativeCount = entry.therapeuticAnswers
+    .join(' ')
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(word => STRONG_NEGATIVE_WORDS.includes(word)).length;
+
+  // Calculate base weighted score (60% reflection, 40% answers)
   const answersScore = answersAnalysis.length > 0 ? answersAnalysis.reduce((sum, curr) => sum + curr.score, 0) / answersAnalysis.length : 0;
 
-  const weightedScore = reflectionAnalysis.score * 0.6 + answersScore * 0.4;
+  let weightedScore = reflectionAnalysis.score * 0.6 + answersScore * 0.4;
 
-  // Adjust for comparative score (how strongly positive/negative)
-  const comparative = reflectionAnalysis.comparative * 0.7 + answersAnalysis.reduce((sum, curr) => sum + curr.comparative, 0) * 0.3;
+  // Apply strong negative adjustments
+  if (strongNegativeCount > 0 || answerNegativeCount > 0) {
+    const negativeImpact = 0.1 * (strongNegativeCount + answerNegativeCount);
+    weightedScore = Math.max(-1, weightedScore - negativeImpact);
+  }
 
-  // Final score adjustment based on comparative intensity
-  const finalScore = weightedScore * (1 + Math.min(Math.max(comparative, -1), 1));
+  // Calculate comparative score with stronger emphasis on negative indicators
+  const comparative = reflectionAnalysis.comparative * 0.6 + answersAnalysis.reduce((sum, curr) => sum + curr.comparative, 0) * 0.4;
 
   return {
-    score: finalScore,
+    score: weightedScore,
     comparative: comparative,
-    analysis: getEnhancedSentimentLabel(finalScore, comparative)
+    analysis: getEnhancedSentimentLabel(weightedScore, comparative)
   };
 }
 

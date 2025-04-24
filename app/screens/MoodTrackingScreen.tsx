@@ -35,7 +35,7 @@ export default function MoodTrackingScreen() {
     backgroundGradientFrom: '#ffffff',
     backgroundGradientTo: '#ffffff',
     decimalPlaces: 0,
-    color: (opacity = 1) => `rgba(94, 139, 255, ${opacity})`,
+    color: (opacity = 1) => `rgba(0, 51, 102, ${opacity})`,
     labelColor: (opacity = 1) => `rgba(107, 124, 147, ${opacity})`,
     style: {
       borderRadius: 16
@@ -335,7 +335,7 @@ export default function MoodTrackingScreen() {
                         yAxisSuffix='%'
                         chartConfig={{
                           ...chartConfig,
-                          color: (opacity = 1) => `rgba(94, 139, 255, ${opacity})`,
+                          color: (opacity = 1) => `rgba(0, 0, 128, ${opacity})`,
                           barPercentage: 0.8
                         }}
                         style={styles.chart}

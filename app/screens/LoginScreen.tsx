@@ -54,15 +54,25 @@ export default function LoginScreen({ navigation }: Props) {
 
     try {
       const response = await axios.post(`${CONFIG.SERVER_URL}/forgot-password`, {
-        email: resetEmail
+        email: resetEmail.toLowerCase().trim() // Ensure consistent email format
       });
+      console.log('Forgot password response:', response.data);
 
-      if (process.env.NODE_ENV !== 'production') {
-        Alert.alert('Development Mode', `Your reset code: ${response.data.code}`, [{ text: 'OK', onPress: () => setVerificationStage('code') }]);
+      if (__DEV__ && response.data.code) {
+        Alert.alert('Development Mode', `Your reset code: ${response.data.code}`, [
+          {
+            text: 'OK',
+            onPress: () => {
+              setResetCode(response.data.code);
+              setVerificationStage('code');
+            }
+          }
+        ]);
       } else {
         Alert.alert('Code Sent', 'Check your email for the 6-digit reset code', [{ text: 'OK', onPress: () => setVerificationStage('code') }]);
       }
     } catch (error) {
+      console.error('Forgot password error:', error);
       if (axios.isAxiosError(error)) {
         Alert.alert('Error', error.response?.data.message || 'Failed to send reset code');
       } else {
@@ -79,11 +89,20 @@ export default function LoginScreen({ navigation }: Props) {
     }
 
     try {
-      // Just move to password reset screen if code looks valid
-      // Actual verification happens when submitting new password
+      // Verify the code with the backend
+      await axios.post(`${CONFIG.SERVER_URL}/verify-reset-code`, {
+        email: resetEmail,
+        code: resetCode
+      });
+
+      // Only move to password reset if verification succeeds
       setVerificationStage('newPassword');
     } catch (error) {
-      Alert.alert('Error', 'Invalid verification code');
+      if (axios.isAxiosError(error)) {
+        Alert.alert('Error', error.response?.data.message || 'Invalid verification code');
+      } else {
+        Alert.alert('Error', 'Invalid verification code');
+      }
     }
   };
 
@@ -97,7 +116,6 @@ export default function LoginScreen({ navigation }: Props) {
     try {
       await axios.post(`${CONFIG.SERVER_URL}/reset-password`, {
         email: resetEmail,
-        code: resetCode,
         newPassword: newPassword
       });
 
