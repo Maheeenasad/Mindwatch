@@ -10,12 +10,13 @@ const Sentiment = require('sentiment');
 const sentiment = new Sentiment();
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
+const axios = require('axios');
 
 const app = express();
 app.use(express.json({ limit: '10mb' }));
 
 const corsOptions = {
-  origin: '*',
+  origin: [process.env.CLIENT_URL], // Use your actual client URL here
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -128,24 +129,26 @@ function calculateBiometricStressLevel(bloodPressure, heartRate, spo2) {
   // Calculate stress score (higher = more stressed)
   let score = 0;
 
-  // Blood pressure scoring
-  if (systolic > 140 || diastolic > 90) score += 2; // Hypertension
+  // Blood pressure scoring (more sensitive to high BP)
+  if (systolic >= 140 || diastolic >= 90) score += 3; // Stage 1 Hypertension or higher
+  else if (systolic >= 130 || diastolic >= 85) score += 2; // Elevated
+  else if (systolic >= 120 || diastolic >= 80) score += 1; // Normal but higher end
   else if (systolic < 90 || diastolic < 60) score += 1; // Hypotension
-  else score -= 1; // Normal BP reduces stress score
 
-  // Heart rate scoring
-  if (hr > 100) score += 2; // Tachycardia
-  else if (hr < 60) score += 1; // Bradycardia
-  else score -= 1; // Normal HR reduces stress score
+  // Heart rate scoring (more sensitive to high HR)
+  if (hr >= 100) score += 3; // Tachycardia
+  else if (hr >= 85) score += 2; // Elevated
+  else if (hr >= 60) score += 1; // Normal range
+  else score += 2; // Bradycardia
 
   // Blood oxygen scoring
-  if (oxygen < 95) score += 1;
-  if (oxygen < 90) score += 2;
-  else score -= 1; // Good oxygen reduces stress score
+  if (oxygen < 90) score += 3; // Severe hypoxemia
+  else if (oxygen < 93) score += 2; // Moderate hypoxemia
+  else if (oxygen < 95) score += 1; // Mild hypoxemia
 
   // Determine stress level based on score
-  if (score >= 3) return 'High';
-  if (score >= 1) return 'Moderate';
+  if (score >= 6) return 'High';
+  if (score >= 3) return 'Moderate';
   return 'Low';
 }
 
@@ -963,8 +966,6 @@ app.get('/journal/:date', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-
-const axios = require('axios');
 
 const predefinedResponses = {
   'situational depression':
