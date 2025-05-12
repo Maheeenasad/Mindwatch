@@ -22,11 +22,11 @@ const exercises: { name: string; image: any; screen: keyof RootStackParamList }[
   { name: 'Jealousy', image: require('@/assets/exercises/Jealousy.jpg'), screen: 'Jealousy' },
   { name: 'Loneliness', image: require('@/assets/exercises/Loneliness.jpg'), screen: 'Loneliness' },
   { name: 'Pain', image: require('@/assets/exercises/Pain.jpg'), screen: 'Pain' },
-  // { name: "Resentment", image: require("@/assets/exercises/Resentment.jpg"), screen: "Resentment" },
   { name: 'Sadness', image: require('@/assets/exercises/Sadness.jpg'), screen: 'Sadness' },
   { name: 'Self Confidence', image: require('@/assets/exercises/SelfConfidence.jpg'), screen: 'SelfConfidence' },
-  // { name: "Shame", image: require("@/assets/exercises/Shame.jpg"), screen: "Shame" },
   { name: 'Shyness', image: require('@/assets/exercises/Shyness.jpg'), screen: 'Shyness' }
+  // { name: "Shame", image: require("@/assets/exercises/Shame.jpg"), screen: "Shame" },
+  // { name: "Resentment", image: require("@/assets/exercises/Resentment.jpg"), screen: "Resentment" },
   // { name: "Social Anxiety", image: require("@/assets/exercises/SocialAnxiety.jpg"), screen: "SocialAnxiety" },
 ];
 

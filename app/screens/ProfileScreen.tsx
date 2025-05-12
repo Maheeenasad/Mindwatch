@@ -8,7 +8,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 interface FamilyMember {
   name: string;
-  contact: string;
+  email: string;
   _id?: string;
 }
 
@@ -19,7 +19,7 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
   const [newPassword, setNewPassword] = useState('');
   const [loading, setLoading] = useState(true);
   const [familyMembers, setFamilyMembers] = useState<FamilyMember[]>([]);
-  const [newFamilyMember, setNewFamilyMember] = useState<FamilyMember>({ name: '', contact: '' });
+  const [newFamilyMember, setNewFamilyMember] = useState<FamilyMember>({ name: '', email: '' });
 
   const fetchProfile = async () => {
     try {
@@ -96,7 +96,7 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
 
   // Update the addFamilyMember function to:
   const addFamilyMember = async () => {
-    if (!newFamilyMember.name || !newFamilyMember.contact) {
+    if (!newFamilyMember.name || !newFamilyMember.email) {
       Alert.alert('Error', 'Please fill all fields');
       return;
     }
@@ -110,7 +110,7 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
 
       // Then update local state with the confirmed data from server
       setFamilyMembers(response.data.familyMembers);
-      setNewFamilyMember({ name: '', contact: '' });
+      setNewFamilyMember({ name: '', email: '' });
       Alert.alert('Success', 'Family member added');
     } catch (error) {
       Alert.alert('Error', 'Failed to add family member');
@@ -172,7 +172,7 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
     <View style={styles.familyMemberItem}>
       <View style={styles.familyMemberInfo}>
         <Text style={styles.familyMemberName}>{item.name}</Text>
-        <Text style={styles.familyMemberContact}>{item.contact}</Text>
+        <Text style={styles.familyMemberContact}>{item.email}</Text>
       </View>
       <TouchableOpacity style={styles.removeButton} onPress={() => removeFamilyMember(index)}>
         <MaterialIcons name='delete' size={20} color='#B71C1C' />
@@ -225,7 +225,7 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
             <View key={index} style={styles.familyMemberItem}>
               <View style={styles.familyMemberInfo}>
                 <Text style={styles.familyMemberName}>{member.name}</Text>
-                <Text style={styles.familyMemberContact}>{member.contact}</Text>
+                <Text style={styles.familyMemberContact}>{member.email}</Text>
               </View>
               <TouchableOpacity style={styles.removeButton} onPress={() => removeFamilyMember(index)}>
                 <MaterialIcons name='delete' size={20} color='#B71C1C' />
@@ -240,13 +240,13 @@ export default function ProfileScreen({ navigation }: { navigation: NavigationPr
       <Text style={styles.label}>New Family Member Name</Text>
       <TextInput placeholder='Enter name' style={styles.input} value={newFamilyMember.name} onChangeText={text => setNewFamilyMember({ ...newFamilyMember, name: text })} />
 
-      <Text style={styles.label}>Contact Number</Text>
+      <Text style={styles.label}>Email</Text>
       <TextInput
-        placeholder='Enter contact number'
+        placeholder='Enter email'
         style={styles.input}
-        keyboardType='phone-pad'
-        value={newFamilyMember.contact}
-        onChangeText={text => setNewFamilyMember({ ...newFamilyMember, contact: text })}
+        keyboardType='email-address'
+        value={newFamilyMember.email}
+        onChangeText={text => setNewFamilyMember({ ...newFamilyMember, email: text })}
       />
 
       <View style={styles.addButtonContainer}>

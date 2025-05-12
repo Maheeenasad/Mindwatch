@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json({ limit: '10mb' }));
 
 const corsOptions = {
-  origin: [process.env.CLIENT_URL], // Use your actual client URL here
+  origin: [process.env.CLIENT_URL],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -24,6 +24,21 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+const analysisRecordSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  timestamp: { type: Date, default: Date.now },
+  mood: String,
+  stressLevel: String,
+  stressPercentage: Number,
+  facialStressLevel: String,
+  facialStressPercentage: Number,
+  biometricStressLevel: String,
+  biometricStressPercentage: Number,
+  emotionData: Object,
+  biometricData: Object
+});
+
+const AnalysisRecord = mongoose.model('AnalysisRecord', analysisRecordSchema);
 // Define User Schema
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -32,7 +47,7 @@ const userSchema = new mongoose.Schema({
   familyMembers: [
     {
       name: { type: String, required: true },
-      contact: { type: String, required: true }
+      email: { type: String, required: true }
     }
   ],
   resetPasswordToken: String,
@@ -47,16 +62,19 @@ app.post('/analyze-mood', async (req, res) => {
     const { image, biometrics } = req.body;
 
     if (!image && !biometrics) {
-      return res.status(400).json({ message: 'No data provided for analysis' });
+      return res.status(400).json({
+        error: 'No data provided',
+        message: 'Please provide either an image or biometric data for analysis'
+      });
     }
 
-    let mood = 'Neutral';
-    let facialStressLevel = 'Moderate';
-    let biometricStressLevel = 'Moderate';
-    let finalStressLevel = 'Moderate';
+    let mood = null; // Changed from 'Neutral' to null
+    let facialStressLevel = null;
+    let biometricStressScore = null;
+    let finalStressScore = null;
     let emotionData = {};
 
-    // Analyze facial expression if image is provided
+    // Analyze facial expression only if image is provided
     if (image) {
       const imagePath = 'temp_image.jpeg';
       fs.writeFileSync(imagePath, Buffer.from(image, 'base64'));
@@ -79,10 +97,19 @@ app.post('/analyze-mood', async (req, res) => {
           if (code === 0) {
             try {
               const result = JSON.parse(pythonOutput);
-              mood = result.mood || 'Neutral';
-              facialStressLevel = result.stressLevel || 'Moderate';
-              emotionData = result.emotionData || {};
-              resolve(true);
+              if (result.error) {
+                if (result.error === 'No face detected') {
+                  mood = 'No face detected';
+                  resolve(true);
+                } else {
+                  reject(new Error(result.message || 'Face analysis failed'));
+                }
+              } else {
+                mood = result.mood || null;
+                facialStressLevel = result.stressLevel || null;
+                emotionData = result.emotionData || {};
+                resolve(true);
+              }
             } catch (parseError) {
               console.error('Error parsing Python output:', parseError);
               reject(new Error('Failed to parse analysis results'));
@@ -98,18 +125,45 @@ app.post('/analyze-mood', async (req, res) => {
     // Analyze biometric data if provided
     if (biometrics) {
       const { bloodPressure, heartRate, spo2 } = biometrics;
-      biometricStressLevel = calculateBiometricStressLevel(bloodPressure, heartRate, spo2);
+      biometricStressScore = calculateBiometricStressLevel(bloodPressure, heartRate, spo2);
     }
 
-    // Combine facial and biometric stress levels
-    finalStressLevel = combineStressLevels(facialStressLevel, biometricStressLevel);
+    // Only calculate facial stress score if we have facial data
+    const facialStressScore =
+      facialStressLevel !== null
+        ? typeof facialStressLevel === 'string'
+          ? {
+              Low: 25,
+              Moderate: 50,
+              High: 85,
+              Angry: 95,
+              Fearful: 90
+            }[facialStressLevel] || null
+          : facialStressLevel
+        : null;
+
+    // Only calculate final score if we have at least one valid input
+    if (facialStressScore !== null || biometricStressScore !== null) {
+      finalStressScore = combineStressLevels(facialStressScore !== null ? facialStressScore : 0, biometricStressScore !== null ? biometricStressScore : 0);
+    }
+
+    // Determine stress level categories only if we have a score
+    const stressLevel = finalStressScore !== null ? (finalStressScore >= 85 ? 'High' : finalStressScore >= 60 ? 'Moderate-High' : finalStressScore >= 30 ? 'Moderate' : 'Low') : 'N/A';
+
+    const facialLevel = facialStressScore !== null ? (facialStressScore >= 85 ? 'High' : facialStressScore >= 60 ? 'Moderate-High' : facialStressScore >= 30 ? 'Moderate' : 'Low') : 'N/A';
+
+    const biometricLevel =
+      biometricStressScore !== null ? (biometricStressScore >= 85 ? 'High' : biometricStressScore >= 60 ? 'Moderate-High' : biometricStressScore >= 30 ? 'Moderate' : 'Low') : 'N/A';
 
     res.json({
-      mood,
-      stressLevel: finalStressLevel,
-      facialStressLevel,
-      biometricStressLevel,
-      emotionData // Include the detailed emotion data
+      mood: mood !== null ? mood : 'N/A',
+      stressLevel,
+      stressPercentage: finalStressScore,
+      facialStressLevel: facialLevel,
+      facialStressPercentage: facialStressScore,
+      biometricStressLevel: biometricLevel,
+      biometricStressPercentage: biometricStressScore,
+      emotionData
     });
   } catch (error) {
     console.error('Error analyzing mood:', error.message);
@@ -126,52 +180,141 @@ function calculateBiometricStressLevel(bloodPressure, heartRate, spo2) {
   const hr = Number(heartRate) || 72;
   const oxygen = Number(spo2) || 98;
 
-  // Calculate stress score (higher = more stressed)
-  let score = 0;
+  // Calculate individual metrics with more sensitivity to critical values
+  let bpScore = 0;
+  if (systolic >= 140 || diastolic >= 90) {
+    // Stage 1 hypertension or higher
+    bpScore = 70 + Math.min(30, ((systolic - 140) / 20) * 30 + ((diastolic - 90) / 10) * 30);
+  } else if (systolic >= 130 || diastolic >= 80) {
+    // Elevated
+    bpScore = 40 + ((systolic - 130) / 10) * 30 + ((diastolic - 80) / 10) * 30;
+  } else {
+    // Normal
+    bpScore = ((systolic - 90) / 40) * 40;
+  }
+  bpScore = Math.min(100, Math.max(0, bpScore));
 
-  // Blood pressure scoring (more sensitive to high BP)
-  if (systolic >= 140 || diastolic >= 90) score += 3; // Stage 1 Hypertension or higher
-  else if (systolic >= 130 || diastolic >= 85) score += 2; // Elevated
-  else if (systolic >= 120 || diastolic >= 80) score += 1; // Normal but higher end
-  else if (systolic < 90 || diastolic < 60) score += 1; // Hypotension
+  let hrScore = 0;
+  if (hr >= 100) {
+    // Tachycardia
+    hrScore = 70 + Math.min(30, ((hr - 100) / 40) * 30);
+  } else if (hr >= 80) {
+    // Elevated
+    hrScore = 40 + ((hr - 80) / 20) * 30;
+  } else {
+    // Normal
+    hrScore = ((hr - 60) / 20) * 40;
+  }
+  hrScore = Math.min(100, Math.max(0, hrScore));
 
-  // Heart rate scoring (more sensitive to high HR)
-  if (hr >= 100) score += 3; // Tachycardia
-  else if (hr >= 85) score += 2; // Elevated
-  else if (hr >= 60) score += 1; // Normal range
-  else score += 2; // Bradycardia
+  let spo2Score = 0;
+  if (oxygen <= 90) {
+    // Hypoxemia
+    spo2Score = 70 + (90 - oxygen) * 3;
+  } else if (oxygen <= 94) {
+    // Borderline
+    spo2Score = 40 + (94 - oxygen) * 7.5;
+  } else {
+    // Normal
+    spo2Score = (100 - oxygen) * 2;
+  }
+  spo2Score = Math.min(100, Math.max(0, spo2Score));
 
-  // Blood oxygen scoring
-  if (oxygen < 90) score += 3; // Severe hypoxemia
-  else if (oxygen < 93) score += 2; // Moderate hypoxemia
-  else if (oxygen < 95) score += 1; // Mild hypoxemia
+  // Weighted average (40% BP, 40% HR, 20% SpO2)
+  const totalScore = bpScore * 0.4 + hrScore * 0.4 + spo2Score * 0.2;
 
-  // Determine stress level based on score
-  if (score >= 6) return 'High';
-  if (score >= 3) return 'Moderate';
-  return 'Low';
+  return Math.round(totalScore);
 }
 
 // Helper function to combine facial and biometric stress levels
-function combineStressLevels(facialLevel, biometricLevel) {
-  // Convert levels to numerical values
-  const levelValues = {
-    Low: 1,
-    Moderate: 2,
-    High: 3
-  };
+function combineStressLevels(facialScore, biometricScore) {
+  // If both are null, return null
+  if (facialScore === null && biometricScore === null) {
+    return null;
+  }
 
-  const facialValue = levelValues[facialLevel] || 2;
-  const biometricValue = levelValues[biometricLevel] || 2;
+  // Convert facial level to percentage if it's still a string
+  let facialPercentage;
+  if (typeof facialScore === 'string') {
+    facialPercentage =
+      {
+        Low: 25,
+        Moderate: 50,
+        High: 85,
+        Angry: 95,
+        Fearful: 90
+      }[facialScore] || 50;
+  } else {
+    facialPercentage = facialScore || 0; // Default to 0 if null
+  }
+
+  const biometricPercentage = biometricScore || 0; // Default to 0 if null
+
+  // If either score is very high, prioritize that
+  if (facialPercentage >= 85 || biometricPercentage >= 85) {
+    return Math.max(facialPercentage, biometricPercentage);
+  }
 
   // Weighted average (60% facial, 40% biometric)
-  const combinedValue = facialValue * 0.6 + biometricValue * 0.4;
+  const combinedPercentage = facialPercentage * 0.6 + biometricPercentage * 0.4;
 
-  // Convert back to stress level
-  if (combinedValue >= 2.5) return 'High';
-  if (combinedValue >= 1.5) return 'Moderate';
-  return 'Low';
+  return Math.round(combinedPercentage);
 }
+
+app.post('/save-analysis', async (req, res) => {
+  try {
+    const { token, analysisData } = req.body;
+
+    if (!token) {
+      return res.status(401).json({ message: 'Authentication required' });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const userId = decoded.userId;
+
+    // Create a new record with all fields
+    const newRecord = new AnalysisRecord({
+      userId,
+      mood: analysisData.mood || null,
+      stressLevel: analysisData.stressLevel || null,
+      stressPercentage: analysisData.stressPercentage !== undefined ? analysisData.stressPercentage : null,
+      facialStressLevel: analysisData.facialStressLevel || null,
+      facialStressPercentage: analysisData.facialStressPercentage !== undefined ? analysisData.facialStressPercentage : null,
+      biometricStressLevel: analysisData.biometricStressLevel || null,
+      biometricStressPercentage: analysisData.biometricStressPercentage !== undefined ? analysisData.biometricStressPercentage : null,
+      emotionData: analysisData.emotionData || null,
+      biometricData: analysisData.biometricData || null
+    });
+
+    await newRecord.save();
+
+    res.status(201).json({ message: 'Analysis saved successfully', record: newRecord });
+  } catch (error) {
+    console.error('Error saving analysis:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// Add this endpoint to fetch analysis history
+app.get('/analysis-history', async (req, res) => {
+  try {
+    const token = req.headers.authorization?.split(' ')[1];
+
+    if (!token) {
+      return res.status(401).json({ message: 'Authentication required' });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const userId = decoded.userId;
+
+    const records = await AnalysisRecord.find({ userId }).sort({ timestamp: -1 }).limit(50);
+
+    res.json(records);
+  } catch (error) {
+    console.error('Error fetching analysis history:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 // Registration Route
 app.post('/register', async (req, res) => {
@@ -475,24 +618,20 @@ app.put('/profile/family', async (req, res) => {
       return res.status(400).json({ message: 'Invalid family members data' });
     }
 
-    // Create full update object to ensure atomic update
-    const update = {
-      $set: {
-        familyMembers,
-        // Remove legacy fields if they exist
-        familyName: undefined,
-        familyContact: undefined
+    // Validate each family member has name and email
+    for (const member of familyMembers) {
+      if (!member.name || !member.email) {
+        return res.status(400).json({ message: 'Each family member must have both name and email' });
       }
-    };
 
-    const options = {
-      new: true,
-      runValidators: true,
-      // Remove these fields from the document
-      fields: { familyName: 0, familyContact: 0 }
-    };
+      // Simple email validation
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(member.email)) {
+        return res.status(400).json({ message: 'Invalid email format for family member' });
+      }
+    }
 
-    const user = await User.findByIdAndUpdate(decoded.userId, update, options).select('-password');
+    // Update the user
+    const user = await User.findByIdAndUpdate(decoded.userId, { $set: { familyMembers } }, { new: true, runValidators: true }).select('-password');
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });

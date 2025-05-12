@@ -43,6 +43,7 @@ export type RootStackParamList = {
   HealthScreen: undefined;
   Health: undefined;
   MoodTracking: undefined;
+  MoodHistory: undefined;
   Exercises: undefined;
 } & {
   // Exercise screens

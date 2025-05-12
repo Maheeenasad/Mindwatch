@@ -1,26 +1,79 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, ActivityIndicator, ScrollView, TextInput, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, ActivityIndicator, ScrollView, TextInput, Dimensions, Modal, FlatList } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
 import CONFIG from '../../config';
 import NavigationTab from '@/components/NavigationTab';
 import { MaterialIcons, FontAwesome, Ionicons } from '@expo/vector-icons';
 import { LineChart, BarChart, PieChart } from 'react-native-chart-kit';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import moment from 'moment';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+const exercises = [
+  { name: 'Anger', image: require('@/assets/exercises/Anger.jpg'), screen: 'Anger' },
+  { name: 'Anxiety', image: require('@/assets/exercises/Anxiety.jpg'), screen: 'Anxiety' },
+  { name: 'Breathing', image: require('@/assets/exercises/Breathing.jpg'), screen: 'Breathing' },
+  { name: 'Depression', image: require('@/assets/exercises/Depression.jpg'), screen: 'Depression' },
+  { name: 'Fatigue', image: require('@/assets/exercises/Fatigue.jpg'), screen: 'Fatigue' },
+  { name: 'Fear', image: require('@/assets/exercises/Fear.jpg'), screen: 'Fear' },
+  { name: 'Fear of Loss', image: require('@/assets/exercises/FearOfLoss.jpg'), screen: 'FearOfLoss' },
+  { name: 'Forgiveness', image: require('@/assets/exercises/Forgiveness.jpg'), screen: 'Forgiveness' },
+  { name: 'Frustration', image: require('@/assets/exercises/Frustration.jpg'), screen: 'Frustration' },
+  { name: 'Happiness', image: require('@/assets/exercises/Happiness.jpg'), screen: 'Happiness' },
+  { name: 'Impatience', image: require('@/assets/exercises/Impatience.jpg'), screen: 'Impatience' },
+  { name: 'Irritation', image: require('@/assets/exercises/Irritation.jpg'), screen: 'Irritation' },
+  { name: 'Jealousy', image: require('@/assets/exercises/Jealousy.jpg'), screen: 'Jealousy' },
+  { name: 'Loneliness', image: require('@/assets/exercises/Loneliness.jpg'), screen: 'Loneliness' },
+  { name: 'Pain', image: require('@/assets/exercises/Pain.jpg'), screen: 'Pain' },
+  { name: 'Sadness', image: require('@/assets/exercises/Sadness.jpg'), screen: 'Sadness' },
+  { name: 'Self Confidence', image: require('@/assets/exercises/SelfConfidence.jpg'), screen: 'SelfConfidence' },
+  { name: 'Shyness', image: require('@/assets/exercises/Shyness.jpg'), screen: 'Shyness' }
+];
 
 export default function MoodTrackingScreen() {
+  const [historyButtonVisible, setHistoryButtonVisible] = useState(false);
+  interface AnalysisRecord {
+    _id: string;
+    timestamp: Date;
+    mood: string;
+    stressLevel: string;
+    stressPercentage: number;
+    facialStressLevel: string;
+    facialStressPercentage: number;
+    biometricStressLevel: string;
+    biometricStressPercentage: number;
+    emotionData: { [key: string]: number };
+    biometricData?: {
+      bloodPressure: string;
+      heartRate: string;
+      spo2: string;
+    };
+  }
+
+  const [historyRecords, setHistoryRecords] = useState<AnalysisRecord[]>([]);
+  const [showHistoryModal, setShowHistoryModal] = useState(false);
   const [image, setImage] = useState<string | null>(null);
+  const navigation = useNavigation();
   const [analysisResult, setAnalysisResult] = useState<{
     mood: string | null;
     stressLevel: string | null;
+    stressPercentage: number | null;
     facialStressLevel: string | null;
+    facialStressPercentage: number | null;
     biometricStressLevel: string | null;
-    emotionData?: { [key: string]: number }; // Added for facial emotion distribution
+    biometricStressPercentage: number | null;
+    emotionData?: { [key: string]: number };
   }>({
     mood: null,
     stressLevel: null,
+    stressPercentage: null,
     facialStressLevel: null,
-    biometricStressLevel: null
+    facialStressPercentage: null,
+    biometricStressLevel: null,
+    biometricStressPercentage: null
   });
+
   const [loading, setLoading] = useState<boolean>(false);
   const [imageUploaded, setImageUploaded] = useState<boolean>(false);
   const [manualData, setManualData] = useState({
@@ -85,26 +138,93 @@ export default function MoodTrackingScreen() {
   const stressComparisonData = [
     {
       name: 'Facial',
-      stressLevel: getStressValue(analysisResult.facialStressLevel),
+      stressLevel: analysisResult.facialStressPercentage !== null ? analysisResult.facialStressPercentage : 0,
       color: '#A5D8FF',
       legendFontColor: '#4A6FA5',
       legendFontSize: 14
     },
-    {
-      name: 'Biometric',
-      stressLevel: getStressValue(analysisResult.biometricStressLevel),
-      color: '#003366',
-      legendFontColor: '#4A6FA5',
-      legendFontSize: 14
-    },
+    ...(analysisResult.biometricStressPercentage !== null
+      ? [
+          {
+            name: 'Biometric',
+            stressLevel: analysisResult.biometricStressPercentage,
+            color: '#003366',
+            legendFontColor: '#4A6FA5',
+            legendFontSize: 14
+          }
+        ]
+      : []),
     {
       name: 'Overall',
-      stressLevel: getStressValue(analysisResult.stressLevel),
+      stressLevel: analysisResult.stressPercentage !== null ? analysisResult.stressPercentage : 0,
       color: '#4A90E2',
       legendFontColor: '#4A6FA5',
       legendFontSize: 14
     }
-  ];
+  ].filter(item => item.stressLevel > 0); // Only include items with positive values
+
+  const getStressRecommendations = (percentage: number | null, mood: string | null) => {
+    // Default to moderate if null
+    const safePercentage = percentage ?? 50;
+
+    // Base recommendations
+    let recommendations = {
+      message: '',
+      suggestions: [] as string[],
+      exercises: [] as { name: string; image: any; screen: string }[]
+    };
+
+    // Mood-specific exercises
+    const moodExercises: { [key: string]: string[] } = {
+      Angry: ['Anger', 'Breathing', 'Forgiveness'],
+      Anxious: ['Anxiety', 'Breathing', 'Fear'],
+      Happy: ['Happiness', 'Self Confidence'],
+      Sad: ['Depression', 'Sadness', 'Happiness'],
+      Fearful: ['Fear', 'Breathing', 'Self Confidence'],
+      Neutral: ['Breathing', 'Happiness']
+    };
+
+    // Stress level based recommendations
+    if (safePercentage < 30) {
+      recommendations.message = "You're doing great! Keep up your healthy habits.";
+      recommendations.suggestions = ['Practice gratitude journaling', 'Enjoy a relaxing walk in nature', 'Try some light stretching or yoga'];
+    } else if (safePercentage < 60) {
+      recommendations.message = "You're experiencing moderate stress. Try these techniques:";
+      recommendations.suggestions = ['Take 5 deep breaths (inhale 4s, hold 4s, exhale 6s)', 'Listen to calming music for 10 minutes', 'Do a quick 5-minute mindfulness meditation'];
+    } else if (safePercentage < 80) {
+      recommendations.message = "You're experiencing high stress. Consider these actions:";
+      recommendations.suggestions = ['Take a 15-minute break from your current activity', 'Drink some water and have a healthy snack', 'Call a friend or family member to talk'];
+    } else {
+      recommendations.message = "You're experiencing very high stress. Please prioritize self-care:";
+      recommendations.suggestions = ['Practice progressive muscle relaxation', 'Consider talking to a professional if this persists', 'Engage in 30 minutes of physical activity'];
+    }
+
+    // Add mood-specific exercises
+    if (mood) {
+      const normalizedMood = mood.toLowerCase();
+      let matchedMood = 'Neutral';
+
+      // Find the best matching mood
+      for (const [key, _] of Object.entries(moodExercises)) {
+        if (normalizedMood.includes(key.toLowerCase())) {
+          matchedMood = key;
+          break;
+        }
+      }
+
+      // Get exercises for this mood
+      const moodExerciseNames = moodExercises[matchedMood] || moodExercises['Neutral'];
+      recommendations.exercises = exercises.filter(ex => moodExerciseNames.includes(ex.name));
+    }
+
+    // Add general stress-relief exercises if no mood-specific ones found
+    if (recommendations.exercises.length === 0) {
+      const generalExercises = ['Breathing', 'Happiness', 'Self Confidence'];
+      recommendations.exercises = exercises.filter(ex => generalExercises.includes(ex.name));
+    }
+
+    return recommendations;
+  };
 
   useEffect(() => {
     (async () => {
@@ -141,8 +261,11 @@ export default function MoodTrackingScreen() {
         setAnalysisResult({
           mood: null,
           stressLevel: null,
+          stressPercentage: null,
           facialStressLevel: null,
-          biometricStressLevel: null
+          facialStressPercentage: null,
+          biometricStressLevel: null,
+          biometricStressPercentage: null
         });
       }
     } catch (error) {
@@ -189,27 +312,130 @@ export default function MoodTrackingScreen() {
       }
 
       const data = await response.json();
+
+      const newAnalysisResult = {
+        mood: image ? data.mood || 'Unknown' : 'N/A',
+        stressLevel: data.stressLevel || 'N/A',
+        stressPercentage: data.stressPercentage,
+        facialStressLevel: image ? data.facialStressLevel || 'N/A' : 'N/A',
+        facialStressPercentage: data.facialStressPercentage,
+        biometricStressLevel: manualData.bloodPressure || manualData.heartRate || manualData.spo2 ? data.biometricStressLevel || 'N/A' : 'N/A',
+        biometricStressPercentage: data.biometricStressPercentage,
+        emotionData: image ? data.emotionData || {} : {}
+      };
+
+      // Handle case where no face was detected
+      if (data.error === 'No face detected') {
+        setAnalysisResult({
+          mood: 'No face detected',
+          stressLevel: 'N/A',
+          stressPercentage: null,
+          facialStressLevel: 'N/A',
+          facialStressPercentage: null,
+          biometricStressLevel: manualData.bloodPressure || manualData.heartRate || manualData.spo2 ? data.biometricStressLevel || 'N/A' : 'N/A',
+          biometricStressPercentage: manualData.bloodPressure || manualData.heartRate || manualData.spo2 ? (data.biometricStressPercentage !== null ? data.biometricStressPercentage : null) : null,
+          emotionData: {}
+        });
+        return;
+      }
+
+      // Convert string stress levels to percentages
+      const facialPercentage = image && data.facialStressLevel ? (data.facialStressLevel.toLowerCase() === 'low' ? 25 : data.facialStressLevel.toLowerCase() === 'moderate' ? 50 : 85) : null;
+
+      const biometricPercentage =
+        (manualData.bloodPressure || manualData.heartRate || manualData.spo2) && data.biometricStressLevel
+          ? data.biometricStressLevel.toLowerCase() === 'low'
+            ? 25
+            : data.biometricStressLevel.toLowerCase() === 'moderate'
+            ? 50
+            : 85
+          : null;
+
+      const overallPercentage = data.stressLevel ? (data.stressLevel.toLowerCase() === 'low' ? 25 : data.stressLevel.toLowerCase() === 'moderate' ? 50 : 85) : null;
+
       setAnalysisResult({
-        mood: data.mood || 'Unknown',
-        stressLevel: data.stressLevel || 'Moderate',
-        facialStressLevel: data.facialStressLevel || 'Moderate',
-        biometricStressLevel: data.biometricStressLevel || 'Moderate',
-        emotionData: data.emotionData || {} // Fallback to empty object
+        mood: image ? data.mood || 'Unknown' : 'N/A',
+        stressLevel: data.stressLevel || 'N/A',
+        stressPercentage: overallPercentage,
+        facialStressLevel: image ? data.facialStressLevel || 'N/A' : 'N/A',
+        facialStressPercentage: facialPercentage,
+        biometricStressLevel: manualData.bloodPressure || manualData.heartRate || manualData.spo2 ? data.biometricStressLevel || 'N/A' : 'N/A',
+        biometricStressPercentage: biometricPercentage,
+        emotionData: image ? data.emotionData || {} : {}
       });
+      setAnalysisResult(newAnalysisResult);
+      if (data.mood) {
+        await saveAnalysis(newAnalysisResult); // Pass the data directly
+        setHistoryButtonVisible(true);
+      }
     } catch (error) {
-      console.error('Error analyzing mood:', error);
-      alert(`Analysis failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
-      setAnalysisResult({
-        mood: 'Error analyzing mood',
-        stressLevel: 'Unknown',
-        facialStressLevel: 'Unknown',
-        biometricStressLevel: 'Unknown',
-        emotionData: {}
-      });
+      console.error('Error detecting stress:', error);
+      alert('Error analyzing mood and stress. Please try again.');
     } finally {
       setLoading(false);
     }
   };
+
+  const saveAnalysis = async (analysisData: typeof analysisResult) => {
+    try {
+      const token = await AsyncStorage.getItem('userToken');
+      if (!token) {
+        console.log('No token found');
+        return;
+      }
+
+      const recordData = {
+        mood: analysisData.mood,
+        stressLevel: analysisData.stressLevel,
+        stressPercentage: analysisData.stressPercentage,
+        facialStressLevel: analysisData.facialStressLevel,
+        facialStressPercentage: analysisData.facialStressPercentage,
+        biometricStressLevel: analysisData.biometricStressLevel,
+        biometricStressPercentage: analysisData.biometricStressPercentage,
+        emotionData: analysisData.emotionData,
+        biometricData: manualData
+      };
+
+      console.log('Saving analysis with data:', recordData);
+
+      const response = await axios.post(`${CONFIG.SERVER_URL}/save-analysis`, {
+        token,
+        analysisData: recordData
+      });
+
+      console.log('Save response:', response.data);
+    } catch (error) {
+      console.error('Error saving analysis:', error);
+    }
+  };
+
+  const fetchHistory = async () => {
+    try {
+      const token = await AsyncStorage.getItem('userToken');
+      if (!token) {
+        console.log('No token found for history fetch');
+        return;
+      }
+
+      console.log('Fetching history with token:', token);
+      const response = await axios.get(`${CONFIG.SERVER_URL}/analysis-history`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+
+      console.log('History data received:', response.data);
+      setHistoryRecords(response.data);
+    } catch (error) {
+      console.error('Error fetching history:', error);
+    }
+  };
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if (showHistoryModal) {
+        fetchHistory();
+      }
+    }, [showHistoryModal])
+  );
 
   return (
     <View style={styles.container}>
@@ -258,7 +484,7 @@ export default function MoodTrackingScreen() {
             </View>
           </View>
 
-          <Text style={styles.subHeading}>Upload or capture a photo to analyze your current emotional state</Text>
+          <Text style={styles.subHeading}>Upload or capture a photo of your face to analyze your current emotional state</Text>
 
           <View style={styles.imageSelectionContainer}>
             <TouchableOpacity style={styles.imageOptionCard} onPress={() => pickImage(false)} disabled={loading}>
@@ -266,7 +492,7 @@ export default function MoodTrackingScreen() {
                 <FontAwesome name='cloud-upload' size={28} color='#5E8BFF' />
               </View>
               <Text style={styles.imageOptionTitle}>Upload Image</Text>
-              <Text style={styles.imageOptionDescription}>Select from your gallery</Text>
+              <Text style={styles.imageOptionDescription}>Select from gallery</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.imageOptionCard} onPress={() => pickImage(true)} disabled={loading}>
@@ -285,12 +511,20 @@ export default function MoodTrackingScreen() {
             </View>
           )}
 
+          {/* Analyze Button */}
+
           <TouchableOpacity
             style={[styles.detectButton, (loading || (!image && !manualData.bloodPressure && !manualData.heartRate && !manualData.spo2)) && styles.disabledButton]}
             onPress={detectStress}
             disabled={loading || (!image && !manualData.bloodPressure && !manualData.heartRate && !manualData.spo2)}>
             <Ionicons name='analytics' size={24} color='white' />
             <Text style={styles.detectButtonText}>Analyze Mood & Stress</Text>
+          </TouchableOpacity>
+
+          {/* History Button - Always enabled */}
+          <TouchableOpacity style={styles.historyButton} onPress={() => navigation.navigate('MoodHistory')}>
+            <Ionicons name='time-outline' size={24} color='white' />
+            <Text style={styles.historyButtonText}>View History</Text>
           </TouchableOpacity>
 
           {loading ? (
@@ -310,14 +544,35 @@ export default function MoodTrackingScreen() {
                 </View>
                 <View style={styles.resultRow}>
                   <Text style={styles.resultLabel}>Overall Stress:</Text>
-                  <Text style={[styles.resultValue, getStressLevelStyle(analysisResult.stressLevel)]}>{analysisResult.stressLevel}</Text>
+                  <Text style={[styles.resultValue, getStressLevelStyle(analysisResult.stressPercentage)]}>{analysisResult.stressPercentage}%</Text>
+                </View>
+
+                {/* Stress Level Visualization */}
+                <View style={styles.stressMeterContainer}>
+                  <View style={styles.stressMeterBackground}>
+                    <View
+                      style={[
+                        styles.stressMeterFill,
+                        {
+                          width: `${Math.min(100, analysisResult.stressPercentage || 0)}%`,
+                          backgroundColor: getStressMeterColor(analysisResult.stressPercentage || 0)
+                        }
+                      ]}
+                    />
+                  </View>
+                  <View style={styles.stressMeterLabels}>
+                    <Text>Relaxed</Text>
+                    <Text>Moderate</Text>
+                    <Text>Stressed</Text>
+                    <Text>Very Stressed</Text>
+                  </View>
                 </View>
 
                 <View style={styles.separator} />
 
                 {/* Facial Analysis Section with Chart */}
                 <Text style={styles.sectionTitle}>Facial Analysis</Text>
-                {analysisResult.emotionData ? (
+                {image && analysisResult.emotionData ? (
                   <View style={styles.chartContainer}>
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} style={styles.horizontalScrollContainer} contentContainerStyle={styles.chartWrapper}>
                       <BarChart
@@ -347,7 +602,9 @@ export default function MoodTrackingScreen() {
                     </ScrollView>
                     <View style={styles.resultRow}>
                       <Text style={styles.resultSubLabel}>Stress Level:</Text>
-                      <Text style={[styles.resultSubValue, getStressLevelStyle(analysisResult.facialStressLevel)]}>{analysisResult.facialStressLevel}</Text>
+                      <Text style={[styles.resultSubValue, getStressLevelStyle(analysisResult.facialStressPercentage)]}>
+                        {analysisResult.facialStressPercentage !== null ? `${analysisResult.facialStressPercentage}%` : 'N/A'}
+                      </Text>
                     </View>
                   </View>
                 ) : (
@@ -373,7 +630,7 @@ export default function MoodTrackingScreen() {
                     />
                     <View style={styles.resultRow}>
                       <Text style={styles.resultSubLabel}>Stress Level:</Text>
-                      <Text style={[styles.resultSubValue, getStressLevelStyle(analysisResult.biometricStressLevel)]}>{analysisResult.biometricStressLevel}</Text>
+                      <Text style={[styles.resultSubValue, getStressLevelStyle(analysisResult.biometricStressPercentage)]}>{analysisResult.biometricStressPercentage}%</Text>
                     </View>
                   </View>
                 ) : (
@@ -387,34 +644,91 @@ export default function MoodTrackingScreen() {
                 <View style={styles.chartContainer}>
                   <PieChart
                     data={stressComparisonData}
-                    width={Dimensions.get('window').width - 30} // Adjusted width calculation
+                    width={Dimensions.get('window').width - 30}
                     height={200}
                     chartConfig={chartConfig}
                     accessor='stressLevel'
                     backgroundColor='transparent'
-                    paddingLeft='0' // Removed left padding
-                    center={[10, 10]} // Adjust chart center position
-                    style={styles.pieChart} // Added specific style
+                    paddingLeft='0'
+                    center={[10, 10]}
+                    style={styles.pieChart}
                     absolute
                   />
+                  {analysisResult.biometricStressPercentage === null && <Text style={styles.noDataText}>No biometric data provided</Text>}
+                </View>
+
+                <View style={styles.separator} />
+
+                {/* Recommendations Section */}
+                <View style={styles.recommendationsContainer}>
+                  <Text style={styles.recommendationHeader}>{getStressRecommendations(analysisResult.stressPercentage, analysisResult.mood).message}</Text>
+
+                  {/* Suggestions */}
+                  {getStressRecommendations(analysisResult.stressPercentage, analysisResult.mood).suggestions.map((item, index) => (
+                    <View key={`suggestion-${index}`} style={styles.suggestionItem}>
+                      <Text style={styles.bullet}>•</Text>
+                      <Text style={styles.suggestionText}>{item}</Text>
+                    </View>
+                  ))}
+
+                  {/* Recommended Exercises */}
+                  {getStressRecommendations(analysisResult.stressPercentage, analysisResult.mood).exercises.length > 0 && (
+                    <>
+                      <Text style={styles.exerciseHeader}>Recommended Exercises:</Text>
+                      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                        {getStressRecommendations(analysisResult.stressPercentage, analysisResult.mood).exercises.map((exercise, index) => (
+                          <TouchableOpacity key={`exercise-${index}`} style={styles.exerciseCard} onPress={() => navigation.navigate(exercise.screen)}>
+                            <Image source={exercise.image} style={styles.exerciseImage} />
+                            <Text style={styles.exerciseName}>{exercise.name}</Text>
+                          </TouchableOpacity>
+                        ))}
+                      </ScrollView>
+                    </>
+                  )}
                 </View>
               </View>
             </View>
           ) : null}
         </View>
       </ScrollView>
+
       <NavigationTab />
     </View>
   );
 }
 
-const getStressLevelStyle = (stressLevel: string | null) => {
-  if (!stressLevel) return {};
-  const level = stressLevel.toLowerCase();
-  if (level.includes('low') || level.includes('relaxed')) return { color: '#4A90E2' };
-  if (level.includes('moderate')) return { color: '#FFA500' };
-  if (level.includes('high') || level.includes('stressed')) return { color: '#E74C3C' };
-  return {};
+const getStressMeterColor = (percentage: number | null) => {
+  const safePercentage = percentage || 0;
+  if (safePercentage < 30) return '#4CAF50'; // Green
+  if (safePercentage < 60) return '#FFC107'; // Amber
+  if (safePercentage < 80) return '#FF9800'; // Orange
+  return '#F44336'; // Red
+};
+
+const getStressLevelStyle = (percentage: number | null) => {
+  const safePercentage = percentage || 0;
+  if (safePercentage < 30) return { color: '#4CAF50' }; // Green
+  if (safePercentage < 60) return { color: '#FFC107' }; // Amber
+  if (safePercentage < 80) return { color: '#FF9800' }; // Orange
+  return { color: '#F44336' }; // Red
+};
+
+const getMoodColor = (mood: string | null) => {
+  if (!mood) return '#333';
+  switch (mood.toLowerCase()) {
+    case 'happy':
+      return '#4CAF50';
+    case 'sad':
+      return '#2196F3';
+    case 'angry':
+      return '#F44336';
+    case 'fearful':
+      return '#9C27B0';
+    case 'neutral':
+      return '#9E9E9E';
+    default:
+      return '#333';
+  }
 };
 
 const styles = StyleSheet.create({
@@ -552,7 +866,7 @@ const styles = StyleSheet.create({
     minWidth: 100,
     backgroundColor: 'white',
     borderRadius: 15,
-    padding: 15,
+    padding: 10,
     marginBottom: 15,
     shadowColor: '#003366',
     shadowOffset: { width: 0, height: 3 },
@@ -575,14 +889,16 @@ const styles = StyleSheet.create({
     borderColor: '#7A9CC6',
     borderWidth: 1.5,
     borderRadius: 10,
-    paddingHorizontal: 2,
+    paddingHorizontal: 10, // increased from 2
     marginBottom: 8,
     backgroundColor: 'white',
-    textAlign: 'center',
+    textAlign: 'center', // centers both text and caret
     fontSize: 16,
     fontWeight: '600',
-    color: '#7A9CC6'
+    color: '#7A9CC6',
+    writingDirection: 'ltr' // 👈 force left-to-right
   },
+
   statLabel: {
     fontSize: 14,
     color: '#7A9CC6',
@@ -687,5 +1003,103 @@ const styles = StyleSheet.create({
   },
   chartWrapper: {
     width: 440
+  },
+  stressMeterContainer: {
+    marginVertical: 15,
+    width: '100%'
+  },
+  stressMeterBackground: {
+    height: 20,
+    backgroundColor: '#e0e0e0',
+    borderRadius: 10,
+    overflow: 'hidden',
+    marginBottom: 5
+  },
+  stressMeterFill: {
+    height: '100%',
+    borderRadius: 10
+  },
+  stressMeterLabels: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%'
+  },
+  recommendationsContainer: {
+    marginTop: 15,
+    backgroundColor: '#f8f9fa',
+    padding: 15,
+    borderRadius: 10
+  },
+  recommendationsTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 10,
+    color: '#333'
+  },
+  suggestionItem: {
+    flexDirection: 'row',
+    marginBottom: 5,
+    alignItems: 'flex-start'
+  },
+  bullet: {
+    marginRight: 8,
+    fontSize: 16,
+    color: '#003366'
+  },
+  suggestionText: {
+    flex: 1,
+    fontSize: 14,
+    color: '#555'
+  },
+  recommendationHeader: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#003366',
+    marginBottom: 10
+  },
+  exerciseHeader: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#003366',
+    marginTop: 15,
+    marginBottom: 10
+  },
+  exerciseCard: {
+    width: 120,
+    marginRight: 15,
+    alignItems: 'center'
+  },
+  exerciseImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 10,
+    marginBottom: 5
+  },
+  exerciseName: {
+    textAlign: 'center',
+    fontSize: 14,
+    color: '#333'
+  },
+  historyButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#7DC7FF',
+    paddingVertical: 16,
+    paddingHorizontal: 25,
+    borderRadius: 30,
+    marginBottom: 20,
+    width: '85%',
+    shadowColor: '#2E4A7D',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 6
+  },
+  historyButtonText: {
+    color: 'white',
+    fontSize: 17,
+    fontWeight: '600',
+    marginLeft: 10
   }
 });

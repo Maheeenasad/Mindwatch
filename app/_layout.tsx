@@ -23,6 +23,7 @@ import TherapeuticQuestionsScreen from './screens/Journals/TherapeuticQuestionsS
 import IslamicScreen from './screens/Islamic/IslamicScreen';
 import ExercisesScreen from './screens/Exercises/ExercisesScreen';
 import MoodTrackingScreen from './screens/MoodTrackingScreen';
+import MoodHistoryScreen from './screens/MoodHistoryScreen';
 import ChatbotScreen from './screens/Chatbot';
 
 // Exercise Screens Configuration
@@ -480,6 +481,7 @@ export default function RootLayout() {
         <AppStack.Screen name='Islamic' component={IslamicScreen} options={{ ...headerOptions, title: 'Find Peace Through Faith' }} />
         <AppStack.Screen name='MainTabs' component={TabLayout} options={{ headerShown: false }} />
         <AppStack.Screen name='MoodTracking' component={MoodTrackingScreen} options={{ headerShown: false }} />
+        <AppStack.Screen name='MoodHistory' component={MoodHistoryScreen} options={{ ...headerOptions, title: 'Mood History' }} />
         <AppStack.Screen name='Exercises' component={ExercisesScreen} options={{ ...headerOptions, title: 'All Exercises' }} />
 
         {/* Dynamically generated exercise screens */}
