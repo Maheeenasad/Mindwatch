@@ -1,6 +1,9 @@
 # 🧠 MindWatch – Mood & Health Tracker
 
-[![Watch MindWatch Demo](assets/mindwatch-demo-thumbnail.png.jpg)](https://www.youtube.com/shorts/TgMM6biytZE)
+<a href="https://www.youtube.com/shorts/TgMM6biytZE" target="_blank">
+  <img src="assets/mindwatch-demo-thumbnail.png.jpg" width="200" alt="Watch MindWatch Demo"/>
+</a>
+
 
 A smart application to track your mood and well-being based on health data inputs
 
