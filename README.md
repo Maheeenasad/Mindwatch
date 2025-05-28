@@ -46,3 +46,29 @@
 ```bash
 git clone https://github.com/YourUsername/mindwatch.git
 cd mindwatch
+```
+
+### 2. Install frontend dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the app with Expo
+
+```bash
+npx expo start
+```
+Scan the QR code with Expo Go on your phone to run the app.
+
+### 4. Set up the backend
+
+```bash
+cd auth-backend
+npm install
+node server.js
+```
+Make sure MongoDB is running locally, or create a .env file in the backend directory with the following:
+```bash
+MONGO_URI=mongodb://localhost:27017/mindwatch
+```
