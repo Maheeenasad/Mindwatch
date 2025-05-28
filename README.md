@@ -44,7 +44,7 @@
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YourUsername/mindwatch.git
+git clone https://github.com/Maheeenasad/mindwatch.git
 cd mindwatch
 ```
 
