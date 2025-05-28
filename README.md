@@ -1,50 +1,55 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+https://github.com/user-attachments/assets/199113f8-6387-4073-a3a6-742d5b316bf2
+MindWatch – Mood & Health Tracker
 
-## Get started
+A smart application to track your mood and well-being based on health data inputs
 
-1. Install dependencies
+About the Project
+MindWatch is a mobile app built to help users monitor their emotional and physical health through manually entered health metrics. Users can log their heart rate, blood pressure, and blood oxygen levels and track how these metrics correlate with their mood over time. This app aims to promote self-awareness and mental well-being through data-driven insights.
 
-   ```bash
-   npm install
-   ```
+Tech Stack
+Frontend: React Native
 
-2. Start the app
+Mobile Testing: Expo
 
-   ```bash
-    npx expo start
-   ```
+Backend: Node.js with Express
 
-In the output, you'll find options to open the app in a
+Database: MongoDB
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Features
+Track health metrics (heart rate, blood pressure, oxygen levels)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Log moods and emotions manually
 
-## Get a fresh project
+View personalized trends and historical data
 
-When you're ready, run:
+Simple and clean interface for smooth user interaction
 
-```bash
-npm run reset-project
-```
+Real-time sync with backend via API
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+How to Run Locally
+1. Clone the repository
 
-## Learn more
+git clone https://github.com/YourUsername/mindwatch.git
+cd mindwatch
 
-To learn more about developing your project with Expo, look at the following resources:
+2. Install frontend dependencies
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+cd frontend
+npm install
 
-## Join the community
+3. Start the app with Expo
 
-Join our community of developers creating universal apps.
+npx expo start
+Scan the QR code with Expo Go on your phone to run the app.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+4. Set up the backend
+
+cd ../backend
+npm install
+node server.js
+
+Ensure you have MongoDB running locally or provide your MongoDB URI in a .env file like:
+
+
+MONGO_URI=mongodb://localhost:27017/mindwatch
